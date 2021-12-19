@@ -1,6 +1,5 @@
 
 import { StyleSheet } from 'react-native';
-import { render } from 'react-native/Libraries/Renderer/implementations/ReactNativeRenderer-prod';
 import { CONSTANTS } from '../../constants'
 
 const styles = StyleSheet.create({
