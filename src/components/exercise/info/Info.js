@@ -7,7 +7,7 @@ function Info({
   title,
 }) {
   return (
-    <View style={{width: 32}}>
+    <View style={styles.info}>
         <Text style={styles.count}>{count}</Text>
         <Text style={styles.title}>{title}</Text>
     </View>

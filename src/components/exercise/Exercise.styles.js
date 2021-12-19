@@ -15,21 +15,17 @@ const styles = StyleSheet.create({
     backgroundColor: 'yellow'
   },
   photo: {
-    //width of this will have to change to work with longer titles
     height: 60,
     width: 59,
     borderRadius: 10,
   },
   flexContainer: {
-    paddingTop: 20,
-    paddingBottom: 16,
     paddingLeft: 20,
     flexDirection: 'row',
     alignItems: 'center',
   },
   exerciseInfo: {
-    marginLeft: 12,
-    width: '60%'
+    marginLeft: 16,
   },
   title: {
     ...CONSTANTS.secondaryTitleText

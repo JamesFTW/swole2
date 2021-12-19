@@ -12,9 +12,11 @@ const styles = StyleSheet.create({
   },
   exerciseStats: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    width: "89%"
   },
+  info: {
+    width: 32,
+    marginRight: 20
+  }
 })
 
 export default styles
