@@ -29,7 +29,6 @@ function Exercise({
                   setCount={sets}
                   rpeCount={rpe}
                   weightCount={weight}
-                  container={styles.exerciseStats}
                 />
               </View>
           </View>
