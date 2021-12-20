@@ -9,10 +9,14 @@ const styles = StyleSheet.create({
     marginLeft: 8,
     marginRight: 8,
     borderRadius: 10,
-    borderColor: 'red',
     borderWidth: 1,
-    top: 40,
-    backgroundColor: 'yellow'
+    borderColor: 'rgba(52, 52, 52, 0.05)',
+    backgroundColor: 'white'
+  },
+  rightArrow:{
+    position: 'absolute',
+    right: 0,
+    marginRight: 12,
   },
   photo: {
     height: 60,
