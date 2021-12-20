@@ -18,6 +18,7 @@
 		5C3425CA22274043B7BC50E5 /* SF-Pro-Text-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = FC9159FCDCCF49B1AD7442C9 /* SF-Pro-Text-Light.otf */; };
 		76060C6C74B24C168B946BFD /* SF-Pro-Text-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C39CC69C16B64DBD94C39CE1 /* SF-Pro-Text-Bold.otf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		B00B47D62770038600943408 /* libRNSVG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B00B47D52770038600943408 /* libRNSVG.a */; };
 		BDFC43B5418E4E0DB74C9507 /* SF-Pro-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E798C482C2204053BE1A36E9 /* SF-Pro-Text-Regular.otf */; };
 		C92A304E614A4C4BBD3C2E4A /* SF-UI-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E2399F92BE647B3B2D2957F /* SF-UI-Display-Semibold.otf */; };
 /* End PBXBuildFile section */
@@ -47,6 +48,7 @@
 		721A73A66FD544C39B28FCB7 /* SF-Pro-Text-Semibold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SF-Pro-Text-Semibold.otf"; path = "../src/assets/fonts/SF-Pro-Text-Semibold.otf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = swole2/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9F2480065C871723920409FA /* libPods-swole2-swole2Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-swole2-swole2Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B00B47D52770038600943408 /* libRNSVG.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNSVG.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDDF3BE33B35051A053DCAA3 /* Pods-swole2-swole2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swole2-swole2Tests.debug.xcconfig"; path = "Target Support Files/Pods-swole2-swole2Tests/Pods-swole2-swole2Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		C39CC69C16B64DBD94C39CE1 /* SF-Pro-Text-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SF-Pro-Text-Bold.otf"; path = "../src/assets/fonts/SF-Pro-Text-Bold.otf"; sourceTree = "<group>"; };
 		CC722D77AE4BE6CB592AC92A /* libPods-swole2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-swole2.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B00B47D62770038600943408 /* libRNSVG.a in Frameworks */,
 				38BE623DFDD9C0AC2DD14F0F /* libPods-swole2.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -111,6 +114,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B00B47D52770038600943408 /* libRNSVG.a */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				CC722D77AE4BE6CB592AC92A /* libPods-swole2.a */,
 				9F2480065C871723920409FA /* libPods-swole2-swole2Tests.a */,
