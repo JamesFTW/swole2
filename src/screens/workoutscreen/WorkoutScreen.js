@@ -30,17 +30,19 @@ function WorkoutScreen() {
   // })
 
   return (
-        <View style={styles.container}>
-          {/** Need to figure out solution for long Exercise names */}
-            <Exercise 
-              style={styles.containerLayout} 
-              exerciseName={"Single Arm Deadlift"}
-              reps={10}
-              sets={4}
-              rpe={9}
-              weight={225}
-            />
-        </View>
+    <ScrollContent>
+      <View style={styles.container}>
+        {/** Need to figure out solution for long Exercise names */}
+          <Exercise
+            style={styles.containerLayout}
+            exerciseName={"Single Arm Deadlift"}
+            reps={10}
+            sets={4}
+            rpe={9}
+            weight={225}
+          />
+      </View>
+    </ScrollContent>
   )
 }
 

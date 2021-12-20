@@ -5,7 +5,7 @@ import styles from './ScrollContent.styles'
 
 function ScrollContent({ children }) {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.backGround}>
       <ScrollView style={styles.container}>
         { children }
       </ScrollView>

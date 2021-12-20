@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     marginRight: 8,
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: 'rgba(52, 52, 52, 0.05)',
+    borderColor: 'rgba(52, 52, 52, 0.1)',
     backgroundColor: 'white'
   },
   rightArrow:{

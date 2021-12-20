@@ -32,7 +32,7 @@ function Exercise({
                 />
               </View>
           </View>
-          <RightArrow 
+          <RightArrow
             style={styles.rightArrow}
             height={10}
             width={5}

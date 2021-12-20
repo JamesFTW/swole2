@@ -10,6 +10,9 @@ const styles = StyleSheet.create({
      * this is where I would add margin
      * for navbar to fit on screen
      */
+  },
+  backGround: {
+    backgroundColor: 'rgba(146, 163, 193, 0.06)'
   }
 })
 
