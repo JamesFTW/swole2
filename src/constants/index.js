@@ -36,12 +36,13 @@ export const CONSTANTS = {
     fontFamily: 'SFProText-Regular',
     fontSize: 14,
     color: COLORS.subtitle_gray,
-    letterSpacing: -.1
+    letterSpacing: -.1,
   },
   subTitle2: {
     fontFamily: 'SFProText-Regular',
     fontSize: 16,
     color: COLORS.dark_blue,
-    letterSpacing: .15
+    letterSpacing: .15,
+    lineHeight: 19.4
   }
 }

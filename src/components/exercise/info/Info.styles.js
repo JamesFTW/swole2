@@ -4,18 +4,28 @@ import { CONSTANTS }  from '../../../constants'
 const styles = StyleSheet.create({
   count: {
     textAlign: 'center',
+    textAlignVertical: 'bottom',
+    lineHeight: 17,
     ...CONSTANTS.subTitle2,
   },
   title: {
     textAlign: 'center',
-    ...CONSTANTS.subTitle
+    textAlignVertical: 'bottom',
+    paddingTop: 3,
+    lineHeight: 14,
+    ...CONSTANTS.subTitle,
   },
   exerciseStats: {
+    textAlignVertical: 'bottom',
     flexDirection: 'row',
+    height: 31,
+    right: 5,
   },
   info: {
-    width: 32,
-    marginRight: 20
+    flexDirection: 'column',
+    width: 36,
+    height: 31,
+    marginRight: 24,
   }
 })
 

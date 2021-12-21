@@ -35,7 +35,7 @@ function WorkoutScreen() {
         {/** Need to figure out solution for long Exercise names */}
           <Exercise
             style={styles.containerLayout}
-            exerciseName={"Single Arm Deadlift"}
+            exerciseName={"Barebell Deadlift"}
             reps={10}
             sets={4}
             rpe={9}
