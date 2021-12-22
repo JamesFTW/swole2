@@ -8,16 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* swole2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* swole2Tests.m */; };
-		016F61D296618A10B024A070 /* libPods-swole2-swole2Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F2480065C871723920409FA /* libPods-swole2-swole2Tests.a */; };
 		05417FC20F384CE595EB7742 /* SF-Pro-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 721A73A66FD544C39B28FCB7 /* SF-Pro-Text-Semibold.otf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		38BE623DFDD9C0AC2DD14F0F /* libPods-swole2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC722D77AE4BE6CB592AC92A /* libPods-swole2.a */; };
+		25C8F0FE2E7BC98F94F06E1A /* libPods-swole2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA41A311B8731819A0F6A843 /* libPods-swole2.a */; };
 		560BA937BB6C4C7C944CBE5A /* SF-Pro-Text-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = E10DD8B6FAAF4DCD9F8ED707 /* SF-Pro-Text-Heavy.otf */; };
 		5C3425CA22274043B7BC50E5 /* SF-Pro-Text-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = FC9159FCDCCF49B1AD7442C9 /* SF-Pro-Text-Light.otf */; };
 		76060C6C74B24C168B946BFD /* SF-Pro-Text-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C39CC69C16B64DBD94C39CE1 /* SF-Pro-Text-Bold.otf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		AFD0F2EF739147AB4BEA937B /* libPods-swole2-swole2Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0A9042D7B52C382A1481167 /* libPods-swole2-swole2Tests.a */; };
 		B00B47D62770038600943408 /* libRNSVG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B00B47D52770038600943408 /* libRNSVG.a */; };
 		BDFC43B5418E4E0DB74C9507 /* SF-Pro-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E798C482C2204053BE1A36E9 /* SF-Pro-Text-Regular.otf */; };
 		C92A304E614A4C4BBD3C2E4A /* SF-UI-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E2399F92BE647B3B2D2957F /* SF-UI-Display-Semibold.otf */; };
@@ -44,18 +44,19 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = swole2/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = swole2/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = swole2/main.m; sourceTree = "<group>"; };
-		2E383A4526E77BB6E8EBFC9A /* Pods-swole2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swole2.debug.xcconfig"; path = "Target Support Files/Pods-swole2/Pods-swole2.debug.xcconfig"; sourceTree = "<group>"; };
+		67290DF10B44C243B4CB0E51 /* Pods-swole2-swole2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swole2-swole2Tests.release.xcconfig"; path = "Target Support Files/Pods-swole2-swole2Tests/Pods-swole2-swole2Tests.release.xcconfig"; sourceTree = "<group>"; };
 		721A73A66FD544C39B28FCB7 /* SF-Pro-Text-Semibold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SF-Pro-Text-Semibold.otf"; path = "../src/assets/fonts/SF-Pro-Text-Semibold.otf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = swole2/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		9F2480065C871723920409FA /* libPods-swole2-swole2Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-swole2-swole2Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9328A3986CF9913ABE9E5A02 /* Pods-swole2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swole2.release.xcconfig"; path = "Target Support Files/Pods-swole2/Pods-swole2.release.xcconfig"; sourceTree = "<group>"; };
 		B00B47D52770038600943408 /* libRNSVG.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNSVG.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		BDDF3BE33B35051A053DCAA3 /* Pods-swole2-swole2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swole2-swole2Tests.debug.xcconfig"; path = "Target Support Files/Pods-swole2-swole2Tests/Pods-swole2-swole2Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		B0EC02B52772BFD100EBABD0 /* libRNReanimated.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNReanimated.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0A9042D7B52C382A1481167 /* libPods-swole2-swole2Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-swole2-swole2Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0C33A65F61AD344ED202BDC /* Pods-swole2-swole2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swole2-swole2Tests.debug.xcconfig"; path = "Target Support Files/Pods-swole2-swole2Tests/Pods-swole2-swole2Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		C39CC69C16B64DBD94C39CE1 /* SF-Pro-Text-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SF-Pro-Text-Bold.otf"; path = "../src/assets/fonts/SF-Pro-Text-Bold.otf"; sourceTree = "<group>"; };
-		CC722D77AE4BE6CB592AC92A /* libPods-swole2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-swole2.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C95BC5112A14DCF7A841FE03 /* Pods-swole2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swole2.debug.xcconfig"; path = "Target Support Files/Pods-swole2/Pods-swole2.debug.xcconfig"; sourceTree = "<group>"; };
 		E10DD8B6FAAF4DCD9F8ED707 /* SF-Pro-Text-Heavy.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SF-Pro-Text-Heavy.otf"; path = "../src/assets/fonts/SF-Pro-Text-Heavy.otf"; sourceTree = "<group>"; };
-		E6FADAA2A4288EAFA10BEC28 /* Pods-swole2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swole2.release.xcconfig"; path = "Target Support Files/Pods-swole2/Pods-swole2.release.xcconfig"; sourceTree = "<group>"; };
 		E798C482C2204053BE1A36E9 /* SF-Pro-Text-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SF-Pro-Text-Regular.otf"; path = "../src/assets/fonts/SF-Pro-Text-Regular.otf"; sourceTree = "<group>"; };
-		ED1244528F427BE17129E843 /* Pods-swole2-swole2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swole2-swole2Tests.release.xcconfig"; path = "Target Support Files/Pods-swole2-swole2Tests/Pods-swole2-swole2Tests.release.xcconfig"; sourceTree = "<group>"; };
+		EA41A311B8731819A0F6A843 /* libPods-swole2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-swole2.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		FC9159FCDCCF49B1AD7442C9 /* SF-Pro-Text-Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SF-Pro-Text-Light.otf"; path = "../src/assets/fonts/SF-Pro-Text-Light.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,7 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				016F61D296618A10B024A070 /* libPods-swole2-swole2Tests.a in Frameworks */,
+				AFD0F2EF739147AB4BEA937B /* libPods-swole2-swole2Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,7 +75,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B00B47D62770038600943408 /* libRNSVG.a in Frameworks */,
-				38BE623DFDD9C0AC2DD14F0F /* libPods-swole2.a in Frameworks */,
+				25C8F0FE2E7BC98F94F06E1A /* libPods-swole2.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,10 +115,11 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B0EC02B52772BFD100EBABD0 /* libRNReanimated.a */,
 				B00B47D52770038600943408 /* libRNSVG.a */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				CC722D77AE4BE6CB592AC92A /* libPods-swole2.a */,
-				9F2480065C871723920409FA /* libPods-swole2-swole2Tests.a */,
+				EA41A311B8731819A0F6A843 /* libPods-swole2.a */,
+				C0A9042D7B52C382A1481167 /* libPods-swole2-swole2Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -157,10 +159,10 @@
 		91800CDD1118557760ECBC0E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2E383A4526E77BB6E8EBFC9A /* Pods-swole2.debug.xcconfig */,
-				E6FADAA2A4288EAFA10BEC28 /* Pods-swole2.release.xcconfig */,
-				BDDF3BE33B35051A053DCAA3 /* Pods-swole2-swole2Tests.debug.xcconfig */,
-				ED1244528F427BE17129E843 /* Pods-swole2-swole2Tests.release.xcconfig */,
+				C95BC5112A14DCF7A841FE03 /* Pods-swole2.debug.xcconfig */,
+				9328A3986CF9913ABE9E5A02 /* Pods-swole2.release.xcconfig */,
+				C0C33A65F61AD344ED202BDC /* Pods-swole2-swole2Tests.debug.xcconfig */,
+				67290DF10B44C243B4CB0E51 /* Pods-swole2-swole2Tests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -185,12 +187,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "swole2Tests" */;
 			buildPhases = (
-				A002EC0C44C068B09B6E1967 /* [CP] Check Pods Manifest.lock */,
+				1641FDF53B658447B2CCDB6E /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				FC9E302C37AA7C5932CC90C8 /* [CP] Embed Pods Frameworks */,
-				CBF9906F17F4D21C36D31EC7 /* [CP] Copy Pods Resources */,
+				771ECF48A0BF733CCA9E41F9 /* [CP] Embed Pods Frameworks */,
+				820AE3A080B9F745A8E90B20 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -206,14 +208,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "swole2" */;
 			buildPhases = (
-				8EA88969646F0644B61EC0DF /* [CP] Check Pods Manifest.lock */,
+				F9676DF8B50D76879C93398A /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				5C7B3AC0F25997EDCBB56004 /* [CP] Embed Pods Frameworks */,
-				BA00AEF9EA4DEBDE6A699EC5 /* [CP] Copy Pods Resources */,
+				BFC1B7F2E6FAA09BC91D7E6F /* [CP] Embed Pods Frameworks */,
+				FD0541567AC1191618930B4A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -300,46 +302,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
-		5C7B3AC0F25997EDCBB56004 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-swole2/Pods-swole2-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-swole2/Pods-swole2-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-swole2/Pods-swole2-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8EA88969646F0644B61EC0DF /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-swole2-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A002EC0C44C068B09B6E1967 /* [CP] Check Pods Manifest.lock */ = {
+		1641FDF53B658447B2CCDB6E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -361,24 +324,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BA00AEF9EA4DEBDE6A699EC5 /* [CP] Copy Pods Resources */ = {
+		771ECF48A0BF733CCA9E41F9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-swole2/Pods-swole2-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-swole2-swole2Tests/Pods-swole2-swole2Tests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-swole2/Pods-swole2-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-swole2-swole2Tests/Pods-swole2-swole2Tests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-swole2/Pods-swole2-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-swole2-swole2Tests/Pods-swole2-swole2Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CBF9906F17F4D21C36D31EC7 /* [CP] Copy Pods Resources */ = {
+		820AE3A080B9F745A8E90B20 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -395,21 +358,60 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-swole2-swole2Tests/Pods-swole2-swole2Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FC9E302C37AA7C5932CC90C8 /* [CP] Embed Pods Frameworks */ = {
+		BFC1B7F2E6FAA09BC91D7E6F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-swole2-swole2Tests/Pods-swole2-swole2Tests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-swole2/Pods-swole2-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-swole2-swole2Tests/Pods-swole2-swole2Tests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-swole2/Pods-swole2-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-swole2-swole2Tests/Pods-swole2-swole2Tests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-swole2/Pods-swole2-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F9676DF8B50D76879C93398A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-swole2-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD0541567AC1191618930B4A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-swole2/Pods-swole2-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-swole2/Pods-swole2-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-swole2/Pods-swole2-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -464,7 +466,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BDDF3BE33B35051A053DCAA3 /* Pods-swole2-swole2Tests.debug.xcconfig */;
+			baseConfigurationReference = C0C33A65F61AD344ED202BDC /* Pods-swole2-swole2Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -492,7 +494,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ED1244528F427BE17129E843 /* Pods-swole2-swole2Tests.release.xcconfig */;
+			baseConfigurationReference = 67290DF10B44C243B4CB0E51 /* Pods-swole2-swole2Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -517,7 +519,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2E383A4526E77BB6E8EBFC9A /* Pods-swole2.debug.xcconfig */;
+			baseConfigurationReference = C95BC5112A14DCF7A841FE03 /* Pods-swole2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -543,7 +545,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E6FADAA2A4288EAFA10BEC28 /* Pods-swole2.release.xcconfig */;
+			baseConfigurationReference = 9328A3986CF9913ABE9E5A02 /* Pods-swole2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
