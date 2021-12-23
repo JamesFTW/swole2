@@ -19,13 +19,13 @@ const styles = StyleSheet.create({
     textAlignVertical: 'bottom',
     flexDirection: 'row',
     height: 31,
-    right: 5,
+    right: 4,
   },
   info: {
     flexDirection: 'column',
     width: 36,
-    height: 31,
-    marginRight: 24,
+    height: '100%',
+    marginRight: 28,
   }
 })
 

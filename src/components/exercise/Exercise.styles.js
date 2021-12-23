@@ -1,4 +1,3 @@
-
 import { StyleSheet } from 'react-native';
 import { CONSTANTS } from '../../constants'
 
@@ -9,7 +8,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 1,
     borderColor: 'rgba(52, 52, 52, 0.1)',
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    marginBottom: 12
   },
   rightArrow:{
     position: 'absolute',
@@ -22,23 +22,22 @@ const styles = StyleSheet.create({
     width: 59,
     marginLeft: 20,
     borderRadius: 10,
-    alignSelf: 'center',
+    marginTop: 20
   },
   flexContainer: {
     flexDirection: 'row',
-    height: '100%',
   },
   info: {
-    paddingTop: 16,
-    paddingBottom: 16,
+    paddingTop: 20,
+    paddingBottom: 20,
     paddingLeft: 16,
-    height: 99,
   },
   exerciseInfo: {
     marginTop: 6
   },
-  title: {
-    lineHeight: 24,
+  exerciseName: {
+    lineHeight: 20,
+    bottom: 2,
     ...CONSTANTS.secondaryTitleText
   }
 })
