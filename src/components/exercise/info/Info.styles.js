@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   title: {
     textAlign: 'center',
     textAlignVertical: 'bottom',
-    paddingTop: 3,
+    paddingTop: 4,
     lineHeight: 14,
     ...CONSTANTS.subTitle,
   },
@@ -20,11 +20,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     height: 31,
     right: 4,
+    paddingTop: 4
   },
   info: {
     flexDirection: 'column',
     width: 36,
-    height: '100%',
     marginRight: 28,
   }
 })

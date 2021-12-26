@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
   },
   flexContainer: {
     flexDirection: 'row',
+    display: 'flex'
   },
   info: {
     paddingTop: 20,
@@ -33,12 +34,31 @@ const styles = StyleSheet.create({
     paddingLeft: 16,
   },
   exerciseInfo: {
-    marginTop: 6
+    flexDirection: 'column',
+    paddingTop:20,
+    paddingBottom: 20,
+    paddingLeft: 16,
   },
   exerciseName: {
     lineHeight: 20,
-    bottom: 2,
     ...CONSTANTS.secondaryTitleText
+  },
+  exercise: {
+    flexDirection: 'row',
+  },
+  setContainer: {
+    height: 21,
+    width: '100%',
+    flexDirection: 'row',
+    display: 'flex',
+  },
+  indicator: {
+    height: 21,
+    width: 21,
+    backgroundColor: '#FFFAFA',
+    borderRadius: 10.5,
+    borderColor: 'rgba(168, 181, 205, 0.3)',
+    borderWidth: 2,
   }
 })
 

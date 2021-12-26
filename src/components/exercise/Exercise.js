@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { View, Text, TouchableWithoutFeedback } from 'react-native'
+import { View, Text, Pressable } from 'react-native'
 import { ExerciseInfo } from './info'
 import { Photo } from '../../components'
 import RightArrow from '../../assets/icons/rightarrow.svg'
@@ -21,13 +21,13 @@ function Exercise({
   rpe,
   weight
 }) {
-  const [isCollapsed, setCollapsed] = React.useState(true)
+  const [isExpanded, setExpand] = React.useState(false) //might want to change to isExpanded
   let height = useSharedValue(99);
 
-  const toggle = isCollapsed => {
+  const toggle = isExpanded => {
     //figure out how to dynamically generate these values
-    if (isCollapsed === false) {
-      height.value = 99 + 500
+    if (isExpanded === false) {
+      height.value = 99 + 177
       return true
     }
     height.value = 99
@@ -45,12 +45,12 @@ function Exercise({
 
   return (
     <View style={styles.container}>
-      <TouchableWithoutFeedback onPress={() => setCollapsed(toggle(isCollapsed))}>
-      <View style={styles.flexContainer}>
-        <Photo uri={placeHolder} styles={styles.photo}/>
-        <Animated.View style={[styles.info, animatedStyle]}>
-          <Text style={styles.exerciseName}>{ exerciseName }</Text>
+      <Pressable onPress={() => setExpand(toggle(isExpanded))}>
+      <Animated.View style={[styles.flexContainer, animatedStyle]}>
+        <View style={[styles.exercise]}>
+          <Photo uri={placeHolder} styles={styles.photo}/>
           <View style={styles.exerciseInfo}>
+            <Text style={styles.exerciseName}>{ exerciseName }</Text>
             <ExerciseInfo
               repCount={reps}
               setCount={sets}
@@ -58,14 +58,15 @@ function Exercise({
               weightCount={weight}
             />
           </View>
-        </Animated.View>
+        </View>
         <RightArrow
           style={styles.rightArrow}
           height={10}
           width={5.39}
         />
-      </View>
-      </TouchableWithoutFeedback>
+      </Animated.View>
+      {isExpanded && <View style={styles.indicator}></View>}
+      </Pressable>
     </View>
   )
 }

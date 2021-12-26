@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { getAllExercises } from '../../api/exercise'
 import {
   ScrollContent,
-  Exercise
+  Exercise,
 } from '../../components'
 
 import styles from './WorkoutScreen.styles'
@@ -34,13 +34,13 @@ function WorkoutScreen() {
       <View style={styles.container}>
         {/** Need to figure out solution for long Exercise names */}
           <Exercise
-            style={styles.containerLayout}
             exerciseName={"Barebell Deadlift"}
             reps={10}
             sets={4}
             rpe={9}
             weight={225}
           />
+          {/* <Collapsible sharedHeight={99}/> */}
       </View>
     </ScrollContent>
   )
