@@ -15,10 +15,10 @@ export const CONSTANTS = {
     letterSpacing: .15,
   },
   regularText: {
-    fontFamily: 'SFProText-Regular',
+    fontFamily: 'SFProText-Medium',
     fontSize: 14,
     // color: color,
-    letterSpacing: -.02,
+    letterSpacing: .01,
   },
   lightTitleText: {
     fontFamily: 'SFProText-Light',
