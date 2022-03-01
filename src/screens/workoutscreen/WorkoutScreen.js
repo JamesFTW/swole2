@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { View } from 'react-native';
 import { getAllExercises } from '../../api/exercise'
 import {
   ScrollContent,
@@ -19,29 +18,31 @@ import styles from './WorkoutScreen.styles'
  */
 
 function WorkoutScreen() {
-  const [data, setData] = React.useState([])
+  const [data, setData] = React.useState(null)
 
-  // React.useEffect(() => {
-  //   getAllExercises()
-  //   .then(data => {
-  //     console.log(data)
-  //     setData(data)
-  //   })
-  // })
+  React.useEffect(() => {
+    getAllExercises()
+      .then(exercises => {
+        setData(exercises)
+      })
+  }, [])
 
+  const ExerciseData = data && data.map(exercise => {
+    return(
+      <Exercise
+        exerciseName={exercise.exerciseName}
+        reps={10}
+        sets={4}
+        rpe={9}
+        weight={225}
+        margin={12}
+      />
+    )
+  })
+  
   return (
-    <ScrollContent>
-      <View style={styles.container}>
-        {/** Need to figure out solution for long Exercise names */}
-          <Exercise
-            exerciseName={"Barebell Deadlift"}
-            reps={10}
-            sets={4}
-            rpe={9}
-            weight={225}
-          />
-          {/* <Collapsible sharedHeight={99}/> */}
-      </View>
+    <ScrollContent style={styles.container}>
+      {data && ExerciseData }
     </ScrollContent>
   )
 }

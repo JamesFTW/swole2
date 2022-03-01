@@ -9,7 +9,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'rgba(52, 52, 52, 0.1)',
     backgroundColor: 'white',
-    marginBottom: 12
   },
   rightArrow:{
     position: 'absolute',
@@ -26,7 +25,7 @@ const styles = StyleSheet.create({
   },
   flexContainer: {
     flexDirection: 'row',
-    display: 'flex'
+    display: 'flex',
   },
   info: {
     paddingTop: 20,
@@ -38,6 +37,7 @@ const styles = StyleSheet.create({
     paddingTop:20,
     paddingBottom: 20,
     paddingLeft: 16,
+    overflow: 'hidden'
   },
   exerciseName: {
     lineHeight: 20,
@@ -45,9 +45,10 @@ const styles = StyleSheet.create({
   },
   exercise: {
     flexDirection: 'row',
+    overflow: 'hidden'
   },
   setContainer: {
-    height: 21,
+    height: 21, //might have to change this?
     width: '100%',
     flexDirection: 'row',
     display: 'flex',
