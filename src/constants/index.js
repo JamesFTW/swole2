@@ -8,6 +8,12 @@ export const CONSTANTS = {
     color: COLORS.subtitle_gray,
     letterSpacing: -.02,
   },
+   titleTextDark: {
+    fontFamily: 'SFProText-Heavy',
+    fontSize: 24,
+    color: COLORS.dark_blue,
+    letterSpacing: -.02,
+  },
   secondaryTitleText: {
     fontFamily: 'SFProText-Regular',
     fontSize: 20,
@@ -32,6 +38,12 @@ export const CONSTANTS = {
     // color: color,
     letterSpacing: -.02,
   },
+   regularAccentTitle: {
+    fontFamily: 'SFProText-Regular',
+    fontSize: 12,
+    color: COLORS.light_blue,
+    letterSpacing: -.02,
+  },
   subTitle: {
     fontFamily: 'SFProText-Regular',
     fontSize: 14,
@@ -44,5 +56,5 @@ export const CONSTANTS = {
     color: COLORS.dark_blue,
     letterSpacing: .15,
     lineHeight: 19.4
-  }
+  },
 }

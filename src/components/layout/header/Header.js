@@ -1,15 +1,17 @@
 import * as React from 'react'
-import { SafeAreaView } from 'react-native'
-import { ScrollView } from 'react-native-gesture-handler'
+import { View, Text } from 'react-native'
 import styles from './Header.styles'
 
-function Header({ children }) {
+function Header() {
   return (
-    <SafeAreaView>
-      <ScrollView>
-        { children }
-      </ScrollView>
-    </SafeAreaView>
+    <View style={styles.container}>
+      <View style={styles.content}>
+        <View style={styles.flexContent}>
+          <Text style={styles.workoutTitle}>Push Upper Body</Text>
+          <Text style={styles.workoutDate}>Wednesday - 11/23/2011</Text>
+        </View>
+      </View>
+    </View>
   )
 }
 

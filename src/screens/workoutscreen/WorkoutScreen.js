@@ -3,7 +3,9 @@ import { getAllExercises } from '../../api/exercise'
 import {
   ScrollContent,
   Exercise,
+  Header
 } from '../../components'
+import { Text, View } from 'react-native'
 
 import styles from './WorkoutScreen.styles'
 
@@ -41,9 +43,10 @@ function WorkoutScreen() {
   })
   
   return (
-    <ScrollContent style={styles.container}>
-      {data && ExerciseData }
-    </ScrollContent>
+    <View style={styles.container}>
+      <Header />
+      {/* {data && ExerciseData } */}
+    </View>
   )
 }
 

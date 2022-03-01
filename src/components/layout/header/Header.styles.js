@@ -3,13 +3,23 @@ import { CONSTANTS }  from '../../../constants'
 
 const styles = StyleSheet.create({
   container: {
-    marginLeft: 8,
-    marginRight: 8,
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: 'rgba(52, 52, 52, 0.1)',
-    backgroundColor: 'white',
-    marginBottom: 12
+    height: 137,
+    backgroundColor: 'white'
+  },
+  content: {
+    marginTop: 80,
+    marginLeft: 16
+  },
+  flexContent: {
+
+  },
+  workoutDate: {
+    marginTop: 8,
+    ...CONSTANTS.regularAccentTitle
+  },
+  workoutTitle: {
+    lineHeight: 24,
+    ...CONSTANTS.titleTextDark
   }
 })
 
