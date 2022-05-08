@@ -1,3 +1,3 @@
 export { Exercise } from './exercise'
-export { ScrollContent, Collapsible, Header } from './layout'
+export { ScrollContent, Collapsible, WorkoutHeader } from './layout'
 export { Photo } from './photo'
