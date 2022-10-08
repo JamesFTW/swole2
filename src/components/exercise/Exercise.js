@@ -43,8 +43,8 @@ function Exercise({
  const animatedStyle = useAnimatedStyle(() => {
     return {
       height: withTiming(height.value, {
-        duration: 500,
-        easing: Easing.bezier(0.02, 0.01, 0.01, 1.2)
+        duration: 200,
+        easing: Easing.bezier(0.25, 0.01, 0.25, 1.0),
       }),
       overflow: 'hidden',
     }

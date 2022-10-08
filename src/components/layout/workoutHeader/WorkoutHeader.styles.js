@@ -3,11 +3,13 @@ import { CONSTANTS }  from '../../../constants'
 
 const styles = StyleSheet.create({
   container: {
-    height: 137,
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    borderBottomWidth: 1,
+    borderColor: 'rgba(52, 52, 52, 0.1)',
   },
   content: {
-    marginTop: 80,
+    marginTop: 40,
+    marginBottom: 12,
     marginLeft: 16
   },
   flexContent: {

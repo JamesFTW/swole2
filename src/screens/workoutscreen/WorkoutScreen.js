@@ -6,7 +6,7 @@ import {
   WorkoutHeader
 } from '../../components'
 
-import { Text, View } from 'react-native'
+import { View, SafeAreaView } from 'react-native'
 
 import styles from './WorkoutScreen.styles'
 
@@ -44,10 +44,20 @@ function WorkoutScreen() {
   })
   
   return (
-    <View style={styles.container}>
+    <SafeAreaView>
       <WorkoutHeader workoutTitle={"Push Upper Body"} workoutDate={"Wednesday - 11/23/2011"} />
-      {/* {data && ExerciseData } */}
-    </View>
+      <ScrollContent>
+        <View style={{marginTop: 20}}>
+          <Exercise
+            exerciseName={"Bench Press"}
+            reps={10}
+            sets={4}
+            rpe={9}
+            weight={225}
+          />
+        </View>
+      </ScrollContent>
+    </SafeAreaView>
   )
 }
 
