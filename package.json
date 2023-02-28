@@ -7,9 +7,12 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "storybook": "start-storybook -p 7007",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.12.1",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-navigation/native": "^5.7.3",
     "@react-navigation/stack": "^5.9.0",
@@ -24,18 +27,32 @@
     "react-native-screens": "^2.10.1",
     "react-native-svg": "^12.1.0",
     "react-native-svg-transformer": "^0.14.3",
-    "react-navigation": "^4.4.4"
+    "react-navigation": "^4.4.4",
+    "react-scripts": "^5.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.16.5",
     "@babel/runtime": "^7.16.5",
     "@react-native-community/eslint-config": "^3.0.1",
+    "@storybook/addon-actions": "^5.3.21",
+    "@storybook/addon-knobs": "^5.3.21",
+    "@storybook/addon-links": "^5.3.21",
+    "@storybook/addon-ondevice-actions": "^5.3.23",
+    "@storybook/addon-ondevice-knobs": "^5.3.26",
+    "@storybook/builder-webpack5": "^7.0.0-beta.55",
+    "@storybook/manager-webpack5": "^6.5.16",
+    "@storybook/react-native": "^5.3.27",
+    "@storybook/react-native-server": "^5.3.23",
     "babel-jest": "^27.4.5",
+    "babel-loader": "^8.3.0",
     "babel-plugin-module-resolver": "^4.1.0",
+    "dotenv-webpack": "^8.0.1",
     "eslint": "^8.4.1",
     "jest": "^27.4.5",
     "metro-react-native-babel-preset": "^0.66.2",
-    "react-test-renderer": "17.0.2"
+    "react-dom": "^17.0.2",
+    "react-test-renderer": "17.0.2",
+    "webpack": "^5.75.0"
   },
   "jest": {
     "preset": "react-native"
