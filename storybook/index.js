@@ -3,7 +3,7 @@ import { AppRegistry } from 'react-native';
 
 import { getStorybookUI, configure, addDecorator } from '@storybook/react-native';
 import { withKnobs } from '@storybook/addon-knobs';
-import AsyncStorage from '@react-native-community/async-storage';
+import { ButtonStories } from '../app/components/button/stories'
 
 import './rn-addons';
 
@@ -11,8 +11,9 @@ import './rn-addons';
 addDecorator(withKnobs);
 
 // import stories
+// This accepts arrays
 configure(() => {
-  require('./stories');
+  ButtonStories;
 }, module);
 
 // Refer to https://github.com/storybookjs/react-native/tree/master/app/react-native#getstorybookui-options
