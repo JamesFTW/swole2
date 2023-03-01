@@ -9,7 +9,8 @@
     "test": "jest",
     "lint": "eslint .",
     "storybook": "start-storybook -p 7007",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "compile": "node compile.js"
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.12.1",
