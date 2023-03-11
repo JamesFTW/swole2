@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "storybook": "start-storybook -p 7007",
     "build-storybook": "build-storybook",
-    "compile": "node compile.js"
+    "compile": "node ./scripts/compile.js"
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.12.1",
