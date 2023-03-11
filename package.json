@@ -8,11 +8,20 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
+    "prestorybook": "rnstl",
     "storybook": "start-storybook -p 7007",
     "build-storybook": "build-storybook",
     "compile": "node ./scripts/compile.js"
   },
+  "config": {
+    "react-native-storybook-loader": {
+      "searchDir": ["./app"],
+      "pattern": "**/*.stories.js",
+      "outputFile": "./storybook/storyLoader.js"
+    }
+  },
   "dependencies": {
+    "@react-aria/button": "^3.7.0",
     "@react-native-community/async-storage": "^1.12.1",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-navigation/native": "^5.7.3",
@@ -52,6 +61,7 @@
     "jest": "^27.4.5",
     "metro-react-native-babel-preset": "^0.66.2",
     "react-dom": "^17.0.2",
+    "react-native-storybook-loader": "^2.0.5",
     "react-test-renderer": "17.0.2",
     "webpack": "^5.75.0"
   },

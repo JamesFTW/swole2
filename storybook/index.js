@@ -4,6 +4,8 @@ import { AppRegistry } from 'react-native';
 import { getStorybookUI, configure, addDecorator } from '@storybook/react-native';
 import { withKnobs } from '@storybook/addon-knobs';
 import { ButtonStories } from '../app/components/button/stories'
+import { ActionStories } from '../app/components/action/stories'
+import { loadStories } from './storyLoader';
 
 import './rn-addons';
 
@@ -13,7 +15,7 @@ addDecorator(withKnobs);
 // import stories
 // This accepts arrays
 configure(() => {
-  ButtonStories;
+loadStories()
 }, module);
 
 // Refer to https://github.com/storybookjs/react-native/tree/master/app/react-native#getstorybookui-options
