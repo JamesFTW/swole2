@@ -1,11 +1,22 @@
 import * as React from 'react'
-import { TouchableOpacity, Text, StyleSheet } from 'react-native'
+import { Text, Pressable } from 'react-native'
+import styles from './Action.styles'
 
-export const Action = ({
-  onPress = () => {},
-  children = ""
-}) => (
-  <TouchableOpacity onPress={onPress}>
-    <Text>{children}</Text>
-  </TouchableOpacity>
-)
+
+/**
+ * 
+ * TODO: Add implementation
+ * 
+ */
+
+export function Action({
+  onPress,
+  children
+}) {
+
+  return (
+    <Pressable style={styles.container} onPress={onPress}>
+      <Text style={styles.text}>Chest</Text>
+    </Pressable>
+  )
+}

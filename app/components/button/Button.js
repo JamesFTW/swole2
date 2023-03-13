@@ -1,11 +1,43 @@
-import * as React from 'react'
-import { TouchableOpacity, Text, StyleSheet } from 'react-native'
 
-export const Button = ({
-  onPress = () => {},
-  children = ""
-}) => (
-  <TouchableOpacity onPress={onPress}>
-    <Text>{children}</Text>
-  </TouchableOpacity>
-)
+import React from 'react';
+import { Text, View, StyleSheet, Pressable, TouchableOpacity } from 'react-native';
+
+
+/**
+ * 
+ * TODO: Add implementation
+ */
+
+export function Button(props) {
+	const { 
+		onPress, 
+		title = 'Save' 
+	} = props;
+
+	return (
+		<TouchableOpacity style={styles.button} onPress={onPress}>
+			<Text style={styles.text}>{title}</Text>
+		</TouchableOpacity>
+	);
+}
+
+const styles = StyleSheet.create({
+	button: {
+		alignItems: 'center',
+		justifyContent: 'center',
+		paddingVertical: 12,
+		paddingHorizontal: 32,
+		borderRadius: 4,
+		elevation: 3,
+		backgroundColor: 'black',
+		marginLeft: 50,
+		marginRight: 50,
+	},
+	text: {
+		fontSize: 16,
+		lineHeight: 21,
+		fontWeight: 'bold',
+		letterSpacing: 0.25,
+		color: 'white',
+  },
+});
