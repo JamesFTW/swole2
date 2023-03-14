@@ -9,3 +9,9 @@ React.useEffect(() => {
   getAllExercises().then(data => setData(data))
 })
 ```
+
+### Learnings
+
+## 3-12-23
+
+How to add decorators and addons to storybook

@@ -1,25 +1,50 @@
-export const SPACING_NONE = 0;
+const SPACING_NONE = 0;
 
-export const SPACING_XS_4 = 4;
-export const SPACING_XS_8 = 8;
-export const SPACING_XS_12 = 12;
-export const SPACING_XS_16 = 16;
+const SPACING_XS_4 = 4;
+const SPACING_XS_8 = 8;
+const SPACING_XS_12 = 12;
+const SPACING_XS_16 = 16;
 
-export const SPACING_S_20 = 20;
-export const SPACING_S_24 = 24;
-export const SPACING_S_28 = 28;
-export const SPACING_S_32 = 32;
+const SPACING_S_20 = 20;
+const SPACING_S_24 = 24;
+const SPACING_S_28 = 28;
+const SPACING_S_32 = 32;
 
-export const SPACING_MD_36 = 36;
-export const SPACING_MD_40 = 40;
-export const SPACING_MD_48 = 48;
-export const SPACING_MD_52 = 52;
+const SPACING_MD_36 = 36;
+const SPACING_MD_40 = 40;
+const SPACING_MD_48 = 48;
+const SPACING_MD_52 = 52;
 
-export const SPACING_LG_56 = 56;
-export const SPACING_LG_60 = 60;
-export const SPACING_LG_64 = 64;
-export const SPACING_LG_68 = 68;
+const SPACING_LG_56 = 56;
+const SPACING_LG_60 = 60;
+const SPACING_LG_64 = 64;
+const SPACING_LG_68 = 68;
 
-export const SPACING_XL_72 = 72;
-export const SPACING_XL_76 = 76;
-export const SPACING_XL_80 = 80;
+const SPACING_XL_72 = 72;
+const SPACING_XL_76 = 76;
+const SPACING_XL_80 = 80;
+const SPACING_XXL_CARD = 88;
+
+export default LAYOUT = {
+    SPACING_NONE,
+    SPACING_XS_4,
+    SPACING_XS_8, 
+    SPACING_XS_12,
+    SPACING_XS_16,
+    SPACING_S_20,
+    SPACING_S_24, 
+    SPACING_S_28, 
+    SPACING_S_32, 
+    SPACING_MD_36,
+    SPACING_MD_40,
+    SPACING_MD_48,
+    SPACING_MD_52,
+    SPACING_LG_56,
+    SPACING_LG_60,
+    SPACING_LG_64,
+    SPACING_LG_68,
+    SPACING_XL_72,
+    SPACING_XL_76,
+    SPACING_XL_80,
+    SPACING_XXL_CARD
+}
