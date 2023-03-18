@@ -1,4 +1,3 @@
-
 const PRIMARY_COLOR = '#1E2F4E';
 const SECONDARY_COLOR = '#92A3C1';
 const ALERT_COLOR = '#FF2400'
