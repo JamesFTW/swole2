@@ -7,6 +7,7 @@ const BLACK = '#000000'
 const GRAY = '#605C5C'
 const SUBTITLE_GRAY = '#748199'
 const BLACK_GRADIENT =  ['transparent', 'rgba(0, 0, 0, 0.78)']
+const CARD_BOARDER_COLOR = 'rgba(52, 52, 52, .1)'
 
 export const COLORS = {
   PRIMARY_COLOR,
@@ -16,7 +17,8 @@ export const COLORS = {
   WHITE,
   BLACK,
   GRAY,
-  BLACK_GRADIENT
+  BLACK_GRADIENT,
+  CARD_BOARDER_COLOR
 }
 
 /**
