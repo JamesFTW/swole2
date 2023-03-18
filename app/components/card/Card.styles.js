@@ -1,20 +1,20 @@
 import { StyleSheet } from 'react-native'
-import LAYOUT from '../../constants/layout'
+import { LAYOUT, COLORS } from '../../constants'
 
 const styles = StyleSheet.create({
 	card: {
 		alignSelf: 'stretch',
-		borderRadius: LAYOUT.SPACING_XS_12,
 		borderWidth: 1,
-		borderColor: 'rgba(52, 52, 52, .1)',
-		backgroundColor: 'white',
+		borderColor: COLORS.CARD_BOARDER_COLOR,
+		backgroundColor: COLORS.WHITE,
+		borderRadius: LAYOUT.SPACING_XS_12,
 		marginLeft: LAYOUT.SPACING_XS_8,
 		marginRight: LAYOUT.SPACING_XS_8,
 
 	},
 	card_inner: {
 		padding: LAYOUT.SPACING_XS_12,
-		height: LAYOUT.SPACING_XXL_CARD,
+		height: LAYOUT.SPACING_XL_76,
 	}
 });
 
