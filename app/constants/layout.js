@@ -25,7 +25,7 @@ const SPACING_XL_76 = 76;
 const SPACING_XL_80 = 80;
 const SPACING_XXL_CARD = 99;
 
-export default LAYOUT = {
+export const LAYOUT = {
     SPACING_NONE,
     SPACING_XS_4,
     SPACING_XS_8, 
