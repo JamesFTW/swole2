@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native'
 import { LAYOUT, COLORS } from '../../constants'
 
 const styles = StyleSheet.create({
-	card: {
+	card_container: {
 		alignSelf: 'stretch',
 		borderWidth: 1,
 		borderColor: COLORS.CARD_BOARDER_COLOR,
@@ -14,7 +14,6 @@ const styles = StyleSheet.create({
 	},
 	card_inner: {
 		padding: LAYOUT.SPACING_XS_12,
-		height: LAYOUT.SPACING_XL_76,
 	}
 });
 

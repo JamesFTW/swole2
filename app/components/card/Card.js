@@ -1,12 +1,19 @@
 
-import React from 'react'
-import { View, Pressable } from 'react-native'
+import * as React from 'react'
 import styles from './Card.styles'
+import { View, Pressable } from 'react-native'
+import { LAYOUT } from '../../constants'
 
-export function Card(props) {
+export function Card({
+  children,
+  cardHeight = LAYOUT.SPACING_XL_76,
+}) {
+  
   return (
-    <Pressable style={styles.card}>
-      <View {...props} style={styles.card_inner} />
+    <Pressable style={styles.card_container}>
+      <View style={[styles.card_inner, { height: cardHeight }]}>
+        { children }
+      </View>
     </Pressable>
   );
 }
