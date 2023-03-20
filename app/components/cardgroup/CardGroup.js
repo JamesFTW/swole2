@@ -4,8 +4,6 @@ import styles from './CardGroup.styles'
 import { View } from 'react-native';
 import { ScrollContent } from '../scrollcontent'
 
-// React props can be given a default value if none is provided
-
 export function CardGroup({children}) {
 	return (
     <ScrollContent>

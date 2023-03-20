@@ -6,7 +6,7 @@ import { LAYOUT } from '../../constants'
 
 export function Card({
   children,
-  cardHeight = LAYOUT.SPACING_XL_76,
+  cardHeight = LAYOUT.SPACING_XL_88,
 }) {
   
   return (

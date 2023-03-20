@@ -8,6 +8,7 @@ function loadStories() {
   require('../app/components/button/stories/Button.stories');
   require('../app/components/card/stories/Card.stories');
   require('../app/components/cardgroup/stories/CardGroup.stories');
+  require('../app/components/image/stories/Image.stories');
 }
 
 const stories = [
@@ -15,6 +16,7 @@ const stories = [
   '../app/components/button/stories/Button.stories',
   '../app/components/card/stories/Card.stories',
   '../app/components/cardgroup/stories/CardGroup.stories',
+  '../app/components/image/stories/Image.stories',
 ];
 
 module.exports = {
