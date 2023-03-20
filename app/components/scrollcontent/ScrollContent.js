@@ -3,10 +3,10 @@ import styles from './ScrollContent.styles'
 import { SafeAreaView } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 
-function ScrollContent({ children }) {
+export function ScrollContent({ children }) {
   return (
     <SafeAreaView>
-      <ScrollView style={styles.container}>
+      <ScrollView style={styles.scroll_container}>
         { children }
       </ScrollView>
     </SafeAreaView>
