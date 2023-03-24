@@ -2,7 +2,7 @@
 import * as React from 'react'
 import styles from './CardGroup.styles'
 import { View } from 'react-native';
-import { ScrollContent } from '../scrollcontent'
+import { ScrollContent } from '../../layout'
 
 export function CardGroup({children}) {
 	return (
