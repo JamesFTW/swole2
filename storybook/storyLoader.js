@@ -9,6 +9,7 @@ function loadStories() {
   require('../app/components/card/stories/Card.stories');
   require('../app/components/cardgroup/stories/CardGroup.stories');
   require('../app/components/image/stories/Image.stories');
+  require('../app/features/exercise/stories/Exercise.stories');
 }
 
 const stories = [
@@ -17,6 +18,7 @@ const stories = [
   '../app/components/card/stories/Card.stories',
   '../app/components/cardgroup/stories/CardGroup.stories',
   '../app/components/image/stories/Image.stories',
+  '../app/features/exercise/stories/Exercise.stories',
 ];
 
 module.exports = {
