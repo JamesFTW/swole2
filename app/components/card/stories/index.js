@@ -1,1 +1,0 @@
-export { default as CardStories } from './Card.stories'
