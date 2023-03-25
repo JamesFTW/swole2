@@ -3,4 +3,5 @@
   use command 'npm run compile' to export files
 ***************************************************************/ 
  
+export { FlexContainer } from './flexcontainer/FlexContainer.js';
 export { ScrollContent } from './scrollcontent/ScrollContent.js';
