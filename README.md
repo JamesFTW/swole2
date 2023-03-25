@@ -15,3 +15,7 @@ React.useEffect(() => {
 ## 3-12-23
 
 How to add decorators and addons to storybook
+
+## 3-13-23
+
+TODO: Document how to add new stories to storybook
