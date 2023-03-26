@@ -1,4 +1,6 @@
 const SPACING_NONE = 0;
+const SPACING_NUDGE_XS = 1;
+const SPACING_NUDGE_S = 2;
 
 const SPACING_XS_4 = 4;
 const SPACING_XS_8 = 8;
@@ -25,8 +27,14 @@ const SPACING_XL_76 = 76;
 const SPACING_XL_80 = 80;
 const SPACING_XL_88 = 88;
 
+const FLEX_ROW = 'row'
+const FLEX_COLUMN = 'column'
+const ALIGN_CENTER = 'center'
+
 export const LAYOUT = {
 	SPACING_NONE,
+	SPACING_NUDGE_XS,
+	SPACING_NUDGE_S,
 	SPACING_XS_4,
 	SPACING_XS_8,
 	SPACING_XS_12,
@@ -47,4 +55,7 @@ export const LAYOUT = {
 	SPACING_XL_76,
 	SPACING_XL_80,
 	SPACING_XL_88,
+	FLEX_ROW,
+	FLEX_COLUMN,
+	ALIGN_CENTER,
 }
