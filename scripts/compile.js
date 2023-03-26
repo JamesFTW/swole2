@@ -1,14 +1,13 @@
 /**
  * 
  * TODO: Add check to see if file is created before exporting.
+ * It seems like there might be an easier way to do this using glob.  Figure that out.
  * 
  */
 
 const fs = require('fs');
 const path = require('path');
-
-//figure out how to get this working
-
+const glob = require('glob')
 
 let files = {
   './app/components': './app/components/index.js',
@@ -16,10 +15,13 @@ let files = {
   './app/features': './app/features/index.js'
 }
 
+async function tester() {
+  const jsfiles = await glob('./app/features/**/components/*.js', { ignore: 'node_modules/**' })
+  console.log(jsfiles)
+}
 
 let outputString = '';
 let outputFile = ""
-
 
 for (var componentsDir in files) {
 
@@ -36,9 +38,6 @@ for (var componentsDir in files) {
     outputString = ""
 
 }
-
-
-
 
 function traverseDirectory(dir) {
   // Get a list of all files and subdirectories in the current directory
