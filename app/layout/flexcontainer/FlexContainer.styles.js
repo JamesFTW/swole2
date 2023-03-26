@@ -1,9 +1,10 @@
 import { StyleSheet } from 'react-native'
+import { LAYOUT } from '../../constants'
 
 const styles = StyleSheet.create({
   flex_container: {
-    flex: 0,
-    flexDirection: 'row',
+    flex: LAYOUT.SPACING_NONE,
+    flexDirection: LAYOUT.FLEX_ROW,
   }
 })
 
