@@ -35,6 +35,6 @@ export default storiesOf('ExerciseInfo', module)
 		],
 	})
 	.add("default", () => (
-		<ExerciseInfo  />
+		<ExerciseInfo value={4} subTitle='reps'  />
  ))
  
