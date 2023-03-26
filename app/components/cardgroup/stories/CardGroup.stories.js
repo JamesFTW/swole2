@@ -6,6 +6,7 @@ import {StyleSheet, View, Text, Image} from 'react-native';
 import { withBackgrounds } from '@storybook/addon-ondevice-backgrounds';
 import { withKnobs } from '@storybook/addon-ondevice-knobs';
 import { Card } from '../../../components'
+import { Exercise } from '../../../features/exercise/Exercise';
 
 const placeHolder = 'https://cdn.shopify.com/s/files/1/1876/4703/articles/shutterstock_1079398565_2560x.jpg?v=1591108584'
 
@@ -31,10 +32,40 @@ export default storiesOf('CardGroup', module)
 			{ name: 'light', value: '#eeeeee' },
 		],
 	})
-	.add("default", () => (
+	.add("default group with multiple cards", () => (
 		<CardGroup onPress={action('tapped-default')}>
-			<Card />
-            <Card />
-            <Card />
+			<Exercise 
+			sets={4} 
+			reps={10} 
+			weight={225} 
+			exerciseTitle="Bulgarian Split Squat"  
+		/>
+		<Exercise 
+			sets={4} 
+			reps={10} 
+			weight={225} 
+			exerciseTitle="Bulgarian Split Squat"  
+		/>
+		<Exercise 
+			sets={4} 
+			reps={10} 
+			weight={225} 
+			exerciseTitle="Bulgarian Split Squat"  
+		/>
+		<Exercise 
+			sets={4} 
+			reps={10} 
+			weight={225} 
+			exerciseTitle="Bulgarian Split Squat"  
+		/>
 		</CardGroup>
- )) 
+ )).add("single card", () => (
+	<CardGroup onPress={action('tapped-default')}>
+		<Exercise 
+		sets={4} 
+		reps={10} 
+		weight={225} 
+		exerciseTitle="Bulgarian Split Squat"  
+	/>
+	</CardGroup>
+)) 

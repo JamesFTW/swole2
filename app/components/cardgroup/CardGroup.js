@@ -5,15 +5,25 @@ import { View } from 'react-native';
 import { ScrollContent } from '../../layout'
 
 export function CardGroup({children}) {
-	return (
+  if (children.length) {
+    return (
+      <ScrollContent>
+          {children.map((card, i) => {
+            return (
+              <View style={styles.cardGroupChild} key={i}>
+                { card }
+              </View>
+            )
+          })}
+      </ScrollContent>
+    )
+  }
+
+  return (
     <ScrollContent>
-        {children.map((card, i) => {
-          return (
-            <View style={styles.cardGroupChild} key={i}>
-              { card }
-            </View>
-          )
-        })}
+      <View style={styles.cardGroupChild}>
+        { children }
+      </View>
     </ScrollContent>
-	);
+  )
 }
