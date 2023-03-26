@@ -1,24 +1,35 @@
 
 import * as React from 'react'
 import { Text } from 'react-native'
+import { ExerciseInfo } from './components/exerciseinfo/ExerciseInfo'
 import { Card, Image } from '../../components'
-import { ExerciseInfo } from './exerciseinfo/ExerciseInfo'
+import { LAYOUT } from '../../constants'
 import { FlexContainer } from '../../layout'
 import styles from './Exercise.styles'
 
 export function Exercise({
-  exerciseTitle = "Bench Press",
+  exerciseTitle,
+  sets,
+  reps,
+  weight
 }) {
+  const SUBTITLE = {
+    SETS: 'sets',
+    REPS: 'reps',
+    WEIGHT: 'lbs' //TODO: convert this to something that can render lbs or kgs based on region.
+  }
   return (
     <Card>
-      <FlexContainer direction='row'>
-        <Image/>
-        <FlexContainer direction='column'>
-          <Text style={styles.exercise_title}>{ exerciseTitle }</Text>
+      <FlexContainer direction={LAYOUT.FLEX_ROW}>
+        <Image marginTop={LAYOUT.SPACING_NUDGE_S}/>
+        <FlexContainer direction={LAYOUT.FLEX_COLUMN}>
           <FlexContainer>
-            <ExerciseInfo value="225" subTitle="lbs" />
-            <ExerciseInfo value="225" subTitle="lbs" />
-            <ExerciseInfo value="225" subTitle="lbs" />
+            <Text style={styles.exercise_title}>{ exerciseTitle }</Text>
+          </FlexContainer>
+          <FlexContainer direction={LAYOUT.FLEX_ROW} marginLeft={22}>
+              <ExerciseInfo value={sets} subTitle={SUBTITLE.SETS} />
+              <ExerciseInfo value={reps} subTitle={SUBTITLE.REPS} />
+              <ExerciseInfo value={weight} subTitle={SUBTITLE.WEIGHT} />
           </FlexContainer>
         </FlexContainer>
       </FlexContainer>

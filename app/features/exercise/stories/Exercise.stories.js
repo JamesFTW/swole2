@@ -35,6 +35,11 @@ export default storiesOf('Exercise', module)
 		],
 	})
 	.add("default", () => (
-		<Exercise  />
+		<Exercise 
+			sets={4} 
+			reps={10} 
+			weight={225} 
+			exerciseTitle="Bulgarian Split Squat"  
+		/>
  ))
  
