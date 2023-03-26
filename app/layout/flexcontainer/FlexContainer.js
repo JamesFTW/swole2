@@ -4,10 +4,22 @@ import { View } from 'react-native'
 
 export function FlexContainer({
   children,
-  direction = 'row'
+  direction,
+  marginLeft,
+  marginRight,
+  marginTop,
+  marginBottom,
 }) {
+
   return (
-    <View style={[styles.flex_container, {'flexDirection': direction}]}>
+    <View style={[styles.flex_container, {
+      'flexDirection': direction,
+      marginLeft,
+      marginRight,
+      marginTop,
+      marginBottom,
+      }
+    ]}>
       { children }
     </View>
   )
