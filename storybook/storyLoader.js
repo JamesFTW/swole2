@@ -5,6 +5,7 @@
 
 function loadStories() {
   require('../app/components/action/stories/Action.stories');
+  require('../app/components/actiongroup/stories/ActionGroup.stories');
   require('../app/components/button/stories/Button.stories');
   require('../app/components/card/stories/Card.stories');
   require('../app/components/cardgroup/stories/CardGroup.stories');
@@ -15,6 +16,7 @@ function loadStories() {
 
 const stories = [
   '../app/components/action/stories/Action.stories',
+  '../app/components/actiongroup/stories/ActionGroup.stories',
   '../app/components/button/stories/Button.stories',
   '../app/components/card/stories/Card.stories',
   '../app/components/cardgroup/stories/CardGroup.stories',
