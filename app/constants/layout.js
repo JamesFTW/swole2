@@ -28,6 +28,7 @@ const SPACING_XL_80 = 80;
 const SPACING_XL_88 = 88;
 
 const FLEX_ROW = 'row'
+const FLEX_START = 'flex-start'
 const FLEX_COLUMN = 'column'
 const ALIGN_CENTER = 'center'
 
@@ -57,5 +58,6 @@ export const LAYOUT = {
 	SPACING_XL_88,
 	FLEX_ROW,
 	FLEX_COLUMN,
+	FLEX_START,
 	ALIGN_CENTER,
 }
