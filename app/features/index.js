@@ -3,4 +3,4 @@
   use command 'npm run compile' to export files
 ***************************************************************/ 
  
-export { Exercise } from './exercise/Exercise.js';
+export { WorkoutExercise } from './workoutexercise/WorkoutExercise.js';
