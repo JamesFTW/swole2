@@ -1,8 +1,23 @@
-/*
-    Action groups are a variant button style for grouping
-    of actions that all hold similar priority and visual weight.
+import * as React from 'react'
+import { FlexContainer } from '../../layout'
+import { LAYOUT } from '../../constants'
+import { Action } from '../action/Action'
 
-    They will initially be used to make the target muscle group pills.
-
-    Being able to add icons would be nice, but will only have text to start off.
-**/
+export function ActionGroup({
+	titles
+}) {
+	return (
+		<FlexContainer direction="row">
+			{titles.map(title => {
+					return (
+						<Action 
+							key={title} 
+							marginRight={LAYOUT.SPACING_XS_4} 
+							actionTitle={title}
+						/>
+					)
+				})
+			}	
+		</FlexContainer>
+	)
+}
