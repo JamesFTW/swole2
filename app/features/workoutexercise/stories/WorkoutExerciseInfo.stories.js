@@ -1,7 +1,6 @@
 import React from 'react';
-import {storiesOf, addParameters, addDecorator} from '@storybook/react-native';
-import {action} from '@storybook/addon-actions';
-import { Exercise } from '../Exercise';
+import { storiesOf } from '@storybook/react-native';
+import { ExerciseInfo } from '../../workoutexercise/components/exerciseinfo/ExerciseInfo';
 import { View } from 'react-native';
 import { withBackgrounds } from '@storybook/addon-ondevice-backgrounds';
 import { withKnobs } from '@storybook/addon-ondevice-knobs';
@@ -12,19 +11,19 @@ import { withKnobs } from '@storybook/addon-ondevice-knobs';
 // addDecorator(withKnobs)
 
 const CenterDecorator = storyFn => (
-    <View style={{
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-       }}>
-      {
-				storyFn()
-			}
-    </View>
-  );
+	<View style={{
+		flex: 1,
+		alignItems: 'center',
+		justifyContent: 'center',
+	}}>
+		{
+			storyFn()
+		}
+	</View>
+);
 
 
-export default storiesOf('Exercise', module)
+export default storiesOf('ExerciseInfo', module)
 	.addDecorator(CenterDecorator)
 	.addDecorator(withBackgrounds)
 	.addDecorator(withKnobs)
@@ -35,11 +34,6 @@ export default storiesOf('Exercise', module)
 		],
 	})
 	.add("default", () => (
-		<Exercise 
-			sets={4} 
-			reps={10} 
-			weight={225} 
-			exerciseTitle="Bulgarian Split Squat"  
-		/>
- ))
- 
+		<ExerciseInfo value={4} subTitle='reps' />
+	))
+

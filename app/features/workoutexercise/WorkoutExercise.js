@@ -5,9 +5,9 @@ import { ExerciseInfo } from './components/exerciseinfo/ExerciseInfo'
 import { Card, Image } from '../../components'
 import { LAYOUT } from '../../constants'
 import { FlexContainer } from '../../layout'
-import styles from './Exercise.styles'
+import styles from './WorkoutExercise.styles'
 
-export function Exercise({
+export function WorkoutExercise({
   exerciseTitle,
   sets,
   reps,
