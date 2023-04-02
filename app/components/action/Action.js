@@ -18,7 +18,10 @@ const ACTION_TEXT_COLORS = {
 export function Action({
   onPress,
   actionTitle,
-  marginRight
+  marginRight,
+  marginLeft,
+  marginTop,
+  marginBottom,
 }) {
   const actionTitleToUpperCase = actionTitle.toUpperCase()
 
@@ -26,12 +29,16 @@ export function Action({
     <Pressable 
       style={[styles.action_container, {
         'backgroundColor': ACTION_BUTTON_COLORS[actionTitleToUpperCase],
-        marginRight
+        marginRight,
+        marginLeft,
+        marginTop,
+        marginBottom,
       }]}
       onPress={onPress}>
       <View style={[styles.action_inside]}>
         <Text
-          style={[styles.action_title, {'color': ACTION_TEXT_COLORS[actionTitleToUpperCase]}]}>
+          style={[styles.action_title,
+            {'color': ACTION_TEXT_COLORS[actionTitleToUpperCase]}]}>
             { actionTitleToUpperCase }
         </Text>
       </View>
