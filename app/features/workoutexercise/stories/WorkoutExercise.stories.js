@@ -1,28 +1,9 @@
 import React from 'react';
-import {storiesOf, addParameters, addDecorator} from '@storybook/react-native';
-import {action} from '@storybook/addon-actions';
+import {storiesOf } from '@storybook/react-native';
 import { WorkoutExercise } from '../WorkoutExercise';
-import { View } from 'react-native';
 import { withBackgrounds } from '@storybook/addon-ondevice-backgrounds';
 import { withKnobs } from '@storybook/addon-ondevice-knobs';
-
-//react aria has usebutton hook for props
-
-// addDecorator(withBackgrounds)
-// addDecorator(withKnobs)
-
-const CenterDecorator = storyFn => (
-    <View style={{
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-       }}>
-      {
-				storyFn()
-			}
-    </View>
-  );
-
+import { CenterDecorator } from '../../../../storybook/CenterDecorator'
 
 export default storiesOf('WorkoutExercise', module)
 	.addDecorator(CenterDecorator)

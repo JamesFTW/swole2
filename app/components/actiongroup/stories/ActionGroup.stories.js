@@ -1,26 +1,9 @@
-import React from "react";
+import React from "react"
 import { storiesOf } from "@storybook/react-native"
-import { Card } from "../../card/Card";
-import { View } from 'react-native';
-import { withBackgrounds } from '@storybook/addon-ondevice-backgrounds';
-import { withKnobs } from '@storybook/addon-ondevice-knobs';
-import { ActionGroup } from "../ActionGroup";
-
-//react aria has usebutton hook for props
-
-const CenterDecorator = storyFn => (
-  <View style={{
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    alignSelf: 'center'
-  }}>
-    {
-      storyFn()
-    }
-  </View>
-);
-
+import { withBackgrounds } from '@storybook/addon-ondevice-backgrounds'
+import { withKnobs } from '@storybook/addon-ondevice-knobs'
+import { ActionGroup } from "../ActionGroup"
+import { CenterDecorator } from '../../../../storybook/CenterDecorator'
 
 const titles = [
   'chest',
