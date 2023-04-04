@@ -10,6 +10,7 @@ function loadStories() {
   require('../app/components/card/stories/Card.stories');
   require('../app/components/cardgroup/stories/CardGroup.stories');
   require('../app/components/image/stories/Image.stories');
+  require('../app/features/exercise/stories/Exercise.stories');
   require('../app/features/workoutexercise/stories/WorkoutExercise.stories');
   require('../app/features/workoutexercise/stories/WorkoutExerciseInfo.stories');
 }
@@ -21,6 +22,7 @@ const stories = [
   '../app/components/card/stories/Card.stories',
   '../app/components/cardgroup/stories/CardGroup.stories',
   '../app/components/image/stories/Image.stories',
+  '../app/features/exercise/stories/Exercise.stories',
   '../app/features/workoutexercise/stories/WorkoutExercise.stories',
   '../app/features/workoutexercise/stories/WorkoutExerciseInfo.stories',
 ];
