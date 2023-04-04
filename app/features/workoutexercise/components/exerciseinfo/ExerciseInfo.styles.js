@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
 		fontSize: FONTS.SIZE_16,
 		letterSpacing: FONTS.SPACING_S,
 		color: COLORS.SUBTITLE_GRAY,
-        alignSelf: LAYOUT.ALIGN_CENTER
+		alignSelf: LAYOUT.ALIGN_CENTER
 	}
 })
 
