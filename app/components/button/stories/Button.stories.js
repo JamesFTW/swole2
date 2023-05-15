@@ -9,10 +9,17 @@ import EmailIcon from '../../../assets/icons/email.svg'
 //react aria has usebutton hook for props
 
 export default storiesOf('Button', module)
-    .add("default", () => (
+    .add("outline", () => (
         <Button outline 
             icon={<EmailIcon style={styles.email_icon} />} 
             title="Sign Up with Email"
+            onPress={action("tapped-default")}
+        />
+    ))
+    .add("default", () => (
+        <Button
+            icon={<EmailIcon style={styles.email_icon} />} 
+            title="Submit"
             onPress={action("tapped-default")}
         />
     ))
