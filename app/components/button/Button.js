@@ -4,14 +4,12 @@ import { LAYOUT } from '../../constants'
 import { FlexContainer } from '../../layout'
 import styles from './Button.styles'
 
-export function Button(props) {
-  const {
-    onPress,
-    title,
-    icon,
-    outline
-  } = props
-
+export function Button({
+  onPress,
+  title,
+  icon,
+  outline
+}) {
   if (outline) {
     return (
       <TouchableOpacity style={styles.buttonOutline} onPress={onPress}>
