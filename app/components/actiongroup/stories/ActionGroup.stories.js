@@ -25,8 +25,8 @@ export default storiesOf('ActionGroup', module)
 		],
 	})
   .add("Multiple", () => (
-    <ActionGroup titles={titles} />
+    <ActionGroup actionTitles={titles} />
   ))
   .add("Single", () => (
-    <ActionGroup titles={titles1} />
+    <ActionGroup actionTitles={titles1} />
   ))

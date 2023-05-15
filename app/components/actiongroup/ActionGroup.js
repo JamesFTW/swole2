@@ -5,14 +5,14 @@ import { Action } from '../action/Action'
 import { Text } from 'react-native'
 
 export function ActionGroup({
-	titles,
+	actionTitles,
 	marginLeft,
 	marginRight,
 	marginTop,
 	marginBottom
 }) {
 
-	if (titles) {
+	if (actionTitles) {
 		return (
 			<FlexContainer
 				marginLeft={marginLeft}
@@ -21,7 +21,7 @@ export function ActionGroup({
 				marginBottom={marginBottom}
 				direction="row"
 			>
-				{titles.map(title => {
+				{actionTitles.map(title => {
 					return (
 						<Action
 							key={title}
@@ -33,7 +33,5 @@ export function ActionGroup({
 				}
 			</FlexContainer>
 		)
-	} else {
-		return <Text>hfdfds</Text>
 	}
 }

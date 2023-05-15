@@ -24,7 +24,7 @@ export function Exercise({
           <FlexContainer>
             <Text style={styles.exercise_title}>{ exerciseTitle }</Text>
           </FlexContainer>
-          <ActionGroup marginLeft={LAYOUT.SPACING_S_20} marginTop={LAYOUT.SPACING_XS_8} titles={primaryMuscleGroup} />
+          <ActionGroup marginLeft={LAYOUT.SPACING_XS_16} marginTop={LAYOUT.SPACING_XS_8} actionTitles={primaryMuscleGroup} />
         </FlexContainer>
       </FlexContainer>
     </Card>
