@@ -9,6 +9,8 @@ export function FlexContainer({
   marginRight,
   marginTop,
   marginBottom,
+  textAlign,
+  alignItems
 }) {
 
   return (
@@ -18,6 +20,8 @@ export function FlexContainer({
       marginRight,
       marginTop,
       marginBottom,
+      textAlign,
+      alignItems
       }
     ]}>
       { children }
