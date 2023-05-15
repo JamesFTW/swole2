@@ -2,7 +2,6 @@ import * as React from 'react'
 import { FlexContainer } from '../../layout'
 import { LAYOUT } from '../../constants'
 import { Action } from '../action/Action'
-import { Text } from 'react-native'
 
 export function ActionGroup({
 	actionTitles,
