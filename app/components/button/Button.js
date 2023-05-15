@@ -1,7 +1,8 @@
 import React from 'react'
-import { StyleSheet, TouchableOpacity, Text } from 'react-native'
-import { COLORS, FONTS, LAYOUT } from '../../constants'
+import { TouchableOpacity, Text } from 'react-native'
+import { LAYOUT } from '../../constants'
 import { FlexContainer } from '../../layout'
+import styles from './Button.styles'
 
 export function Button(props) {
   const {
@@ -28,45 +29,3 @@ export function Button(props) {
     </TouchableOpacity>
   )
 }
-
-const styles = StyleSheet.create({
-  buttonOutline: {
-    backgroundColor: COLORS.WHITE,
-    justifyContent: LAYOUT.ALIGN_CENTER,
-    borderColor: COLORS.PRIMARY_COLOR,
-    borderWidth: 1,
-    height: LAYOUT.SPACING_MD_48,
-    borderRadius: 10,
-    marginLeft: LAYOUT.SPACING_S_20,
-    marginRight: LAYOUT.SPACING_S_20,
-  },
-  textOutline: {
-    fontSize: FONTS.SIZE_16,
-    fontFamily: FONTS.SFPRO_MEDIUM,
-    color: COLORS.PRIMARY_COLOR,
-    justifyContent: LAYOUT.ALIGN_CENTER,
-    alignItems: LAYOUT.ALIGN_CENTER,
-    lineHeight: LAYOUT.SPACING_MD_48,
-    marginLeft: LAYOUT.SPACING_LG_64
-  },
-  button: {
-    backgroundColor: COLORS.PRIMARY_COLOR,
-    alignItems: LAYOUT.ALIGN_CENTER,
-    justifyContent: LAYOUT.ALIGN_CENTER,
-    borderColor: COLORS.PRIMARY_COLOR,
-    borderWidth: 1,
-    height: LAYOUT.SPACING_MD_48,
-    borderRadius: 10,
-    marginLeft: LAYOUT.SPACING_S_20,
-    marginRight: LAYOUT.SPACING_S_20,
-  },
-  text: {
-    fontSize: FONTS.SIZE_16,
-    fontFamily: FONTS.SFPRO_MEDIUM,
-    color: COLORS.WHITE,
-    justifyContent: LAYOUT.ALIGN_CENTER,
-    alignItems: LAYOUT.ALIGN_CENTER,
-    lineHeight: LAYOUT.SPACING_MD_48,
-    letterSpacing: 0.125,
-  },
-});
