@@ -8,15 +8,15 @@ export function Image({
   marginRight,
   marginTop,
   marginBottom,
-  height = 60,
-  width = 60,
-  borderRadius = 30,
+  height,
+  width,
+  borderRadius,
 }) {
   //set up ability to store images to local storage and reterive them if they exist in local storage
   //might also need a way to delete images from local storage after a certain amount of time
   return (
     <NativeImage 
-      source={{uri: src}}
+      source={typeof src === 'string' ? { uri: src } : src}
       style={{
         marginTop,
         marginLeft,
