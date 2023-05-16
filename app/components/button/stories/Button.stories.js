@@ -4,9 +4,7 @@ import { storiesOf } from "@storybook/react-native"
 import { action } from "@storybook/addon-actions"
 import { Button } from "../Button"
 import { LAYOUT } from '../../../constants'
-import EmailIcon from '../../../assets/icons/email.svg'
-
-//react aria has usebutton hook for props
+import { EmailIcon } from '../../../assets/icons'
 
 export default storiesOf('Button', module)
   .add("outline", () => (
