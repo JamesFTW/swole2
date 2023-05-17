@@ -15,6 +15,10 @@ target 'swole2' do
 
   pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
 
+
+
+
+
   target 'swole2Tests' do
     inherit! :complete
     # Pods for testing

@@ -4,9 +4,10 @@ import { LAYOUT } from '../../../constants'
 import { Button } from '../../../components'
 import { EmailIcon } from '../../../assets/icons'
 import SplashScreenBackground from '../../../assets/imgs/splash_screen.png'
+
 import styles from './SplashScreen.styles'
 
-export function SplashScreen() {
+export function SplashScreen({navigation}) {
   return (
     <View style={styles.container}>
       <StatusBar
@@ -27,12 +28,13 @@ export function SplashScreen() {
         marginTop={LAYOUT.SPACING_MD_36}
         marginLeft={LAYOUT.SPACING_S_20}
         marginRight={LAYOUT.SPACING_S_20}
+        onPress={() => navigation.navigate('SignUpScreen')}
       />
         <Text style={styles.text}>Already a member? 
             <Text onPress={() => {
-              console.log('push')
             }} style={styles.loginText}> Log in</Text>
         </Text>
     </View>
   )
 }
+
