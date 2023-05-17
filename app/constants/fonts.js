@@ -2,6 +2,7 @@ const SFPRO_REGULAR = 'SFProText-Regular'
 const SFPRO_MEDIUM = 'SFProText-Medium'
 const SFPRO_HEAVY = 'SFProText-Heavy'
 const SFPRO_LIGHT = 'SFProText-Light'
+const SPACING_XS = .1
 const SPACING_S = .015
 const SIZE_10 = 10
 const SIZE_14 = 14
@@ -14,6 +15,7 @@ export const FONTS = {
   SFPRO_MEDIUM,
   SFPRO_HEAVY,
   SFPRO_LIGHT,
+  SPACING_XS,
   SPACING_S,
   SIZE_10,
   SIZE_14,
