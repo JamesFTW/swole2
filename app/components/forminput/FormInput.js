@@ -4,16 +4,31 @@ import { View, Text, TextInput } from 'react-native'
 
 export function FormInput({
   title,
-  placeholder
+  placeholder,
+  marginTop,
+  marginBottom,
+  marginRight,
+  marginLeft,
+  secureTextEntry,
+  textContentType
 }) {
   
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, {
+      marginTop,
+      marginBottom,
+      marginRight,
+      marginLeft,
+      textContentType
+    }]}>
       <View style={styles.formInput}>
         <Text style={styles.title}>{ title }</Text>
         <TextInput
           style={styles.textInput}
           placeholder={placeholder}
+          secureTextEntry={secureTextEntry ? true : false}
+          textContentType={textContentType}
+          keyboardType="email-address"
         />
       </View>
     </View>
