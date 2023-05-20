@@ -21,7 +21,10 @@ export function WorkoutExercise({
   return (
     <Card>
       <FlexContainer direction={LAYOUT.FLEX_ROW}>
-        <Image marginTop={LAYOUT.SPACING_NUDGE_S}/>
+        <Image
+          height={LAYOUT.SPACING_LG_60}
+          width={LAYOUT.SPACING_LG_60}
+          borderRadius={30} marginTop={LAYOUT.SPACING_NUDGE_S}/>
         <FlexContainer direction={LAYOUT.FLEX_COLUMN}>
           <FlexContainer>
             <Text style={styles.exercise_title}>{ exerciseTitle }</Text>
