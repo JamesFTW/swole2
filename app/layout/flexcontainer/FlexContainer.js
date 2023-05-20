@@ -10,7 +10,8 @@ export function FlexContainer({
   marginTop,
   marginBottom,
   textAlign,
-  alignItems
+  alignItems,
+  style
 }) {
 
   return (
@@ -21,7 +22,8 @@ export function FlexContainer({
       marginTop,
       marginBottom,
       textAlign,
-      alignItems
+      alignItems,
+      style
       }
     ]}>
       { children }
