@@ -29,8 +29,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     height: LAYOUT.SPACING_MD_48,
     borderRadius: 10,
-    marginLeft: LAYOUT.SPACING_S_20,
-    marginRight: LAYOUT.SPACING_S_20,
   },
   text: {
     fontSize: FONTS.SIZE_16,
