@@ -1,6 +1,5 @@
 import React from 'react'
 import { TouchableOpacity, Text } from 'react-native'
-import styles from './TextButton.styles'
 
 export function TextButton({
   onPress,
@@ -8,16 +7,17 @@ export function TextButton({
   marginRight,
   marginTop,
   marginLeft,
-  marginBottom
+  marginBottom,
+  style
 }) {
   return (
-    <TouchableOpacity style={[styles.button, {
+    <TouchableOpacity style={{
       marginRight,
       marginTop,
       marginLeft,
       marginBottom
-    }]} onPress={onPress}>
-      <Text style={styles.text}>{children}</Text>
+    }} onPress={onPress}>
+      <Text style={style}>{children}</Text>
     </TouchableOpacity>
   )
 }
