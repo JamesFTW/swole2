@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
   },
-  signUpScreenContent: {
+  userDetailsContent: {
     paddingLeft: LAYOUT.SPACING_S_24,
     paddingRight: LAYOUT.SPACING_S_24,
   },
@@ -15,11 +15,12 @@ const styles = StyleSheet.create({
     color: COLORS.PRIMARY_COLOR,
     marginTop: LAYOUT.SPACING_S_28
   },
-  backButton: {
-    fontSize: FONTS.SIZE_14,
+  subTitle: {
     fontFamily: FONTS.SFPRO_MEDIUM,
-    color: COLORS.ALERT_COLOR,
-    letterSpacing: 0.125,
+    fontSize: FONTS.SIZE_14,
+    marginTop: LAYOUT.SPACING_XS_12,
+    color: COLORS.PRIMARY_COLOR,
+    letterSpacing: .1
   },
   passwordRequirementText: {
     marginTop: LAYOUT.SPACING_XS_16,

@@ -1,44 +1,45 @@
 import React from 'react'
 import { View, Text, SafeAreaView } from 'react-native'
 import { LAYOUT } from '../../../constants'
-import { Button, FormInput, TextButton } from '../../../components'
+import { Button, FormInput } from '../../../components'
 import styles from './UserDetailsScreen.styles'
 
 export const UserDetailsScreenRoute = 'UserDetailsScreenRoute'
 
 const CONSTANTS = {
-  EMAIL_PLACEHOLDER: 'iamveryswole@swole.com',
-  PASSWORD_REQUIREMENT_TEXT: 'Password must contain at least 8 characters',
-  PASSWORD_PLACEHOLDER: '*******',
-  SIGN_UP_WITH_EMAIL: 'Sign up with email'
+  EMAIL_PLACEHOLDER: 'swolegod',
+  Full_NAME_PLACEHOLDER: 'Bob Swole',
+  SIGN_UP_WITH_EMAIL: 'Create your profile',
+  BIRTHDATE_PLACEHOLDER: 'MM/DD/YYYY',
+  SUB_TITLE_TEXT: 'This will give you a place to store workouts and help your friends find you.'
 }
 
 export function UserDetailsScreen({navigation}) {
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.signUpScreenContent}>
-        <TextButton 
-          onPress={() => navigation.goBack()} 
-          marginTop={LAYOUT.SPACING_S_28} 
-          style={styles.backButton}>
-            Back
-        </TextButton>
+      <View style={styles.userDetailsContent}>
         <Text style={styles.title}>{CONSTANTS.SIGN_UP_WITH_EMAIL}</Text>
+        <Text style={styles.subTitle}>{CONSTANTS.SUB_TITLE_TEXT}</Text>
         <View style={styles.content}>
-          <FormInput 
-            textContentType={'emailAddress'} 
+          <FormInput
+            textContentType={'username'}
             placeholder={CONSTANTS.EMAIL_PLACEHOLDER}
-            title="Email"
+            title="Username"
           />
-          <FormInput 
-            secureTextEntry 
+          <FormInput
             textContentType={'newPassword'} 
-            placeholder={CONSTANTS.PASSWORD_PLACEHOLDER}
+            placeholder={CONSTANTS.Full_NAME_PLACEHOLDER}
             marginTop={LAYOUT.SPACING_S_20} 
-            title="Password"
+            title="Full name"
           />
-          <Text style={styles.passwordRequirementText}>{CONSTANTS.PASSWORD_REQUIREMENT_TEXT}</Text>
-          <Button title="Submit"/>
+          <FormInput
+            textContentType={'birthdate-full'} 
+            placeholder={CONSTANTS.BIRTHDATE_PLACEHOLDER}
+            marginTop={LAYOUT.SPACING_S_20} 
+            title="Birthdate"
+            marginBottom={191}
+          />
+          <Button title="Get Swole!"/>
         </View>
       </View>
     </SafeAreaView>
