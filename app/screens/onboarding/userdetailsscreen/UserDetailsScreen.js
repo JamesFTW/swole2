@@ -27,13 +27,13 @@ export function UserDetailsScreen({navigation}) {
             title="Username"
           />
           <FormInput
-            textContentType={'newPassword'} 
+            textContentType={'name'}
             placeholder={CONSTANTS.Full_NAME_PLACEHOLDER}
             marginTop={LAYOUT.SPACING_S_20} 
             title="Full name"
           />
           <FormInput
-            textContentType={'birthdate-full'} 
+            textContentType={'none'}
             placeholder={CONSTANTS.BIRTHDATE_PLACEHOLDER}
             marginTop={LAYOUT.SPACING_S_20} 
             title="Birthdate"

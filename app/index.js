@@ -16,11 +16,10 @@
  */
 
 import * as React from 'react'
-import {NavigationContainer} from '@react-navigation/native'
+import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
-import {SplashScreen} from './screens/onboarding/splashscreen/SplashScreen'
-import { SignUpScreen } from './screens/onboarding/signupscreen/SignUpScreen'
+import { OnBoardingStack } from './screens/onboarding'
 
 const Stack = createNativeStackNavigator()
 
@@ -31,12 +30,8 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
         <Stack.Screen
-          name="Splash"
-          component={SplashScreen}
-        />
-        <Stack.Screen
-          name="SignUpScreen"
-          component={SignUpScreen}
+          name="Onboarding"
+          component={OnBoardingStack}
         />
       </Stack.Navigator>
     </NavigationContainer>

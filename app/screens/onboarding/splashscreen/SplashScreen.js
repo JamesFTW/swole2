@@ -3,8 +3,9 @@ import { ImageBackground, View, Text, StatusBar } from 'react-native'
 import { LAYOUT } from '../../../constants'
 import { Button } from '../../../components'
 import { EmailIcon } from '../../../assets/icons'
-import SplashScreenBackground from '../../../assets/imgs/splash_screen.png'
 import { SignUpScreenRoute } from '../signupscreen/SignUpScreen'
+import { SignInScreenRoute } from '../signinscreen/SignInScreen'
+import SplashScreenBackground from '../../../assets/imgs/splash_screen.png'
 
 import styles from './SplashScreen.styles'
 
@@ -48,8 +49,7 @@ export function SplashScreen({navigation}) {
         onPress={() => navigation.navigate(SignUpScreenRoute)}
       />
         <Text style={styles.text}>{CONSTANTS.ALREADY_A_MEMBER}
-            <Text onPress={() => {
-            }} style={styles.loginText}> {CONSTANTS.LOG_IN}</Text>
+            <Text onPress={() => navigation.navigate(SignInScreenRoute)} style={styles.loginText}> {CONSTANTS.LOG_IN}</Text>
         </Text>
     </View>
   )

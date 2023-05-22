@@ -20,7 +20,7 @@ export function Button({
         marginRight,
         marginTop,
         marginLeft,
-        marginBottom
+        marginBottom,
       }]} onPress={onPress}>
         <FlexContainer alignItems={LAYOUT.ALIGN_CENTER} direction={LAYOUT.FLEX_ROW}>
           {icon}

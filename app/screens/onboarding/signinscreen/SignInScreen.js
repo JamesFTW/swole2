@@ -33,13 +33,14 @@ export function SignInScreen({navigation}) {
           />
           <FormInput 
             secureTextEntry 
-            textContentType={'Password'} 
+            textContentType={'password'}
             placeholder={CONSTANTS.PASSWORD_PLACEHOLDER}
             marginTop={LAYOUT.SPACING_S_20} 
             title="Password"
             marginBottom={119}
           />
-          <Button onPress={() => navigation.navigate(UserDetailsScreenRoute)} title="Submit"/>
+          {/** Verify then login to profile */}
+          <Button onPress={() =>{}} title="Submit"/>
         </View>
       </View>
     </SafeAreaView>
