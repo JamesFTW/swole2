@@ -2,10 +2,9 @@ import React from 'react'
 import { View, Text, SafeAreaView } from 'react-native'
 import { LAYOUT } from '../../../constants'
 import { Button, FormInput, TextButton } from '../../../components'
-import { UserDetailsScreenRoute } from '../userdetailsscreen/UserDetailsScreen'
-import styles from './SignUpScreen.styles'
+import styles from './UserDetailsScreen.styles'
 
-export const SignUpScreenRoute = 'SignUpScreen'
+export const UserDetailsScreenRoute = 'UserDetailsScreenRoute'
 
 const CONSTANTS = {
   EMAIL_PLACEHOLDER: 'iamveryswole@swole.com',
@@ -14,7 +13,7 @@ const CONSTANTS = {
   SIGN_UP_WITH_EMAIL: 'Sign up with email'
 }
 
-export function SignUpScreen({navigation}) {
+export function UserDetailsScreen({navigation}) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.signUpScreenContent}>
@@ -39,7 +38,7 @@ export function SignUpScreen({navigation}) {
             title="Password"
           />
           <Text style={styles.passwordRequirementText}>{CONSTANTS.PASSWORD_REQUIREMENT_TEXT}</Text>
-          <Button onPress={() => navigation.navigate(UserDetailsScreenRoute)} title="Submit"/>
+          <Button title="Submit"/>
         </View>
       </View>
     </SafeAreaView>
