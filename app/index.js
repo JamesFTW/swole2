@@ -4,17 +4,6 @@
 
 // export { default } from '../storybook';
 
-/**
- *  - screens
- *  -- workoutscreen
- *  ---- exercise
- * ----- etc.
- */
-
-/**
- * file orignally had this
- */
-
 import * as React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
