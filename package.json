@@ -11,7 +11,7 @@
     "prestorybook": "rnstl",
     "storybook": "start-storybook -p 7007",
     "build-storybook": "build-storybook",
-    "compile": "node ./scripts/compile.js"
+    "compile": "node ./scripts/compile.js & node ./scripts/compileHooks.js"
   },
   "config": {
     "react-native-storybook-loader": {
