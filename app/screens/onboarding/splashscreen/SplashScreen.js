@@ -6,7 +6,6 @@ import { EmailIcon } from '../../../assets/icons'
 import { SignUpScreenRoute } from '../signupscreen/SignUpScreen'
 import { SignInScreenRoute } from '../signinscreen/SignInScreen'
 import SplashScreenBackground from '../../../assets/imgs/splash_screen.png'
-
 import styles from './SplashScreen.styles'
 
 export const SplashScreenRoute = "SplashScreenRoute"
