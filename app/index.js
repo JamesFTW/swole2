@@ -7,23 +7,30 @@
 import * as React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
 
 import { OnBoardingStack } from './screens/onboarding'
 
 const Stack = createNativeStackNavigator()
+const queryClient = new QueryClient()
 
 //very basic router set up
 
 function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen
-          name="Onboarding"
-          component={OnBoardingStack}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+      <NavigationContainer>
+        <QueryClientProvider client={queryClient}>
+          <Stack.Navigator screenOptions={{headerShown: false}}>
+            <Stack.Screen
+              name="Onboarding"
+              component={OnBoardingStack}
+            />
+          </Stack.Navigator>
+        </QueryClientProvider>
+      </NavigationContainer>
   )
 }
 

@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import styles from './FormInput.styles'
 import { View, Text, TextInput } from 'react-native'
 
@@ -10,7 +10,8 @@ export function FormInput({
   marginRight,
   marginLeft,
   secureTextEntry,
-  textContentType
+  textContentType,
+  onChangeText
 }) {
   
   return (
@@ -29,6 +30,7 @@ export function FormInput({
           secureTextEntry={secureTextEntry ? true : false}
           textContentType={textContentType}
           keyboardType="email-address"
+          onChangeText={onChangeText}
         />
       </View>
     </View>
