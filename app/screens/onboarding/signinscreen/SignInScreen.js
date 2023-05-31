@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { View, Text, SafeAreaView } from 'react-native'
 import { LAYOUT } from '../../../constants'
 import { Button, FormInput, TextButton } from '../../../components'
-import { UserDetailsScreenRoute } from '../userdetailsscreen/UserDetailsScreen'
+import { useGetUserTest } from '../../../lib/users/hooks/'
 import styles from './SigninScreen.styles'
 
 export const SignInScreenRoute = 'SignInScreen'
@@ -15,6 +15,15 @@ const CONSTANTS = {
 }
 
 export function SignInScreen({navigation}) {
+  const [userName, setUsernameText] = useState('')
+  const [password, setPasswordText] = useState('')
+
+  useEffect(() => {}, [userName, password])
+
+  const { data } = useGetUserTest()
+
+  console.log(data)
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.signUpScreenContent}>
@@ -30,6 +39,7 @@ export function SignInScreen({navigation}) {
             textContentType={'emailAddress'} 
             placeholder={CONSTANTS.EMAIL_PLACEHOLDER}
             title="Username"
+            onChangeText={(text) => setUsernameText(text)}
           />
           <FormInput 
             secureTextEntry 
@@ -38,6 +48,7 @@ export function SignInScreen({navigation}) {
             marginTop={LAYOUT.SPACING_S_20} 
             title="Password"
             marginBottom={119}
+            onChangeText={(text) => setPasswordText(text)}
           />
           {/** Verify then login to profile */}
           <Button onPress={() =>{}} title="Submit"/>
