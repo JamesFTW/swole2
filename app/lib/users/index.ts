@@ -1,9 +1,20 @@
-import { API_ENDPOINT } from '..'
+import { API_ENDPOINT, request, HEADERS, METHODS } from '../http'
+import qs from 'qs'
 
-export function userTest() {
+export function userSignin(body) {
   return new Promise((resolve, reject) => {
-    fetch(`${API_ENDPOINT}/users/test`)
-      .then(res => res.json())
+    request({
+      endpoint: `${API_ENDPOINT}/users/login/password`,
+      body: qs.stringify(body),
+      headers: HEADERS.APPLICATION_X_WWW_FORM_URLENCODED,
+      method: METHODS.POST
+    })
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Request failed with status ' + res.status);
+        }
+        return res.json()
+      })
       .then(data => resolve(data))
       .catch(err => reject(err))
   })
