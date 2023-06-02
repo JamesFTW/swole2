@@ -1,0 +1,36 @@
+const API_ENDPOINT = process.env.API_ENDPOINT
+
+const HEADERS = {
+  'APPLICATION_JSON' : 'application/json',
+  'APPLICATION_X_WWW_FORM_URLENCODED': 'application/x-www-form-urlencoded'
+}
+
+const METHODS = {
+  POST: 'POST',
+  PUT: 'PUT',
+  PATCH: 'PATCH',
+  GET: 'GET',
+  DELETE: 'DELETE',
+}
+
+const SAME_ORIGIN = 'same-origin'
+const CONTENT_TYPE = 'Content-Type'
+
+const request = ({ endpoint, body, method, headers }) => {
+  const newHeaders = new Headers()
+
+  if (headers) {
+    newHeaders.append(CONTENT_TYPE, headers)
+  }
+
+  return (
+    fetch(endpoint, {
+      method: method,
+      headers: newHeaders,
+      credentials: SAME_ORIGIN,
+      body: body,
+    })
+  )
+}
+
+export { API_ENDPOINT, request, HEADERS, METHODS }
