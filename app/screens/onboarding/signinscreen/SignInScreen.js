@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { View, Text, SafeAreaView } from 'react-native'
 import { LAYOUT } from '../../../constants'
 import { Button, FormInput, TextButton } from '../../../components'
-import { useGetUserTest } from '../../../lib/users/hooks/'
+import { useUserSignin } from '../../../lib/users/hooks/'
 import styles from './SigninScreen.styles'
 
 export const SignInScreenRoute = 'SignInScreen'
@@ -15,14 +15,10 @@ const CONSTANTS = {
 }
 
 export function SignInScreen({navigation}) {
-  const [userName, setUsernameText] = useState('')
+  const [username, setUsernameText] = useState('')
   const [password, setPasswordText] = useState('')
 
-  useEffect(() => {}, [userName, password])
-
-  const { data } = useGetUserTest()
-
-  console.log(data)
+  const { mutate: Signin, isSuccess, isLoading } = useUserSignin()
 
   return (
     <SafeAreaView style={styles.container}>
@@ -50,8 +46,15 @@ export function SignInScreen({navigation}) {
             marginBottom={119}
             onChangeText={(text) => setPasswordText(text)}
           />
-          {/** Verify then login to profile */}
-          <Button onPress={() =>{}} title="Submit"/>
+          <Button onPress={() => {
+            Signin({
+              username,
+              password,
+            })
+          }} title="Submit"/>
+
+          {/** navigate to profile page if true, throw error screen if not */}
+          {/* {isSuccess? console.log('bruh'): console.log('bruh failed')} */}
         </View>
       </View>
     </SafeAreaView>
