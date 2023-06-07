@@ -1,5 +1,5 @@
-
 import { userSignin } from '../'
+import { setCookieFromResponse, getCookies, clearCookies } from '../../http/cookiemanager'
 
 import {
   useMutation,
@@ -20,7 +20,10 @@ export const useUserSignin = () => {
 
   },
   onSuccess: (data) => {
-    console.log(data.session)
+    const { cookie } = data.session
+    setCookieFromResponse(cookie)
+    getCookies()
+    clearCookies()
     //Store data in async storage
   },
   onError: (error) => {

@@ -1,4 +1,5 @@
 const API_ENDPOINT = process.env.API_ENDPOINT
+const API_DOMAIN_NAME = process.env.API_DOMAIN_NAME
 
 const HEADERS = {
   'APPLICATION_JSON' : 'application/json',
@@ -28,9 +29,10 @@ const request = ({ endpoint, body, method, headers }) => {
       method: method,
       headers: newHeaders,
       credentials: SAME_ORIGIN,
+      'access-control-allow-credential': 'true',
       body: body,
     })
   )
 }
 
-export { API_ENDPOINT, request, HEADERS, METHODS }
+export { API_ENDPOINT, request, HEADERS, METHODS, API_DOMAIN_NAME }

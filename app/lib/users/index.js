@@ -1,10 +1,10 @@
-import { API_ENDPOINT, request, HEADERS, METHODS } from '../http'
+import { API_ENDPOINT, request, HEADERS, METHODS } from '../http/request'
 import qs from 'qs'
 
 export function userSignin(body) {
   return new Promise((resolve, reject) => {
     request({
-      endpoint: `${API_ENDPOINT}/users/login/password`,
+      endpoint: `${API_ENDPOINT}/users/login`,
       body: qs.stringify(body),
       headers: HEADERS.APPLICATION_X_WWW_FORM_URLENCODED,
       method: METHODS.POST
