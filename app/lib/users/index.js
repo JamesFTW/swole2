@@ -20,6 +20,22 @@ export function userSignin(body) {
   })
 }
 
+export function getUserProfile(body) {
+  return new Promise((resolve, reject) => {
+    request({
+      endpoint: `${API_ENDPOINT}/users/`,
+      method: METHODS.GET
+    })
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Request failed with status ' + res.status)
+        }
+        resolve(res)
+      })
+      .catch(err => reject(err))
+  })
+}
+
 
 // using in a lot of places put in a main hooks directory
 // if feature specific but in feature file

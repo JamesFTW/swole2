@@ -4,3 +4,4 @@
 ***************************************************************/
 
 export * from './useUserSignin';
+export * from './useGetUserProfile';

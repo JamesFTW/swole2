@@ -23,7 +23,6 @@ export const useUserSignin = () => {
     const { cookie } = data.session
     setCookieFromResponse(cookie)
     getCookies()
-    clearCookies()
     //Store data in async storage
   },
   onError: (error) => {
