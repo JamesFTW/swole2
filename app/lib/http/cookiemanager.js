@@ -7,18 +7,19 @@ export function setCookieFromResponse(cookie) {
       console.log('CookieManager.setFromResponse =>', success)
     })
     .catch((error) => {
+      //this will always throw an error, but it does set the cookie
       console.log(error)
     })
 }
 
 export function getCookies() {
   return CookieManager.get(API_ENDPOINT)
-  .then((cookies) => {
-    console.log('CookieManager.get =>', cookies);
-  })
-  .catch((error) => {
-    console.log(error)
-  })
+    .then((cookies) => {
+      console.log('CookieManager.get =>', cookies);
+    })
+    .catch((error) => {
+      console.log(error)
+    })
 }
 
 export function clearCookies() {

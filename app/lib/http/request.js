@@ -3,7 +3,8 @@ const API_DOMAIN_NAME = process.env.API_DOMAIN_NAME
 
 const HEADERS = {
   'APPLICATION_JSON' : 'application/json',
-  'APPLICATION_X_WWW_FORM_URLENCODED': 'application/x-www-form-urlencoded'
+  'APPLICATION_X_WWW_FORM_URLENCODED': 'application/x-www-form-urlencoded',
+  'ACCESS_CONTROL_ALLOW_CREDENTIAL': 'access-control-allow-credential',
 }
 
 const METHODS = {
@@ -15,11 +16,14 @@ const METHODS = {
 }
 
 const SAME_ORIGIN = 'same-origin'
+const INCLUDE = 'include'
 const CONTENT_TYPE = 'Content-Type'
 
 const request = ({ endpoint, body, method, headers }) => {
   const newHeaders = new Headers()
 
+  //might have to add headers a different way
+  //there will be times the credential header needs to be include.  and not always same-origin
   if (headers) {
     newHeaders.append(CONTENT_TYPE, headers)
   }
