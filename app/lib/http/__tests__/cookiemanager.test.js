@@ -56,7 +56,7 @@ describe('cookiemanager', () => {
       CookieManager.get.mockRejectedValue(error)
   
       await expect(getCookies()).rejects.toThrow('Error while retrieving cookies')
-    });
+    })
   })
 
   describe('clearCookies', () => {
