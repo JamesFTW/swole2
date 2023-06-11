@@ -23,9 +23,9 @@
     }
   },
   "dependencies": {
-    "@react-aria/button": "^3.7.0",
-    "@react-native-community/async-storage": "^1.12.1",
+    "@react-native-async-storage/async-storage": "^1.18.2",
     "@react-native-community/masked-view": "^0.1.11",
+    "@react-native-cookies/cookies": "^6.2.1",
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/native-stack": "^6.2.5",
     "@react-navigation/stack": "^5.14.9",
@@ -64,6 +64,7 @@
     "@storybook/react": "^6.5.16",
     "@storybook/react-native": "^5.3.27",
     "@storybook/react-native-server": "^5.3.23",
+    "@testing-library/react-hooks": "^8.0.1",
     "babel-jest": "^27.4.5",
     "babel-loader": "^8.3.0",
     "babel-plugin-module-resolver": "^4.1.0",
@@ -71,6 +72,7 @@
     "eslint": "^8.4.1",
     "jest": "^27.4.5",
     "metro-react-native-babel-preset": "^0.66.2",
+    "nock": "^13.3.1",
     "react-dom": "^17.0.2",
     "react-native-storybook-loader": "^2.0.5",
     "react-test-renderer": "17.0.2",

@@ -13,9 +13,6 @@ target 'swole2' do
   )
 
 
-  pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
-
-
 
 
 
