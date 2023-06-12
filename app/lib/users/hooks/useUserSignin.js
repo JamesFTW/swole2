@@ -1,5 +1,6 @@
 import { userSignin } from '../'
-import { setCookieFromResponse, getCookies, clearCookies } from '../../http/cookiemanager'
+import { setCookie } from '../../http/cookiemanager'
+import { AsyncStorage, ASYNC_STORE_CONSTANTS } from '../../../services/asyncstorage'
 
 import {
   useMutation,
@@ -20,10 +21,18 @@ export const useUserSignin = () => {
 
   },
   onSuccess: (data) => {
-    const { cookie } = data.session
-    setCookieFromResponse(cookie)
-    getCookies()
-    //Store data in async storage
+    const { cookie, passport } = data.session
+
+    if (cookie && passport) {
+      const asyncCookieStore = new AsyncStorage(cookie)
+      const asyncUserDataStore = new AsyncStorage(passport)
+
+      setCookie(cookie)
+
+      //might not need this for session cookie
+      asyncCookieStore.storeObjData(ASYNC_STORE_CONSTANTS.USER_SESSION_COOKIE)
+      asyncUserDataStore.storeObjData(ASYNC_STORE_CONSTANTS.USER_DATA)
+    }
   },
   onError: (error) => {
     console.log(error)
