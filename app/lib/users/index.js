@@ -20,7 +20,7 @@ export function userSignin(body) {
   })
 }
 
-export function getUserProfile(body) {
+export function getUserProfile() {
   return new Promise((resolve, reject) => {
     request({
       endpoint: `${API_ENDPOINT}/users/`,
@@ -30,8 +30,9 @@ export function getUserProfile(body) {
         if (!res.ok) {
           throw new Error('Request failed with status ' + res.status)
         }
-        resolve(res)
+        return res.json()
       })
+      .then(data => resolve(data))
       .catch(err => reject(err))
   })
 }
