@@ -79,6 +79,7 @@
     "webpack": "^5.75.0"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "setupFiles": ["./__mocks__/@react-native-async-storage/async-storage.js"]
   }
 }
