@@ -8,6 +8,8 @@ export const ASYNC_STORE_CONSTANTS = {
 /**
  * Might have to return a promise for storeObjData and removeValue
  * When that comes up fix it
+ * 
+ * Shit might not need to return a promise for any of these.  Come back to it
  */
 export class AsyncStorage {
   constructor(data) {
@@ -36,11 +38,29 @@ export class AsyncStorage {
 
   removeValue = async (storage_key) => {
     try {
-      await AsyncStorage.removeItem(storage_key)
+      await RNAsyncStorage.removeItem(storage_key)
     } catch(error) {
       throw new Error(error)
-    }
+    } 
+    console.log(`Removed value: ${storage_key} from async storage`)
+  }
   
-    console.log('Done.')
+  clearAll = async () => {
+    try {
+      await RNAsyncStorage.clear()
+    } catch(error) {
+      throw new Error(error)
+    } 
+    console.log('Cleared all values from async storage')
+  }
+
+  getUserData = async () => {
+      try {
+        const userData = await this.getObjData(ASYNC_STORE_CONSTANTS.USER_DATA)
+        return [ userData, null ]
+      } catch (error) {
+        return [ error, null ]
+      } 
   }
 }
+
