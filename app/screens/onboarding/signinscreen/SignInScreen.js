@@ -3,6 +3,7 @@ import { View, Text, SafeAreaView } from 'react-native'
 import { LAYOUT } from '../../../constants'
 import { Button, FormInput, TextButton } from '../../../components'
 import { useUserSignin } from '../../../lib/users/hooks/'
+import { ProfileScreenRoute } from '../../profilescreen/ProfileScreen'
 import styles from './SigninScreen.styles'
 
 export const SignInScreenRoute = 'SignInScreen'
@@ -19,6 +20,13 @@ export function SignInScreen({navigation}) {
   const [password, setPasswordText] = useState('')
 
   const { mutate: Signin, isSuccess, isLoading } = useUserSignin()
+
+  /**
+   * Come back and fix this
+   */
+
+  //This console.log needs to be an error state screen
+  isSuccess? navigation.navigate(ProfileScreenRoute): console.log('bruh') 
 
   return (
     <SafeAreaView style={styles.container}>
@@ -54,7 +62,6 @@ export function SignInScreen({navigation}) {
           }} title="Submit"/>
 
           {/** navigate to profile page if true, throw error screen if not */}
-          {/* {isSuccess? console.log('bruh'): console.log('bruh failed')} */}
         </View>
       </View>
     </SafeAreaView>
