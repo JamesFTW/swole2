@@ -1,6 +1,5 @@
 import { getUserProfile } from '../'
-import { clearCookies, getCookies } from '../../http/cookiemanager'
-import { ASYNC_STORE_CONSTANTS, AsyncStorage } from '../../../services/asyncstorage'
+import { AsyncStorage } from '../../../services/asyncstorage'
 
 import {
   useQuery,
@@ -10,16 +9,16 @@ export const useGetUserProfile = () => {
   return useQuery({
     queryKey: ['userProfile'],
     queryFn: async () => {
-      const asyncStore = new AsyncStorage()
+      const asyncstore = new AsyncStorage()
+      
+      const [userData, error] = await asyncstore.getUserData()
 
-      if (asyncStore.getObjData(ASYNC_STORE_CONSTANTS.USER_DATA)) {
-        try {
-          const userData = await asyncStore.getObjData(ASYNC_STORE_CONSTANTS.USER_DATA)
+      if (userData !== null) {
+        return userData
+      }
 
-          return userData
-        } catch(error) {
-          throw new Error(error)
-        }
+      if (error) {
+        throw new Error(error)
       }
 
       try {
