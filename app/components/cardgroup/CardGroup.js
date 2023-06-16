@@ -7,7 +7,7 @@ import { ScrollContent } from '../../layout'
 export function CardGroup({ children }) {
   if (children.length) {
     return (
-      <ScrollContent>
+      <ScrollContent useSafeArea>
         {children.map((card, i) => {
           return (
             <View style={styles.cardGroupChild} key={i}>
@@ -20,7 +20,7 @@ export function CardGroup({ children }) {
   }
 
   return (
-    <ScrollContent>
+    <ScrollContent useSafeArea>
       <View style={styles.cardGroupChild}>
         { children }
       </View>

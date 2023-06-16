@@ -11,7 +11,7 @@ export function Exercise({
   exerciseImage
 }) {
   return (
-    <Card cardHeight={LAYOUT.SPACING_XL_76}>
+    <Card borderRadius cardHeight={LAYOUT.SPACING_XL_76}>
       <FlexContainer direction={LAYOUT.FLEX_ROW}>
         <Image
           src={exerciseImage}

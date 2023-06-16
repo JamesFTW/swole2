@@ -7,7 +7,6 @@ const styles = StyleSheet.create({
 		borderWidth: 1,
 		borderColor: COLORS.CARD_BOARDER_COLOR,
 		backgroundColor: COLORS.WHITE,
-		borderRadius: LAYOUT.SPACING_XS_12,
 		marginLeft: LAYOUT.SPACING_XS_8,
 		marginRight: LAYOUT.SPACING_XS_8,
 

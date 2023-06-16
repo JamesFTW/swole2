@@ -19,7 +19,7 @@ export function WorkoutExercise({
     WEIGHT: 'lbs' //TODO: convert this to something that can render lbs or kgs based on region.
   }
   return (
-    <Card>
+    <Card borderRadius>
       <FlexContainer direction={LAYOUT.FLEX_ROW}>
         <Image
           height={LAYOUT.SPACING_LG_60}
