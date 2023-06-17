@@ -13,6 +13,7 @@ function loadStories() {
   require('../app/components/image/stories/Image.stories');
   require('../app/components/textbutton/stories/TextButton.stories');
   require('../app/features/exercise/stories/Exercise.stories');
+  require('../app/features/weekatglance/stories/WeekAtGlance.stories');
   require('../app/features/workoutexercise/stories/WorkoutExercise.stories');
   require('../app/features/workoutexercise/stories/WorkoutExerciseInfo.stories');
 }
@@ -27,6 +28,7 @@ const stories = [
   '../app/components/image/stories/Image.stories',
   '../app/components/textbutton/stories/TextButton.stories',
   '../app/features/exercise/stories/Exercise.stories',
+  '../app/features/weekatglance/stories/WeekAtGlance.stories',
   '../app/features/workoutexercise/stories/WorkoutExercise.stories',
   '../app/features/workoutexercise/stories/WorkoutExerciseInfo.stories',
 ];
