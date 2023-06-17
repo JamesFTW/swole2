@@ -13,13 +13,14 @@ const styles = StyleSheet.create({
     marginRight: LAYOUT.SPACING_S_20,
   },
   textOutline: {
+    flex: 1,
     fontSize: FONTS.SIZE_16,
     fontFamily: FONTS.SFPRO_MEDIUM,
     color: COLORS.PRIMARY_COLOR,
     justifyContent: LAYOUT.ALIGN_CENTER,
     alignItems: LAYOUT.ALIGN_CENTER,
     lineHeight: LAYOUT.SPACING_MD_48,
-    marginLeft: LAYOUT.SPACING_LG_64
+    textAlign: 'center'
   },
   button: {
     backgroundColor: COLORS.PRIMARY_COLOR,
@@ -35,7 +36,7 @@ const styles = StyleSheet.create({
     fontFamily: FONTS.SFPRO_MEDIUM,
     color: COLORS.WHITE,
     justifyContent: LAYOUT.ALIGN_CENTER,
-    alignItems: LAYOUT.ALIGN_CENTER,
+    textAlign: LAYOUT.ALIGN_CENTER,
     lineHeight: LAYOUT.SPACING_MD_48,
     letterSpacing: 0.125,
   },
