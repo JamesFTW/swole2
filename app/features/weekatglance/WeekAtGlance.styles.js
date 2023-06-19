@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
 		letterSpacing: FONTS.SPACING_XS,
 		color: COLORS.PRIMARY_COLOR,
     marginTop: LAYOUT.SPACING_XS_4,
-    marginLeft: LAYOUT.SPACING_XS_12
+    marginLeft: LAYOUT.SPACING_XS_4
     
 	},
   show_more_training_subtitle: {

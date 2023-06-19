@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { View, Text } from 'react-native'
+import { View, TouchableOpacity, Text } from 'react-native'
 import { Card } from '../../components'
 import { FlexContainer } from '../../layout'
 import { Checkmark } from '../../assets/icons'
@@ -60,9 +60,9 @@ export function WeekAtGlance({weeklyStatus}) {
   )
 }
 
-function DayofWeekIndicator({dayOfWeek, marginRight, workoutCompleted}) {
+function DayofWeekIndicator({dayOfWeek, marginRight, workoutCompleted, onPress}) {
   return (
-    <View style={[styles.day_of_week_container, { marginRight }]}>
+    <TouchableOpacity onPress={onPress} style={[styles.day_of_week_container, { marginRight }]}>
       <View style={
         workoutCompleted
           ? styles.day_of_week_indicator_completed 
@@ -71,6 +71,6 @@ function DayofWeekIndicator({dayOfWeek, marginRight, workoutCompleted}) {
         { workoutCompleted ? <Checkmark/> : null }
       </View>
       <Text style={{marginTop: 37}}>{dayOfWeek}</Text>
-    </View>
+    </TouchableOpacity>
   )
 }

@@ -4,4 +4,5 @@
 ***************************************************************/ 
  
 export { Exercise } from './exercise/Exercise.js';
+export { WeekAtGlance } from './weekatglance/WeekAtGlance.js';
 export { WorkoutExercise } from './workoutexercise/WorkoutExercise.js';
