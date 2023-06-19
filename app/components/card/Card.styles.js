@@ -6,9 +6,6 @@ const styles = StyleSheet.create({
 		alignSelf: 'stretch',
 		borderWidth: 1,
 		borderColor: COLORS.CARD_BOARDER_COLOR,
-		backgroundColor: COLORS.WHITE,
-		marginLeft: LAYOUT.SPACING_XS_8,
-		marginRight: LAYOUT.SPACING_XS_8,
 
 	},
 	card_inner: {
