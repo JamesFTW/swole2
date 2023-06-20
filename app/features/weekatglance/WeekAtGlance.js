@@ -73,7 +73,7 @@ export function WeekAtGlance({weeklyStatus}) {
   )
 }
 
-function DayofWeekIndicator({
+export function DayofWeekIndicator({
   dayOfWeek,
   marginRight,
   workoutInfo,
