@@ -3,6 +3,8 @@ import { View, TouchableOpacity, Text } from 'react-native'
 import { Card } from '../../components'
 import { FlexContainer } from '../../layout'
 import { Checkmark } from '../../assets/icons'
+import { WorkoutScreenRoute } from '../../screens/workoutscreen/WorkoutScreen'
+import { useNavigation } from '@react-navigation/native';
 import styles from './WeekAtGlance.styles'
 
 const DAY_OF_WEEK_CONSTANTS = {
@@ -15,9 +17,10 @@ const DAY_OF_WEEK_CONSTANTS = {
   'Sunday': 'S'
 }
 
-export function WeekAtGlance({weeklyStatus}) {  
+export function WeekAtGlance({weeklyStatus}) {
+  const navigation = useNavigation()
   
-  const getDaysOfWeek = () => {
+  const getDaysOfWeekIndicators = () => {
     const map = []
     const dayMargins = {
       Monday: 35,
@@ -31,14 +34,24 @@ export function WeekAtGlance({weeklyStatus}) {
 
     Object.keys(weeklyStatus).map((day) => {
       const marginRight = dayMargins[day]
+      const workoutInfo = {
+        ...weeklyStatus[day],
+        day
+      }
 
       map.push(
-        <DayofWeekIndicator 
-          workoutCompleted={weeklyStatus[day].workoutCompleted} 
+        <DayofWeekIndicator
+          key={workoutInfo.workoutId}
+          workoutInfo={workoutInfo} 
           dayOfWeek={DAY_OF_WEEK_CONSTANTS[day]} 
           marginRight={marginRight}
+          onPress={() => {
+            navigation.navigate(WorkoutScreenRoute, {
+              workoutInfo: workoutInfo,
+            })
+          }}
         />
-        )
+      )
     })
 
     return map
@@ -52,7 +65,7 @@ export function WeekAtGlance({weeklyStatus}) {
         </View>
       </FlexContainer>
       <FlexContainer direction='row'>
-        {getDaysOfWeek()}
+        {getDaysOfWeekIndicators()}
       </FlexContainer>
       <View style={styles.week_at_glance_underline}/>
       <Text style={styles.show_more_training_subtitle}>See more of your training</Text>
@@ -60,7 +73,14 @@ export function WeekAtGlance({weeklyStatus}) {
   )
 }
 
-function DayofWeekIndicator({dayOfWeek, marginRight, workoutCompleted, onPress}) {
+function DayofWeekIndicator({
+  dayOfWeek,
+  marginRight,
+  workoutInfo,
+  onPress
+}) {
+  const { workoutCompleted } = workoutInfo
+
   return (
     <TouchableOpacity onPress={onPress} style={[styles.day_of_week_container, { marginRight }]}>
       <View style={
