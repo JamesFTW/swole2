@@ -8,12 +8,55 @@ const styles = StyleSheet.create({
     height: profileImageHeight,
   },
   profile_name: {
-    color: 'black',
+    color: COLORS.PRIMARY_COLOR,
     fontFamily: FONTS.SFPRO_HEAVY,
     fontSize: FONTS.SIZE_24,
     letterSpacing: -.02,
     marginLeft: 16,
-    marginTop: 21
+  },
+  bio: {
+    color: COLORS.PRIMARY_COLOR,
+    fontFamily: FONTS.SFPRO_REGULAR,
+    fontSize: FONTS.SIZE_14,
+    letterSpacing: -.02,
+    marginLeft: 20,
+    marginRight: 15,
+    marginBottom: 12,
+    lineHeight: 21
+  },
+  profile_location: {
+    color: COLORS.PRIMARY_COLOR,
+    fontFamily: FONTS.SFPRO_REGULAR,
+    fontSize: FONTS.SIZE_14,
+    letterSpacing: -.02,
+    marginLeft: 8,
+    bottom: 2
+  },
+  edit_button_text: {
+    color: COLORS.PRIMARY_COLOR,
+    fontFamily: FONTS.SFPRO_REGULAR,
+    fontSize: FONTS.SIZE_10,
+    letterSpacing: .015,
+    alignSelf: 'center',
+    marginLeft: 3
+  },
+  edit_button: {
+    backgroundColor: COLORS.WHITE,
+    width: 118,
+    height: 28,
+    borderRadius: 5,
+    borderColor: "#E5E5E5",
+    borderWidth: 1,
+    position: 'absolute',
+    right: 0,
+    marginTop: 33,
+    marginRight: 16,
+    zIndex: 10
+  },
+  pencil_icon: {
+    height: 28,
+    width: 28,
+    top: 2
   }
 })
 
