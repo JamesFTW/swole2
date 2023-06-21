@@ -90,7 +90,7 @@ export function DayofWeekIndicator({
         }>
         { workoutCompleted ? <Checkmark/> : null }
       </View>
-      <Text style={{marginTop: 37}}>{dayOfWeek}</Text>
+      <Text style={styles.day_of_week_text}>{dayOfWeek}</Text>
     </TouchableOpacity>
   )
 }

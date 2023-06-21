@@ -44,6 +44,13 @@ const styles = StyleSheet.create({
     marginTop: LAYOUT.SPACING_MD_36, 
     alignItems: LAYOUT.ALIGN_CENTER
   },
+  day_of_week_text: {
+    fontFamily: FONTS.SFPRO_MEDIUM,
+		fontSize: FONTS.SIZE_14,
+		letterSpacing: FONTS.SPACING_S,
+		color: COLORS.SECONDARY_COLOR,
+    marginTop: LAYOUT.SPACING_MD_36
+  },
   week_at_glance_underline: { 
     borderWidth: 1, 
     bottom: 0, 
