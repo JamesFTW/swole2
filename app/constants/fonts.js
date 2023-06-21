@@ -6,6 +6,7 @@ const SPACING_XS = .1
 const SPACING_S = .015
 const SPACING_M = .04
 const SIZE_10 = 10
+const SIZE_12 = 12
 const SIZE_14 = 14
 const SIZE_16 = 16
 const SIZE_20 = 20
@@ -20,6 +21,7 @@ export const FONTS = {
   SPACING_S,
   SPACING_M,
   SIZE_10,
+  SIZE_12,
   SIZE_14,
   SIZE_16,
   SIZE_20,
