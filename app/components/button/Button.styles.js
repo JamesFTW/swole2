@@ -7,8 +7,8 @@ const styles = StyleSheet.create({
     justifyContent: LAYOUT.ALIGN_CENTER,
     borderColor: COLORS.PRIMARY_COLOR,
     borderWidth: 1,
-    height: LAYOUT.SPACING_MD_48,
-    borderRadius: 10,
+    // height: LAYOUT.SPACING_MD_48,
+    // borderRadius: 10,
     marginLeft: LAYOUT.SPACING_S_20,
     marginRight: LAYOUT.SPACING_S_20,
   },
@@ -17,10 +17,10 @@ const styles = StyleSheet.create({
     fontSize: FONTS.SIZE_16,
     fontFamily: FONTS.SFPRO_MEDIUM,
     color: COLORS.PRIMARY_COLOR,
-    justifyContent: LAYOUT.ALIGN_CENTER,
-    alignItems: LAYOUT.ALIGN_CENTER,
-    lineHeight: LAYOUT.SPACING_MD_48,
-    textAlign: 'center'
+    // justifyContent: LAYOUT.ALIGN_CENTER,
+    // alignItems: LAYOUT.ALIGN_CENTER,
+    // lineHeight: LAYOUT.SPACING_MD_48,
+    // textAlign: 'center'
   },
   button: {
     backgroundColor: COLORS.PRIMARY_COLOR,

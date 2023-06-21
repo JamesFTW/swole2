@@ -4,6 +4,8 @@ import { LAYOUT } from '../../constants'
 import { FlexContainer } from '../../layout'
 import styles from './Button.styles'
 
+//Edit this so styles are more general.
+
 export function Button({
   onPress,
   title,
@@ -12,7 +14,9 @@ export function Button({
   marginRight,
   marginTop,
   marginLeft,
-  marginBottom
+  marginBottom,
+  style,
+  textStyle
 }) {
   if (outline) {
     return (
@@ -21,10 +25,10 @@ export function Button({
         marginTop,
         marginLeft,
         marginBottom,
-      }]} onPress={onPress}>
-        <FlexContainer alignItems={LAYOUT.ALIGN_CENTER} direction={LAYOUT.FLEX_ROW}>
+      }, style]} onPress={onPress}>
+        <FlexContainer direction={LAYOUT.FLEX_ROW}>
           {icon}
-          <Text style={styles.textOutline}>{title}</Text>
+          <Text style={[styles.textOutline, textStyle]}>{title}</Text>
         </FlexContainer>
       </TouchableOpacity>
     )
