@@ -23,8 +23,7 @@ export function FlexContainer({
       marginBottom,
       textAlign,
       alignItems,
-      style
-      }
+      }, style
     ]}>
       { children }
     </View>
