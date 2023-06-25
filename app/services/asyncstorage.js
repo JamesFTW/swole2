@@ -62,5 +62,14 @@ export class AsyncStorage {
         return [ error, null ]
       } 
   }
+
+  getUserSessionData = async () => {
+    try {
+      const userData = await this.getObjData(ASYNC_STORE_CONSTANTS.USER_SESSION_COOKIE)
+      return [ userData, null ]
+    } catch (error) {
+      return [ error, null ]
+    } 
+  }
 }
 
