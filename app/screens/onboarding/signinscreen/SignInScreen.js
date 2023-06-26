@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { View, Text, SafeAreaView } from 'react-native'
 import { LAYOUT } from '../../../constants'
 import { Button, FormInput, TextButton } from '../../../components'
 import { useUserSignin } from '../../../lib/users/hooks/'
-import { ProfileScreenRoute } from '../../profilescreen/ProfileScreen'
+import { MainNavigationRoute } from '../../../navigation/MainNavigation'
 import styles from './SigninScreen.styles'
 
 export const SignInScreenRoute = 'SignInScreen'
@@ -21,12 +21,11 @@ export function SignInScreen({navigation}) {
 
   const { mutate: Signin, isSuccess, isLoading } = useUserSignin()
 
-  /**
-   * Come back and fix this
-   */
-
-  //This console.log needs to be an error state screen
-  isSuccess? navigation.navigate(ProfileScreenRoute): console.log('bruh') 
+  useEffect(() => {
+    if (isSuccess) {
+      navigation.navigate(MainNavigationRoute)
+    }
+  }, [isSuccess, navigation])
 
   return (
     <SafeAreaView style={styles.container}>
