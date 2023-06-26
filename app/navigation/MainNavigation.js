@@ -6,9 +6,11 @@ import { NavLocationScreenRoute, NavLocationScreen } from '../screens/navlocatio
 import { CalendarScreenRoute, CalendarScreen } from '../screens/calendarscreen/CalendarScreen'
 import { NavButtons } from './navbar/NavButtons'
 
+export const MainNavigationRoute = 'MainNavigationRoute'
+
 const Tab = createBottomTabNavigator()
 
-export function NavBar() {
+export function MainNavigation() {
   return (
     <Tab.Navigator tabBar={(props) => <NavButtons {...props}/>}  
       screenOptions={{
