@@ -12,6 +12,7 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query'
 
+import  { MainNavigation, MainNavigationRoute } from './navigation/MainNavigation'
 import { OnBoardingStack } from './screens/onboarding'
 
 const Stack = createNativeStackNavigator()
@@ -21,16 +22,20 @@ const queryClient = new QueryClient()
 
 function App() {
   return (
-      <NavigationContainer>
-        <QueryClientProvider client={queryClient}>
-          <Stack.Navigator screenOptions={{headerShown: false}}>
+    <NavigationContainer>
+      <QueryClientProvider client={queryClient}>
+        <Stack.Navigator screenOptions={{headerShown: false}}>
             <Stack.Screen
               name="Onboarding"
               component={OnBoardingStack}
             />
+          <Stack.Screen
+            name={MainNavigationRoute}
+            component={MainNavigation}
+          />
           </Stack.Navigator>
-        </QueryClientProvider>
-      </NavigationContainer>
+      </QueryClientProvider>
+    </NavigationContainer>
   )
 }
 
