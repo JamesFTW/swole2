@@ -11,21 +11,24 @@ export function Image({
   height,
   width,
   borderRadius,
+  top,
+  style
 }) {
   //set up ability to store images to local storage and reterive them if they exist in local storage
   //might also need a way to delete images from local storage after a certain amount of time
   return (
     <NativeImage 
       source={typeof src === 'string' ? { uri: src } : src}
-      style={{
+      style={[{
         marginTop,
         marginLeft,
         marginRight,
         marginBottom,
         height,
         width,
-        borderRadius
-      }}>
+        borderRadius,
+        top
+      }, style]}>
     </NativeImage>
   )
 }
