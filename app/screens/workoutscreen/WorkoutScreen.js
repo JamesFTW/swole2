@@ -5,11 +5,14 @@ import { TextButton } from '../../components'
 
 export const WorkoutScreenRoute = "WorkoutScreenRoute"
 
+/**
+ * 
+ *Need to rename/move this to the profile page.  This is profile specific workouts
+ */
 
-export function WorkoutScreen({workoutId, route, navigation}) {  
+
+export function WorkoutScreen({navigation}) {  
   //check if id is cached in async storage.  if not fetch then store
-  const { workoutInfo } = route.params
-  console.log(workoutInfo)
   return (
     <View style={{marginTop: 100}}>
       <TextButton 
@@ -18,7 +21,7 @@ export function WorkoutScreen({workoutId, route, navigation}) {
           style={styles.backButton}>
             Back
         </TextButton>
-      <Text>This is a workout for {workoutInfo.day}</Text>
+      <Text>This is workout screen placholder</Text>
     </View>
   )
 }
