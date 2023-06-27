@@ -3,9 +3,13 @@ import { View, TouchableOpacity, Text } from 'react-native'
 import { Card } from '../../components'
 import { FlexContainer } from '../../layout'
 import { Checkmark } from '../../assets/icons'
-import { WorkoutScreenRoute } from '../../screens/workoutscreen/WorkoutScreen'
+import { WeekAtGlanceWorkoutRoute } from './weekatglanceworkout/WeekAtGlanceWorkout'
+import {WeekAtGlanceStackRoute} from '../weekatglance'
+import { ProfileScreenStack, ProfileScreenStackRoute } from '../../screens/profilescreen'
 import { useNavigation } from '@react-navigation/native';
 import styles from './WeekAtGlance.styles'
+
+export const WeekAtGlanceRoute = 'WeekAtGlanceRoute'
 
 const DAY_OF_WEEK_CONSTANTS = {
   'Monday': 'M',
@@ -46,8 +50,11 @@ export function WeekAtGlance({weeklyStatus}) {
           dayOfWeek={DAY_OF_WEEK_CONSTANTS[day]} 
           marginRight={marginRight}
           onPress={() => {
-            navigation.navigate(WorkoutScreenRoute, {
-              workoutInfo: workoutInfo,
+            navigation.navigate(WeekAtGlanceStackRoute, {
+              screen: WeekAtGlanceWorkoutRoute,
+              params: {
+                workoutInfo: workoutInfo
+              }
             })
           }}
         />

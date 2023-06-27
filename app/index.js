@@ -13,6 +13,7 @@ import {
 } from '@tanstack/react-query'
 
 import  { MainNavigation, MainNavigationRoute } from './navigation/MainNavigation'
+import { WeekAtGlanceStack, WeekAtGlanceStackRoute } from './features/weekatglance'
 import { OnBoardingStack } from './screens/onboarding'
 
 const Stack = createNativeStackNavigator()

@@ -2,13 +2,11 @@ import * as React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 import { ProfileScreen, ProfileScreenRoute } from './ProfileScreen'
-import { WorkoutScreen, WorkoutScreenRoute } from '../workoutscreen/WorkoutScreen'
+import { WeekAtGlanceStack, WeekAtGlanceStackRoute } from '../../features/weekatglance'
 import { UserSettingsScreen, UserSettingsScreenRoute } from './usersettingsscreen/UserSettingsScreen'
 
 const Stack = createNativeStackNavigator()
 export const ProfileScreenStackRoute = 'ProfileScreenStackRoute'
-
-//very basic router set up
 
 export function ProfileScreenStack() {
   return (
@@ -18,8 +16,8 @@ export function ProfileScreenStack() {
         component={ProfileScreen}
       />
       <Stack.Screen
-        name={WorkoutScreenRoute}
-        component={WorkoutScreen}
+        name={WeekAtGlanceStackRoute}
+        component={WeekAtGlanceStack}
       />
       <Stack.Screen
         name={UserSettingsScreenRoute}
