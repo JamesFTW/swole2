@@ -1,6 +1,12 @@
 import { StyleSheet } from 'react-native'
 import { LAYOUT, COLORS, FONTS } from '../../constants'
 
+/**
+ * TODO:
+ *
+ * Fix this so that it is more general.
+ */
+
 const styles = StyleSheet.create({
   buttonOutline: {
     backgroundColor: COLORS.WHITE,
