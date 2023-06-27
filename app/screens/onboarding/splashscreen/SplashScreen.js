@@ -45,6 +45,8 @@ export function SplashScreen({navigation}) {
         marginTop={LAYOUT.SPACING_MD_36}
         marginLeft={LAYOUT.SPACING_S_20}
         marginRight={LAYOUT.SPACING_S_20}
+        style={{height: 48, borderRadius: 10}}
+        textStyle={{marginLeft: 64}}
         onPress={() => navigation.navigate(SignUpScreenRoute)}
       />
         <Text style={styles.text}>{CONSTANTS.ALREADY_A_MEMBER}
