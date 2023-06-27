@@ -11,14 +11,14 @@ export const WeekAtGlanceWorkoutRoute = "WeekAtGlanceWorkoutRoute"
  */
 
 
-export function WeekAtGlanceWorkout({workoutId, route, navigation}) {  
+export function WeekAtGlanceWorkout({workoutId, route, navigation}) {
   //check if id is cached in async storage.  if not fetch then store
   const { workoutInfo } = route.params
   return (
     <View style={{marginTop: 100}}>
-      <TextButton 
-          onPress={() => navigation.goBack()} 
-          // marginTop={LAYOUT.SPACING_S_28} 
+      <TextButton
+          onPress={() => navigation.goBack()}
+          // marginTop={LAYOUT.SPACING_S_28}
           style={styles.backButton}>
             Back
         </TextButton>
