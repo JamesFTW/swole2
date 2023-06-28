@@ -2,7 +2,8 @@ import  RNAsyncStorage from '@react-native-async-storage/async-storage'
 
 export const ASYNC_STORE_CONSTANTS = {
   USER_DATA: '@user_data',
-  USER_SESSION_COOKIE: '@user_session_cookie'
+  USER_SESSION_COOKIE: '@user_session_cookie',
+  USER_PROFILE_DATA: '@user_profile_data'
 }
 
 /**
@@ -12,13 +13,9 @@ export const ASYNC_STORE_CONSTANTS = {
  * Shit might not need to return a promise for any of these.  Come back to it
  */
 export class AsyncStorage {
-  constructor(data) {
-    this.data = data ?? null
-  }
-
-  storeObjData = async (storage_key) => {
+  storeObjData = async (storage_key, data) => {
     try {
-      const jsonValue = JSON.stringify(this.data)
+      const jsonValue = JSON.stringify(data)
       await RNAsyncStorage.setItem(storage_key, jsonValue)
     } catch (error) {
       throw new Error(error)
@@ -65,8 +62,17 @@ export class AsyncStorage {
 
   getUserSessionData = async () => {
     try {
-      const userData = await this.getObjData(ASYNC_STORE_CONSTANTS.USER_SESSION_COOKIE)
-      return [ userData, null ]
+      const userSessionData = await this.getObjData(ASYNC_STORE_CONSTANTS.USER_SESSION_COOKIE)
+      return [ userSessionData, null ]
+    } catch (error) {
+      return [ error, null ]
+    } 
+  }
+
+  getUserProfileData =  async () => {
+    try {
+      const userProfileData = await this.getObjData(ASYNC_STORE_CONSTANTS.USER_PROFILE_DATA)
+      return [ userProfileData, null ]
     } catch (error) {
       return [ error, null ]
     } 
