@@ -6,9 +6,9 @@ import { CalendarScreenRoute } from '../../screens/calendarscreen/CalendarScreen
 import { Profile, Dumbell, Calendar, NavLocation } from '../../assets/icons'
 import { FlexContainer } from '../../layout'
 import { ProfileScreenStackRoute } from '../../screens/profilescreen'
-import styles from './NavButtons.styles'
+import styles from './NavBar.styles'
 
-export function NavButtons({ state, descriptors, navigation }) {
+export function NavBar({ state, descriptors, navigation }) {
   return (
     <View style={styles.navBar_container}>
       <FlexContainer 
