@@ -4,7 +4,7 @@ import { WorkoutScreen, WorkoutScreenRoute } from '../screens/workoutscreen/Work
 import { ProfileScreenStackRoute, ProfileScreenStack } from '../screens/profilescreen'
 import { NavLocationScreenRoute, NavLocationScreen } from '../screens/navlocationscreen/NavLocationScreen'
 import { CalendarScreenRoute, CalendarScreen } from '../screens/calendarscreen/CalendarScreen'
-import { NavButtons } from './navbar/NavButtons'
+import { NavBar } from './navbar/NavBar'
 
 export const MainNavigationRoute = 'MainNavigationRoute'
 
@@ -12,7 +12,7 @@ const Tab = createBottomTabNavigator()
 
 export function MainNavigation() {
   return (
-    <Tab.Navigator tabBar={(props) => <NavButtons {...props}/>}  
+    <Tab.Navigator tabBar={(props) => <NavBar {...props}/>}  
       screenOptions={{
         headerShown: false, 
         showLabel: false
