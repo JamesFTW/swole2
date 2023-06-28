@@ -4,8 +4,7 @@ import { Card } from '../../components'
 import { FlexContainer } from '../../layout'
 import { Checkmark } from '../../assets/icons'
 import { WeekAtGlanceWorkoutRoute } from './weekatglanceworkout/WeekAtGlanceWorkout'
-import {WeekAtGlanceStackRoute} from '../weekatglance'
-import { ProfileScreenStack, ProfileScreenStackRoute } from '../../screens/profilescreen'
+import { WeekAtGlanceStackRoute } from '../weekatglance'
 import { useNavigation } from '@react-navigation/native';
 import styles from './WeekAtGlance.styles'
 
