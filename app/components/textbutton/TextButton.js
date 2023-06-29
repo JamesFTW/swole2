@@ -8,16 +8,17 @@ export function TextButton({
   marginTop,
   marginLeft,
   marginBottom,
-  style
+  style,
+  textStyle
 }) {
   return (
-    <TouchableOpacity style={{
+    <TouchableOpacity style={[{
       marginRight,
       marginTop,
       marginLeft,
       marginBottom
-    }} onPress={onPress}>
-      <Text style={style}>{children}</Text>
+    }, style]} onPress={onPress}>
+      <Text style={textStyle}>{children}</Text>
     </TouchableOpacity>
   )
 }
