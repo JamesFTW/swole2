@@ -1,10 +1,11 @@
 import * as React from 'react'
 import { View, TouchableOpacity, Text } from 'react-native'
-import { Card } from '../../components'
+import { Card, TextButton } from '../../components'
 import { FlexContainer } from '../../layout'
 import { Checkmark } from '../../assets/icons'
 import { WeekAtGlanceWorkoutRoute } from './weekatglanceworkout/WeekAtGlanceWorkout'
 import { WeekAtGlanceStackRoute } from '../weekatglance'
+import { MoreTrainingRoute } from './weekatglanceworkout/MoreTraining'
 import { useNavigation } from '@react-navigation/native'
 import styles from './WeekAtGlance.styles'
 
@@ -87,7 +88,17 @@ export function WeekAtGlance({weeklyStatus}) {
         {getDaysOfWeekIndicators()}
       </FlexContainer>
       <View style={styles.week_at_glance_underline}/>
-      <Text style={styles.show_more_training_subtitle}>See more of your training</Text>
+      <TextButton 
+        textStyle={styles.show_more_training_subtitle_text} 
+        style={styles.show_more_training_subtitle}
+        onPress={() => {
+          navigation.navigate(WeekAtGlanceStackRoute, {
+            screen: MoreTrainingRoute
+          })
+        }}    
+        >
+          See more of your training
+      </TextButton>
     </Card>
   )
 }

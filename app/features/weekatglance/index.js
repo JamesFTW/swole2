@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 import { WeekAtGlance, WeekAtGlanceRoute } from './WeekAtGlance'
 import { WeekAtGlanceWorkout, WeekAtGlanceWorkoutRoute } from '../weekatglance/weekatglanceworkout/WeekAtGlanceWorkout'
+import { MoreTraining, MoreTrainingRoute } from './weekatglanceworkout/MoreTraining'
 
 const Stack = createNativeStackNavigator()
 export const WeekAtGlanceStackRoute = 'WeekAtGlanceStackRoute'
@@ -19,6 +20,10 @@ export function WeekAtGlanceStack() {
       <Stack.Screen
         name={WeekAtGlanceWorkoutRoute}
         component={WeekAtGlanceWorkout}
+      />
+      <Stack.Screen
+        name={MoreTrainingRoute}
+        component={MoreTraining}
       />
     </Stack.Navigator>
   )

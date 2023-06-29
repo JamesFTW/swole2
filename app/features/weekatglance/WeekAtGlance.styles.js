@@ -12,14 +12,16 @@ const styles = StyleSheet.create({
     
 	},
   show_more_training_subtitle: {
+    marginTop: 'auto',
+    marginLeft: 'auto',
+    marginBottom: LAYOUT.SPACING_XS_4,
+    marginRight: LAYOUT.SPACING_XS_4,
+  },
+  show_more_training_subtitle_text: {
     fontFamily: FONTS.SFPRO_MEDIUM,
 		fontSize: FONTS.SIZE_12,
 		letterSpacing: FONTS.SPACING_M,
 		color: COLORS.PRIMARY_COLOR,
-    marginTop: 'auto',
-    marginLeft: 'auto',
-    marginBottom: LAYOUT.SPACING_XS_4,
-    marginRight: LAYOUT.SPACING_XS_4
   },
   week_at_glance_subtitle: {
     width: '100%'
