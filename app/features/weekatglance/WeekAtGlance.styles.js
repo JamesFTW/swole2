@@ -51,6 +51,23 @@ const styles = StyleSheet.create({
 		color: COLORS.SECONDARY_COLOR,
     marginTop: LAYOUT.SPACING_MD_36
   },
+  current_day_text_boarder: {
+    position: LAYOUT.POSITION_ABSOLUTE,
+    height: 30, 
+    width: 30, 
+    backgroundColor: 'white', 
+    borderColor: '#28B42C', 
+    borderWidth: 1, 
+    borderRadius: 16, 
+    marginTop: LAYOUT.SPACING_MD_48,
+  },
+  current_day_text: {
+    fontFamily: FONTS.SFPRO_HEAVY,
+    lineHeight: 30,
+    alignSelf: 'center',
+		fontSize: FONTS.SIZE_14,
+    color: '#28B42C'
+  },
   week_at_glance_underline: { 
     borderWidth: 1, 
     bottom: 0, 

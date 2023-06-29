@@ -5,23 +5,34 @@ import { FlexContainer } from '../../layout'
 import { Checkmark } from '../../assets/icons'
 import { WeekAtGlanceWorkoutRoute } from './weekatglanceworkout/WeekAtGlanceWorkout'
 import { WeekAtGlanceStackRoute } from '../weekatglance'
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native'
 import styles from './WeekAtGlance.styles'
 
 export const WeekAtGlanceRoute = 'WeekAtGlanceRoute'
 
-const DAY_OF_WEEK_CONSTANTS = {
-  'Monday': 'M',
-  'Tuesday': 'T',
-  'Wednesday': 'W',
-  'Thursday': 'TH',
-  'Friday': 'F',
-  'Saturday': 'S',
-  'Sunday': 'S'
-}
-
 export function WeekAtGlance({weeklyStatus}) {
   const navigation = useNavigation()
+  const date = new Date()
+
+  const WEEK_AT_GLANCE_CONSTANTS = {
+    'Monday': 'M',
+    'Tuesday': 'T',
+    'Wednesday': 'W',
+    'Thursday': 'TH',
+    'Friday': 'F',
+    'Saturday': 'S',
+    'Sunday': 'S'
+  }
+  
+  const DAYS_OF_THE_WEEK = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday'
+  ]
   
   const getDaysOfWeekIndicators = () => {
     const map = []
@@ -33,9 +44,10 @@ export function WeekAtGlance({weeklyStatus}) {
       Friday: 35,
       Saturday: 35,
       Sunday: 0,
-    };
+    }
 
     Object.keys(weeklyStatus).map((day) => {
+      const isToday = DAYS_OF_THE_WEEK[date.getDay()] === day
       const marginRight = dayMargins[day]
       const workoutInfo = {
         ...weeklyStatus[day],
@@ -46,8 +58,9 @@ export function WeekAtGlance({weeklyStatus}) {
         <DayofWeekIndicator
           key={workoutInfo.workoutId}
           workoutInfo={workoutInfo} 
-          dayOfWeek={DAY_OF_WEEK_CONSTANTS[day]} 
+          dayOfWeek={WEEK_AT_GLANCE_CONSTANTS[day]} 
           marginRight={marginRight}
+          isToday={isToday}
           onPress={() => {
             navigation.navigate(WeekAtGlanceStackRoute, {
               screen: WeekAtGlanceWorkoutRoute,
@@ -83,7 +96,8 @@ export function DayofWeekIndicator({
   dayOfWeek,
   marginRight,
   workoutInfo,
-  onPress
+  onPress,
+  isToday
 }) {
   const { workoutCompleted } = workoutInfo
 
@@ -96,7 +110,11 @@ export function DayofWeekIndicator({
         }>
         { workoutCompleted ? <Checkmark/> : null }
       </View>
-      <Text style={styles.day_of_week_text}>{dayOfWeek}</Text>
+      {isToday
+        ? <View style={styles.current_day_text_boarder}>
+            <Text style={styles.current_day_text}>{dayOfWeek}</Text>
+          </View> 
+        : <Text style={styles.day_of_week_text}>{dayOfWeek}</Text>}
     </TouchableOpacity>
   )
 }
