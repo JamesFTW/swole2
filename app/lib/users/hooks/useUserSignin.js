@@ -24,14 +24,11 @@ export const useUserSignin = () => {
     const { cookie, passport } = data.session
 
     if (cookie && passport) {
-      const asyncCookieStore = new AsyncStorage(cookie)
-      const asyncUserDataStore = new AsyncStorage(passport)
+      const asnycStore = new AsyncStorage()
+      asnycStore.storeObjData(ASYNC_STORE_CONSTANTS.USER_SESSION_COOKIE, cookie)
+      asnycStore.storeObjData(ASYNC_STORE_CONSTANTS.USER_DATA, passport)
 
       setCookie(cookie)
-
-      //might not need this for session cookie
-      asyncCookieStore.storeObjData(ASYNC_STORE_CONSTANTS.USER_SESSION_COOKIE)
-      asyncUserDataStore.storeObjData(ASYNC_STORE_CONSTANTS.USER_DATA)
     }
   },
   onError: (error) => {
