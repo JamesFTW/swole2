@@ -1,16 +1,23 @@
 import * as React from 'react'
-import styles from './ScrollContent.styles'
 import { SafeAreaView, ScrollView } from 'react-native'
 
 export function ScrollContent({ 
   children,
   useSafeArea,
-  style
+  style,
+  horizontal,
+  showsHorizontalScrollIndicator,
+  showsVerticalScrollIndicator
 }) {
   if (useSafeArea) {
     return (
       <SafeAreaView>
-        <ScrollView style={styles.scroll_container}>
+        <ScrollView 
+          showsHorizontalScrollIndicator={showsHorizontalScrollIndicator}
+          showsVerticalScrollIndicator={showsVerticalScrollIndicator}
+          horizontal={horizontal} 
+          style={style}
+        >
           { children }
         </ScrollView>
       </SafeAreaView>
@@ -18,7 +25,12 @@ export function ScrollContent({
   }
 
   return (
-    <ScrollView style={style}>
+    <ScrollView
+      showsHorizontalScrollIndicator={showsHorizontalScrollIndicator}
+      showsVerticalScrollIndicator={showsVerticalScrollIndicator}
+      horizontal={horizontal} 
+      style={style}
+    >
       { children }
     </ScrollView>
   )
