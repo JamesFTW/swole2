@@ -23,7 +23,7 @@ export function userSignin(body) {
 export function getUserProfile() {
   return new Promise((resolve, reject) => {
     request({
-      endpoint: `${API_ENDPOINT}/users/`,
+      endpoint: `${API_ENDPOINT}/users/profile`,
       method: METHODS.GET
     })
       .then(res => {
