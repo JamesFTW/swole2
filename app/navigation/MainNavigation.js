@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { WorkoutScreen, WorkoutScreenRoute } from '../screens/workoutscreen/WorkoutScreen'
+import { WorkoutScreenStack, WorkoutScreenStackRoute } from '../screens/workoutscreen/'
 import { ProfileScreenStackRoute, ProfileScreenStack } from '../screens/profilescreen'
 import { NavLocationScreenRoute, NavLocationScreen } from '../screens/navlocationscreen/NavLocationScreen'
 import { CalendarScreenRoute, CalendarScreen } from '../screens/calendarscreen/CalendarScreen'
@@ -17,9 +17,9 @@ export function MainNavigation() {
         headerShown: false, 
         showLabel: false
         }}>
-      <Tab.Screen name={NavLocationScreenRoute} component={NavLocationScreen} />
-      <Tab.Screen name={CalendarScreenRoute} component={CalendarScreen} />
-      <Tab.Screen name={WorkoutScreenRoute} component={WorkoutScreen} />
+      <Tab.Screen name={NavLocationScreenRoute}  component={NavLocationScreen} />
+      <Tab.Screen name={CalendarScreenRoute}     component={CalendarScreen} />
+      <Tab.Screen name={WorkoutScreenStackRoute} component={WorkoutScreenStack} />
       <Tab.Screen name={ProfileScreenStackRoute} component={ProfileScreenStack} />
     </Tab.Navigator>
   )

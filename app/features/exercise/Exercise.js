@@ -1,39 +1,58 @@
 import * as React from 'react'
 import { Text, View } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 import { Card, Image, ActionGroup } from '../../components'
 import { LAYOUT } from '../../constants'
 import { FlexContainer } from '../../layout'
+import { WorkoutScreenStackRoute } from '../../screens/workoutscreen'
+import { ExerciseDetailsRoute } from './exercisedetails/ExerciseDetails'
 import styles from './Exercise.styles'
+
+export const ExerciseRoute = 'ExerciseRoute'
 
 export function Exercise({
   exerciseTitle,
   primaryMuscleGroup,
   exerciseImage,
-  marginBottom,
-  onPress
+  marginBottom
 }) {
+  const navigation = useNavigation()
+
   return (
     <View style={{marginBottom: marginBottom}}>
-      <Card onPress={onPress} borderRadius cardHeight={LAYOUT.SPACING_XL_76}>
-        <FlexContainer direction={LAYOUT.FLEX_ROW}>
-          <Image
-            src={exerciseImage}
-            height={50}
-            width={50}
-            borderRadius={25}
-            marginTop={LAYOUT.SPACING_NUDGE_S}
-          />
-          <FlexContainer direction={LAYOUT.FLEX_COLUMN}>
-            <FlexContainer>
-              <Text style={styles.exercise_title}>{ exerciseTitle }</Text>
-            </FlexContainer>
-            <ActionGroup
-              marginLeft={LAYOUT.SPACING_XS_16}
-              marginTop={LAYOUT.SPACING_XS_8}
-              actionTitles={primaryMuscleGroup}
-            />
+      <Card borderRadius
+        onPress={() => {
+          navigation.navigate(WorkoutScreenStackRoute, {
+            screen: ExerciseDetailsRoute,
+            params: {
+              exerciseInfo: {
+                exerciseTitle,
+                primaryMuscleGroup,
+                exerciseImage
+              }
+            }
+          })
+        }}
+        cardHeight={LAYOUT.SPACING_XL_76}>
+      <FlexContainer direction={LAYOUT.FLEX_ROW}>
+        <Image
+          src={exerciseImage}
+          height={50}
+          width={50}
+          borderRadius={25}
+          marginTop={LAYOUT.SPACING_NUDGE_S}
+        />
+        <FlexContainer direction={LAYOUT.FLEX_COLUMN}>
+          <FlexContainer>
+            <Text style={styles.exercise_title}>{ exerciseTitle }</Text>
           </FlexContainer>
+          <ActionGroup
+            marginLeft={LAYOUT.SPACING_XS_16}
+            marginTop={LAYOUT.SPACING_XS_8}
+            actionTitles={primaryMuscleGroup}
+          />
         </FlexContainer>
+      </FlexContainer>
       </Card>
     </View>
   )

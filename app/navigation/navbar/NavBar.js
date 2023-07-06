@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { View, TouchableOpacity } from 'react-native'
-import { WorkoutScreenRoute } from '../../screens/workoutscreen/WorkoutScreen'
 import { NavLocationScreenRoute } from '../../screens/navlocationscreen/NavLocationScreen'
 import { CalendarScreenRoute } from '../../screens/calendarscreen/CalendarScreen'
 import { Profile, Dumbell, Calendar, NavLocation } from '../../assets/icons'
 import { FlexContainer } from '../../layout'
 import { ProfileScreenStackRoute } from '../../screens/profilescreen'
+import { WorkoutScreenStackRoute } from '../../screens/workoutscreen/'
 import styles from './NavBar.styles'
 
 export function NavBar({ state, descriptors, navigation }) {
@@ -21,7 +21,7 @@ export function NavBar({ state, descriptors, navigation }) {
             switch(route.name) {
               case ProfileScreenStackRoute:
                 return <Profile isFocused={isFocused}/>
-              case WorkoutScreenRoute:
+              case WorkoutScreenStackRoute:
                 return <Dumbell isFocused={isFocused}/>
               case CalendarScreenRoute:
                 return <Calendar isFocused={isFocused}/>
