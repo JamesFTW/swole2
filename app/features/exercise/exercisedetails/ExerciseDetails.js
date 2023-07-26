@@ -15,7 +15,6 @@ export function ExerciseDetails({workoutId, route, navigation}) {
    * I'll probably want to fetch the exercise info by id
    */
   const { exerciseInfo } = route.params
-  
   /**
    * Need a hook that pulls if you have done this exercise before
    * ** if so populate last attempts and total weight moved
@@ -28,11 +27,7 @@ export function ExerciseDetails({workoutId, route, navigation}) {
       </View>
       <FlexContainer direction='row'>
         <FlexContainer direction='column' marginTop={21}>
-          {isSuccess 
-            ? <Text style={styles.exercise_title}>{exerciseInfo.exerciseTitle}</Text>
-            : null
-          }
-
+        <Text style={styles.exercise_title}>{exerciseInfo.exerciseTitle}</Text>
           <FlexContainer direction='row' marginLeft={16} >
             <Text style={styles.target_muscle}>{exerciseInfo.targetMuscle.toLowerCase()}</Text>
           </FlexContainer>
