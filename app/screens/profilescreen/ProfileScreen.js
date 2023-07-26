@@ -2,9 +2,11 @@ import React from 'react'
 import { View, Text } from 'react-native'
 import { Image, Button } from '../../components'
 import { ScrollContent, FlexContainer } from '../../layout'
-import SplashScreenBackground from '../../assets/imgs/splash_screen.png'
 import { WeekAtGlance } from '../../features'
-import { Location, Pencil} from '../../assets/icons'
+import { Location, Pencil } from '../../assets/icons'
+import { UserSettingsScreenRoute } from './usersettingsscreen/UserSettingsScreen'
+import { useGetUserProfile } from '../../lib/users/hooks'
+import SplashScreenBackground from '../../assets/imgs/splash_screen.png'
 import styles from './ProfileScreen.styles'
 
 export const ProfileScreenRoute = "ProfileScreenRoute"
@@ -20,21 +22,32 @@ const weeklyStatus = {
 };
 
 export function ProfileScreen({navigation, hasBio}) {
+  const { data, isSuccess } = useGetUserProfile()
+  /**
+   * Going to need to get location and bio from data.userInfo eventually
+   */
+
   return (
     <ScrollContent>
       <View>
         <Image style={styles.profile_image} src={SplashScreenBackground}></Image>
       </View>
       <FlexContainer direction='row'>
-        <FlexContainer direction='column'marginTop={21} style={styles.profile_name_location_container}>
-          <Text style={styles.profile_name}>James Andrews</Text>
+        <FlexContainer direction='column' marginTop={21} style={styles.profile_name_location_container}>
+          {isSuccess 
+            ? <Text style={styles.profile_name}>{data.userInfo.userName}</Text>
+            : null
+          }
           <FlexContainer direction='row' marginBottom={14} marginTop={5} marginLeft={16} >
             <Location/>
             <Text style={styles.profile_location}>San Francisco, CA</Text>
           </FlexContainer>
         </FlexContainer>
-        <Button  
+        <Button
           outline 
+          onPress={() => {
+            navigation.navigate(UserSettingsScreenRoute)
+          }}
           icon={<Pencil style={styles.pencil_icon}/>} 
           textStyle={styles.edit_button_text} 
           style={styles.edit_button} 
