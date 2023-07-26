@@ -10,13 +10,16 @@ import styles from './Exercise.styles'
 
 export const ExerciseRoute = 'ExerciseRoute'
 
+//Rename primaryMuscleGroup to secondaryMuscleGroups
 export function Exercise({
   exerciseTitle,
-  primaryMuscleGroup,
+  secondaryMuscles,
   exerciseImage,
+  targetMuscle,
   marginBottom
 }) {
   const navigation = useNavigation()
+  const secondaryMuscle = secondaryMuscles[0].secondaryMuscle1
 
   return (
     <View style={{marginBottom: marginBottom}}>
@@ -27,8 +30,9 @@ export function Exercise({
             params: {
               exerciseInfo: {
                 exerciseTitle,
-                primaryMuscleGroup,
-                exerciseImage
+                secondaryMuscles,
+                exerciseImage,
+                targetMuscle
               }
             }
           })
@@ -49,7 +53,7 @@ export function Exercise({
           <ActionGroup
             marginLeft={LAYOUT.SPACING_XS_16}
             marginTop={LAYOUT.SPACING_XS_8}
-            actionTitles={primaryMuscleGroup}
+            actionTitles={[targetMuscle, secondaryMuscle]}
           />
         </FlexContainer>
       </FlexContainer>
