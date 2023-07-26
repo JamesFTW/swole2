@@ -4,47 +4,13 @@ import styles from './WorkoutScreen.styles'
 import { FlexContainer, ScrollContent } from '../../layout'
 import { StartNewWorkout } from '../../assets/icons'
 import { Exercise } from '../../features'
-
-const placeHolder = 'https://cdn.shopify.com/s/files/1/1876/4703/articles/shutterstock_1079398565_2560x.jpg?v=1591108584'
+import { useGetWorkoutPagePreviewExercises } from '../../lib/exercises/hooks/useGetWorkoutPagePreviewExercises'
 
 export const WorkoutScreenRoute = "WorkoutScreenRoute"
 
-
-const payload = [
-  {
-    id: 1,
-    exerciseTitle: 'Barebell Deadlift',
-    primaryMuscleGroups: ['legs'],
-    placeHolderImage: placeHolder
-  },
-  {
-    id: 2,
-    exerciseTitle: 'Bulgarian Split Squat',
-    primaryMuscleGroups: ['Legs', 'Back'],
-    placeHolderImage: placeHolder
-  },
-  {
-    id: 3,
-    exerciseTitle: 'Arnold Press',
-    primaryMuscleGroups: ['shoulders'],
-    placeHolderImage: placeHolder
-  },
-  {
-    id: 4,
-    exerciseTitle: 'Front Squat',
-    primaryMuscleGroups: ['legs'],
-    placeHolderImage: placeHolder
-  },
-  {
-    id: 5,
-    exerciseTitle: 'Barebell Bench Press',
-    primaryMuscleGroups: ['chest'],
-    placeHolderImage: placeHolder
-  },
-]
-
-
 export function WorkoutScreen({navigation}) {  
+  const { data, isSuccess } = useGetWorkoutPagePreviewExercises()
+
   /**
    * Fetch display exercises.
    * Possibly make them suggested exercises.
@@ -103,17 +69,17 @@ export function WorkoutScreen({navigation}) {
         </FlexContainer>
 
         <View style={{marginBottom: 40}}>
-          {payload.map((exercise, i) => {
+          {isSuccess? data.previewExercises.map((exercise, i) => {
             return (
               <Exercise 
-                exerciseImage={exercise.placeHolderImage} 
-                exerciseTitle={exercise.exerciseTitle} 
-                primaryMuscleGroup={exercise.primaryMuscleGroups}
+                exerciseImage={exercise.video} 
+                exerciseTitle={exercise.exerciseName} 
+                secondaryMuscles={exercise.secondaryMuscles}
+                targetMuscle={exercise.targetMuscle}
                 marginBottom={12}
-                onPress={() => {console.log('pressed', exercise)}}
               />
             )
-          })}
+          }): /** Add some type of loading state here*/<View></View>}
         </View>
       </View>
     </ScrollContent>
