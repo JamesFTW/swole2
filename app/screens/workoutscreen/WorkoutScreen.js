@@ -69,7 +69,7 @@ export function WorkoutScreen({navigation}) {
         </FlexContainer>
 
         <View style={{marginBottom: 40}}>
-          {isSuccess? data.previewExercises.map((exercise, i) => {
+          {isSuccess? data.previewExercises.map((exercise) => {
             return (
               <Exercise 
                 exerciseImage={exercise.video} 
@@ -77,6 +77,8 @@ export function WorkoutScreen({navigation}) {
                 secondaryMuscles={exercise.secondaryMuscles}
                 targetMuscle={exercise.targetMuscle}
                 marginBottom={12}
+                exerciseId={exercise.exerciseId}
+                key={exercise.exerciseId}
               />
             )
           }): /** Add some type of loading state here*/<View></View>}

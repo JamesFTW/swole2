@@ -16,7 +16,8 @@ export function Exercise({
   secondaryMuscles,
   exerciseImage,
   targetMuscle,
-  marginBottom
+  marginBottom,
+  exerciseId
 }) {
   const navigation = useNavigation()
   const secondaryMuscle = secondaryMuscles[0].secondaryMuscle1
@@ -32,7 +33,8 @@ export function Exercise({
                 exerciseTitle,
                 secondaryMuscles,
                 exerciseImage,
-                targetMuscle
+                targetMuscle,
+                exerciseId
               }
             }
           })
