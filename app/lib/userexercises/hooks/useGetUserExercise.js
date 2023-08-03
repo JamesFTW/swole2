@@ -1,59 +1,32 @@
 import { getUserExercise } from '..'
-import { getUserProfile } from '../../users'
-import { AsyncStorage } from '../../../services/asyncstorage'
+import { getUserProfileData } from '../../users'
 
 import {
   useQuery,
 } from '@tanstack/react-query'
 
-export const useGetUserExercise = (userId, exerciseId) => {
+export const useGetUserExercise = exerciseId => {
   return useQuery({
     queryKey: ['userExercise'],
     queryFn: async () => {
       try {
         const userProfileData = await getUserProfileData()
-        const res = await getUserExercise(userId, exerciseId)
+        
+        if (userProfileData) {
+          const res = await getUserExercise(userProfileData.userInfo.userId, exerciseId)
 
-        if (res) {
           return res
         }
       } catch(error) {
-        throw new Error(error)
+        Promise.reject(error)
       }
 
-  },
-  onSuccess: () => {
-    return userExerciseData
-  },
-  onError: (error) => {
-    console.log(error)
-  }
-  })
-}
-
-const getUserProfileData = async () => {
-  const asyncstore = new AsyncStorage()
-
-  const [userData, error] = await asyncstore.getUserProfileData()
-
-  if (userData !== null) {
-    return userData
-  }
-
-  if (error) {
-    throw new Error(error)
-  }
-
-  try {
-    const userData = await getUserProfile()
-
-    asyncstore.storeObjData(ASYNC_STORE_CONSTANTS.USER_PROFILE_DATA, userData)
-
-    if (userData) {
-      return userData
+    },
+    onSuccess: (data) => {
+      return data
+    },
+    onError: (error) => {
+      Promise.reject(error)
     }
-
-  } catch(error) {
-    throw new Error(error)
-  }
+  })
 }
