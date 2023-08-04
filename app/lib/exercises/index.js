@@ -18,3 +18,22 @@ export function getWorkoutPagePreviewExercises() {
       .catch(err => reject(err))
   })
 }
+
+export function getAllExercises() {
+  return new Promise((resolve, reject) => {
+    request({
+      endpoint: `${API_ENDPOINT}/exercises`,
+      method: METHODS.GET
+    })
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Request failed with status ' + res.status)
+        }
+        return res.json()
+      })
+      .then(data => {
+        resolve(data)
+      })
+      .catch(err => reject(err))
+  })
+}

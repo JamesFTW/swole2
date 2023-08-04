@@ -6,6 +6,8 @@ import { StartNewWorkout } from '../../assets/icons'
 import { Exercise } from '../../features'
 import { useGetWorkoutPagePreviewExercises } from '../../lib/exercises/hooks/useGetWorkoutPagePreviewExercises'
 
+import { ExerciseSearchScreenRoute } from './exercisesearchscreen/ExerciseSearchScreen'
+
 export const WorkoutScreenRoute = "WorkoutScreenRoute"
 
 export function WorkoutScreen({navigation}) {  
@@ -63,7 +65,9 @@ export function WorkoutScreen({navigation}) {
       <View style={styles.exercises_container}>
         <FlexContainer style={styles.exercises_component} direction='row'>
           <Text style={styles.workout_plans_title}>Exercises</Text>
-          <TouchableOpacity onPress={() => {console.log('clicked exercises plans')}}>
+          <TouchableOpacity onPress={() => {
+            navigation.navigate(ExerciseSearchScreenRoute)
+          }}>
             <Text style={styles.workout_plans_view_all}>view all</Text>
           </TouchableOpacity>
         </FlexContainer>
