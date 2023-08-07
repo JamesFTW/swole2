@@ -1,12 +1,15 @@
 import * as React from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
-import styles from './WorkoutScreen.styles'
 import { FlexContainer, ScrollContent } from '../../layout'
-import { StartNewWorkout } from '../../assets/icons'
 import { Exercise } from '../../features'
+import { StartNewWorkout } from '../../assets/icons'
 import { useGetWorkoutPagePreviewExercises } from '../../lib/exercises/hooks/useGetWorkoutPagePreviewExercises'
 
 import { ExerciseSearchScreenRoute } from './exercisesearchscreen/ExerciseSearchScreen'
+import { StartNewWorkoutScreenRoute } from './startnewworkoutscreen/StartNewWorkoutScreen'
+import { StartNewWorkoutStackRoute } from './startnewworkoutscreen'
+
+import styles from './WorkoutScreen.styles'
 
 export const WorkoutScreenRoute = "WorkoutScreenRoute"
 
@@ -34,7 +37,11 @@ export function WorkoutScreen({navigation}) {
       <Text style={styles.date}>{formattedDate}</Text>
       <Text style={styles.quote}>put in work. see results</Text>
 
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => 
+        navigation.navigate(
+          StartNewWorkoutStackRoute, {
+            screen: StartNewWorkoutScreenRoute,
+        })}>
         <FlexContainer style={styles.start_new_workout_container} direction="row">
           <StartNewWorkout/>
           <Text style={styles.start_new_workout}>Start New Workout</Text>
@@ -44,7 +51,7 @@ export function WorkoutScreen({navigation}) {
       <View style={styles.workout_plans_container}>
         <FlexContainer style={styles.workout_plans_component} direction='row'>
           <Text style={styles.workout_plans_title}>Workout Plans</Text>
-          <TouchableOpacity onPress={() => {console.log('clicked workout plans')}}>
+          <TouchableOpacity>
             <Text style={styles.workout_plans_view_all}>view all</Text>
           </TouchableOpacity>
         </FlexContainer>
