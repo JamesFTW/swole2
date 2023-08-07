@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { WorkoutScreen, WorkoutScreenRoute } from './WorkoutScreen'
 import { ExerciseDetails, ExerciseDetailsRoute } from '../../features/exercise/exercisedetails/ExerciseDetails'
 import { ExerciseSearchScreen, ExerciseSearchScreenRoute } from './exercisesearchscreen/ExerciseSearchScreen'
+import { StartNewWorkoutStack, StartNewWorkoutStackRoute } from './startnewworkoutscreen'
 
 const Stack = createNativeStackNavigator()
 
@@ -23,6 +24,10 @@ export function WorkoutScreenStack() {
       <Stack.Screen
         name={ExerciseSearchScreenRoute}
         component={ExerciseSearchScreen}
+      />
+      <Stack.Screen
+        name={StartNewWorkoutStackRoute}
+        component={StartNewWorkoutStack}
       />
     </Stack.Navigator>
   )
