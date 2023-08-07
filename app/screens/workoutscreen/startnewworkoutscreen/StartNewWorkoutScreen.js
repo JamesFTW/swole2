@@ -57,7 +57,7 @@ export function StartNewWorkoutScreen({navigation}) {
       </View>
       <View style={styles.exercise_buttons_container}>
         <Button onPress={() => navigation.navigate(ExerciseSearchScreenRoute)} title=' Add Exercise' outline textStyle={styles.exercise_buttons_text} style={styles.exercise_buttons}/>
-        <Button title=' Cancel Workout' outline textStyle={styles.exercise_buttons_text} style={styles.exercise_buttons}/>
+        <Button onPress={() => navigation.goBack()} title=' Cancel Workout' outline textStyle={styles.exercise_buttons_text} style={styles.exercise_buttons}/>
       </View>
     </ScrollContent>
   )
