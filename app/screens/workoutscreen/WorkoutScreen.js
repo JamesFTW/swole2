@@ -27,6 +27,10 @@ export function WorkoutScreen({navigation}) {
     day: '2-digit',
   }).replace(/\//g, '-')
 
+  const clickBehavior = {
+    navigate: true
+  }
+
   //check if id is cached in async storage.  if not fetch then store
   return (
     <ScrollContent
@@ -90,6 +94,7 @@ export function WorkoutScreen({navigation}) {
                 marginBottom={12}
                 exerciseId={exercise.exerciseId}
                 key={exercise.exerciseId}
+                clickBehavior={clickBehavior}
               />
             )
           }): /** Add some type of loading state here*/<View></View>}

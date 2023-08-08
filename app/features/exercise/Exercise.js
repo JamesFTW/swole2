@@ -10,35 +10,42 @@ import styles from './Exercise.styles'
 
 export const ExerciseRoute = 'ExerciseRoute'
 
-//Rename primaryMuscleGroup to secondaryMuscleGroups
 export function Exercise({
   exerciseTitle,
   secondaryMuscles,
   exerciseImage,
   targetMuscle,
   marginBottom,
-  exerciseId
+  exerciseId,
+  clickBehavior
 }) {
+
   const navigation = useNavigation()
   const secondaryMuscle = secondaryMuscles[0].secondaryMuscle1
+
+  const clickBehaviorHandler = () => {
+    if (clickBehavior.navigate) {
+      return (
+        navigation.navigate(WorkoutScreenStackRoute, {
+          screen: ExerciseDetailsRoute,
+          params: {
+            exerciseInfo: {
+              exerciseTitle,
+              secondaryMuscles,
+              exerciseImage,
+              targetMuscle,
+              exerciseId
+            }
+          }
+        })
+      )
+    }
+  }
 
   return (
     <View style={{marginBottom: marginBottom}}>
       <Card borderRadius
-        onPress={() => {
-          navigation.navigate(WorkoutScreenStackRoute, {
-            screen: ExerciseDetailsRoute,
-            params: {
-              exerciseInfo: {
-                exerciseTitle,
-                secondaryMuscles,
-                exerciseImage,
-                targetMuscle,
-                exerciseId
-              }
-            }
-          })
-        }}
+        onPress={() => clickBehaviorHandler()}
         cardHeight={LAYOUT.SPACING_XL_76}>
       <FlexContainer direction={LAYOUT.FLEX_ROW}>
         <Image
