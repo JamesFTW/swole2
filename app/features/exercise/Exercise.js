@@ -24,6 +24,7 @@ export function Exercise({
   const secondaryMuscle = secondaryMuscles[0].secondaryMuscle1
 
   const [highLight, setHighLight] = React.useState(0)
+  let [exercise, setExercise] = React.useState({})
 
   const clickBehaviorHandler = () => {
     if (clickBehavior.navigate) {
@@ -44,6 +45,14 @@ export function Exercise({
     }
 
     if (clickBehavior.highLight) {
+      exercise = {
+        exerciseTitle,
+        secondaryMuscles,
+        exerciseImage,
+        targetMuscle,
+        exerciseId
+      }
+      setExercise(exercise)
       setHighLight(!highLight)
     }
   }
