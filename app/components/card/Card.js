@@ -9,7 +9,8 @@ export function Card({
   cardHeight = LAYOUT.SPACING_XL_88,
   borderRadius,
   backgroundColor = COLORS.WHITE_WHITE,
-  onPress
+  onPress,
+  style
 }) {
   
   const borderRadiusValue =
@@ -21,7 +22,7 @@ export function Card({
     <TouchableOpacity 
       onPress={onPress} 
       style={[styles.card_container, 
-        {borderRadius: borderRadiusValue, backgroundColor}]}>
+        {borderRadius: borderRadiusValue, backgroundColor}, style]}>
       <View style={[styles.card_inner, { height: cardHeight }]}>
         { children }
       </View>

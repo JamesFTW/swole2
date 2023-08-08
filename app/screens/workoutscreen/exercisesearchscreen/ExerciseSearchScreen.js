@@ -16,6 +16,8 @@ export function ExerciseSearchScreen({route, navigation}) {
   const {data, isSuccess} = useGetAllExercises()
   const [searchQuery, setSearchQuery] = React.useState('')
   const fadeAnim = React.useRef(new Animated.Value(0)).current
+
+  const { clickBehavior } = route.params
   
   const handleSearch = (query) => {
     setSearchQuery(query)
@@ -37,6 +39,7 @@ export function ExerciseSearchScreen({route, navigation}) {
         targetMuscle={exercise.targetMuscle}
         exerciseId={exercise.exerciseId}
         marginBottom={20}
+        clickBehavior={clickBehavior}
       />
     ))
   }

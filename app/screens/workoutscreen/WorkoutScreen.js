@@ -77,7 +77,11 @@ export function WorkoutScreen({navigation}) {
         <FlexContainer style={styles.exercises_component} direction='row'>
           <Text style={styles.workout_plans_title}>Exercises</Text>
           <TouchableOpacity onPress={() => {
-            navigation.navigate(ExerciseSearchScreenRoute)
+            navigation.navigate(ExerciseSearchScreenRoute, {
+              clickBehavior: {
+                navigate: true
+              }
+            })
           }}>
             <Text style={styles.workout_plans_view_all}>view all</Text>
           </TouchableOpacity>
