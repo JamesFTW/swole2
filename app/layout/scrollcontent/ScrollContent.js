@@ -7,7 +7,9 @@ export function ScrollContent({
   style,
   horizontal,
   showsHorizontalScrollIndicator,
-  showsVerticalScrollIndicator
+  showsVerticalScrollIndicator,
+  onScroll,
+  scrollEventThrottle
 }) {
   if (useSafeArea) {
     return (
@@ -15,8 +17,10 @@ export function ScrollContent({
         <ScrollView 
           showsHorizontalScrollIndicator={showsHorizontalScrollIndicator}
           showsVerticalScrollIndicator={showsVerticalScrollIndicator}
+          onScroll={onScroll}
           horizontal={horizontal} 
           style={style}
+          scrollEventThrottle={scrollEventThrottle}
         >
           { children }
         </ScrollView>
@@ -30,6 +34,8 @@ export function ScrollContent({
       showsVerticalScrollIndicator={showsVerticalScrollIndicator}
       horizontal={horizontal} 
       style={style}
+      onScroll={onScroll}
+      scrollEventThrottle={scrollEventThrottle}
     >
       { children }
     </ScrollView>

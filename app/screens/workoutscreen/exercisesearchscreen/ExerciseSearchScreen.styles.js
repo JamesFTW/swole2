@@ -25,8 +25,7 @@ const styles = StyleSheet.create({
   exercises_title: {
     fontFamily: FONTS.SFPRO_REGULAR,
     fontSize: FONTS.SIZE_16,
-    marginTop: 69,
-    marginBottom: LAYOUT.SPACING_S_20
+    marginBottom: LAYOUT.SPACING_S_20,
   },
   scroll_content_container: {
     marginTop: LAYOUT.SPACING_MD_40,

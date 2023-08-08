@@ -2,19 +2,21 @@ import * as React from 'react'
 import { Text, TextInput, Animated, LayoutAnimation, View } from 'react-native'
 import { useGetAllExercises } from '../../../lib/exercises/hooks/useGetAllExercises'
 import { Exercise } from '../../../features'
-import { ScrollContent } from '../../../layout'
-import styles from './ExerciseSearchScreen.styles'
+import { FlexContainer, ScrollContent } from '../../../layout'
+import { TextButton } from '../../../components'
 import { Search } from '../../../assets/icons'
+
+import styles from './ExerciseSearchScreen.styles'
 
 export const ExerciseSearchScreenRoute = "ExerciseSearchScreenRoute"
 
 
-export function ExerciseSearchScreen({navigation}) {  
+export function ExerciseSearchScreen({route, navigation}) {  
   //check if id is cached in async storage.  if not fetch then store
   const {data, isSuccess} = useGetAllExercises()
   const [searchQuery, setSearchQuery] = React.useState('')
   const fadeAnim = React.useRef(new Animated.Value(0)).current
-
+  
   const handleSearch = (query) => {
     setSearchQuery(query)
     LayoutAnimation.easeInEaseOut()
@@ -66,7 +68,15 @@ export function ExerciseSearchScreen({navigation}) {
 
   return (
     <ScrollContent showsVerticalScrollIndicator={false} style={styles.scroll_content_container}>
+      <FlexContainer style={{ marginTop: 69, justifyContent: 'space-between'}} direction='row'>
       <Text style={styles.exercises_title}>Exercises</Text>
+      {route?.params?.showAdditionalButtons ? (
+          <FlexContainer direction='row'>
+            <TextButton style={[styles.exercises_title, {marginRight: 12}]}> Superset</TextButton>
+            <TextButton style={styles.exercises_title}> Add</TextButton>
+          </FlexContainer>
+      ): null}
+      </FlexContainer>
       <View style={styles.search_section}>
         <Search style={styles.search_bar}/>
           <TextInput
