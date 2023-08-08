@@ -4,7 +4,7 @@ import { useGetAllExercises } from '../../../lib/exercises/hooks/useGetAllExerci
 import { Exercise } from '../../../features'
 import { FlexContainer, ScrollContent } from '../../../layout'
 import { TextButton } from '../../../components'
-import { Search } from '../../../assets/icons'
+import { Search, BackButton } from '../../../assets/icons'
 
 import styles from './ExerciseSearchScreen.styles'
 
@@ -68,14 +68,15 @@ export function ExerciseSearchScreen({route, navigation}) {
 
   return (
     <ScrollContent showsVerticalScrollIndicator={false} style={styles.scroll_content_container}>
-      <FlexContainer style={{ marginTop: 69, justifyContent: 'space-between'}} direction='row'>
-      <Text style={styles.exercises_title}>Exercises</Text>
-      {route?.params?.showAdditionalButtons ? (
-          <FlexContainer direction='row'>
-            <TextButton style={[styles.exercises_title, {marginRight: 12}]}> Superset</TextButton>
-            <TextButton style={styles.exercises_title}> Add</TextButton>
-          </FlexContainer>
-      ): null}
+      <BackButton style={styles.back_button} onPress={() => navigation.goBack()}/>
+      <FlexContainer style={styles.flex_header_container} direction='row'>
+        <Text style={styles.exercises_title}>Exercises</Text>
+        {route?.params?.showAdditionalButtons ? (
+            <FlexContainer direction='row'>
+              <TextButton style={[styles.exercises_title, {marginRight: 12}]}> Superset</TextButton>
+              <TextButton style={styles.exercises_title}> Add</TextButton>
+            </FlexContainer>
+        ): null}
       </FlexContainer>
       <View style={styles.search_section}>
         <Search style={styles.search_bar}/>

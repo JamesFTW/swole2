@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     fontFamily: FONTS.SFPRO_REGULAR,
     color: COLORS.PRIMARY_COLOR,
     letterSpacing: .015,
-    marginBottom: LAYOUT.SPACING_XS_16
+    marginBottom: LAYOUT.SPACING_XS_16,
   },
   search_section: {
     height: LAYOUT.SPACING_MD_48,
@@ -36,6 +36,13 @@ const styles = StyleSheet.create({
     marginTop: LAYOUT.SPACING_XS_16,
     marginLeft: LAYOUT.SPACING_XS_16,
     marginRight: LAYOUT.SPACING_XS_12
+  },
+  back_button: {
+    marginTop: LAYOUT.SPACING_S_24,
+  },
+  flex_header_container: {
+    marginTop: 22,
+    justifyContent: 'space-between'
   }
 })
 
