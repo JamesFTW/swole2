@@ -23,6 +23,8 @@ export function Exercise({
   const navigation = useNavigation()
   const secondaryMuscle = secondaryMuscles[0].secondaryMuscle1
 
+  const [highLight, setHighLight] = React.useState(0)
+
   const clickBehaviorHandler = () => {
     if (clickBehavior.navigate) {
       return (
@@ -40,13 +42,19 @@ export function Exercise({
         })
       )
     }
+
+    if (clickBehavior.highLight) {
+      setHighLight(!highLight)
+    }
   }
 
   return (
     <View style={{marginBottom: marginBottom}}>
       <Card borderRadius
         onPress={() => clickBehaviorHandler()}
-        cardHeight={LAYOUT.SPACING_XL_76}>
+        cardHeight={LAYOUT.SPACING_XL_76}
+        style={highLight && styles.highlighted_exercise_card}
+        >
       <FlexContainer direction={LAYOUT.FLEX_ROW}>
         <Image
           src={exerciseImage}
@@ -57,7 +65,7 @@ export function Exercise({
         />
         <FlexContainer direction={LAYOUT.FLEX_COLUMN}>
           <FlexContainer>
-            <Text style={styles.exercise_title}>{ exerciseTitle }</Text>
+            <Text style={highLight? styles.highlighted_exercise_title : styles.exercise_title}>{ exerciseTitle }</Text>
           </FlexContainer>
           <ActionGroup
             marginLeft={LAYOUT.SPACING_XS_16}
