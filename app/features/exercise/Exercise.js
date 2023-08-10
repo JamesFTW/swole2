@@ -17,13 +17,14 @@ export function Exercise({
   targetMuscle,
   marginBottom,
   exerciseId,
-  clickBehavior
+  clickBehavior,
+  onSelectExercise
 }) {
 
   const navigation = useNavigation()
   const secondaryMuscle = secondaryMuscles[0].secondaryMuscle1
 
-  const [highLight, setHighLight] = React.useState(0)
+  const [highLight, setHighLight] = React.useState(false)
   let [exercise, setExercise] = React.useState({})
 
   const clickBehaviorHandler = () => {
@@ -52,6 +53,7 @@ export function Exercise({
         targetMuscle,
         exerciseId
       }
+      onSelectExercise(exercise)
       setExercise(exercise)
       setHighLight(!highLight)
     }

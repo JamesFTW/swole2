@@ -5,12 +5,21 @@ import styles from './StartNewWorkoutScreen.styles'
 import { Button } from '../../../components'
 import { ScrollContent } from '../../../layout'
 import { ExerciseSearchScreenRoute } from '../exercisesearchscreen/ExerciseSearchScreen'
+import { Exercise } from '../../../features'
 
 export const StartNewWorkoutScreenRoute = "StartNewWorkoutScreenRoute"
 
 
-export function StartNewWorkoutScreen({navigation}) {
+export function StartNewWorkoutScreen({navigation, route}) {
   const date = new Date()
+  const [exercises, setExercises] = React.useState([])
+
+  React.useEffect(() => {
+    if (route.params?.exercises) {
+      setExercises(route.params.exercises)
+    }
+  }, [route.params?.exercises])
+
 
   const getDayofWeek = () => {
     const DAYS_OF_THE_WEEK = [
@@ -24,6 +33,32 @@ export function StartNewWorkoutScreen({navigation}) {
     ]
     return DAYS_OF_THE_WEEK[date.getDay()]
   }
+
+
+   const WorkoutExercises = () => {
+    /**
+     * Replace Exercise component with the right component
+     */
+    const clickBehavior = {
+      navigate: true
+    }
+    if (exercises) {
+      return exercises.map((exercise) => 
+         (
+          <Exercise
+            exerciseTitle={exercise.exerciseTitle} 
+            exerciseImage={exercise.video} 
+            secondaryMuscles={exercise.secondaryMuscles}
+            targetMuscle={exercise.targetMuscle}
+            marginBottom={12}
+            exerciseId={exercise.exerciseId}
+            key={exercise.exerciseId}
+            clickBehavior={clickBehavior}
+          />
+        )
+      )
+    }
+  } 
 
   const getTimeOfDayString = () => {
     const hour = date.getHours()
@@ -56,6 +91,7 @@ export function StartNewWorkoutScreen({navigation}) {
         <Timer style={styles.timer}/>
       </View>
       <View style={styles.exercise_buttons_container}>
+        {WorkoutExercises()}
         <Button
           outline
           onPress={() => {
