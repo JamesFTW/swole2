@@ -6,6 +6,8 @@ import { FlexContainer, ScrollContent } from '../../../layout'
 import { TextButton } from '../../../components'
 import { Search, BackButton } from '../../../assets/icons'
 
+import { StartNewWorkoutScreenRoute } from '../startnewworkoutscreen/StartNewWorkoutScreen'
+
 import styles from './ExerciseSearchScreen.styles'
 
 export const ExerciseSearchScreenRoute = "ExerciseSearchScreenRoute"
@@ -14,10 +16,25 @@ export const ExerciseSearchScreenRoute = "ExerciseSearchScreenRoute"
 export function ExerciseSearchScreen({route, navigation}) {  
   //check if id is cached in async storage.  if not fetch then store
   const {data, isSuccess} = useGetAllExercises()
+
+  const [selectedExercises, setSelectedExercises] = React.useState([])
   const [searchQuery, setSearchQuery] = React.useState('')
+
   const fadeAnim = React.useRef(new Animated.Value(0)).current
 
-  const { clickBehavior } = route.params
+  const handleSelectExercise = (exercise) => {
+    const exerciseAlreadySelected = selectedExercises.some(selected => selected.exerciseId === exercise.exerciseId)
+  
+    if (!exerciseAlreadySelected) {
+      setSelectedExercises(prevSelectedExercises => [...prevSelectedExercises, exercise])
+    } else {
+      setSelectedExercises(prevSelectedExercises => {
+        const updatedSelectedExercises = prevSelectedExercises.filter(prevExercise => prevExercise.exerciseId !== exercise.exerciseId)
+        return updatedSelectedExercises
+      })
+    }
+  }
+
   
   const handleSearch = (query) => {
     setSearchQuery(query)
@@ -28,6 +45,8 @@ export function ExerciseSearchScreen({route, navigation}) {
       useNativeDriver: true,
     }).start()
   }
+
+  const { clickBehavior } = route.params
 
   const renderExercises = (exerciseData) => {
     return exerciseData.map((exercise) => (
@@ -40,6 +59,7 @@ export function ExerciseSearchScreen({route, navigation}) {
         exerciseId={exercise.exerciseId}
         marginBottom={20}
         clickBehavior={clickBehavior}
+        onSelectExercise={handleSelectExercise}
       />
     ))
   }
@@ -77,7 +97,11 @@ export function ExerciseSearchScreen({route, navigation}) {
         {route?.params?.showAdditionalButtons ? (
             <FlexContainer direction='row'>
               <TextButton style={[styles.exercises_title, {marginRight: 12}]}> Superset</TextButton>
-              <TextButton style={styles.exercises_title}> Add</TextButton>
+              <TextButton onPress={() => navigation.navigate({
+                name: StartNewWorkoutScreenRoute,
+                params: {exercises: selectedExercises},
+                merge: true
+              })} style={styles.exercises_title}> Add</TextButton>
             </FlexContainer>
         ): null}
       </FlexContainer>
