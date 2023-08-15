@@ -1,9 +1,10 @@
-import { StyleSheet, Dimensions } from 'react-native'
+import { StyleSheet } from 'react-native'
 import { LAYOUT, FONTS, COLORS } from '../../../constants'
 
 const styles = StyleSheet.create({
   exercise_title: {
     fontFamily: FONTS.SFPRO_MEDIUM,
+    color: COLORS.PRIMARY_COLOR,
     fontSize: 20,
     letterSpacing: .015,
     marginBottom: 4

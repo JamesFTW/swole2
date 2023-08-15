@@ -96,7 +96,7 @@ export function StartNewWorkoutScreen({navigation, route}) {
           outline
           onPress={() => {
             navigation.navigate(ExerciseSearchScreenRoute, {
-              showAdditionalButtons: true,
+              showAdditionalButtons: true, //give this param a better name
               clickBehavior: {
                 highLight: true
               }
