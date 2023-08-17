@@ -11,11 +11,10 @@ export function ExerciseInfo({
 }) {
   return (
     <FlexContainer
-      marginRight={LAYOUT.SPACING_LG_56}
       direction={LAYOUT.FLEX_COLUMN}
     >
       <>
-        <Text style={[styles.exercise_subtitle, { paddingTop: LAYOUT.SPACING_XS_4 }]}>{ value }</Text>
+        <Text style={[styles.exercise_subtitle_number, { paddingTop: LAYOUT.SPACING_XS_4 }]}>{ value }</Text>
         <Text style={styles.exercise_subtitle}>{ subTitle }</Text>
       </>
     </FlexContainer>
