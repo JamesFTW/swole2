@@ -5,7 +5,7 @@ import styles from './StartNewWorkoutScreen.styles'
 import { Button } from '../../../components'
 import { ScrollContent } from '../../../layout'
 import { ExerciseSearchScreenRoute } from '../exercisesearchscreen/ExerciseSearchScreen'
-import { Exercise } from '../../../features'
+import { WorkoutExercise } from '../../../features'
 
 export const StartNewWorkoutScreenRoute = "StartNewWorkoutScreenRoute"
 
@@ -36,25 +36,19 @@ export function StartNewWorkoutScreen({navigation, route}) {
 
 
    const WorkoutExercises = () => {
-    /**
-     * Replace Exercise component with the right component
-     */
-    const clickBehavior = {
-      navigate: true
-    }
     if (exercises) {
       return exercises.map((exercise) => 
          (
-          <Exercise
+          <View style={{marginBottom: 10}}>
+          <WorkoutExercise
             exerciseTitle={exercise.exerciseTitle} 
-            exerciseImage={exercise.video} 
-            secondaryMuscles={exercise.secondaryMuscles}
-            targetMuscle={exercise.targetMuscle}
-            marginBottom={12}
-            exerciseId={exercise.exerciseId}
-            key={exercise.exerciseId}
-            clickBehavior={clickBehavior}
+            exerciseImage={exercise.video}
+            sets={1}
+            reps={10}
+            weight={200}
+            rpe={8}
           />
+          </View>
         )
       )
     }
