@@ -19,7 +19,7 @@ export function Card({
       : 0
 
   return (
-    <Pressable 
+    <Pressable
       onPress={onPress} 
       style={[styles.card_container, 
         {borderRadius: borderRadiusValue, backgroundColor}, style]}>
