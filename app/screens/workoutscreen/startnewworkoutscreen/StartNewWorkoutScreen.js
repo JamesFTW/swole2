@@ -40,14 +40,14 @@ export function StartNewWorkoutScreen({navigation, route}) {
       return exercises.map((exercise) => 
          (
           <View style={{marginBottom: 10}}>
-          <WorkoutExercise
-            exerciseTitle={exercise.exerciseTitle} 
-            exerciseImage={exercise.video}
-            sets={1}
-            reps={10}
-            weight={200}
-            rpe={8}
-          />
+            <WorkoutExercise
+              exerciseTitle={exercise.exerciseTitle}
+              exerciseImage={exercise.video}
+              sets={1}
+              reps={10}
+              weight={200}
+              rpe={8}
+            />
           </View>
         )
       )
