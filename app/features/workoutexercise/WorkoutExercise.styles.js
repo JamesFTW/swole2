@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
 		fontSize: FONTS.SIZE_16,
 		color: COLORS.PRIMARY_COLOR,
 		letterSpacing: FONTS.SPACING_S,
-		marginLeft: LAYOUT.SPACING_S_20,
+		marginLeft: LAYOUT.SPACING_XS_16,
 		marginTop: 5
 	},
 	exercise_subtitle: {

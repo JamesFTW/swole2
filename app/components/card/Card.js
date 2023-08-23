@@ -1,7 +1,7 @@
 
 import * as React from 'react'
 import styles from './Card.styles'
-import { View, TouchableOpacity } from 'react-native'
+import { Pressable, Animated } from 'react-native'
 import { LAYOUT, COLORS } from '../../constants'
 
 export function Card({
@@ -19,13 +19,13 @@ export function Card({
       : 0
 
   return (
-    <TouchableOpacity 
+    <Pressable 
       onPress={onPress} 
       style={[styles.card_container, 
         {borderRadius: borderRadiusValue, backgroundColor}, style]}>
-      <View style={[styles.card_inner, { height: cardHeight }]}>
+      <Animated.View style={[styles.card_inner, { height: cardHeight }]}>
         { children }
-      </View>
-    </TouchableOpacity>
+      </Animated.View>
+    </Pressable>
   )
 }
