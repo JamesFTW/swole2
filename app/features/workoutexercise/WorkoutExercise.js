@@ -20,7 +20,7 @@ export function WorkoutExercise({
   const [animation] = React.useState(new Animated.Value(0))
 
   const toggleCollapse = () => {
-    setIsCollapsed(!isCollapsed);
+    setIsCollapsed(!isCollapsed)
     Animated.timing(animation, {
       toValue: isCollapsed ? 1 : 0,
       duration: 300,
