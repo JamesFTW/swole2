@@ -18,6 +18,6 @@ export function Set({
       <Text style={styles.set_info}>{rpe}</Text>
       <Text style={[styles.set_info]}>{weight}</Text>
       <StatusIndicator isCompleted/>
-  </FlexContainer>
+    </FlexContainer>
   )
 }
