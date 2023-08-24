@@ -21,16 +21,6 @@ const styles = StyleSheet.create({
 		fontSize: FONTS.SIZE_14,
 		color: COLORS.PRIMARY_COLOR,
 		letterSpacing: .01
-	},
-	set_info: {
-		fontFamily: FONTS.SFPRO_REGULAR,
-		fontSize: FONTS.SIZE_16,
-		color: COLORS.SECONDARY_COLOR,
-		letterSpacing: FONTS.SPACING_S,
-		marginRight: 35,
-		width: 40,
-		textAlign: 'center',
-		right: 12
 	}
 })
 
