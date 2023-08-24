@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native'
 import { FONTS, COLORS } from '../../../../constants'
 
 const styles = StyleSheet.create({
-	set_info: {
+  set_info: {
     fontFamily: FONTS.SFPRO_REGULAR,
     fontSize: FONTS.SIZE_16,
     color: COLORS.SECONDARY_COLOR,
@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     width: 40,
     textAlign: 'center',
     right: 12
-	}
+  }
 })
 
 export default styles
