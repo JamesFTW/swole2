@@ -35,8 +35,8 @@ export function Button({
   }
 
   return (
-    <TouchableOpacity style={styles.button} onPress={onPress}>
-      <Text style={styles.text}>{title}</Text>
+    <TouchableOpacity style={[styles.button, style]} onPress={onPress}>
+      <Text style={[styles.text, textStyle]}>{title}</Text>
     </TouchableOpacity>
   )
 }

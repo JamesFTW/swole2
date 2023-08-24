@@ -3,7 +3,7 @@ import { View, Text } from 'react-native'
 import { Image } from '../../../components'
 import { ScrollContent, FlexContainer } from '../../../layout'
 import { Close } from '../../../assets/icons'
-import { useGetUserExercise } from '../../../lib/userexercises/hooks/useGetUserExercise'
+import { useGetUserExercise } from '../../../lib/userexercises/hooks/'
 
 import styles from './ExerciseDetails.styles'
 

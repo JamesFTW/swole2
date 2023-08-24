@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   exercise_buttons_container: {
     marginLeft: 16, 
     marginRight: 16, 
-    marginTop: 76
+    marginTop: 40
   },
   exercise_buttons: {
     height: 44,

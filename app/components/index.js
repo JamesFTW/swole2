@@ -11,4 +11,5 @@ export { Card } from './card/Card.js';
 export { CardGroup } from './cardgroup/CardGroup.js';
 export { FormInput } from './forminput/FormInput.js';
 export { Image } from './image/Image.js';
+export { StatusIndicator } from './statusindicator/StatusIndicator.js';
 export { TextButton } from './textbutton/TextButton.js';
