@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Text, TextInput, Animated, LayoutAnimation, View } from 'react-native'
-import { useGetAllExercises } from '../../../lib/exercises/hooks/useGetAllExercises'
+import { useGetAllExercises } from '../../../lib/exercises/hooks'
 import { Exercise } from '../../../features'
 import { FlexContainer, ScrollContent } from '../../../layout'
 import { TextButton } from '../../../components'

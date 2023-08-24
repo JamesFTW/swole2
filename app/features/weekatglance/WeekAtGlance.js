@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { View, TouchableOpacity, Text } from 'react-native'
-import { Card, TextButton } from '../../components'
+import { Card, TextButton, StatusIndicator } from '../../components'
 import { FlexContainer } from '../../layout'
 import { Checkmark } from '../../assets/icons'
 import { WeekAtGlanceWorkoutRoute } from './weekatglanceworkout/WeekAtGlanceWorkout'
@@ -114,13 +114,7 @@ export function DayofWeekIndicator({
 
   return (
     <TouchableOpacity onPress={onPress} style={[styles.day_of_week_container, { marginRight }]}>
-      <View style={
-        workoutCompleted
-          ? styles.day_of_week_indicator_completed 
-          : styles.day_of_week_indicator
-        }>
-        { workoutCompleted ? <Checkmark/> : null }
-      </View>
+      <StatusIndicator isCompleted={workoutCompleted}/>
       {isToday
         ? <View style={styles.current_day_text_boarder}>
             <Text style={styles.current_day_text}>{dayOfWeek}</Text>
