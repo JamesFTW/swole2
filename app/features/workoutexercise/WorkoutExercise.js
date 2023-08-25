@@ -19,6 +19,8 @@ export function WorkoutExercise({
 
   const [isCollapsed, setIsCollapsed] = React.useState(true)
   const [animation] = React.useState(new Animated.Value(0))
+  const [additionalContentHeight, setAdditionalContentHeight] = React.useState(92)
+  const [expandedContentHeight, setExpandedContentHeight] = React.useState(220)
 
   const toggleCollapse = () => {
     setIsCollapsed(!isCollapsed)
@@ -30,25 +32,29 @@ export function WorkoutExercise({
     }).start()
   }
 
+  const addContent = () => {
+    const newSetHeight = 35
+    setAdditionalContentHeight(additionalContentHeight + newSetHeight)
+  }
+
+  const expandCardHeight = () => {
+    const newSetHeight = 35
+    setExpandedContentHeight(expandedContentHeight + newSetHeight)
+  }
+
+
   const additionalContentOpacity = animation.interpolate({
     inputRange: [0, 1],
-    outputRange: [0, 1], // Make the content fade in as it expands
+    outputRange: [0, 1],
   })
 
-  const additionalContentHeight = animation.interpolate({
-    inputRange: [0, 1],
-    outputRange: [0, 220], // Adjust the height as needed
-  })
 
-  const additionalContentHeightReverse = animation.interpolate({
-    inputRange: [0, 1],
-    outputRange: [24, 0], // Adjust the height as needed
-  })
+  const buttonBottom = additionalContentHeight > 0 ?  0 - 54 : 0
 
-  const heightInterpolate = animation.interpolate({
+  const cardHeight = animation.interpolate({
     inputRange: [0, 1],
-    outputRange: [92, 220],
-  })
+    outputRange: [92, expandedContentHeight],
+  });
 
   const SUBTITLE = {
     SETS: 'set',
@@ -57,7 +63,7 @@ export function WorkoutExercise({
     RPE: 'rpe'
   }
   return (
-    <Card cardHeight={heightInterpolate} style={{minWidth: 353}} onPress={toggleCollapse} borderRadius>
+    <Card cardHeight={cardHeight} style={{minWidth: 353}} onPress={toggleCollapse} borderRadius>
       <FlexContainer direction={LAYOUT.FLEX_ROW}>
         <Image
           src={exerciseImage}
@@ -99,7 +105,12 @@ export function WorkoutExercise({
             />
           </FlexContainer>
         </View>
-        <Button textStyle={{lineHeight: 36}} style={{marginTop: 18, marginLeft: 2, marginRight: 2, height: 36, borderRadius: 10 }} title='Add Set'></Button>
+        <Button 
+          onPress={() => {addContent(); expandCardHeight()}} 
+          textStyle={{lineHeight: 36}} 
+          style={{position: 'absolute',width: '100%', bottom: buttonBottom, marginLeft: 2, marginRight: 2, height: 36, marginBottom: 24, borderRadius: 10}} 
+          title='Add Set'
+        />
       </Animated.View> 
 
       ) : null
