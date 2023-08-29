@@ -19,10 +19,11 @@ export function WorkoutExercise({
   const [isCollapsed, setIsCollapsed] = React.useState(true)
   const [animation] = React.useState(new Animated.Value(0))
   const [expandedContentHeight, setExpandedContentHeight] = React.useState(220)
-  const [exerciseSet, addNewExerciseSet] = React.useState([
+  const [exerciseSetNumber, setExerciseSetNumber] = React.useState(1)
+  const [exerciseSets, setExerciseSet] = React.useState([
     <Set
       id={Math.random}
-      setNumber={1}
+      setNumber={exerciseSetNumber}
       reps={10}
       rpe={8}
       weight={200}
@@ -42,14 +43,16 @@ export function WorkoutExercise({
   //Going to want to fetch the user exercise info for sets and then apply that to the DefaultSet
 
   const addContent = () => {
-    addNewExerciseSet([...exerciseSet,
-    <Set
-      id={Math.random}
-      setNumber={1}
-      reps={10}
-      rpe={8}
-      weight={200}
-    />
+    const newSetNumber = exerciseSetNumber + 1
+    setExerciseSetNumber(newSetNumber)
+    setExerciseSet([...exerciseSets,
+      <Set
+        id={Math.random}
+        setNumber={newSetNumber}
+        reps={10}
+        rpe={8}
+        weight={200}
+      />
     ])
   }
 
@@ -108,7 +111,7 @@ export function WorkoutExercise({
               <Text style={styles.sets_header}>lbs</Text>
             </FlexContainer>
             <FlexContainer direction="column">
-              {exerciseSet}
+              {exerciseSets}
             </FlexContainer>
           </View>
         </Animated.View>
