@@ -10,7 +10,7 @@ import { WorkoutExercise } from '../../../features'
 export const StartNewWorkoutScreenRoute = "StartNewWorkoutScreenRoute"
 
 
-export function StartNewWorkoutScreen({navigation, route}) {
+export function StartNewWorkoutScreen({ navigation, route }) {
   const date = new Date()
   const [exercises, setExercises] = React.useState([])
 
@@ -35,24 +35,25 @@ export function StartNewWorkoutScreen({navigation, route}) {
   }
 
 
-   const WorkoutExercises = () => {
+  const WorkoutExercises = () => {
     if (exercises) {
-      return exercises.map((exercise) => 
-         (
-          <View style={{marginBottom: 10}}>
-            <WorkoutExercise
-              exerciseTitle={exercise.exerciseTitle}
-              exerciseImage={exercise.video}
-              sets={1}
-              reps={10}
-              weight={200}
-              rpe={8}
-            />
-          </View>
-        )
+      return exercises.map((exercise) =>
+      (
+        <View style={{ marginBottom: 10 }}>
+          <WorkoutExercise
+            id={exercise.exerciseId}
+            exerciseTitle={exercise.exerciseTitle}
+            exerciseImage={exercise.video}
+            sets={1}
+            reps={10}
+            weight={200}
+            rpe={8}
+          />
+        </View>
+      )
       )
     }
-  } 
+  }
 
   const getTimeOfDayString = () => {
     const hour = date.getHours()
@@ -78,11 +79,11 @@ export function StartNewWorkoutScreen({navigation, route}) {
   }).replace(/\//g, '-')
 
   return (
-    <ScrollContent useSafeArea>
+    <ScrollContent style={styles.scroll_container}>
       <View style={styles.exercise_title_container}>
-      <Text style={styles.date}>{formattedDate}</Text>
+        <Text style={styles.date}>{formattedDate}</Text>
         <Text style={styles.exercise_title}>{getDayofWeek()} {getTimeOfDayString()} Workout</Text>
-        <Timer style={styles.timer}/>
+        <Timer style={styles.timer} />
       </View>
       <View style={styles.exercise_buttons_container}>
         {WorkoutExercises()}
@@ -94,25 +95,26 @@ export function StartNewWorkoutScreen({navigation, route}) {
               clickBehavior: {
                 highLight: true
               }
-            })}}
-            title=' Add Exercise'
-            textStyle={styles.exercise_buttons_text}
-            style={styles.exercise_buttons}
-          />
+            })
+          }}
+          title=' Add Exercise'
+          textStyle={styles.exercise_buttons_text}
+          style={styles.exercise_buttons}
+        />
         <Button
           outline
           onPress={() => navigation.goBack()}
           title='Cancel Workout'
           textStyle={styles.exercise_buttons_text}
-          style={styles.exercise_buttons}/>
+          style={styles.exercise_buttons} />
       </View>
     </ScrollContent>
   )
 }
 
-function Timer({style}) {
+function Timer({ style }) {
   const [seconds, setSeconds] = React.useState(0)
-  
+
   React.useEffect(() => {
     let interval
 
@@ -126,7 +128,7 @@ function Timer({style}) {
   }, [])
 
   const formatTime = (timeInSeconds) => {
-    const minutes = Math.floor(timeInSeconds/60)
+    const minutes = Math.floor(timeInSeconds / 60)
     const seconds = timeInSeconds % 60
     return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
   }
