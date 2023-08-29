@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Text, Animated, Easing, View } from 'react-native'
+import { Text, Animated, Easing, View, Pressable } from 'react-native'
 import { ExerciseInfo } from './components/exerciseinfo/ExerciseInfo'
 import { Card, Image, Button } from '../../components'
 import { LAYOUT } from '../../constants'
@@ -78,25 +78,27 @@ export function WorkoutExercise({
     RPE: 'rpe'
   }
   return (
-    <Card cardHeight={cardHeight} style={{ minWidth: 353 }} onPress={toggleCollapse} borderRadius>
-      <FlexContainer direction={LAYOUT.FLEX_ROW}>
-        <Image
-          src={exerciseImage}
-          height={50}
-          width={50}
-          borderRadius={25} marginTop={8} />
-        <FlexContainer direction={LAYOUT.FLEX_COLUMN}>
-          <FlexContainer>
-            <Text style={styles.exercise_title}>{exerciseTitle}</Text>
-          </FlexContainer>
-          <FlexContainer style={{ justifyContent: 'space-between', width: 234, marginBottom: 2 }} direction={LAYOUT.FLEX_ROW} marginLeft={11}>
-            <ExerciseInfo value={sets} subTitle={SUBTITLE.SETS} />
-            <ExerciseInfo value={reps} subTitle={SUBTITLE.REPS} />
-            <ExerciseInfo value={rpe} subTitle={SUBTITLE.RPE} />
-            <ExerciseInfo value={weight} subTitle={SUBTITLE.WEIGHT} />
+    <Card cardHeight={cardHeight} style={{ minWidth: 353 }} borderRadius>
+      <Pressable onPress={toggleCollapse}>
+        <FlexContainer direction={LAYOUT.FLEX_ROW}>
+          <Image
+            src={exerciseImage}
+            height={50}
+            width={50}
+            borderRadius={25} marginTop={8} />
+          <FlexContainer direction={LAYOUT.FLEX_COLUMN}>
+            <FlexContainer>
+              <Text style={styles.exercise_title}>{exerciseTitle}</Text>
+            </FlexContainer>
+            <FlexContainer style={{ justifyContent: 'space-between', width: 234, marginBottom: 2 }} direction={LAYOUT.FLEX_ROW} marginLeft={11}>
+              <ExerciseInfo value={sets} subTitle={SUBTITLE.SETS} />
+              <ExerciseInfo value={reps} subTitle={SUBTITLE.REPS} />
+              <ExerciseInfo value={rpe} subTitle={SUBTITLE.RPE} />
+              <ExerciseInfo value={weight} subTitle={SUBTITLE.WEIGHT} />
+            </FlexContainer>
           </FlexContainer>
         </FlexContainer>
-      </FlexContainer>
+      </Pressable>
       {!isCollapsed && (
         <Animated.View
           style={{
