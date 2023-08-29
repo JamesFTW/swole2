@@ -2,6 +2,9 @@ import { StyleSheet } from 'react-native'
 import { LAYOUT, FONTS, COLORS } from '../../../constants'
 
 const styles = StyleSheet.create({
+  scroll_container: {
+    marginTop: 45
+  },
   exercise_title: {
     fontFamily: FONTS.SFPRO_MEDIUM,
     color: COLORS.PRIMARY_COLOR,
