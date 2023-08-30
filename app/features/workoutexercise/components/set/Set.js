@@ -1,23 +1,66 @@
-import * as React from 'react'
-import { Text } from 'react-native'
-import { FlexContainer } from '../../../../layout'
-import { StatusIndicator } from '../../../../components'
+import React from 'react';
+import { TextInput, Pressable } from 'react-native';
+import { FlexContainer } from '../../../../layout';
+import { StatusIndicator } from '../../../../components';
 
-import styles from './Set.styles'
+import styles from './Set.styles';
 
 export function Set({
   setNumber,
   reps,
   rpe,
-  weight
+  weight,
+  onRepsChange,
+  onRpeChange,
+  onWeightChange,
 }) {
+  const handlePress = () => {
+    textInputRef.current.focus();
+  };
+
+  const textInputRef = React.createRef();
+
   return (
-    <FlexContainer style={{ marginTop: 10}} direction="row">
-      <Text style={styles.set_info}>{setNumber}</Text>
-      <Text style={styles.set_info}>{reps}</Text>
-      <Text style={styles.set_info}>{rpe}</Text>
-      <Text style={[styles.set_info]}>{weight}</Text>
-      <StatusIndicator isCompleted/>
-    </FlexContainer>
-  )
+    <Pressable onPress={handlePress}>
+      <FlexContainer style={{ marginTop: 10 }} direction="row">
+        <TextInput
+          ref={textInputRef}
+          style={styles.set_info}
+          value={setNumber.toString()}
+          editable={false}
+        />
+        <TextInput
+          style={styles.set_info}
+          value={reps}
+          onChangeText={(value) => {
+            if (onRepsChange) {
+              onRepsChange(value);
+            }
+          }}
+          keyboardType="numeric"
+        />
+        <TextInput
+          style={styles.set_info}
+          value={rpe}
+          onChangeText={(value) => {
+            if (onRpeChange) {
+              onRpeChange(value);
+            }
+          }}
+          keyboardType="numeric"
+        />
+        <TextInput
+          style={styles.set_info}
+          value={weight}
+          onChangeText={(value) => {
+            if (onWeightChange) {
+              onWeightChange(value);
+            }
+          }}
+          keyboardType="numeric"
+        />
+        <StatusIndicator isCompleted />
+      </FlexContainer>
+    </Pressable>
+  );
 }

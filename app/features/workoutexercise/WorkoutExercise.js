@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { Text, Animated, Easing, View, Pressable } from 'react-native'
 import { ExerciseInfo } from './components/exerciseinfo/ExerciseInfo'
 import { Card, Image, Button } from '../../components'
@@ -13,21 +13,16 @@ export function WorkoutExercise({
   sets,
   reps,
   weight,
-  rpe
+  rpe,
 }) {
-
   const [isCollapsed, setIsCollapsed] = React.useState(true)
   const [animation] = React.useState(new Animated.Value(0))
   const [expandedContentHeight, setExpandedContentHeight] = React.useState(220)
-  const [exerciseSetNumber, setExerciseSetNumber] = React.useState(1)
-  const [exerciseSets, setExerciseSet] = React.useState([
-    <Set
-      id={Math.random}
-      setNumber={exerciseSetNumber}
-      reps={10}
-      rpe={8}
-      weight={200}
-    />
+
+  // Eventually the initial state will be the last number of the last time a person has performed this exercise
+  // Maintain state for each set
+  const [exerciseSets, setExerciseSets] = React.useState([
+    { setNumber: 1, reps: '0', rpe: '0', weight: '0' },
   ])
 
   const toggleCollapse = () => {
@@ -40,25 +35,37 @@ export function WorkoutExercise({
     }).start()
   }
 
-  //Going to want to fetch the user exercise info for sets and then apply that to the DefaultSet
-
   const addContent = () => {
-    const newSetNumber = exerciseSetNumber + 1
-    setExerciseSetNumber(newSetNumber)
-    setExerciseSet([...exerciseSets,
-      <Set
-        id={Math.random}
-        setNumber={newSetNumber}
-        reps={10}
-        rpe={8}
-        weight={200}
-      />
-    ])
+    const newSetNumber = exerciseSets.length + 1
+    const newSet = { setNumber: newSetNumber, reps: '0', rpe: '0', weight: '0' }
+    setExerciseSets([...exerciseSets, newSet])
+    expandCardHeight()
   }
 
   const expandCardHeight = () => {
     const newSetHeight = 30
     setExpandedContentHeight(expandedContentHeight + newSetHeight)
+  }
+
+  const handleRepsChange = (setNumber, value) => {
+    const updatedSets = exerciseSets.map((set) =>
+      set.setNumber === setNumber ? { ...set, reps: value } : set
+    )
+    setExerciseSets(updatedSets)
+  }
+
+  const handleRpeChange = (setNumber, value) => {
+    const updatedSets = exerciseSets.map((set) =>
+      set.setNumber === setNumber ? { ...set, rpe: value } : set
+    )
+    setExerciseSets(updatedSets)
+  }
+
+  const handleWeightChange = (setNumber, value) => {
+    const updatedSets = exerciseSets.map((set) =>
+      set.setNumber === setNumber ? { ...set, weight: value } : set
+    )
+    setExerciseSets(updatedSets)
   }
 
   const additionalContentOpacity = animation.interpolate({
@@ -69,28 +76,29 @@ export function WorkoutExercise({
   const cardHeight = animation.interpolate({
     inputRange: [0, 1],
     outputRange: [92, expandedContentHeight],
-  });
+  })
 
   const SUBTITLE = {
     SETS: 'set',
     REPS: 'reps',
-    WEIGHT: 'lbs', //TODO: convert this to something that can render lbs or kgs based on region.
-    RPE: 'rpe'
+    WEIGHT: 'lbs', // TODO: convert this to something that can render lbs or kgs based on region.
+    RPE: 'rpe',
   }
+
   return (
     <Card cardHeight={cardHeight} style={{ minWidth: 353 }} borderRadius>
       <Pressable onPress={toggleCollapse}>
         <FlexContainer direction={LAYOUT.FLEX_ROW}>
-          <Image
-            src={exerciseImage}
-            height={50}
-            width={50}
-            borderRadius={25} marginTop={8} />
+          <Image src={exerciseImage} height={50} width={50} borderRadius={25} marginTop={8} />
           <FlexContainer direction={LAYOUT.FLEX_COLUMN}>
             <FlexContainer>
               <Text style={styles.exercise_title}>{exerciseTitle}</Text>
             </FlexContainer>
-            <FlexContainer style={{ justifyContent: 'space-between', width: 234, marginBottom: 2 }} direction={LAYOUT.FLEX_ROW} marginLeft={11}>
+            <FlexContainer
+              style={{ justifyContent: 'space-between', width: 234, marginBottom: 2 }}
+              direction={LAYOUT.FLEX_ROW}
+              marginLeft={11}
+            >
               <ExerciseInfo value={sets} subTitle={SUBTITLE.SETS} />
               <ExerciseInfo value={reps} subTitle={SUBTITLE.REPS} />
               <ExerciseInfo value={rpe} subTitle={SUBTITLE.RPE} />
@@ -100,34 +108,47 @@ export function WorkoutExercise({
         </FlexContainer>
       </Pressable>
       {!isCollapsed && (
-        <Animated.View
-          style={{
-            opacity: additionalContentOpacity,
-          }}
-        >
+        <Animated.View style={{ opacity: additionalContentOpacity }}>
           <View style={{ marginTop: 18, marginLeft: 6, marginRight: 87 }}>
-            <FlexContainer style={{ justifyContent: 'space-between' }} direction='row'>
+            <FlexContainer style={{ justifyContent: 'space-between' }} direction="row">
               <Text style={styles.sets_header}>set</Text>
               <Text style={styles.sets_header}>reps</Text>
               <Text style={styles.sets_header}>rpe</Text>
               <Text style={styles.sets_header}>lbs</Text>
             </FlexContainer>
             <FlexContainer direction="column">
-              {exerciseSets}
+              {exerciseSets.map((exerciseSet) => (
+                <Set
+                  key={exerciseSet.setNumber}
+                  setNumber={exerciseSet.setNumber}
+                  reps={exerciseSet.reps}
+                  rpe={exerciseSet.rpe}
+                  weight={exerciseSet.weight}
+                  onRepsChange={(value) => handleRepsChange(exerciseSet.setNumber, value)}
+                  onRpeChange={(value) => handleRpeChange(exerciseSet.setNumber, value)}
+                  onWeightChange={(value) => handleWeightChange(exerciseSet.setNumber, value)}
+                />
+              ))}
             </FlexContainer>
           </View>
         </Animated.View>
-
-      )
-      }
-      {!isCollapsed &&
+      )}
+      {!isCollapsed && (
         <Button
-          onPress={() => { addContent(); expandCardHeight() }}
+          onPress={addContent}
           textStyle={{ lineHeight: 36 }}
-          style={{ position: 'absolute', bottom: 0, width: '100%', height: 36, borderRadius: 10, marginLeft: 12, marginBottom: 24 }}
-          title='Add Set'
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            width: '100%',
+            height: 36,
+            borderRadius: 10,
+            marginLeft: 12,
+            marginBottom: 24,
+          }}
+          title="Add Set"
         />
-      }
+      )}
     </Card>
   )
 }
