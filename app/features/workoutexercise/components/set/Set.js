@@ -1,9 +1,9 @@
-import React from 'react';
-import { TextInput, Pressable } from 'react-native';
-import { FlexContainer } from '../../../../layout';
-import { StatusIndicator } from '../../../../components';
+import React from 'react'
+import { TextInput, Pressable } from 'react-native'
+import { FlexContainer } from '../../../../layout'
+import { StatusIndicator } from '../../../../components'
 
-import styles from './Set.styles';
+import styles from './Set.styles'
 
 export function Set({
   setNumber,
@@ -15,10 +15,10 @@ export function Set({
   onWeightChange,
 }) {
   const handlePress = () => {
-    textInputRef.current.focus();
-  };
+    textInputRef.current.focus()
+  }
 
-  const textInputRef = React.createRef();
+  const textInputRef = React.createRef()
 
   return (
     <Pressable onPress={handlePress}>
@@ -34,7 +34,7 @@ export function Set({
           value={reps}
           onChangeText={(value) => {
             if (onRepsChange) {
-              onRepsChange(value);
+              onRepsChange(value)
             }
           }}
           keyboardType="numeric"
@@ -44,7 +44,7 @@ export function Set({
           value={rpe}
           onChangeText={(value) => {
             if (onRpeChange) {
-              onRpeChange(value);
+              onRpeChange(value)
             }
           }}
           keyboardType="numeric"
@@ -54,7 +54,7 @@ export function Set({
           value={weight}
           onChangeText={(value) => {
             if (onWeightChange) {
-              onWeightChange(value);
+              onWeightChange(value)
             }
           }}
           keyboardType="numeric"
@@ -62,5 +62,5 @@ export function Set({
         <StatusIndicator isCompleted />
       </FlexContainer>
     </Pressable>
-  );
+  )
 }
