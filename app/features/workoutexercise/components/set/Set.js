@@ -13,9 +13,16 @@ export function Set({
   onRepsChange,
   onRpeChange,
   onWeightChange,
+  onSetCompletionChange,
+  isCompletedSet
 }) {
+
   const handlePress = () => {
     textInputRef.current.focus()
+  }
+
+  const handleSetComplete = () => {
+    onSetCompletionChange(!isCompletedSet)
   }
 
   const textInputRef = React.createRef()
@@ -59,7 +66,12 @@ export function Set({
           }}
           keyboardType="numeric"
         />
-        <StatusIndicator isCompleted />
+      <Pressable onPress={handleSetComplete}>
+        <StatusIndicator
+          isCompleted={isCompletedSet}
+          onPress={() => onSetCompletionChange(setNumber)} // Pass the setNumber
+        />
+      </Pressable>
       </FlexContainer>
     </Pressable>
   )

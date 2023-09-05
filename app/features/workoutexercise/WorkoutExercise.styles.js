@@ -3,11 +3,11 @@ import { FONTS, COLORS, LAYOUT } from '../../constants'
 
 const styles = StyleSheet.create({
   exercise_title: {
-    fontFamily: FONTS.SFPRO_REGULAR,
+    fontFamily: FONTS.SFPRO_MEDIUM,
     fontSize: FONTS.SIZE_16,
     color: COLORS.PRIMARY_COLOR,
     letterSpacing: FONTS.SPACING_S,
-    marginLeft: LAYOUT.SPACING_XS_16,
+    marginLeft: LAYOUT.SPACING_XS_12,
     marginTop: 5
   },
   exercise_subtitle: {

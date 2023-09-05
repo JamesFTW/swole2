@@ -9,11 +9,7 @@ import { Set } from './components/set/Set'
 
 export function WorkoutExercise({
   exerciseTitle,
-  exerciseImage,
-  sets,
-  reps,
-  weight,
-  rpe,
+  exerciseImage
 }) {
   const [isCollapsed, setIsCollapsed] = React.useState(true)
   const [animation] = React.useState(new Animated.Value(0))
@@ -22,7 +18,14 @@ export function WorkoutExercise({
   // Eventually the initial state will be the last number of the last time a person has performed this exercise
   // Maintain state for each set
   const [exerciseSets, setExerciseSets] = React.useState([
-    { setNumber: 1, reps: '0', rpe: '0', weight: '0' },
+    {
+      setNumber: 1,
+      reps: '0',
+      rpe: '0',
+      weight: '0',
+      isCompletedSet: false,
+      id: 1,
+    },
   ])
 
   const toggleCollapse = () => {
@@ -37,7 +40,7 @@ export function WorkoutExercise({
 
   const addContent = () => {
     const newSetNumber = exerciseSets.length + 1
-    const newSet = { setNumber: newSetNumber, reps: '0', rpe: '0', weight: '0' }
+    const newSet = { setNumber: newSetNumber, reps: '0', rpe: '0', weight: '0', isCompletedSet: false, id: newSetNumber }
     setExerciseSets([...exerciseSets, newSet])
     expandCardHeight()
   }
@@ -47,23 +50,13 @@ export function WorkoutExercise({
     setExpandedContentHeight(expandedContentHeight + newSetHeight)
   }
 
-  const handleRepsChange = (setNumber, value) => {
+  const handleSetChange = (setNumber, property, value) => {
     const updatedSets = exerciseSets.map((set) =>
-      set.setNumber === setNumber ? { ...set, reps: value } : set
-    )
-    setExerciseSets(updatedSets)
-  }
-
-  const handleRpeChange = (setNumber, value) => {
-    const updatedSets = exerciseSets.map((set) =>
-      set.setNumber === setNumber ? { ...set, rpe: value } : set
-    )
-    setExerciseSets(updatedSets)
-  }
-
-  const handleWeightChange = (setNumber, value) => {
-    const updatedSets = exerciseSets.map((set) =>
-      set.setNumber === setNumber ? { ...set, weight: value } : set
+      set.setNumber === setNumber
+        ? property === 'isCompletedSet'
+          ? { ...set, isCompletedSet: !set.isCompletedSet }
+          : { ...set, [property]: value }
+        : set
     )
     setExerciseSets(updatedSets)
   }
@@ -99,10 +92,11 @@ export function WorkoutExercise({
               direction={LAYOUT.FLEX_ROW}
               marginLeft={11}
             >
-              <ExerciseInfo value={sets} subTitle={SUBTITLE.SETS} />
-              <ExerciseInfo value={reps} subTitle={SUBTITLE.REPS} />
-              <ExerciseInfo value={rpe} subTitle={SUBTITLE.RPE} />
-              <ExerciseInfo value={weight} subTitle={SUBTITLE.WEIGHT} />
+              {/**this is a placeholder for now.  the value should be based on what is done and what isn't */}
+              <ExerciseInfo value={exerciseSets[0].setNumber} subTitle={SUBTITLE.SETS} />
+              <ExerciseInfo value={exerciseSets[0].reps} subTitle={SUBTITLE.REPS} />
+              <ExerciseInfo value={exerciseSets[0].rpe} subTitle={SUBTITLE.RPE} />
+              <ExerciseInfo value={exerciseSets[0].weight} subTitle={SUBTITLE.WEIGHT} />
             </FlexContainer>
           </FlexContainer>
         </FlexContainer>
@@ -124,9 +118,12 @@ export function WorkoutExercise({
                   reps={exerciseSet.reps}
                   rpe={exerciseSet.rpe}
                   weight={exerciseSet.weight}
-                  onRepsChange={(value) => handleRepsChange(exerciseSet.setNumber, value)}
-                  onRpeChange={(value) => handleRpeChange(exerciseSet.setNumber, value)}
-                  onWeightChange={(value) => handleWeightChange(exerciseSet.setNumber, value)}
+                  isCompletedSet={exerciseSet.isCompletedSet}
+                  id={exerciseSet.id}
+                  onRepsChange={(value) => handleSetChange(exerciseSet.setNumber, 'reps', value)}
+                  onRpeChange={(value) => handleSetChange(exerciseSet.setNumber, 'rpe', value)}
+                  onWeightChange={(value) => handleSetChange(exerciseSet.setNumber, 'weight', value)}
+                  onSetCompletionChange={() => handleSetChange(exerciseSet.setNumber, 'isCompletedSet')}
                 />
               ))}
             </FlexContainer>
