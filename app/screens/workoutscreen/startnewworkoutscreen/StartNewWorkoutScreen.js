@@ -34,6 +34,7 @@ export function StartNewWorkoutScreen({ navigation, route }) {
     return DAYS_OF_THE_WEEK[date.getDay()]
   }
 
+  //need some way to trigger delete if sets array is empty
 
   const WorkoutExercises = () => {
     if (exercises) {
@@ -41,7 +42,7 @@ export function StartNewWorkoutScreen({ navigation, route }) {
       (
         <View style={{ marginBottom: 10 }}>
           <WorkoutExercise
-            id={exercise.exerciseId}
+            key={exercise.exerciseId}
             exerciseTitle={exercise.exerciseTitle}
             exerciseImage={exercise.video}
             sets={1}

@@ -14,7 +14,8 @@ export function Set({
   onRpeChange,
   onWeightChange,
   onSetCompletionChange,
-  isCompletedSet
+  isCompletedSet,
+  onLongPress,
 }) {
 
   const handlePress = () => {
@@ -28,7 +29,7 @@ export function Set({
   const textInputRef = React.createRef()
 
   return (
-    <Pressable onPress={handlePress}>
+    <Pressable onLongPress={onLongPress} onPress={handlePress}>
       <FlexContainer style={{ marginTop: 10 }} direction="row">
         <TextInput
           ref={textInputRef}

@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   },
   exercise_buttons: {
     height: 44,
-    marginBottom: 24,
+    marginBottom: 16,
     borderRadius: 10,
   },
   exercise_buttons_text: {

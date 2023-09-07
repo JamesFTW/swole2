@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, Animated, Easing, View, Pressable } from 'react-native'
+import { Text, Animated, Easing, View, Pressable, ActionSheetIOS } from 'react-native'
 import { ExerciseInfo } from './components/exerciseinfo/ExerciseInfo'
 import { Card, Image, Button } from '../../components'
 import { LAYOUT } from '../../constants'
@@ -14,6 +14,7 @@ export function WorkoutExercise({
   const [isCollapsed, setIsCollapsed] = React.useState(true)
   const [animation] = React.useState(new Animated.Value(0))
   const [expandedContentHeight, setExpandedContentHeight] = React.useState(220)
+  const [removeSet, setRemoveSet] = React.useState(false)
 
   // Eventually the initial state will be the last number of the last time a person has performed this exercise
   // Maintain state for each set
@@ -27,6 +28,36 @@ export function WorkoutExercise({
       id: 1,
     },
   ])
+
+  const onPress = (exerciseId) =>
+    ActionSheetIOS.showActionSheetWithOptions(
+      {
+        options: [ 'Remove', 'Cancel'],
+        destructiveButtonIndex: 0,
+        cancelButtonIndex: 1,
+        userInterfaceStyle: 'light',
+        title: 'Remove Set',
+        message: 'Are you sure you want to remove this set?'
+      },
+      buttonIndex => {
+        if (buttonIndex === 0) {
+          const filteredSets = exerciseSets.filter((set, i) => {
+            if (set.setNumber !== exerciseId) {
+              set.setNumber = i + 1
+            }
+            return set.setNumber !== exerciseId
+          })
+          const updatedSets = filteredSets.map((set, i) => {
+            return {
+              ...set,
+              setNumber: i + 1
+            }
+          })
+          setExerciseSets(updatedSets)
+          shrinkCardHeight()
+        }
+      },
+    )
 
   const toggleCollapse = () => {
     setIsCollapsed(!isCollapsed)
@@ -48,6 +79,11 @@ export function WorkoutExercise({
   const expandCardHeight = () => {
     const newSetHeight = 30
     setExpandedContentHeight(expandedContentHeight + newSetHeight)
+  }
+
+  const shrinkCardHeight = () => {
+    const newSetHeight = 30
+    setExpandedContentHeight(expandedContentHeight - newSetHeight)
   }
 
   const handleSetChange = (setNumber, property, value) => {
@@ -93,10 +129,10 @@ export function WorkoutExercise({
               marginLeft={11}
             >
               {/**this is a placeholder for now.  the value should be based on what is done and what isn't */}
-              <ExerciseInfo value={exerciseSets[0].setNumber} subTitle={SUBTITLE.SETS} />
-              <ExerciseInfo value={exerciseSets[0].reps} subTitle={SUBTITLE.REPS} />
-              <ExerciseInfo value={exerciseSets[0].rpe} subTitle={SUBTITLE.RPE} />
-              <ExerciseInfo value={exerciseSets[0].weight} subTitle={SUBTITLE.WEIGHT} />
+              <ExerciseInfo value={exerciseSets[0] !== undefined ? exerciseSets[0].setNumber: 0} subTitle={SUBTITLE.SETS} />
+              <ExerciseInfo value={exerciseSets[0] !== undefined ? exerciseSets[0].reps: 0} subTitle={SUBTITLE.REPS} />
+              <ExerciseInfo value={exerciseSets[0] !== undefined ? exerciseSets[0].rpe: 0} subTitle={SUBTITLE.RPE} />
+              <ExerciseInfo value={exerciseSets[0] !== undefined ? exerciseSets[0].weight: 0} subTitle={SUBTITLE.WEIGHT} />
             </FlexContainer>
           </FlexContainer>
         </FlexContainer>
@@ -113,13 +149,13 @@ export function WorkoutExercise({
             <FlexContainer direction="column">
               {exerciseSets.map((exerciseSet) => (
                 <Set
+                  onLongPress={() => onPress(exerciseSet.setNumber)}
                   key={exerciseSet.setNumber}
                   setNumber={exerciseSet.setNumber}
                   reps={exerciseSet.reps}
                   rpe={exerciseSet.rpe}
                   weight={exerciseSet.weight}
                   isCompletedSet={exerciseSet.isCompletedSet}
-                  id={exerciseSet.id}
                   onRepsChange={(value) => handleSetChange(exerciseSet.setNumber, 'reps', value)}
                   onRpeChange={(value) => handleSetChange(exerciseSet.setNumber, 'rpe', value)}
                   onWeightChange={(value) => handleSetChange(exerciseSet.setNumber, 'weight', value)}
@@ -128,6 +164,7 @@ export function WorkoutExercise({
               ))}
             </FlexContainer>
           </View>
+          {removeSet && <Card/>}
         </Animated.View>
       )}
       {!isCollapsed && (
