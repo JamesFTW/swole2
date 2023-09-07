@@ -14,7 +14,6 @@ export function WorkoutExercise({
   const [isCollapsed, setIsCollapsed] = React.useState(true)
   const [animation] = React.useState(new Animated.Value(0))
   const [expandedContentHeight, setExpandedContentHeight] = React.useState(220)
-  const [removeSet, setRemoveSet] = React.useState(false)
 
   // Eventually the initial state will be the last number of the last time a person has performed this exercise
   // Maintain state for each set
@@ -41,12 +40,7 @@ export function WorkoutExercise({
       },
       buttonIndex => {
         if (buttonIndex === 0) {
-          const filteredSets = exerciseSets.filter((set, i) => {
-            if (set.setNumber !== exerciseId) {
-              set.setNumber = i + 1
-            }
-            return set.setNumber !== exerciseId
-          })
+          const filteredSets = exerciseSets.filter((set) => set.setNumber !== exerciseId)
           const updatedSets = filteredSets.map((set, i) => {
             return {
               ...set,
@@ -164,7 +158,6 @@ export function WorkoutExercise({
               ))}
             </FlexContainer>
           </View>
-          {removeSet && <Card/>}
         </Animated.View>
       )}
       {!isCollapsed && (
