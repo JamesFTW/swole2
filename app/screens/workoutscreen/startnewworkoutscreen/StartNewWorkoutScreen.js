@@ -45,10 +45,6 @@ export function StartNewWorkoutScreen({ navigation, route }) {
             key={exercise.exerciseId}
             exerciseTitle={exercise.exerciseTitle}
             exerciseImage={exercise.video}
-            sets={1}
-            reps={10}
-            weight={200}
-            rpe={8}
           />
         </View>
       )

@@ -3,32 +3,32 @@ import { LAYOUT, FONTS, COLORS } from '../../../constants'
 
 const styles = StyleSheet.create({
   scroll_container: {
-    marginTop: 45
+    marginTop: LAYOUT.SPACING_MD_48
   },
   exercise_title: {
     fontFamily: FONTS.SFPRO_MEDIUM,
     color: COLORS.PRIMARY_COLOR,
-    fontSize: 20,
+    fontSize: LAYOUT.SPACING_S_20,
     letterSpacing: .015,
-    marginBottom: 4
+    marginBottom: LAYOUT.SPACING_XS_4
   },
   timer: {
     fontFamily: FONTS.SFPRO_MEDIUM,
-    fontSize: 14,
+    fontSize: FONTS.SIZE_14,
     letterSpacing: .01,
-    lineHeight: 24,
+    lineHeight: FONTS.SIZE_24,
   },
   exercise_title_container: {
-    marginLeft: 16,
-    marginTop: 40
+    marginLeft: LAYOUT.SPACING_XS_16,
+    marginTop: LAYOUT.SPACING_MD_40
   },
   exercise_buttons_container: {
-    marginLeft: 16, 
-    marginRight: 16, 
-    marginTop: 40
+    marginLeft: LAYOUT.SPACING_XS_16, 
+    marginRight: LAYOUT.SPACING_XS_16, 
+    marginTop: LAYOUT.SPACING_MD_40
   },
   exercise_buttons: {
-    height: 44,
+    height: LAYOUT.SPACING_MD_40,
     marginBottom: 16,
     borderRadius: 10,
   },
