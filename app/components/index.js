@@ -6,7 +6,6 @@
 export { Action } from './action/Action.js';
 export { ActionGroup } from './actiongroup/ActionGroup.js';
 export { Button } from './button/Button.js';
-export { ButtonGroup } from './buttongroup/ButtonGroup.js';
 export { Card } from './card/Card.js';
 export { CardGroup } from './cardgroup/CardGroup.js';
 export { FormInput } from './forminput/FormInput.js';
