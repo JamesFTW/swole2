@@ -15,10 +15,10 @@ export const ExerciseSearchScreenRoute = "ExerciseSearchScreenRoute"
 
 export function ExerciseSearchScreen({route, navigation}) {  
   //check if id is cached in async storage.  if not fetch then store
-  const {data, isSuccess} = useGetAllExercises()
+  const { data, isSuccess } = useGetAllExercises()
 
-  const [selectedExercises, setSelectedExercises] = React.useState([])
-  const [searchQuery, setSearchQuery] = React.useState('')
+  const [ selectedExercises, setSelectedExercises ] = React.useState([])
+  const [ searchQuery, setSearchQuery ] = React.useState('')
 
   const fadeAnim = React.useRef(new Animated.Value(0)).current
 

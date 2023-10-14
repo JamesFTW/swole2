@@ -3,7 +3,8 @@ import  RNAsyncStorage from '@react-native-async-storage/async-storage'
 export const ASYNC_STORE_CONSTANTS = {
   USER_DATA: '@user_data',
   USER_SESSION_COOKIE: '@user_session_cookie',
-  USER_PROFILE_DATA: '@user_profile_data'
+  USER_PROFILE_DATA: '@user_profile_data',
+  LOCAL_EXERCISE_DATA: '@local_exercise_data'
 }
 
 /**
@@ -76,6 +77,15 @@ export class AsyncStorage {
     } catch (error) {
       return [ error, null ]
     } 
+  }
+
+  getAllExercises =  async () => {
+    try {
+      const exerciseData = await this.getObjData(ASYNC_STORE_CONSTANTS.LOCAL_EXERCISE_DATA)
+      return [ exerciseData, null ]
+    } catch (error) {
+      return [ error, null ]
+    }
   }
 }
 
