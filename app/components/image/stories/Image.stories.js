@@ -8,7 +8,7 @@ import { CenterDecorator } from '../../../../storybook/CenterDecorator'
 const placeHolder = 'https://cdn.shopify.com/s/files/1/1876/4703/articles/shutterstock_1079398565_2560x.jpg?v=1591108584'
 
 export default storiesOf('Image', module)
-    .addDecorator(CenterDecorator)
+  .addDecorator(CenterDecorator)
 	.addDecorator(withBackgrounds)
 	.addDecorator(withKnobs)
 	.addParameters({
