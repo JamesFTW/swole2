@@ -5,6 +5,7 @@ import { Card, Image, Button } from '../../components'
 import { LAYOUT } from '../../constants'
 import { FlexContainer } from '../../layout'
 import { Set } from './components/set/Set'
+import { Dumbell } from '../../assets/icons'
 import styles from './WorkoutExercise.styles'
 
 function ExerciseHeader({
@@ -12,6 +13,7 @@ function ExerciseHeader({
   reps,
   rpe,
   weight,
+  style
 }) {
   const SUBTITLE = {
     SETS: 'set',
@@ -21,10 +23,10 @@ function ExerciseHeader({
   }
   return (
     <>
-      <ExerciseInfo value={setNumber} subTitle={SUBTITLE.SETS} />
-      <ExerciseInfo value={reps} subTitle={SUBTITLE.REPS} />
-      <ExerciseInfo value={rpe} subTitle={SUBTITLE.RPE} />
-      <ExerciseInfo value={weight} subTitle={SUBTITLE.WEIGHT} />
+      <ExerciseInfo style={style} value={setNumber} subTitle={SUBTITLE.SETS} />
+      <ExerciseInfo style={style} value={reps} subTitle={SUBTITLE.REPS} />
+      <ExerciseInfo style={style} value={rpe} subTitle={SUBTITLE.RPE} />
+      <ExerciseInfo style={style} value={weight} subTitle={SUBTITLE.WEIGHT} />
     </>
     
   )
@@ -44,12 +46,25 @@ export function WorkoutExercise({
 }) {
   const [isCollapsed, setIsCollapsed] = React.useState(true)
   const [animation] = React.useState(new Animated.Value(0))
+  const [isCompletedAnimation] = React.useState(new Animated.Value(0));
   const [expandedContentHeight, setExpandedContentHeight] = React.useState(220)
   const [exerciseSetHeader, setExerciseSetHeader] = React.useState(initialSet)
   const [exerciseSets, setExerciseSets] = React.useState([initialSet])
 
+  const isExerciseSetsCompleted = () => {
+    for(const set of exerciseSets) {
+      if (set.isCompletedSet === false) return false
+    }
+    return true
+  }
+
   React.useEffect(() => {
     handleHeaderSetChange()
+    isExerciseSetsCompleted()
+
+    if (isExerciseSetsCompleted()) {
+      animateIsCompleted()
+    }
   }, [exerciseSets])
 
   const onPress = (exerciseId) =>
@@ -145,6 +160,14 @@ export function WorkoutExercise({
     outputRange: [92, expandedContentHeight],
   })
 
+  const animateIsCompleted = () => {
+    Animated.timing(isCompletedAnimation, {
+      toValue: 1,
+      duration: 150, // You can adjust the duration as needed
+      useNativeDriver: false,
+    }).start()
+  }
+
   return (
     <Card cardHeight={cardHeight} style={{ minWidth: 353 }} borderRadius>
       <Pressable onPress={toggleCollapse}>
@@ -169,6 +192,7 @@ export function WorkoutExercise({
                 reps={exerciseSetHeader.reps} 
                 setNumber={exerciseSetHeader.setNumber} 
                 weight={exerciseSetHeader.weight}
+                style={{marginRight: 35}}
               />
             </FlexContainer>
           </FlexContainer>
@@ -211,6 +235,15 @@ export function WorkoutExercise({
           title="Add Set"
         />
       )}
+      {isExerciseSetsCompleted() ?
+      <Animated.View style={{ opacity: isCompletedAnimation, position: 'absolute',
+        right: 0,
+        marginRight: 16,
+        marginTop: 12,
+      }}>
+        <Dumbell isCompletedExercise/>
+      </Animated.View>
+        : null}
     </Card>
   )
 }

@@ -15,6 +15,9 @@ const styles = StyleSheet.create({
 		letterSpacing: FONTS.SPACING_S,
 		color: COLORS.PRIMARY_COLOR,
 		alignSelf: LAYOUT.ALIGN_CENTER
+	},
+	container: {
+		width: LAYOUT.SPACING_MD_40
 	}
 })
 

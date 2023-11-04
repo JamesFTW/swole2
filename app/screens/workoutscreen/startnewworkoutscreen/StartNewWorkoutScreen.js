@@ -1,14 +1,13 @@
 import * as React from 'react'
 import { View, Text } from 'react-native'
-
-import styles from './StartNewWorkoutScreen.styles'
 import { Button } from '../../../components'
 import { ScrollContent } from '../../../layout'
 import { ExerciseSearchScreenRoute } from '../exercisesearchscreen/ExerciseSearchScreen'
 import { WorkoutExercise } from '../../../features'
 
-export const StartNewWorkoutScreenRoute = "StartNewWorkoutScreenRoute"
+import styles from './StartNewWorkoutScreen.styles'
 
+export const StartNewWorkoutScreenRoute = "StartNewWorkoutScreenRoute"
 
 export function StartNewWorkoutScreen({ navigation, route }) {
   const date = new Date()
@@ -16,7 +15,7 @@ export function StartNewWorkoutScreen({ navigation, route }) {
 
   React.useEffect(() => {
     if (route.params?.exercises) {
-      setExercises(route.params.exercises)
+      setExercises(prev => prev.concat(route.params.exercises))
     }
   }, [route.params?.exercises])
 
@@ -40,9 +39,11 @@ export function StartNewWorkoutScreen({ navigation, route }) {
     if (exercises) {
       return exercises.map((exercise) =>
       (
-        <View style={{ marginBottom: 10 }}>
+        <View 
+          key={exercise.exerciseId}
+          style={{marginBottom: 10}}
+        >
           <WorkoutExercise
-            key={exercise.exerciseId}
             exerciseTitle={exercise.exerciseTitle}
             exerciseImage={exercise.video}
           />
@@ -78,12 +79,22 @@ export function StartNewWorkoutScreen({ navigation, route }) {
   return (
     <ScrollContent style={styles.scroll_container}>
       <View style={styles.exercise_title_container}>
-        <Text style={styles.date}>{formattedDate}</Text>
+        <View style={{flexDirection: 'row'}}>
+          <Text style={styles.date}>{formattedDate}</Text>
+          <Button
+            onPress={() => console.log(exercises)}
+            title="FINISH" 
+            style={styles.finish_workout_button}
+            textStyle={styles.finish_workout_button_text}
+            >
+          </Button>
+        </View>
         <Text style={styles.exercise_title}>{getDayofWeek()} {getTimeOfDayString()} Workout</Text>
         <Timer style={styles.timer} />
       </View>
       <View style={styles.exercise_buttons_container}>
         {WorkoutExercises()}
+        <View style={{marginTop: 10}}>
         <Button
           outline
           onPress={() => {
@@ -94,7 +105,7 @@ export function StartNewWorkoutScreen({ navigation, route }) {
               }
             })
           }}
-          title=' Add Exercise'
+          title='Add Exercise'
           textStyle={styles.exercise_buttons_text}
           style={styles.exercise_buttons}
         />
@@ -104,6 +115,7 @@ export function StartNewWorkoutScreen({ navigation, route }) {
           title='Cancel Workout'
           textStyle={styles.exercise_buttons_text}
           style={styles.exercise_buttons} />
+          </View>
       </View>
     </ScrollContent>
   )

@@ -24,16 +24,22 @@ const styles = StyleSheet.create({
   },
   exercise_buttons_container: {
     marginLeft: LAYOUT.SPACING_XS_16, 
-    marginRight: LAYOUT.SPACING_XS_16, 
-    marginTop: LAYOUT.SPACING_MD_40
+    marginRight: LAYOUT.SPACING_XS_16,
+    marginTop: 10
   },
   exercise_buttons: {
     height: LAYOUT.SPACING_MD_40,
-    marginBottom: 16,
-    borderRadius: 10,
+    marginBottom: LAYOUT.SPACING_XS_16,
+    borderRadius: LAYOUT.SPACING_S_20,
+    letterSpacing: FONTS.SPACING_XS,
+    marginLeft: 5,
+    marginRight: 5,
   },
   exercise_buttons_text: {
-    textAlign: 'center'
+    fontFamily: FONTS.SFPRO_MEDIUM,
+    fontSize: 14,
+    textAlign: 'center',
+    letterSpacing: FONTS.SPACING_XS
   },
   date: {
     color: COLORS.PRIMARY_COLOR,
@@ -42,6 +48,24 @@ const styles = StyleSheet.create({
     letterSpacing: FONTS.SPACING_S,
     marginBottom: LAYOUT.SPACING_MD_52
   },
+  finish_workout_button: {
+    position: 'absolute', 
+    borderRadius: LAYOUT.SPACING_XS_16, 
+    borderColor: COLORS.SECONDARY_COLOR, 
+    backgroundColor: COLORS.SECONDARY_COLOR, 
+    marginRight: LAYOUT.SPACING_XS_16, 
+    height: LAYOUT.SPACING_S_32, 
+    width: 92,
+    top: -4,
+    right: 0
+  },
+  finish_workout_button_text: {
+    fontSize: FONTS.SIZE_12, 
+    alignItems: 'center', 
+    lineHeight: FONTS.SIZE_12, 
+    justifyContent: 'center', 
+    letterSpacing: FONTS.SPACING_XL
+  }
 })
 
 export default styles
