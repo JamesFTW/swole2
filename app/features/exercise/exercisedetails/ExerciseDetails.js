@@ -3,7 +3,7 @@ import { View, Text } from 'react-native'
 import { Image } from '../../../components'
 import { ScrollContent, FlexContainer } from '../../../layout'
 import { Close } from '../../../assets/icons'
-import { useGetUserExercise } from '../../../lib/userexercises/hooks/'
+import { useGetUserExercise } from '../../../lib/users/userexercises/hooks'
 
 import styles from './ExerciseDetails.styles'
 
@@ -16,7 +16,9 @@ export const ExerciseDetailsRoute = "ExerciseDetailsRoute"
 
 export function ExerciseDetails({route, navigation}) {
   const { exerciseInfo } = route.params
+
   const { data, isSuccess } = useGetUserExercise(exerciseInfo.exerciseId)
+
   let weightTotal = 0
 
   if (isSuccess) {

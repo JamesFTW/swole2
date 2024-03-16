@@ -12,7 +12,8 @@ export const StartNewWorkoutScreenRoute = "StartNewWorkoutScreenRoute"
 export function StartNewWorkoutScreen({ navigation, route }) {
   const date = new Date()
   const [exercises, setExercises] = React.useState([])
-
+  const [finishedExercises, setFinishedExercises] = React.useState([])
+ 
   React.useEffect(() => {
     if (route.params?.exercises) {
       setExercises(prev => prev.concat(route.params.exercises))
@@ -33,7 +34,14 @@ export function StartNewWorkoutScreen({ navigation, route }) {
     return DAYS_OF_THE_WEEK[date.getDay()]
   }
 
-  //need some way to trigger delete if sets array is empty
+  const handleCallback = (childData) => {
+    setFinishedExercises((prev) => {
+      const newState = prev.filter((exercise) => exercise.exerciseTitle !== childData.exerciseTitle)
+
+      return [...newState, childData]
+
+    })
+  }
 
   const WorkoutExercises = () => {
     if (exercises) {
@@ -44,6 +52,7 @@ export function StartNewWorkoutScreen({ navigation, route }) {
           style={{marginBottom: 10}}
         >
           <WorkoutExercise
+            parentCallback={handleCallback}
             exerciseTitle={exercise.exerciseTitle}
             exerciseImage={exercise.video}
           />
@@ -82,7 +91,7 @@ export function StartNewWorkoutScreen({ navigation, route }) {
         <View style={{flexDirection: 'row'}}>
           <Text style={styles.date}>{formattedDate}</Text>
           <Button
-            onPress={() => console.log(exercises)}
+            onPress={() => console.log(finishedExercises)}
             title="FINISH" 
             style={styles.finish_workout_button}
             textStyle={styles.finish_workout_button_text}

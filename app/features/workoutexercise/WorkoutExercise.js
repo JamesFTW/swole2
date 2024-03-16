@@ -42,7 +42,8 @@ const initialSet = {
 
 export function WorkoutExercise({
   exerciseTitle,
-  exerciseImage
+  exerciseImage,
+  parentCallback
 }) {
   const [isCollapsed, setIsCollapsed] = React.useState(true)
   const [animation] = React.useState(new Animated.Value(0))
@@ -65,6 +66,8 @@ export function WorkoutExercise({
     if (isExerciseSetsCompleted()) {
       animateIsCompleted()
     }
+    parentCallback({exerciseSets, exerciseTitle})
+    
   }, [exerciseSets])
 
   const onPress = (exerciseId) =>

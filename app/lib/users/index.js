@@ -1,5 +1,5 @@
 import { API_ENDPOINT, request, HEADERS, METHODS } from '../http/request'
-import { AsyncStorage } from '../../services/asyncstorage'
+import { AsyncStorage, ASYNC_STORE_CONSTANTS } from '../../services/asyncstorage'
 import qs from 'qs'
 
 export function userSignin(body) {

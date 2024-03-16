@@ -1,9 +1,9 @@
 module.exports = {
-  presets: ['module:metro-react-native-babel-preset'],
+  presets: ['module:@react-native/babel-preset'],
   env: {
     production: {
       plugins: [
-         
+        'react-native-reanimated/plugin',
       ],
     },
   },
@@ -14,9 +14,12 @@ module.exports = {
         extensions: ['.tsx', '.ts', '.js', '.json'], 
       },
     ],
-    'react-native-reanimated/plugin'
-  ],
-  plugins: [
+    [
+      "@babel/plugin-transform-react-jsx", {
+        "runtime": "automatic"
+    }
+    ],
+    'react-native-reanimated/plugin',
     [
       "module:react-native-dotenv",
       {
