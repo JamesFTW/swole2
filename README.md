@@ -1,21 +1,33 @@
-### Example of how front end will call api
+<h1 align="center">
+  <br>
+  <img src="https://github.com/JamesFTW/swole2/assets/1907496/0c288dc7-3234-497f-976f-9a014fdcf775" alt="Swole" width="200">
+  <br>
+  Swole
+  <br>
+</h1>
 
-```javascript
-import {getAllExercises} from './src/api/exercise'
+<h4 align="center">The fitness tracker of all fitness trackers.  Built with <a href="https://reactnative.dev/" target="_blank">React Native</a>.</h4>
 
-const [data, setData] = React.useState(null)
+### 📋 Requirements
+React Native apps may target iOS 13.4 and Android 6.0 (API 23) or newer. You may use Windows, macOS, or Linux as your development operating system, though building and running iOS apps is limited to macOS.
 
-React.useEffect(() => {
-  getAllExercises().then(data => setData(data))
-})
-```
+### 🎉 Getting Started with React Native
 
-### Learnings
+If this is your first time using React Native, refer to the [official React Native documentation](https://reactnative.dev/docs/getting-started) for detailed instructions on installation and setup.
 
-## 3-12-23
+## 📖 How To Use
 
-How to add decorators and addons to storybook
+To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
-## 3-13-23
+```bash
+# Clone this repository
+$ git clone https://github.com/amitmerchant1990/electron-markdownify
 
-TODO: Document how to add new stories to storybook
+# Go into the repository
+$ cd electron-markdownify
+
+# Install dependencies
+$ npm install
+
+# Run the app
+$ npm
