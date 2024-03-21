@@ -9,7 +9,6 @@
 |  $$$$$$/|  $$$$$/$$$$/|  $$$$$$/| $$|  $$$$$$$ /$$
  \______/  \_____/\___/  \______/ |__/ \_______/|__/
 
-```
 
 The application's architecture is organized into several key directories and files, each serving specific purposes and functionalities.
 
