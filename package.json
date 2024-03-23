@@ -4,14 +4,50 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
-    "ios": "react-native run-ios",
+    "ios": "react-native run-ios --simulator='iPhone 15'",
+    "start": "NODE_OPTIONS=--openssl-legacy-provider react-native start --reset-cache",
+    "test": "jest",
     "lint": "eslint .",
-    "start": "react-native start",
-    "test": "jest"
+    "prestorybook": "rnstl",
+    "storybook": "start-storybook -p 7007",
+    "build-storybook": "build-storybook",
+    "compile": "node ./scripts/compile.js & node ./scripts/compileHooks.js"
+  },
+  "config": {
+    "react-native-storybook-loader": {
+      "searchDir": [
+        "./app"
+      ],
+      "pattern": "**/*.stories.js",
+      "outputFile": "./storybook/storyLoader.js"
+    }
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.18.2",
+    "@react-native-community/masked-view": "^0.1.11",
+    "@react-native-cookies/cookies": "^6.2.1",
+    "@react-navigation/bottom-tabs": "^6.5.7",
+    "@react-navigation/native": "^6.0.6",
+    "@react-navigation/native-stack": "^6.2.5",
+    "@react-navigation/stack": "^5.14.9",
+    "@storybook/addon-essentials": "^6.5.16",
+    "@tanstack/react-query": "^4.29.7",
+    "es6-promise": "^4.2.8",
+    "glob": "^9.3.2",
+    "isomorphic-fetch": "^3.0.0",
     "react": "18.2.0",
-    "react-native": "0.73.6"
+    "react-native": "^0.73.6",
+    "react-native-dotenv": "^3.4.8",
+    "react-native-gesture-handler": "^2.1.0",
+    "react-native-reanimated": "^2.17.0",
+    "react-native-linear-gradient": "^2.5.6",
+    "react-native-safe-area-context": "^3.4.1",
+    "react-native-screens": "^3.29.0",
+    "react-native-svg": "^15.1.0",
+    "react-native-svg-transformer": "^0.14.3",
+    "react-navigation": "^4.4.4",
+    "react-scripts": "^5.0.1",
+    "rn-fetch-blob": "^0.10.16"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
@@ -28,9 +64,39 @@
     "jest": "^29.6.3",
     "prettier": "2.8.8",
     "react-test-renderer": "18.2.0",
-    "typescript": "5.0.4"
+    "typescript": "5.0.4",
+    "@react-native-community/eslint-config": "^3.0.1",
+    "@storybook/addon-actions": "^6.5.16",
+    "@storybook/addon-backgrounds": "^6.5.16",
+    "@storybook/addon-centered": "^5.3.21",
+    "@storybook/addon-knobs": "^5.3.21",
+    "@storybook/addon-links": "^6.5.16",
+    "@storybook/addon-ondevice-actions": "^5.3.23",
+    "@storybook/addon-ondevice-backgrounds": "^5.3.23",
+    "@storybook/addon-ondevice-knobs": "^5.3.26",
+    "@storybook/builder-webpack5": "^7.0.0-beta.55",
+    "@storybook/manager-webpack5": "^6.5.16",
+    "@storybook/react": "^6.5.16",
+    "@storybook/react-native": "^5.3.27",
+    "@storybook/react-native-server": "^5.3.23",
+    "@testing-library/react-hooks": "^8.0.1",
+    "@testing-library/react-native": "^12.1.2",
+    "babel-loader": "^8.3.0",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "dotenv-webpack": "^8.0.1",
+    "metro-react-native-babel-preset": "^0.66.2",
+    "nock": "^13.3.1",
+    "react-dom": "^17.0.2",
+    "react-native-storybook-loader": "^2.0.5",
+    "webpack": "^5.75.0"
   },
   "engines": {
     "node": ">=18"
+  },
+  "jest": {
+    "preset": "react-native",
+    "setupFiles": [
+      "./__mocks__/@react-native-async-storage/async-storage.js"
+    ]
   }
 }
