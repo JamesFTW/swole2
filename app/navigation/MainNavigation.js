@@ -4,6 +4,7 @@ import { WorkoutScreenStack, WorkoutScreenStackRoute } from '../screens/workouts
 import { ProfileScreenStackRoute, ProfileScreenStack } from '../screens/profilescreen'
 import { NavLocationScreenRoute, NavLocationScreen } from '../screens/navlocationscreen/NavLocationScreen'
 import { CalendarScreenRoute, CalendarScreen } from '../screens/calendarscreen/CalendarScreen'
+import { SignInScreenRoute, SignInScreen } from '../screens/onboarding/signinscreen/SignInScreen'
 import { NavBar } from './navbar/NavBar'
 
 export const MainNavigationRoute = 'MainNavigationRoute'
@@ -21,6 +22,7 @@ export function MainNavigation() {
       <Tab.Screen name={CalendarScreenRoute}     component={CalendarScreen} />
       <Tab.Screen name={WorkoutScreenStackRoute} component={WorkoutScreenStack} />
       <Tab.Screen name={ProfileScreenStackRoute} component={ProfileScreenStack} />
+      <Tab.Screen name={SignInScreenRoute} component={SignInScreen} /> 
     </Tab.Navigator>
   )
 }
