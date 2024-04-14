@@ -2,7 +2,6 @@ import * as React from 'react'
 import { View, TouchableOpacity } from 'react-native'
 import { NavLocationScreenRoute } from '../../screens/navlocationscreen/NavLocationScreen'
 import { CalendarScreenRoute } from '../../screens/calendarscreen/CalendarScreen'
-import { SignInScreenRoute } from '../../screens/onboarding/signinscreen/SignInScreen'
 import { Profile, Dumbell, Calendar, NavLocation } from '../../assets/icons'
 import { FlexContainer } from '../../layout'
 import { ProfileScreenStackRoute } from '../../screens/profilescreen'
@@ -28,8 +27,6 @@ export function NavBar({ state, descriptors, navigation }) {
                 return <Calendar isFocused={isFocused}/>
               case NavLocationScreenRoute:
                 return <NavLocation isFocused={isFocused}/>
-              case SignInScreenRoute:
-                return <Profile isFocused={isFocused} />
             }
           }
 
