@@ -1,7 +1,6 @@
-
 import * as React from 'react'
 import styles from './CardGroup.styles'
-import { View } from 'react-native';
+import { View } from 'react-native'
 import { ScrollContent } from '../../layout'
 
 export function CardGroup({ children }) {
@@ -11,7 +10,7 @@ export function CardGroup({ children }) {
         {children.map((card, i) => {
           return (
             <View style={styles.cardGroupChild} key={i}>
-              { card }
+              {card}
             </View>
           )
         })}
@@ -21,9 +20,7 @@ export function CardGroup({ children }) {
 
   return (
     <ScrollContent useSafeArea>
-      <View style={styles.cardGroupChild}>
-        { children }
-      </View>
+      <View style={styles.cardGroupChild}>{children}</View>
     </ScrollContent>
   )
 }

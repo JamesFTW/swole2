@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     fontFamily: FONTS.SFPRO_MEDIUM,
     fontSize: FONTS.SIZE_24,
     color: COLORS.PRIMARY_COLOR,
-    marginTop: LAYOUT.SPACING_S_28
+    marginTop: LAYOUT.SPACING_S_28,
   },
   backButton: {
     fontSize: FONTS.SIZE_14,
@@ -30,8 +30,8 @@ const styles = StyleSheet.create({
   },
   content: {
     height: '100%',
-    marginTop: LAYOUT.SPACING_MD_40
-  }
+    marginTop: LAYOUT.SPACING_MD_40,
+  },
 })
 
 export default styles

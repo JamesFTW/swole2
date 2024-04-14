@@ -11,22 +11,21 @@ import styles from './NavBar.styles'
 export function NavBar({ state, descriptors, navigation }) {
   return (
     <View style={styles.navBar_container}>
-      <FlexContainer 
-        style={styles.navBar_icon_container} 
-        marginTop={20} 
-        direction='row'>
+      <FlexContainer
+        style={styles.navBar_icon_container}
+        marginTop={20}
+        direction="row">
         {state.routes.map((route, index) => {
-
-         const getIcon = () => {
-            switch(route.name) {
+          const getIcon = () => {
+            switch (route.name) {
               case ProfileScreenStackRoute:
-                return <Profile isFocused={isFocused}/>
+                return <Profile isFocused={isFocused} />
               case WorkoutScreenStackRoute:
-                return <Dumbell isFocused={isFocused}/>
+                return <Dumbell isFocused={isFocused} />
               case CalendarScreenRoute:
-                return <Calendar isFocused={isFocused}/>
+                return <Calendar isFocused={isFocused} />
               case NavLocationScreenRoute:
-                return <NavLocation isFocused={isFocused}/>
+                return <NavLocation isFocused={isFocused} />
             }
           }
 
@@ -53,13 +52,11 @@ export function NavBar({ state, descriptors, navigation }) {
               accessibilityRole="button"
               accessibilityState={isFocused ? { selected: true } : {}}
               accessibilityLabel={options.tabBarAccessibilityLabel}
-              onPress={onPress}
-            >
+              onPress={onPress}>
               {getIcon()}
             </TouchableOpacity>
           )
-        })
-      }
+        })}
       </FlexContainer>
     </View>
   )

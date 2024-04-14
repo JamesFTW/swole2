@@ -5,13 +5,13 @@ const styles = StyleSheet.create({
   search_input: {
     height: LAYOUT.SPACING_MD_48,
     marginBottom: LAYOUT.SPACING_S_24,
-    backgroundColor: COLORS.LIGHT_GRAY
+    backgroundColor: COLORS.LIGHT_GRAY,
   },
   exercise_group_letter: {
     fontSize: 16,
     fontFamily: FONTS.SFPRO_REGULAR,
     color: COLORS.PRIMARY_COLOR,
-    letterSpacing: .015,
+    letterSpacing: 0.015,
     marginBottom: LAYOUT.SPACING_XS_16,
   },
   search_section: {
@@ -30,20 +30,20 @@ const styles = StyleSheet.create({
   scroll_content_container: {
     marginTop: LAYOUT.SPACING_MD_40,
     marginRight: LAYOUT.SPACING_XS_12,
-    marginLeft: LAYOUT.SPACING_XS_12
+    marginLeft: LAYOUT.SPACING_XS_12,
   },
   search_bar: {
     marginTop: LAYOUT.SPACING_XS_16,
     marginLeft: LAYOUT.SPACING_XS_16,
-    marginRight: LAYOUT.SPACING_XS_12
+    marginRight: LAYOUT.SPACING_XS_12,
   },
   back_button: {
     marginTop: LAYOUT.SPACING_S_24,
   },
   flex_header_container: {
     marginTop: 22,
-    justifyContent: 'space-between'
-  }
+    justifyContent: 'space-between',
+  },
 })
 
 export default styles

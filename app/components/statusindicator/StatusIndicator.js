@@ -18,7 +18,12 @@ export function StatusIndicator({ isCompleted }) {
   }, [isCompleted, fadeAnim])
 
   return (
-    <View style={isCompleted ? styles.day_of_week_indicator_completed : styles.day_of_week_indicator}>
+    <View
+      style={
+        isCompleted
+          ? styles.day_of_week_indicator_completed
+          : styles.day_of_week_indicator
+      }>
       <Animated.View style={{ opacity: fadeAnim.current }}>
         {isCompleted && <Checkmark />}
       </Animated.View>

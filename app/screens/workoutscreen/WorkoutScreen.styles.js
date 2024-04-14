@@ -7,11 +7,11 @@ const styles = StyleSheet.create({
     fontFamily: FONTS.SFPRO_REGULAR,
     fontSize: FONTS.SIZE_16,
     letterSpacing: FONTS.SPACING_S,
-    marginBottom: LAYOUT.SPACING_XS_8
+    marginBottom: LAYOUT.SPACING_XS_8,
   },
   start_new_workout_container: {
     marginLeft: 2,
-    marginBottom: LAYOUT.SPACING_S_28
+    marginBottom: LAYOUT.SPACING_S_28,
   },
   start_new_workout: {
     color: COLORS.PRIMARY_COLOR,
@@ -29,32 +29,32 @@ const styles = StyleSheet.create({
     color: COLORS.SECONDARY_COLOR,
     fontFamily: FONTS.SFPRO_REGULAR,
     fontSize: FONTS.SIZE_14,
-    letterSpacing: -.02,
-    marginBottom: LAYOUT.SPACING_S_28
+    letterSpacing: -0.02,
+    marginBottom: LAYOUT.SPACING_S_28,
   },
   workout_plans_title: {
     color: COLORS.PRIMARY_COLOR,
     fontFamily: FONTS.SFPRO_REGULAR,
     fontSize: FONTS.SIZE_16,
     letterSpacing: FONTS.SPACING_S,
-    marginLeft: LAYOUT.SPACING_NUDGE_S
+    marginLeft: LAYOUT.SPACING_NUDGE_S,
   },
   workout_plans_view_all: {
     color: COLORS.SECONDARY_COLOR,
     fontFamily: FONTS.SFPRO_REGULAR,
     fontSize: FONTS.SIZE_14,
     letterSpacing: FONTS.SPACING_S,
-    marginTop: 5
+    marginTop: 5,
   },
   workout_plans_component: {
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
   exercises_component: {
     justifyContent: 'space-between',
-    marginBottom: 24
+    marginBottom: 24,
   },
   exercises_container: {
-    marginTop: 28
+    marginTop: 28,
   },
   workout_card: {
     height: 99,
@@ -62,8 +62,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#C4C4C4',
     marginTop: 24,
     borderRadius: 10,
-    marginRight: 12
-  }
+    marginRight: 12,
+  },
 })
 
 export default styles

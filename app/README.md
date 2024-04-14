@@ -1,11 +1,12 @@
 # Swole Architecture Overview
-```                                                    
+
+```
   /$$$$$$                          /$$           /$$
  /$$__  $$                        | $$          | $$
 | $$  \__/ /$$  /$$  /$$  /$$$$$$ | $$  /$$$$$$ | $$
 |  $$$$$$ | $$ | $$ | $$ /$$__  $$| $$ /$$__  $$| $$
  \____  $$| $$ | $$ | $$| $$  \ $$| $$| $$$$$$$$|__/
- /$$  \ $$| $$ | $$ | $$| $$  | $$| $$| $$_____/    
+ /$$  \ $$| $$ | $$ | $$| $$  | $$| $$| $$_____/
 |  $$$$$$/|  $$$$$/$$$$/|  $$$$$$/| $$|  $$$$$$$ /$$
  \______/  \_____/\___/  \______/ |__/ \_______/|__/
 
@@ -42,3 +43,4 @@ The application's architecture is organized into several key directories and fil
  index.js
 - Acts as the entry point for the application, where initialization, configuration, and setup tasks are performed.
 
+```

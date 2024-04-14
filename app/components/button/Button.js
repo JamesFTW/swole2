@@ -16,16 +16,22 @@ export function Button({
   marginLeft,
   marginBottom,
   style,
-  textStyle
+  textStyle,
 }) {
   if (outline) {
     return (
-      <TouchableOpacity style={[styles.buttonOutline, {
-        marginRight,
-        marginTop,
-        marginLeft,
-        marginBottom,
-      }, style]} onPress={onPress}>
+      <TouchableOpacity
+        style={[
+          styles.buttonOutline,
+          {
+            marginRight,
+            marginTop,
+            marginLeft,
+            marginBottom,
+          },
+          style,
+        ]}
+        onPress={onPress}>
         <FlexContainer direction={LAYOUT.FLEX_ROW}>
           {icon}
           <Text style={[styles.textOutline, textStyle]}>{title}</Text>

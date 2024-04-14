@@ -12,8 +12,8 @@ const weeklyStatus1 = {
   Thursday: { date: '2023-06-08', workoutCompleted: false },
   Friday: { date: '2023-06-09', workoutCompleted: false },
   Saturday: { date: '2023-06-10', workoutCompleted: false },
-  Sunday: { date: '2023-06-11', workoutCompleted: false }
-};
+  Sunday: { date: '2023-06-11', workoutCompleted: false },
+}
 
 const weeklyStatus2 = {
   Monday: { date: '2023-06-05', workoutCompleted: true },
@@ -22,8 +22,8 @@ const weeklyStatus2 = {
   Thursday: { date: '2023-06-08', workoutCompleted: true },
   Friday: { date: '2023-06-09', workoutCompleted: false },
   Saturday: { date: '2023-06-10', workoutCompleted: false },
-  Sunday: { date: '2023-06-11', workoutCompleted: false }
-};
+  Sunday: { date: '2023-06-11', workoutCompleted: false },
+}
 
 export default storiesOf('WeekAtGlance', module)
   .addDecorator(CenterDecorator)
@@ -35,10 +35,9 @@ export default storiesOf('WeekAtGlance', module)
       { name: 'light', value: '#eeeeee' },
     ],
   })
-  .add("No workouts completed", () => (
-    <WeekAtGlance weeklyStatus={weeklyStatus1}/>
+  .add('No workouts completed', () => (
+    <WeekAtGlance weeklyStatus={weeklyStatus1} />
   ))
-  .add("Workouts completed", () => (
-    <WeekAtGlance weeklyStatus={weeklyStatus2}/>
+  .add('Workouts completed', () => (
+    <WeekAtGlance weeklyStatus={weeklyStatus2} />
   ))
-

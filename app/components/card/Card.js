@@ -1,4 +1,3 @@
-
 import * as React from 'react'
 import styles from './Card.styles'
 import { Pressable, Animated } from 'react-native'
@@ -10,21 +9,20 @@ export function Card({
   borderRadius,
   backgroundColor = COLORS.WHITE_WHITE,
   onPress,
-  style
+  style,
 }) {
-  
-  const borderRadiusValue =
-    borderRadius
-      ? LAYOUT.SPACING_XS_12
-      : 0
+  const borderRadiusValue = borderRadius ? LAYOUT.SPACING_XS_12 : 0
 
   return (
     <Pressable
-      onPress={onPress} 
-      style={[styles.card_container, 
-        {borderRadius: borderRadiusValue, backgroundColor}, style]}>
+      onPress={onPress}
+      style={[
+        styles.card_container,
+        { borderRadius: borderRadiusValue, backgroundColor },
+        style,
+      ]}>
       <Animated.View style={[styles.card_inner, { height: cardHeight }]}>
-        { children }
+        {children}
       </Animated.View>
     </Pressable>
   )

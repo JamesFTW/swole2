@@ -1,5 +1,12 @@
 import React from 'react'
-import { Text, Animated, Easing, View, Pressable, ActionSheetIOS } from 'react-native'
+import {
+  Text,
+  Animated,
+  Easing,
+  View,
+  Pressable,
+  ActionSheetIOS,
+} from 'react-native'
 import { ExerciseInfo } from './components/exerciseinfo/ExerciseInfo'
 import { Card, Image, Button } from '../../components'
 import { LAYOUT } from '../../constants'
@@ -8,13 +15,7 @@ import { Set } from './components/set/Set'
 import { Dumbell } from '../../assets/icons'
 import styles from './WorkoutExercise.styles'
 
-function ExerciseHeader({
-  setNumber,
-  reps,
-  rpe,
-  weight,
-  style
-}) {
+function ExerciseHeader({ setNumber, reps, rpe, weight, style }) {
   const SUBTITLE = {
     SETS: 'set',
     REPS: 'reps',
@@ -28,7 +29,6 @@ function ExerciseHeader({
       <ExerciseInfo style={style} value={rpe} subTitle={SUBTITLE.RPE} />
       <ExerciseInfo style={style} value={weight} subTitle={SUBTITLE.WEIGHT} />
     </>
-    
   )
 }
 
@@ -43,17 +43,17 @@ const initialSet = {
 export function WorkoutExercise({
   exerciseTitle,
   exerciseImage,
-  parentCallback
+  parentCallback,
 }) {
   const [isCollapsed, setIsCollapsed] = React.useState(true)
   const [animation] = React.useState(new Animated.Value(0))
-  const [isCompletedAnimation] = React.useState(new Animated.Value(0));
+  const [isCompletedAnimation] = React.useState(new Animated.Value(0))
   const [expandedContentHeight, setExpandedContentHeight] = React.useState(220)
   const [exerciseSetHeader, setExerciseSetHeader] = React.useState(initialSet)
   const [exerciseSets, setExerciseSets] = React.useState([initialSet])
 
   const isExerciseSetsCompleted = () => {
-    for(const set of exerciseSets) {
+    for (const set of exerciseSets) {
       if (set.isCompletedSet === false) return false
     }
     return true
@@ -66,27 +66,28 @@ export function WorkoutExercise({
     if (isExerciseSetsCompleted()) {
       animateIsCompleted()
     }
-    parentCallback({exerciseSets, exerciseTitle})
-    
+    parentCallback({ exerciseSets, exerciseTitle })
   }, [exerciseSets])
 
-  const onPress = (exerciseId) =>
+  const onPress = exerciseId =>
     ActionSheetIOS.showActionSheetWithOptions(
       {
-        options: [ 'Remove', 'Cancel'],
+        options: ['Remove', 'Cancel'],
         destructiveButtonIndex: 0,
         cancelButtonIndex: 1,
         userInterfaceStyle: 'light',
         title: 'Remove Set',
-        message: 'Are you sure you want to remove this set?'
+        message: 'Are you sure you want to remove this set?',
       },
       buttonIndex => {
         if (buttonIndex === 0) {
-          const filteredSets = exerciseSets.filter((set) => set.setNumber !== exerciseId)
+          const filteredSets = exerciseSets.filter(
+            set => set.setNumber !== exerciseId,
+          )
           const updatedSets = filteredSets.map((set, i) => {
             return {
               ...set,
-              setNumber: i + 1
+              setNumber: i + 1,
             }
           })
           setExerciseSets(updatedSets)
@@ -113,7 +114,7 @@ export function WorkoutExercise({
       rpe: '0',
       weight: '0',
       isCompletedSet: false,
-      id: newSetNumber
+      id: newSetNumber,
     }
     setExerciseSets([...exerciseSets, newSet])
     expandCardHeight()
@@ -130,7 +131,7 @@ export function WorkoutExercise({
   }
 
   const handleSetChange = (setNumber, property, value) => {
-    const updatedSets = exerciseSets.map((set) => {
+    const updatedSets = exerciseSets.map(set => {
       if (set.setNumber === setNumber) {
         if (property === 'isCompletedSet') {
           return { ...set, isCompletedSet: !set.isCompletedSet }
@@ -175,11 +176,12 @@ export function WorkoutExercise({
     <Card cardHeight={cardHeight} style={{ minWidth: 353 }} borderRadius>
       <Pressable onPress={toggleCollapse}>
         <FlexContainer direction={LAYOUT.FLEX_ROW}>
-          <Image src={exerciseImage} 
-            height={50} 
-            width={50} 
-            borderRadius={25} 
-            marginTop={8} 
+          <Image
+            src={exerciseImage}
+            height={50}
+            width={50}
+            borderRadius={25}
+            marginTop={8}
           />
           <FlexContainer direction={LAYOUT.FLEX_COLUMN}>
             <FlexContainer>
@@ -188,14 +190,13 @@ export function WorkoutExercise({
             <FlexContainer
               style={styles.exercise_header}
               direction={LAYOUT.FLEX_ROW}
-              marginLeft={11}
-            >
+              marginLeft={11}>
               <ExerciseHeader
-                rpe={exerciseSetHeader.rpe} 
-                reps={exerciseSetHeader.reps} 
-                setNumber={exerciseSetHeader.setNumber} 
+                rpe={exerciseSetHeader.rpe}
+                reps={exerciseSetHeader.reps}
+                setNumber={exerciseSetHeader.setNumber}
                 weight={exerciseSetHeader.weight}
-                style={{marginRight: 35}}
+                style={{ marginRight: 35 }}
               />
             </FlexContainer>
           </FlexContainer>
@@ -204,14 +205,16 @@ export function WorkoutExercise({
       {!isCollapsed && (
         <Animated.View style={{ opacity: additionalContentOpacity }}>
           <View style={styles.drawer_set_header}>
-            <FlexContainer style={{ justifyContent: 'space-between' }} direction="row">
+            <FlexContainer
+              style={{ justifyContent: 'space-between' }}
+              direction="row">
               <Text style={styles.sets_header}>set</Text>
               <Text style={styles.sets_header}>reps</Text>
               <Text style={styles.sets_header}>rpe</Text>
               <Text style={styles.sets_header}>lbs</Text>
             </FlexContainer>
             <FlexContainer direction="column">
-              {exerciseSets.map((exerciseSet) => (
+              {exerciseSets.map(exerciseSet => (
                 <Set
                   onLongPress={() => onPress(exerciseSet.setNumber)}
                   key={exerciseSet.setNumber}
@@ -220,10 +223,18 @@ export function WorkoutExercise({
                   rpe={exerciseSet.rpe}
                   weight={exerciseSet.weight}
                   isCompletedSet={exerciseSet.isCompletedSet}
-                  onRepsChange={(value) => handleSetChange(exerciseSet.setNumber, 'reps', value)}
-                  onRpeChange={(value) => handleSetChange(exerciseSet.setNumber, 'rpe', value)}
-                  onWeightChange={(value) => handleSetChange(exerciseSet.setNumber, 'weight', value)}
-                  onSetCompletionChange={() => handleSetChange(exerciseSet.setNumber, 'isCompletedSet')}
+                  onRepsChange={value =>
+                    handleSetChange(exerciseSet.setNumber, 'reps', value)
+                  }
+                  onRpeChange={value =>
+                    handleSetChange(exerciseSet.setNumber, 'rpe', value)
+                  }
+                  onWeightChange={value =>
+                    handleSetChange(exerciseSet.setNumber, 'weight', value)
+                  }
+                  onSetCompletionChange={() =>
+                    handleSetChange(exerciseSet.setNumber, 'isCompletedSet')
+                  }
                 />
               ))}
             </FlexContainer>
@@ -238,15 +249,18 @@ export function WorkoutExercise({
           title="Add Set"
         />
       )}
-      {isExerciseSetsCompleted() ?
-      <Animated.View style={{ opacity: isCompletedAnimation, position: 'absolute',
-        right: 0,
-        marginRight: 16,
-        marginTop: 12,
-      }}>
-        <Dumbell isCompletedExercise/>
-      </Animated.View>
-        : null}
+      {isExerciseSetsCompleted() ? (
+        <Animated.View
+          style={{
+            opacity: isCompletedAnimation,
+            position: 'absolute',
+            right: 0,
+            marginRight: 16,
+            marginTop: 12,
+          }}>
+          <Dumbell isCompletedExercise />
+        </Animated.View>
+      ) : null}
     </Card>
   )
 }

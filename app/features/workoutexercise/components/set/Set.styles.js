@@ -10,8 +10,8 @@ const styles = StyleSheet.create({
     marginRight: 35,
     width: 40,
     textAlign: 'center',
-    right: 12
-  }
+    right: 12,
+  },
 })
 
 export default styles

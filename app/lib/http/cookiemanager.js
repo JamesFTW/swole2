@@ -15,18 +15,17 @@ export function setCookie(cookie) {
 export function getCookies() {
   return new Promise((resolve, reject) => {
     CookieManager.get(API_ENDPOINT)
-      .then((cookies) => {
+      .then(cookies => {
         resolve(cookies)
       })
-      .catch((error) => {
+      .catch(error => {
         reject(error)
       })
   })
 }
 
 export function clearCookies() {
-  return CookieManager.clearAll()
-    .then((success) => {
-      console.log('CookieManager.clearAll =>', success);
-    })
+  return CookieManager.clearAll().then(success => {
+    console.log('CookieManager.clearAll =>', success)
+  })
 }

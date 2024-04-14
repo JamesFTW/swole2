@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 import { LAYOUT, FONTS } from '../../constants'
 
 const styles = StyleSheet.create({
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     paddingBottom: LAYOUT.SPACING_XS_4,
     marginLeft: LAYOUT.SPACING_XS_8,
     marginRight: LAYOUT.SPACING_XS_8,
-  }
+  },
 })
 
 export default styles

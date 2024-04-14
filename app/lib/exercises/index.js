@@ -1,11 +1,14 @@
 import { API_ENDPOINT, request, METHODS } from '../http/request'
-import { AsyncStorage, ASYNC_STORE_CONSTANTS } from '../../services/asyncstorage'
+import {
+  AsyncStorage,
+  ASYNC_STORE_CONSTANTS,
+} from '../../services/asyncstorage'
 
 export const getWorkoutPagePreviewExercises = () => {
   return new Promise((resolve, reject) => {
     request({
       endpoint: `${API_ENDPOINT}/exercises/workoutPagePreview`,
-      method: METHODS.GET
+      method: METHODS.GET,
     })
       .then(res => {
         if (!res.ok) {
@@ -24,7 +27,7 @@ const fetchAllExercises = () => {
   return new Promise((resolve, reject) => {
     request({
       endpoint: `${API_ENDPOINT}/exercises`,
-      method: METHODS.GET
+      method: METHODS.GET,
     })
       .then(res => {
         if (!res.ok) {
@@ -54,13 +57,16 @@ export const getAllExercises = async () => {
 
   try {
     const exerciseData = await fetchAllExercises()
-    
-    asyncstore.storeObjData(ASYNC_STORE_CONSTANTS.LOCAL_EXERCISE_DATA, exerciseData)
+
+    asyncstore.storeObjData(
+      ASYNC_STORE_CONSTANTS.LOCAL_EXERCISE_DATA,
+      exerciseData,
+    )
 
     if (exerciseData) {
       return exerciseData
     }
-  } catch(error) {
+  } catch (error) {
     throw new Error(error)
   }
 }

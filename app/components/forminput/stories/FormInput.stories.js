@@ -7,15 +7,15 @@ import { withKnobs } from '@storybook/addon-ondevice-knobs'
 import { CenterDecorator } from '../../../../storybook/CenterDecorator'
 
 export default storiesOf('FormInput', module)
-	.addDecorator(CenterDecorator)
-	.addDecorator(withBackgrounds)
-	.addDecorator(withKnobs)
-	.addParameters({
-		backgrounds: [
-			{ name: 'dark', value: '#F8F9FB', default: true },
-			{ name: 'light', value: '#eeeeee' },
-		],
-	})
-	.add("default", () => (
-		<FormInput title="Email" placeholder="veryswole@swole.com"/>
- ))
+  .addDecorator(CenterDecorator)
+  .addDecorator(withBackgrounds)
+  .addDecorator(withKnobs)
+  .addParameters({
+    backgrounds: [
+      { name: 'dark', value: '#F8F9FB', default: true },
+      { name: 'light', value: '#eeeeee' },
+    ],
+  })
+  .add('default', () => (
+    <FormInput title="Email" placeholder="veryswole@swole.com" />
+  ))

@@ -11,21 +11,24 @@ export function FlexContainer({
   marginBottom,
   textAlign,
   alignItems,
-  style
+  style,
 }) {
-
   return (
-    <View style={[styles.flex_container, {
-      'flexDirection': direction,
-      marginLeft,
-      marginRight,
-      marginTop,
-      marginBottom,
-      textAlign,
-      alignItems,
-      }, style
-    ]}>
-      { children }
+    <View
+      style={[
+        styles.flex_container,
+        {
+          flexDirection: direction,
+          marginLeft,
+          marginRight,
+          marginTop,
+          marginBottom,
+          textAlign,
+          alignItems,
+        },
+        style,
+      ]}>
+      {children}
     </View>
   )
 }

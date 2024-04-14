@@ -8,7 +8,7 @@ import { SignInScreenRoute } from '../signinscreen/SignInScreen'
 import SplashScreenBackground from '../../../assets/imgs/splash_screen.png'
 import styles from './SplashScreen.styles'
 
-export const SplashScreenRoute = "SplashScreenRoute"
+export const SplashScreenRoute = 'SplashScreenRoute'
 
 const CONSTANTS = {
   SWOLE: 'SWOLE',
@@ -17,42 +17,45 @@ const CONSTANTS = {
   SIGN_UP_WITH_EMAIL: 'Sign Up with Email',
   ALREADY_A_MEMBER: 'Already a member?',
   LOG_IN: 'Log in',
-  SignUpScreen: 'SignUpScreen'
+  SignUpScreen: 'SignUpScreen',
 }
 
-export function SplashScreen({navigation}) {
+export function SplashScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      <StatusBar
-        translucent 
-        backgroundColor='transparent'
-    />
-    <ImageBackground 
-      source={SplashScreenBackground}
-      resizeMode='cover'
-      style={styles.image}
-    >
-    <Text style={styles.title}>{CONSTANTS.SWOLE}</Text>
-    <View style={styles.welcomeMessageContainer}>
-      <Text style={styles.welcomeMessage}>{CONSTANTS.WELCOME_MESSAGE}</Text>
-      <Text style={styles.welcomeMessageSubText}>{CONSTANTS.WELCOME_MESSAGE_SUB_TEXT}</Text>
-    </View>
-    </ImageBackground>
-      <Button 
-        outline 
-        title={CONSTANTS.SIGN_UP_WITH_EMAIL} 
-        icon={<EmailIcon/>}
+      <StatusBar translucent backgroundColor="transparent" />
+      <ImageBackground
+        source={SplashScreenBackground}
+        resizeMode="cover"
+        style={styles.image}>
+        <Text style={styles.title}>{CONSTANTS.SWOLE}</Text>
+        <View style={styles.welcomeMessageContainer}>
+          <Text style={styles.welcomeMessage}>{CONSTANTS.WELCOME_MESSAGE}</Text>
+          <Text style={styles.welcomeMessageSubText}>
+            {CONSTANTS.WELCOME_MESSAGE_SUB_TEXT}
+          </Text>
+        </View>
+      </ImageBackground>
+      <Button
+        outline
+        title={CONSTANTS.SIGN_UP_WITH_EMAIL}
+        icon={<EmailIcon />}
         marginTop={LAYOUT.SPACING_MD_36}
         marginLeft={LAYOUT.SPACING_S_20}
         marginRight={LAYOUT.SPACING_S_20}
-        style={{height: 48, borderRadius: 10}}
-        textStyle={{marginLeft: 64}}
+        style={{ height: 48, borderRadius: 10 }}
+        textStyle={{ marginLeft: 64 }}
         onPress={() => navigation.navigate(SignUpScreenRoute)}
       />
-        <Text style={styles.text}>{CONSTANTS.ALREADY_A_MEMBER}
-            <Text onPress={() => navigation.navigate(SignInScreenRoute)} style={styles.loginText}> {CONSTANTS.LOG_IN}</Text>
+      <Text style={styles.text}>
+        {CONSTANTS.ALREADY_A_MEMBER}
+        <Text
+          onPress={() => navigation.navigate(SignInScreenRoute)}
+          style={styles.loginText}>
+          {' '}
+          {CONSTANTS.LOG_IN}
         </Text>
+      </Text>
     </View>
   )
 }
-

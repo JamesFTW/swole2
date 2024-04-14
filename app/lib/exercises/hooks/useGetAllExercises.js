@@ -1,8 +1,6 @@
 import { getAllExercises } from '..'
 
-import {
-  useQuery,
-} from '@tanstack/react-query'
+import { useQuery } from '@tanstack/react-query'
 
 export const useGetAllExercises = () => {
   return useQuery({
@@ -14,16 +12,15 @@ export const useGetAllExercises = () => {
         if (res) {
           return res
         }
-      } catch(error) {
+      } catch (error) {
         throw new Error(error)
       }
-
-  },
-  onSuccess: (data) => {
-    return data
-  },
-  onError: (error) => {
-    console.log(error)
-  }
+    },
+    onSuccess: data => {
+      return data
+    },
+    onError: error => {
+      console.log(error)
+    },
   })
 }
