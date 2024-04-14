@@ -28,7 +28,6 @@ export function Exercise({
   let [exercise, setExercise] = React.useState({})
 
   const clickBehaviorHandler = () => {
-    console.log("bruhfdsdfa")
     if (clickBehavior.navigate) {
       return (
         navigation.navigate(WorkoutScreenStackRoute, {
