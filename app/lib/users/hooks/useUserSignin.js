@@ -22,6 +22,8 @@ export const useUserSignin = () => {
   },
   onSuccess: (data) => {
     const { cookie, passport } = data.session
+    // TODO: Add some other stateful way of representing
+    console.log("Successful login");
 
     if (cookie && passport) {
       const asnycStore = new AsyncStorage()
