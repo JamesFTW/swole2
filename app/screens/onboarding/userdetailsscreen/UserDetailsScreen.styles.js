@@ -13,14 +13,14 @@ const styles = StyleSheet.create({
     fontFamily: FONTS.SFPRO_MEDIUM,
     fontSize: FONTS.SIZE_24,
     color: COLORS.PRIMARY_COLOR,
-    marginTop: LAYOUT.SPACING_S_28
+    marginTop: LAYOUT.SPACING_S_28,
   },
   subTitle: {
     fontFamily: FONTS.SFPRO_MEDIUM,
     fontSize: FONTS.SIZE_14,
     marginTop: LAYOUT.SPACING_XS_12,
     color: COLORS.PRIMARY_COLOR,
-    letterSpacing: .1
+    letterSpacing: 0.1,
   },
   passwordRequirementText: {
     marginTop: LAYOUT.SPACING_XS_16,
@@ -31,8 +31,8 @@ const styles = StyleSheet.create({
   },
   content: {
     height: '100%',
-    marginTop: LAYOUT.SPACING_MD_40
-  }
+    marginTop: LAYOUT.SPACING_MD_40,
+  },
 })
 
 export default styles

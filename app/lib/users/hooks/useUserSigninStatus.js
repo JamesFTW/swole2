@@ -9,13 +9,12 @@
 //   useQuery,
 // } from '@tanstack/react-query'
 
-
 // export const useUserSigninStatus = () => {
 //   return useQuery({
 //     queryKey: ['userSigninStatus'],
 //     queryFn: async () => {
 //       const asyncstore = new AsyncStorage()
-      
+
 //       const [userData, error] = await asyncstore.getUserSessionData()
 
 //       if (userData !== null) {

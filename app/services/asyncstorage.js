@@ -1,16 +1,16 @@
-import  RNAsyncStorage from '@react-native-async-storage/async-storage'
+import RNAsyncStorage from '@react-native-async-storage/async-storage'
 
 export const ASYNC_STORE_CONSTANTS = {
   USER_DATA: '@user_data',
   USER_SESSION_COOKIE: '@user_session_cookie',
   USER_PROFILE_DATA: '@user_profile_data',
-  LOCAL_EXERCISE_DATA: '@local_exercise_data'
+  LOCAL_EXERCISE_DATA: '@local_exercise_data',
 }
 
 /**
  * Might have to return a promise for storeObjData and removeValue
  * When that comes up fix it
- * 
+ *
  * Shit might not need to return a promise for any of these.  Come back to it
  */
 export class AsyncStorage {
@@ -23,69 +23,74 @@ export class AsyncStorage {
     }
   }
 
-  getObjData = (storage_key) => {
+  getObjData = storage_key => {
     return new Promise(async (resolve, reject) => {
       try {
         const jsonValue = await RNAsyncStorage.getItem(storage_key)
         resolve(jsonValue != null ? JSON.parse(jsonValue) : null)
-      } catch(error) {
+      } catch (error) {
         reject(new Error(error))
       }
     })
   }
 
-  removeValue = async (storage_key) => {
+  removeValue = async storage_key => {
     try {
       await RNAsyncStorage.removeItem(storage_key)
-    } catch(error) {
+    } catch (error) {
       throw new Error(error)
-    } 
+    }
     console.log(`Removed value: ${storage_key} from async storage`)
   }
-  
+
   clearAll = async () => {
     try {
       await RNAsyncStorage.clear()
-    } catch(error) {
+    } catch (error) {
       throw new Error(error)
-    } 
+    }
     console.log('Cleared all values from async storage')
   }
 
   getUserData = async () => {
-      try {
-        const userData = await this.getObjData(ASYNC_STORE_CONSTANTS.USER_DATA)
-        return [ userData, null ]
-      } catch (error) {
-        return [ error, null ]
-      } 
+    try {
+      const userData = await this.getObjData(ASYNC_STORE_CONSTANTS.USER_DATA)
+      return [userData, null]
+    } catch (error) {
+      return [error, null]
+    }
   }
 
   getUserSessionData = async () => {
     try {
-      const userSessionData = await this.getObjData(ASYNC_STORE_CONSTANTS.USER_SESSION_COOKIE)
-      return [ userSessionData, null ]
+      const userSessionData = await this.getObjData(
+        ASYNC_STORE_CONSTANTS.USER_SESSION_COOKIE,
+      )
+      return [userSessionData, null]
     } catch (error) {
-      return [ error, null ]
-    } 
+      return [error, null]
+    }
   }
 
-  getUserProfileData =  async () => {
+  getUserProfileData = async () => {
     try {
-      const userProfileData = await this.getObjData(ASYNC_STORE_CONSTANTS.USER_PROFILE_DATA)
-      return [ userProfileData, null ]
+      const userProfileData = await this.getObjData(
+        ASYNC_STORE_CONSTANTS.USER_PROFILE_DATA,
+      )
+      return [userProfileData, null]
     } catch (error) {
-      return [ error, null ]
-    } 
+      return [error, null]
+    }
   }
 
-  getAllExercises =  async () => {
+  getAllExercises = async () => {
     try {
-      const exerciseData = await this.getObjData(ASYNC_STORE_CONSTANTS.LOCAL_EXERCISE_DATA)
-      return [ exerciseData, null ]
+      const exerciseData = await this.getObjData(
+        ASYNC_STORE_CONSTANTS.LOCAL_EXERCISE_DATA,
+      )
+      return [exerciseData, null]
     } catch (error) {
-      return [ error, null ]
+      return [error, null]
     }
   }
 }
-

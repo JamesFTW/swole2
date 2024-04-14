@@ -2,9 +2,9 @@ const API_ENDPOINT = process.env.API_ENDPOINT
 const API_DOMAIN_NAME = process.env.API_DOMAIN_NAME
 
 const HEADERS = {
-  'APPLICATION_JSON' : 'application/json',
-  'APPLICATION_X_WWW_FORM_URLENCODED': 'application/x-www-form-urlencoded',
-  'ACCESS_CONTROL_ALLOW_CREDENTIAL': 'access-control-allow-credential',
+  APPLICATION_JSON: 'application/json',
+  APPLICATION_X_WWW_FORM_URLENCODED: 'application/x-www-form-urlencoded',
+  ACCESS_CONTROL_ALLOW_CREDENTIAL: 'access-control-allow-credential',
 }
 
 const METHODS = {
@@ -28,15 +28,13 @@ const request = ({ endpoint, body, method, headers }) => {
     newHeaders.append(CONTENT_TYPE, headers)
   }
 
-  return (
-    fetch(endpoint, {
-      method: method,
-      headers: newHeaders,
-      credentials: SAME_ORIGIN,
-      'access-control-allow-credential': 'true',
-      body: body,
-    })
-  )
+  return fetch(endpoint, {
+    method: method,
+    headers: newHeaders,
+    credentials: SAME_ORIGIN,
+    'access-control-allow-credential': 'true',
+    body: body,
+  })
 }
 
 export { API_ENDPOINT, request, HEADERS, METHODS, API_DOMAIN_NAME }

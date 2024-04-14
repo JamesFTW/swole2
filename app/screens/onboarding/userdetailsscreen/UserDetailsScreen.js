@@ -11,10 +11,11 @@ const CONSTANTS = {
   Full_NAME_PLACEHOLDER: 'Bob Swole',
   SIGN_UP_WITH_EMAIL: 'Create your profile',
   BIRTHDATE_PLACEHOLDER: 'MM/DD/YYYY',
-  SUB_TITLE_TEXT: 'This will give you a place to store workouts and help your friends find you.'
+  SUB_TITLE_TEXT:
+    'This will give you a place to store workouts and help your friends find you.',
 }
 
-export function UserDetailsScreen({navigation}) {
+export function UserDetailsScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.userDetailsContent}>
@@ -29,17 +30,17 @@ export function UserDetailsScreen({navigation}) {
           <FormInput
             textContentType={'name'}
             placeholder={CONSTANTS.Full_NAME_PLACEHOLDER}
-            marginTop={LAYOUT.SPACING_S_20} 
+            marginTop={LAYOUT.SPACING_S_20}
             title="Full name"
           />
           <FormInput
             textContentType={'none'}
             placeholder={CONSTANTS.BIRTHDATE_PLACEHOLDER}
-            marginTop={LAYOUT.SPACING_S_20} 
+            marginTop={LAYOUT.SPACING_S_20}
             title="Birthdate"
             marginBottom={191}
           />
-          <Button title="Get Swole!"/>
+          <Button title="Get Swole!" />
         </View>
       </View>
     </SafeAreaView>

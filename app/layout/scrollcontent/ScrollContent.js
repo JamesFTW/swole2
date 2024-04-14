@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { SafeAreaView, ScrollView } from 'react-native'
 
-export function ScrollContent({ 
+export function ScrollContent({
   children,
   useSafeArea,
   style,
@@ -9,20 +9,19 @@ export function ScrollContent({
   showsHorizontalScrollIndicator,
   showsVerticalScrollIndicator,
   onScroll,
-  scrollEventThrottle
+  scrollEventThrottle,
 }) {
   if (useSafeArea) {
     return (
       <SafeAreaView>
-        <ScrollView 
+        <ScrollView
           showsHorizontalScrollIndicator={showsHorizontalScrollIndicator}
           showsVerticalScrollIndicator={showsVerticalScrollIndicator}
           onScroll={onScroll}
-          horizontal={horizontal} 
+          horizontal={horizontal}
           style={style}
-          scrollEventThrottle={scrollEventThrottle}
-        >
-          { children }
+          scrollEventThrottle={scrollEventThrottle}>
+          {children}
         </ScrollView>
       </SafeAreaView>
     )
@@ -32,12 +31,11 @@ export function ScrollContent({
     <ScrollView
       showsHorizontalScrollIndicator={showsHorizontalScrollIndicator}
       showsVerticalScrollIndicator={showsVerticalScrollIndicator}
-      horizontal={horizontal} 
+      horizontal={horizontal}
       style={style}
       onScroll={onScroll}
-      scrollEventThrottle={scrollEventThrottle}
-    >
-      { children }
+      scrollEventThrottle={scrollEventThrottle}>
+      {children}
     </ScrollView>
   )
 }

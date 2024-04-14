@@ -30,13 +30,13 @@ describe('cookiemanager', () => {
         secure: false,
         httpOnly: true,
         path: '/',
-      };
-  
+      }
+
       await setCookie(cookie)
-  
+
       expect(CookieManager.set).toHaveBeenCalledWith(API_ENDPOINT, cookie)
+    })
   })
-})
 
   describe('getCookies', () => {
     it('should retrieve the cookies successfully', async () => {
@@ -47,15 +47,17 @@ describe('cookiemanager', () => {
       await getCookies()
 
       expect(CookieManager.get).toHaveBeenCalledWith(API_ENDPOINT)
-      expect(CookieManager.get).toHaveBeenCalledWith(expect.any(String));
+      expect(CookieManager.get).toHaveBeenCalledWith(expect.any(String))
     })
 
     it('should handle an error when retrieving cookies', async () => {
       const error = new Error('Error while retrieving cookies')
-  
+
       CookieManager.get.mockRejectedValue(error)
-  
-      await expect(getCookies()).rejects.toThrow('Error while retrieving cookies')
+
+      await expect(getCookies()).rejects.toThrow(
+        'Error while retrieving cookies',
+      )
     })
   })
 
@@ -68,7 +70,10 @@ describe('cookiemanager', () => {
       await clearCookies()
 
       expect(CookieManager.clearAll).toHaveBeenCalled()
-      expect(mockConsoleLog).toHaveBeenCalledWith('CookieManager.clearAll =>', successResponse)
+      expect(mockConsoleLog).toHaveBeenCalledWith(
+        'CookieManager.clearAll =>',
+        successResponse,
+      )
     })
   })
 })

@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
   },
-  textInput : {
+  textInput: {
     position: LAYOUT.POSITION_ABSOLUTE,
     fontFamily: FONTS.SFPRO_MEDIUM,
     color: COLORS.PRIMARY_COLOR,
@@ -14,14 +14,14 @@ const styles = StyleSheet.create({
   },
   formInput: {
     borderBottomColor: COLORS.PRIMARY_COLOR,
-    borderBottomWidth: .5,
+    borderBottomWidth: 0.5,
   },
   title: {
     fontFamily: FONTS.SFPRO_REGULAR,
     fontSize: FONTS.SIZE_14,
     color: COLORS.SECONDARY_COLOR,
     letterSpacing: FONTS.SPACING_XS,
-    marginBottom: LAYOUT.SPACING_MD_40
-  }
+    marginBottom: LAYOUT.SPACING_MD_40,
+  },
 })
 export default styles

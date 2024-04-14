@@ -5,7 +5,7 @@ export function getUserExercise(userId, exerciseId) {
   return new Promise((resolve, reject) => {
     request({
       endpoint: `${API_ENDPOINT}/userexercises/${userId}/${exerciseId}`,
-      method: METHODS.GET
+      method: METHODS.GET,
     })
       .then(res => {
         if (!res.ok) {

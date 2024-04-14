@@ -17,7 +17,6 @@ export function Set({
   isCompletedSet,
   onLongPress,
 }) {
-
   const handlePress = () => {
     textInputRef.current.focus()
   }
@@ -40,7 +39,7 @@ export function Set({
         <TextInput
           style={styles.set_info}
           value={reps}
-          onChangeText={(value) => {
+          onChangeText={value => {
             if (onRepsChange) {
               onRepsChange(value)
             }
@@ -50,7 +49,7 @@ export function Set({
         <TextInput
           style={styles.set_info}
           value={rpe}
-          onChangeText={(value) => {
+          onChangeText={value => {
             if (onRpeChange) {
               onRpeChange(value)
             }
@@ -60,19 +59,19 @@ export function Set({
         <TextInput
           style={styles.set_info}
           value={weight}
-          onChangeText={(value) => {
+          onChangeText={value => {
             if (onWeightChange) {
               onWeightChange(value)
             }
           }}
           keyboardType="numeric"
         />
-      <Pressable onPress={handleSetComplete}>
-        <StatusIndicator
-          isCompleted={isCompletedSet}
-          onPress={() => onSetCompletionChange(setNumber)} // Pass the setNumber
-        />
-      </Pressable>
+        <Pressable onPress={handleSetComplete}>
+          <StatusIndicator
+            isCompleted={isCompletedSet}
+            onPress={() => onSetCompletionChange(setNumber)} // Pass the setNumber
+          />
+        </Pressable>
       </FlexContainer>
     </Pressable>
   )

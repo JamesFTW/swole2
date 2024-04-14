@@ -11,19 +11,22 @@ export function FormInput({
   marginLeft,
   secureTextEntry,
   textContentType,
-  onChangeText
+  onChangeText,
 }) {
-  
   return (
-    <View style={[styles.container, {
-      marginTop,
-      marginBottom,
-      marginRight,
-      marginLeft,
-      textContentType
-    }]}>
+    <View
+      style={[
+        styles.container,
+        {
+          marginTop,
+          marginBottom,
+          marginRight,
+          marginLeft,
+          textContentType,
+        },
+      ]}>
       <View style={styles.formInput}>
-        <Text style={styles.title}>{ title }</Text>
+        <Text style={styles.title}>{title}</Text>
         <TextInput
           style={styles.textInput}
           placeholder={placeholder}

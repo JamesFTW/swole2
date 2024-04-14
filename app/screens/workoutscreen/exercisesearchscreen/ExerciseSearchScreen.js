@@ -10,33 +10,38 @@ import { StartNewWorkoutScreenRoute } from '../startnewworkoutscreen/StartNewWor
 
 import styles from './ExerciseSearchScreen.styles'
 
-export const ExerciseSearchScreenRoute = "ExerciseSearchScreenRoute"
+export const ExerciseSearchScreenRoute = 'ExerciseSearchScreenRoute'
 
-
-export function ExerciseSearchScreen({route, navigation}) {  
+export function ExerciseSearchScreen({ route, navigation }) {
   //check if id is cached in async storage.  if not fetch then store
   const { data, isSuccess } = useGetAllExercises()
 
-  const [ selectedExercises, setSelectedExercises ] = React.useState([])
-  const [ searchQuery, setSearchQuery ] = React.useState('')
+  const [selectedExercises, setSelectedExercises] = React.useState([])
+  const [searchQuery, setSearchQuery] = React.useState('')
 
   const fadeAnim = React.useRef(new Animated.Value(0)).current
 
-  const handleSelectExercise = (exercise) => {
-    const exerciseAlreadySelected = selectedExercises.some(selected => selected.exerciseId === exercise.exerciseId)
-  
+  const handleSelectExercise = exercise => {
+    const exerciseAlreadySelected = selectedExercises.some(
+      selected => selected.exerciseId === exercise.exerciseId,
+    )
+
     if (!exerciseAlreadySelected) {
-      setSelectedExercises(prevSelectedExercises => [...prevSelectedExercises, exercise])
+      setSelectedExercises(prevSelectedExercises => [
+        ...prevSelectedExercises,
+        exercise,
+      ])
     } else {
       setSelectedExercises(prevSelectedExercises => {
-        const updatedSelectedExercises = prevSelectedExercises.filter(prevExercise => prevExercise.exerciseId !== exercise.exerciseId)
+        const updatedSelectedExercises = prevSelectedExercises.filter(
+          prevExercise => prevExercise.exerciseId !== exercise.exerciseId,
+        )
         return updatedSelectedExercises
       })
     }
   }
 
-  
-  const handleSearch = (query) => {
+  const handleSearch = query => {
     setSearchQuery(query)
     LayoutAnimation.easeInEaseOut()
     Animated.timing(fadeAnim, {
@@ -48,8 +53,8 @@ export function ExerciseSearchScreen({route, navigation}) {
 
   const { clickBehavior } = route.params
 
-  const renderExercises = (exerciseData) => {
-    return exerciseData.map((exercise) => (
+  const renderExercises = exerciseData => {
+    return exerciseData.map(exercise => (
       <Exercise
         key={exercise.exerciseId}
         exerciseTitle={exercise.exerciseName}
@@ -64,9 +69,9 @@ export function ExerciseSearchScreen({route, navigation}) {
     ))
   }
 
-  const getExerciseGroups = (exerciseData) => {
+  const getExerciseGroups = exerciseData => {
     const exerciseGroups = {}
-    exerciseData.forEach((exercise) => {
+    exerciseData.forEach(exercise => {
       const firstLetter = exercise.exerciseName.charAt(0).toUpperCase()
       if (exerciseGroups[firstLetter]) {
         exerciseGroups[firstLetter].push(exercise)
@@ -77,45 +82,67 @@ export function ExerciseSearchScreen({route, navigation}) {
     return exerciseGroups
   }
 
-  const filteredExercises = isSuccess ? (
-    data?.allExercises?.filter((exercise) => {
-      const exerciseNameMatch = exercise.exerciseName.toLowerCase().includes(searchQuery.toLowerCase())
-      const targetMuscleMatch = exercise.targetMuscle.toLowerCase().includes(searchQuery.toLowerCase())
-      const secondaryMuscleMatch = exercise.secondaryMuscles[0].secondaryMuscle1.toLowerCase().includes(searchQuery.toLowerCase())
+  const filteredExercises = isSuccess
+    ? data?.allExercises?.filter(exercise => {
+        const exerciseNameMatch = exercise.exerciseName
+          .toLowerCase()
+          .includes(searchQuery.toLowerCase())
+        const targetMuscleMatch = exercise.targetMuscle
+          .toLowerCase()
+          .includes(searchQuery.toLowerCase())
+        const secondaryMuscleMatch =
+          exercise.secondaryMuscles[0].secondaryMuscle1
+            .toLowerCase()
+            .includes(searchQuery.toLowerCase())
 
-      return exerciseNameMatch || targetMuscleMatch || secondaryMuscleMatch
-    }) ?? []
-  ) : []
-  
+        return exerciseNameMatch || targetMuscleMatch || secondaryMuscleMatch
+      }) ?? []
+    : []
+
   const exerciseGroups = getExerciseGroups(filteredExercises)
 
   return (
-    <ScrollContent showsVerticalScrollIndicator={false} style={styles.scroll_content_container}>
-      <BackButton style={styles.back_button} onPress={() => navigation.goBack()}/>
-      <FlexContainer style={styles.flex_header_container} direction='row'>
+    <ScrollContent
+      showsVerticalScrollIndicator={false}
+      style={styles.scroll_content_container}>
+      <BackButton
+        style={styles.back_button}
+        onPress={() => navigation.goBack()}
+      />
+      <FlexContainer style={styles.flex_header_container} direction="row">
         <Text style={styles.exercises_title}>Exercises</Text>
         {route?.params?.showAdditionalButtons ? (
-            <FlexContainer direction='row'>
-              <TextButton style={[styles.exercises_title, {marginRight: 12}]}> Superset</TextButton>
-              <TextButton onPress={() => navigation.navigate({
-                name: StartNewWorkoutScreenRoute,
-                params: {exercises: selectedExercises},
-                merge: true
-              })} style={styles.exercises_title}> Add</TextButton>
-            </FlexContainer>
-        ): null}
+          <FlexContainer direction="row">
+            <TextButton style={[styles.exercises_title, { marginRight: 12 }]}>
+              {' '}
+              Superset
+            </TextButton>
+            <TextButton
+              onPress={() =>
+                navigation.navigate({
+                  name: StartNewWorkoutScreenRoute,
+                  params: { exercises: selectedExercises },
+                  merge: true,
+                })
+              }
+              style={styles.exercises_title}>
+              {' '}
+              Add
+            </TextButton>
+          </FlexContainer>
+        ) : null}
       </FlexContainer>
       <View style={styles.search_section}>
-        <Search style={styles.search_bar}/>
-          <TextInput
-            style={styles.search_input}
-            placeholder="Movement, Muscle, Equipment"
-            value={searchQuery}
-            onChangeText={handleSearch}
-          />
-        </View>
+        <Search style={styles.search_bar} />
+        <TextInput
+          style={styles.search_input}
+          placeholder="Movement, Muscle, Equipment"
+          value={searchQuery}
+          onChangeText={handleSearch}
+        />
+      </View>
       <Animated.View>
-      {Object.keys(exerciseGroups).length > 0 ? (
+        {Object.keys(exerciseGroups).length > 0 ? (
           Object.entries(exerciseGroups).map(([groupLetter, exercises]) => (
             <React.Fragment key={groupLetter}>
               <Text style={styles.exercise_group_letter}>{groupLetter}</Text>

@@ -9,6 +9,7 @@
 <h4 align="center">The fitness tracker of all fitness trackers.  Built with <a href="https://reactnative.dev/" target="_blank">React Native</a>.</h4>
 
 ### 📋 Requirements
+
 React Native apps may target iOS 13.4 and Android 6.0 (API 23) or newer. You may use Windows, macOS, or Linux as your development operating system, though building and running iOS apps is limited to macOS.
 
 ### 🎉 Getting Started with React Native
@@ -31,3 +32,4 @@ $ npm install
 
 # Run the app
 $ npm run ios
+```

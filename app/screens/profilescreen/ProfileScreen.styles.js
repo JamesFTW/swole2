@@ -1,6 +1,6 @@
 import { StyleSheet, Dimensions } from 'react-native'
 import { LAYOUT, FONTS, COLORS } from '../../constants'
-const profileImageHeight = Dimensions.get('window').height/2
+const profileImageHeight = Dimensions.get('window').height / 2
 
 const styles = StyleSheet.create({
   profile_image: {
@@ -11,53 +11,53 @@ const styles = StyleSheet.create({
     color: COLORS.PRIMARY_COLOR,
     fontFamily: FONTS.SFPRO_HEAVY,
     fontSize: FONTS.SIZE_24,
-    letterSpacing: -.02,
+    letterSpacing: -0.02,
     marginLeft: 16,
   },
   bio: {
     color: COLORS.PRIMARY_COLOR,
     fontFamily: FONTS.SFPRO_REGULAR,
     fontSize: FONTS.SIZE_14,
-    letterSpacing: -.02,
+    letterSpacing: -0.02,
     marginLeft: 20,
     marginRight: 15,
     marginBottom: 12,
-    lineHeight: 21
+    lineHeight: 21,
   },
   profile_location: {
     color: COLORS.PRIMARY_COLOR,
     fontFamily: FONTS.SFPRO_REGULAR,
     fontSize: FONTS.SIZE_14,
-    letterSpacing: -.02,
+    letterSpacing: -0.02,
     marginLeft: 8,
-    bottom: 2
+    bottom: 2,
   },
   edit_button_text: {
     color: COLORS.PRIMARY_COLOR,
     fontFamily: FONTS.SFPRO_REGULAR,
     fontSize: FONTS.SIZE_10,
-    letterSpacing: .015,
+    letterSpacing: 0.015,
     alignSelf: 'center',
-    marginLeft: 3
+    marginLeft: 3,
   },
   edit_button: {
     backgroundColor: COLORS.WHITE,
     width: 118,
     height: 28,
     borderRadius: 5,
-    borderColor: "#E5E5E5",
+    borderColor: '#E5E5E5',
     borderWidth: 1,
     position: 'absolute',
     right: 0,
     marginTop: 33,
     marginRight: 16,
-    zIndex: 10
+    zIndex: 10,
   },
   pencil_icon: {
     height: 28,
     width: 28,
-    top: 2
-  }
+    top: 2,
+  },
 })
 
 export default styles

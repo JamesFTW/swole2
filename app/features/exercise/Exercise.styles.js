@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 import { FONTS, COLORS, LAYOUT } from '../../constants'
 
 const styles = StyleSheet.create({
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: COLORS.SUCCESS_BLUE,
     backgroundColor: '#D0E3FF',
-  }
+  },
 })
 
 export default styles

@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     color: COLORS.PRIMARY_COLOR,
     letterSpacing: FONTS.SPACING_S,
     marginLeft: LAYOUT.SPACING_XS_12,
-    marginTop: LAYOUT.SPACING_XS_4
+    marginTop: LAYOUT.SPACING_XS_4,
   },
   exercise_subtitle: {
     fontFamily: FONTS.SFPRO_REGULAR,
@@ -17,20 +17,20 @@ const styles = StyleSheet.create({
     color: COLORS.SUBTITLE_GRAY,
   },
   exercise_header: {
-    // justifyContent: LAYOUT.SPACE_BETWEEN, 
+    // justifyContent: LAYOUT.SPACE_BETWEEN,
     width: 234,
     marginBottom: 2,
-  },  
+  },
   sets_header: {
     fontFamily: FONTS.SFPRO_MEDIUM,
     fontSize: FONTS.SIZE_14,
     color: COLORS.PRIMARY_COLOR,
-    letterSpacing: .01
+    letterSpacing: 0.01,
   },
   drawer_set_header: {
-    marginTop: LAYOUT.SPACING_XS_16, 
+    marginTop: LAYOUT.SPACING_XS_16,
     marginLeft: LAYOUT.SPACING_XS_8,
-    marginRight: 87
+    marginRight: 87,
   },
   add_set_button: {
     position: LAYOUT.POSITION_ABSOLUTE,
@@ -46,9 +46,8 @@ const styles = StyleSheet.create({
     fontFamily: FONTS.SFPRO_MEDIUM,
     fontSize: FONTS.SIZE_14,
     color: COLORS.WHITE,
-    letterSpacing: .01
-
-  }
+    letterSpacing: 0.01,
+  },
 })
 
 export default styles

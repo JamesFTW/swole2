@@ -1,9 +1,7 @@
 import { getUserExercise } from '..'
 import { getUserProfileData } from '../../../users'
 
-import {
-  useQuery,
-} from '@tanstack/react-query'
+import { useQuery } from '@tanstack/react-query'
 
 export const useGetUserExercise = exerciseId => {
   return useQuery({
@@ -11,22 +9,24 @@ export const useGetUserExercise = exerciseId => {
     queryFn: async () => {
       try {
         const userProfileData = await getUserProfileData()
-        
+
         if (userProfileData) {
-          const res = await getUserExercise(userProfileData.userInfo.userId, exerciseId)
+          const res = await getUserExercise(
+            userProfileData.userInfo.userId,
+            exerciseId,
+          )
 
           return res
         }
-      } catch(error) {
+      } catch (error) {
         Promise.reject(error)
       }
-
     },
-    onSuccess: (data) => {
+    onSuccess: data => {
       return data
     },
-    onError: (error) => {
+    onError: error => {
       Promise.reject(error)
-    }
+    },
   })
 }
