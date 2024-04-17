@@ -3,6 +3,6 @@
   use command 'npm run compile' to export files
 ***************************************************************/
 
-export { Exercise } from './exercise/Exercise.js'
-export { WeekAtGlance } from './weekatglance/WeekAtGlance.js'
-export { WorkoutExercise } from './workoutexercise/WorkoutExercise.js'
+export * from './exercise/Exercise.js'
+export * from './workoutexercise/WorkoutExercise.js'
+export * from './user'

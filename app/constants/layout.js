@@ -33,6 +33,7 @@ const FLEX_COLUMN = 'column'
 const ALIGN_CENTER = 'center'
 const POSITION_ABSOLUTE = 'absolute'
 const SPACE_BETWEEN = 'space-between'
+const DISPLAY_NONE = 'none'
 
 export const LAYOUT = {
   SPACING_NONE,
@@ -64,4 +65,5 @@ export const LAYOUT = {
   ALIGN_CENTER,
   POSITION_ABSOLUTE,
   SPACE_BETWEEN,
+  DISPLAY_NONE,
 }
