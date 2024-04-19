@@ -25,10 +25,7 @@ function App() {
     <NavigationContainer>
       <QueryClientProvider client={queryClient}>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
-          {/* <Stack.Screen
-              name="Onboarding"
-              component={OnBoardingStack}
-            /> */}
+          <Stack.Screen name="Onboarding" component={OnBoardingStack} />
           <Stack.Screen name={MainNavigationRoute} component={MainNavigation} />
         </Stack.Navigator>
       </QueryClientProvider>
