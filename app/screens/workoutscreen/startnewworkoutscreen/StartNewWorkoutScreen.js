@@ -1,9 +1,11 @@
 import * as React from 'react'
 import { View, Text } from 'react-native'
+
 import { Button } from '../../../components'
-import { ScrollContent } from '../../../layout'
 import { ExerciseSearchScreenRoute } from '../exercisesearchscreen/ExerciseSearchScreen'
+import { ScrollContent } from '../../../layout'
 import { WorkoutExercise } from '../../../features'
+import { useSubmitUserExercises } from '../../../lib/users/userexercises/hooks'
 
 import styles from './StartNewWorkoutScreen.styles'
 
@@ -13,6 +15,18 @@ export function StartNewWorkoutScreen({ navigation, route }) {
   const date = new Date()
   const [exercises, setExercises] = React.useState([])
   const [finishedExercises, setFinishedExercises] = React.useState([])
+
+  const {
+    mutate: SubmitExercises,
+    isSuccess,
+    isLoading,
+  } = useSubmitUserExercises()
+
+  React.useEffect(() => {
+    if (isSuccess) {
+      navigation.goBack()
+    }
+  }, [isSuccess, navigation])
 
   React.useEffect(() => {
     if (route.params?.exercises) {
@@ -88,7 +102,12 @@ export function StartNewWorkoutScreen({ navigation, route }) {
         <View style={{ flexDirection: 'row' }}>
           <Text style={styles.date}>{formattedDate}</Text>
           <Button
-            onPress={() => console.log(finishedExercises)}
+            onPress={() => {
+              SubmitExercises({
+                finishedExercises,
+              })
+            }}
+            testID={'submit-workout-button'}
             title="FINISH"
             style={styles.finish_workout_button}
             textStyle={styles.finish_workout_button_text}></Button>
