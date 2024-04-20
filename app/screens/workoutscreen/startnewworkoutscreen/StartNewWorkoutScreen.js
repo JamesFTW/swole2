@@ -16,11 +16,7 @@ export function StartNewWorkoutScreen({ navigation, route }) {
   const [exercises, setExercises] = React.useState([])
   const [finishedExercises, setFinishedExercises] = React.useState([])
 
-  const {
-    mutate: SubmitExercises,
-    isSuccess,
-    isLoading,
-  } = useSubmitUserExercises()
+  const { mutate: SubmitExercises, isSuccess } = useSubmitUserExercises()
 
   React.useEffect(() => {
     if (isSuccess) {
