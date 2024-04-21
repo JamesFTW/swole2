@@ -8,7 +8,7 @@ import { ProfileScreenStackRoute } from '../../screens/profilescreen'
 import { WorkoutScreenStackRoute } from '../../screens/workoutscreen/'
 import styles from './NavBar.styles'
 
-export function NavBar({ state, descriptors, navigation }) {
+export function NavBar({ state, descriptors, navigation, isDrawerOpen }) {
   return (
     <View style={styles.navBar_container}>
       <FlexContainer

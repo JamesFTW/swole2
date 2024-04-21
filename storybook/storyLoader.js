@@ -13,7 +13,7 @@ function loadStories() {
   require('../app/components/image/stories/Image.stories')
   require('../app/components/textbutton/stories/TextButton.stories')
   require('../app/features/exercise/stories/Exercise.stories')
-  require('../app/features/weekatglance/stories/WeekAtGlance.stories')
+  require('../app/features/user/profile/weekatglance/stories/WeekAtGlance.stories')
   require('../app/features/workoutexercise/stories/WorkoutExercise.stories')
   require('../app/features/workoutexercise/stories/WorkoutExerciseInfo.stories')
 }

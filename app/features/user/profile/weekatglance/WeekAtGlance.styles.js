@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { FONTS, COLORS, LAYOUT } from '../../constants'
+import { FONTS, COLORS, LAYOUT } from '../../../../constants'
 
 const styles = StyleSheet.create({
   week_subtitle: {

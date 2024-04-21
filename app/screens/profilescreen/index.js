@@ -5,11 +5,12 @@ import { ProfileScreen, ProfileScreenRoute } from './ProfileScreen'
 import {
   WeekAtGlanceStack,
   WeekAtGlanceStackRoute,
-} from '../../features/weekatglance'
+} from '../../features/user/profile/weekatglance/WeekAtGlanceStack'
+
 import {
-  UserSettingsScreen,
-  UserSettingsScreenRoute,
-} from './usersettingsscreen/UserSettingsScreen'
+  ProfileSettingsStack,
+  ProfileSettingsStackRoute,
+} from './profilesettingsscreen'
 
 const Stack = createNativeStackNavigator()
 export const ProfileScreenStackRoute = 'ProfileScreenStackRoute'
@@ -23,8 +24,8 @@ export function ProfileScreenStack() {
         component={WeekAtGlanceStack}
       />
       <Stack.Screen
-        name={UserSettingsScreenRoute}
-        component={UserSettingsScreen}
+        name={ProfileSettingsStackRoute}
+        component={ProfileSettingsStack}
       />
     </Stack.Navigator>
   )

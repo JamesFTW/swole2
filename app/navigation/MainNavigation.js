@@ -19,13 +19,12 @@ import {
 import { NavBar } from './navbar/NavBar'
 
 export const MainNavigationRoute = 'MainNavigationRoute'
-
 const Tab = createBottomTabNavigator()
 
-export function MainNavigation() {
+export function MainNavigation({ isDrawerOpen }) {
   return (
     <Tab.Navigator
-      tabBar={props => <NavBar {...props} />}
+      tabBar={props => <NavBar isDrawerOpen={isDrawerOpen} {...props} />}
       screenOptions={{
         headerShown: false,
         showLabel: false,

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { View, Text } from 'react-native'
 import styles from './MoreTraining.styles'
-import { TextButton } from '../../../components'
+import { TextButton } from '../../../../../components'
 
 export const MoreTrainingRoute = 'MoreTrainingRoute'
 

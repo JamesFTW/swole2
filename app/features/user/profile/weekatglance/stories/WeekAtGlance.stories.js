@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react-native'
 import { WeekAtGlance } from '../WeekAtGlance'
 import { withBackgrounds } from '@storybook/addon-ondevice-backgrounds'
 import { withKnobs } from '@storybook/addon-ondevice-knobs'
-import { CenterDecorator } from '../../../../storybook/CenterDecorator'
+import { CenterDecorator } from '../../../../../../storybook/CenterDecorator'
 
 const weeklyStatus1 = {
   Monday: { date: '2023-06-05', workoutCompleted: false },

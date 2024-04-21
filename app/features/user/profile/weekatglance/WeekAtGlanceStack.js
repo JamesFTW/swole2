@@ -5,7 +5,7 @@ import { WeekAtGlance, WeekAtGlanceRoute } from './WeekAtGlance'
 import {
   WeekAtGlanceWorkout,
   WeekAtGlanceWorkoutRoute,
-} from '../weekatglance/weekatglanceworkout/WeekAtGlanceWorkout'
+} from './weekatglanceworkout/WeekAtGlanceWorkout'
 import {
   MoreTraining,
   MoreTrainingRoute,

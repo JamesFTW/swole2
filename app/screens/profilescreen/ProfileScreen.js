@@ -2,9 +2,9 @@ import React from 'react'
 import { View, Text } from 'react-native'
 import { Image, Button } from '../../components'
 import { ScrollContent, FlexContainer } from '../../layout'
-import { WeekAtGlance } from '../../features'
+import { WeekAtGlance } from '../../features/user'
 import { Location, Pencil } from '../../assets/icons'
-import { UserSettingsScreenRoute } from './usersettingsscreen/UserSettingsScreen'
+import { ProfileSettingsStackRoute } from './profilesettingsscreen'
 import { useGetUserProfile } from '../../lib/users/hooks'
 import SplashScreenBackground from '../../assets/imgs/splash_screen.png'
 import styles from './ProfileScreen.styles'
@@ -54,7 +54,7 @@ export function ProfileScreen({ navigation, hasBio }) {
         <Button
           outline
           onPress={() => {
-            navigation.navigate(UserSettingsScreenRoute)
+            navigation.navigate(ProfileSettingsStackRoute)
           }}
           icon={<Pencil style={styles.pencil_icon} />}
           textStyle={styles.edit_button_text}

@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   navBar_icon_container: {
     marginLeft: LAYOUT.SPACING_MD_52,
     marginRight: LAYOUT.SPACING_LG_60,
-    justifyContent: 'space-between',
+    justifyContent: LAYOUT.SPACE_BETWEEN,
   },
 })
 
