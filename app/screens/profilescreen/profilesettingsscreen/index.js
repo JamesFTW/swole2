@@ -11,6 +11,12 @@ import {
   ProfilePhotoManagerRoute,
 } from '../../../features'
 
+import {
+  ProfileImageSelectScreen,
+  ProfileImageSelectScreenRoute,
+  ProfileImageSelectScreenOptions,
+} from './ProfileImageSelectScreen'
+
 const Stack = createNativeStackNavigator()
 export const ProfileSettingsStackRoute = 'ProfileSettingsStackRoute'
 
@@ -25,6 +31,11 @@ export function ProfileSettingsStack() {
         name={ProfilePhotoManagerRoute}
         component={ProfilePhotoManager}
         options={profileManageDrawerConfig}
+      />
+      <Stack.Screen
+        name={ProfileImageSelectScreenRoute}
+        component={ProfileImageSelectScreen}
+        options={ProfileImageSelectScreenOptions}
       />
     </Stack.Navigator>
   )

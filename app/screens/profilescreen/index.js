@@ -15,7 +15,7 @@ import {
 const Stack = createNativeStackNavigator()
 export const ProfileScreenStackRoute = 'ProfileScreenStackRoute'
 
-export function ProfileScreenStack() {
+export function ProfileScreenStack({ route, navigation }) {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name={ProfileScreenRoute} component={ProfileScreen} />

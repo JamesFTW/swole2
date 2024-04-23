@@ -1,9 +1,12 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { Pressable, Text, View, Image } from 'react-native'
 import { ProfilePhoto } from '../ProfilePhoto'
 import { COLORS, LAYOUT } from '../../../../../constants'
 import { Library, CameraIcon, TrashCan } from '../../../../../assets/icons'
 import styles from './ProfilePhotoManager.styles'
+import { CameraRoll } from '@react-native-camera-roll/camera-roll'
+
+import { ProfileImageSelectScreenRoute } from '../../../../../screens/profilescreen/profilesettingsscreen/ProfileImageSelectScreen'
 
 export const ProfilePhotoManagerRoute = 'ProfilePhotoManagerRoute'
 
@@ -20,18 +23,42 @@ export const profileManageDrawerConfig = {
 }
 
 export function ProfilePhotoManager({ route, navigation }) {
+  const [photos, setPhotos] = React.useState([])
+
+  const handleGetPhotos = React.useCallback(async () => {
+    try {
+      const r = await CameraRoll.getPhotos({
+        first: 20,
+        assetType: 'Photos',
+      })
+      setPhotos(r.edges)
+    } catch (err) {
+      console.log(err)
+    }
+  }, [])
+
+  React.useEffect(() => {
+    if (photos.length === 0) return
+    navigation.navigate(ProfileImageSelectScreenRoute, {
+      photos,
+      firstPhoto: photos[0].node.image.uri,
+    })
+  }, [photos])
+
   return (
     <View style={styles.profilePhotoEditContentContainer}>
       <View style={styles.profilePhotoEditLine} />
       <ProfilePhoto style={styles.profilePhotoEditProfilePhoto} />
       <View style={styles.profilePhotoEditHeaderLine} />
       <View style={styles.profilePhotoEditPhotoEditContainer}>
-        <View style={styles.profilePhotoEditButton}>
-          <Library />
-          <Text style={styles.profilePhotoEditButtonText}>
-            Choose from library
-          </Text>
-        </View>
+        <Pressable onPress={handleGetPhotos}>
+          <View style={styles.profilePhotoEditButton}>
+            <Library />
+            <Text style={styles.profilePhotoEditButtonText}>
+              Choose from library
+            </Text>
+          </View>
+        </Pressable>
         <View style={styles.profilePhotoEditButton}>
           <CameraIcon />
           <Text style={styles.profilePhotoEditButtonText}>Take photo</Text>
