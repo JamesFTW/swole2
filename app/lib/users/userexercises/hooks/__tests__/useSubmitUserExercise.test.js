@@ -93,6 +93,8 @@ describe('useSubmitUserExercises Hook', () => {
     it('returns true on success', () => {
       expect(result.current.isSuccess).toBeTruthy()
     })
+    //TODO: Add mocked out test case to see that this hook calls submitUserExercise api call with expected items
+    // it works as expected when you call `result = submitUserExercise` but not in the full flow
   })
 
   describe('when it errors', () => {

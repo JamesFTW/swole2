@@ -54,6 +54,7 @@ describe('StartNewWorkoutScreen', () => {
         route={StartNewWorkoutStackRoute}
       />,
     )
+    // TODO: Get this working, no idea how to even select/ render things properly in Native
     const submitButton = getByTestId('submit-workout-button')
 
     fireEvent.press(submitButton)
