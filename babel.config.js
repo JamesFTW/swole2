@@ -1,30 +1,15 @@
 module.exports = {
-  presets: ['module:@react-native/babel-preset'],
-  env: {
-    production: {
-      plugins: ['react-native-reanimated/plugin'],
-    },
-  },
+  presets: [
+    'module:metro-react-native-babel-preset', // This preset is specifically for React Native
+    '@babel/preset-env',
+    '@babel/preset-react', // Enables JSX support
+    '@babel/preset-typescript', // Adds TypeScript support
+  ],
   plugins: [
-    [
-      'module-resolver',
-      {
-        extensions: ['.tsx', '.ts', '.js', '.json'],
-      },
-    ],
-    [
-      '@babel/plugin-transform-react-jsx',
-      {
-        runtime: 'automatic',
-      },
-    ],
-    [
-      'module:react-native-dotenv',
-      {
-        envName: 'APP_ENV',
-        moduleName: '@env',
-        path: '.env',
-      },
-    ],
+    '@babel/plugin-transform-runtime', // Helps with async/await and generators
+    // Align 'loose' configuration for all relevant plugins
+    ['@babel/plugin-transform-class-properties', { loose: false }],
+    ['@babel/plugin-transform-private-methods', { loose: false }],
+    ['@babel/plugin-transform-private-property-in-object', { loose: false }],
   ],
 }

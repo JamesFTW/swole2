@@ -1,46 +1,41 @@
 import { submitUserExercise } from '../'
 import { useMutation } from '@tanstack/react-query'
-import { getUserProfileData } from '../../index'
 
-export const useSubmitUserExercises = () => {
-  return useMutation({
-    mutationFn: async bodyData => {
-      let userId = await getUserId()
+// // mutation fn
+// export const submitExercise = async (userId, set) => {
+//   return await submitUserExercise({
+//     userId: userId,
+//     exerciseId: set.id || 1, // TODO: weirdly the first obj in the workout doesn't get assigned an id
+//     reps: set.reps,
+//     weightMoved: set.weight * set.reps,
+//   })
+// }
 
-      try {
-        if (bodyData) {
-          let body = {}
-          bodyData.finishedExercises.forEach(exercise => {
-            exercise.exerciseSets.forEach(set => {
-              if (set.isCompletedSet) {
-                body = {
-                  userId: userId,
-                  exerciseId: set.id || 1, // TODO: weirdly the first obj in the workout doesn't get assigned an id
-                  reps: set.reps,
-                  weightMoved: set.weight * set.reps,
-                }
-                submitUserExercise(body)
-              }
-            })
+export const useSubmitUserExercises = (userId, finishedExercises) => {
+  const submitUserExercises = async () => {
+    for (const exercise of finishedExercises) {
+      for (const set of exercise.exerciseSets) {
+        if (set.isCompletedSet) {
+          // Assuming that submitExercise is an async function that submits the exercise
+          await submitUserExercise({
+            userId: userId,
+            exerciseId: set.id || 1, // TODO: weirdly the first obj in the workout doesn't get assigned an id
+            reps: set.reps,
+            weightMoved: set.weight * set.reps,
           })
         }
-      } catch (error) {
-        throw new Error(error)
       }
+    }
+  }
+
+  return useMutation(submitUserExercises, {
+    onSuccess: () => {
+      console.log('Exercises submitted successfully!')
+      // Put any additional logic on success here
     },
     onError: error => {
-      console.log(error)
+      console.error('Failed to submit exercises: ', error)
+      // Handle error here
     },
   })
-}
-
-async function getUserId() {
-  try {
-    const userProfileData = await getUserProfileData()
-    if (userProfileData.userInfo.userId) {
-      return userProfileData.userInfo.userId
-    }
-  } catch (error) {
-    throw new Error(error)
-  }
 }

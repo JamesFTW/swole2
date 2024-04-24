@@ -35,7 +35,9 @@ export async function submitUserExercise(body) {
   }
 
   return new Promise((resolve, reject) => {
-    body.userId = userData.userInfo.userId
+    if (!body.userId) {
+      body.userId = userData.userInfo.userId
+    }
 
     request({
       endpoint: `${API_ENDPOINT}/userexercises/create`,
