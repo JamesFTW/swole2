@@ -1,7 +1,7 @@
 const PRIMARY_COLOR = '#1E2F4E'
 const SECONDARY_COLOR = '#92A3C1'
-const BACKGROUND_COLOR = '#005AFF'
-const SUCCESS_BLUE = '#5588E6'
+const BACKGROUND_COLOR = '#5588E6' //old success blue
+const SUCCESS_BLUE = '#005AFF'
 const ALERT_COLOR = '#FF2400'
 const WHITE = '#F8F9FB'
 const WHITE_WHITE = '#FFFFFF'

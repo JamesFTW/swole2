@@ -5,6 +5,7 @@ const HEADERS = {
   APPLICATION_JSON: 'application/json',
   APPLICATION_X_WWW_FORM_URLENCODED: 'application/x-www-form-urlencoded',
   ACCESS_CONTROL_ALLOW_CREDENTIAL: 'access-control-allow-credential',
+  MULTIPART_FORM_DATA: 'multipart/form-data',
 }
 
 const METHODS = {

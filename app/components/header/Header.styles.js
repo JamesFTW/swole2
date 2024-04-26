@@ -27,6 +27,16 @@ const styles = StyleSheet.create({
     justifyContent: LAYOUT.ALIGN_CENTER,
     zIndex: LAYOUT.SPACING_NUDGE_XS,
   },
+  secondaryAction: {
+    position: LAYOUT.POSITION_ABSOLUTE,
+    right: LAYOUT.SPACING_XS_16,
+    zIndex: LAYOUT.SPACING_NUDGE_XS,
+  },
+  secondaryActionText: {
+    fontSize: FONTS.SIZE_20,
+    fontFamily: FONTS.SFPRO_MEDIUM,
+    color: COLORS.SUCCESS_BLUE,
+  },
 })
 
 export default styles

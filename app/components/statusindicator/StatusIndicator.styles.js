@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     height: LAYOUT.SPACING_S_20,
     width: LAYOUT.SPACING_S_20,
     borderRadius: 10,
-    backgroundColor: COLORS.BACKGROUND_COLOR,
+    backgroundColor: COLORS.SUCCESS_BLUE,
     alignItems: LAYOUT.ALIGN_CENTER,
     justifyContent: LAYOUT.ALIGN_CENTER,
     borderColor: COLORS.SUCCESS_BLUE,
