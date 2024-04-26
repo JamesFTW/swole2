@@ -1,5 +1,6 @@
 import { StyleSheet, Dimensions } from 'react-native'
-import { LAYOUT, FONTS, COLORS } from '../../constants'
+import { FONTS, COLORS } from '@constants'
+
 const profileImageHeight = Dimensions.get('window').height / 2
 
 const styles = StyleSheet.create({
@@ -45,7 +46,7 @@ const styles = StyleSheet.create({
     width: 118,
     height: 28,
     borderRadius: 5,
-    borderColor: '#E5E5E5',
+    borderColor: COLORS.CARD_BOARDER_COLOR,
     borderWidth: 1,
     position: 'absolute',
     right: 0,

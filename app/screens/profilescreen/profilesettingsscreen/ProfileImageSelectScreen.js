@@ -6,9 +6,9 @@ import {
   ImageBackground,
   FlatList,
 } from 'react-native'
-import { Header, Image, CircleOverlay } from '../../../components'
 import { CameraRoll } from '@react-native-camera-roll/camera-roll'
-import { useUploadProfilePhoto } from '../../../lib/users/userprofile/hooks'
+import { Header, Image, CircleOverlay } from '@components'
+import { useUploadProfilePhoto } from '@lib/users/userprofile/hooks'
 import styles from './ProfileImageSelectScreen.styles.js'
 
 export const ProfileImageSelectScreenRoute = 'ProfileImageSelectScreenRoute'

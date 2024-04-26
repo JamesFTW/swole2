@@ -5,7 +5,7 @@ import { ProfileScreen, ProfileScreenRoute } from './ProfileScreen'
 import {
   WeekAtGlanceStack,
   WeekAtGlanceStackRoute,
-} from '../../features/user/profile/weekatglance/WeekAtGlanceStack'
+} from '@features/user/profile/weekatglance/WeekAtGlanceStack'
 
 import {
   ProfileSettingsStack,

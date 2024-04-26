@@ -1,10 +1,8 @@
 import * as React from 'react'
 import { SafeAreaView, Pressable } from 'react-native'
-import { Header } from '../../../components'
-import { ScrollContent } from '../../../layout'
-import { ProfilePhoto } from '../../../features/user'
-import { TextButton } from '../../../components'
-import { ProfilePhotoManagerRoute } from '../../../features/user'
+import { Header, TextButton } from '@components'
+import { ScrollContent } from '@layout'
+import { ProfilePhoto, ProfilePhotoManagerRoute } from '@features/user'
 import styles from './ProfileSettingsScreen.styles'
 
 export const ProfileSettingsScreenRoute = 'ProfileSettingsScreenRoute'

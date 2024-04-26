@@ -1,12 +1,12 @@
 import React from 'react'
-import { Pressable, Text, View, Image } from 'react-native'
-import { ProfilePhoto } from '../ProfilePhoto'
-import { COLORS, LAYOUT } from '../../../../../constants'
-import { Library, CameraIcon, TrashCan } from '../../../../../assets/icons'
-import styles from './ProfilePhotoManager.styles'
+import { Pressable, Text, View } from 'react-native'
 import { CameraRoll } from '@react-native-camera-roll/camera-roll'
+import { COLORS, LAYOUT } from '@constants'
+import { Library, CameraIcon, TrashCan } from '@assets/icons'
+import { ProfilePhoto } from '../ProfilePhoto'
+import styles from './ProfilePhotoManager.styles'
 
-import { ProfileImageSelectScreenRoute } from '../../../../../screens/profilescreen/profilesettingsscreen/ProfileImageSelectScreen'
+import { ProfileImageSelectScreenRoute } from '@screens/profilescreen/profilesettingsscreen/ProfileImageSelectScreen'
 
 export const ProfilePhotoManagerRoute = 'ProfilePhotoManagerRoute'
 
