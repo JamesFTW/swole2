@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { COLORS, LAYOUT } from '../../../constants'
+import { COLORS, LAYOUT } from '@constants'
 
 const styles = StyleSheet.create({
   profilePhotoPreview: {

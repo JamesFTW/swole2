@@ -10,6 +10,17 @@ module.exports = {
       'module-resolver',
       {
         extensions: ['.tsx', '.ts', '.js', '.json'],
+        root: ['./'],
+        alias: {
+          '@app': './app',
+          '@assets': './app/assets',
+          '@components': './app/components',
+          '@constants': './app/constants',
+          '@features': './app/features',
+          '@layout': './app/layout',
+          '@lib': './app/lib',
+          '@screens': './app/screens',
+        },
       },
     ],
     [

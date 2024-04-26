@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { LAYOUT, FONTS, COLORS } from '../../../../../constants'
+import { LAYOUT, FONTS, COLORS } from '@constants'
 
 const styles = StyleSheet.create({
   profilePhotoEditButton: {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image } from '../../../../components'
+import { Image } from '@app/components'
 
 export const ProfilePhoto = ({ style, src }) => {
   //going to want to fetch profile photos in this component

@@ -9,7 +9,7 @@ import {
   ProfilePhotoManager,
   profileManageDrawerConfig,
   ProfilePhotoManagerRoute,
-} from '../../../features'
+} from '@features'
 
 import {
   ProfileImageSelectScreen,
