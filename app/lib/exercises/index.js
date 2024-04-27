@@ -1,6 +1,6 @@
 import { API_ENDPOINT, request, METHODS } from '../http/request'
 import {
-  AsyncStorage,
+  AsyncStorageInstance,
   ASYNC_STORE_CONSTANTS,
 } from '../../services/asyncstorage'
 
@@ -43,9 +43,7 @@ const fetchAllExercises = () => {
 }
 
 export const getAllExercises = async () => {
-  const asyncstore = new AsyncStorage()
-
-  const [exerciseData, error] = await asyncstore.getAllExercises()
+  const [exerciseData, error] = await AsyncStorageInstance.getAllExercises()
 
   if (exerciseData !== null) {
     return exerciseData
@@ -58,7 +56,7 @@ export const getAllExercises = async () => {
   try {
     const exerciseData = await fetchAllExercises()
 
-    asyncstore.storeObjData(
+    AsyncStorageInstance.storeObjData(
       ASYNC_STORE_CONSTANTS.LOCAL_EXERCISE_DATA,
       exerciseData,
     )

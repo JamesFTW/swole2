@@ -7,13 +7,16 @@ export const ASYNC_STORE_CONSTANTS = {
   LOCAL_EXERCISE_DATA: '@local_exercise_data',
 }
 
-/**
- * Might have to return a promise for storeObjData and removeValue
- * When that comes up fix it
- *
- * Shit might not need to return a promise for any of these.  Come back to it
- */
-export class AsyncStorage {
+class AsyncStorageSingleton {
+  static instance = null
+
+  static getInstance() {
+    if (!AsyncStorageSingleton.instance) {
+      AsyncStorageSingleton.instance = new AsyncStorageSingleton()
+    }
+    return AsyncStorageSingleton.instance
+  }
+
   storeObjData = async (storage_key, data) => {
     try {
       const jsonValue = JSON.stringify(data)
@@ -23,15 +26,13 @@ export class AsyncStorage {
     }
   }
 
-  getObjData = storage_key => {
-    return new Promise(async (resolve, reject) => {
-      try {
-        const jsonValue = await RNAsyncStorage.getItem(storage_key)
-        resolve(jsonValue != null ? JSON.parse(jsonValue) : null)
-      } catch (error) {
-        reject(new Error(error))
-      }
-    })
+  getObjData = async storage_key => {
+    try {
+      const jsonValue = await RNAsyncStorage.getItem(storage_key)
+      return jsonValue != null ? JSON.parse(jsonValue) : null
+    } catch (error) {
+      throw new Error(error)
+    }
   }
 
   removeValue = async storage_key => {
@@ -46,10 +47,10 @@ export class AsyncStorage {
   clearAll = async () => {
     try {
       await RNAsyncStorage.clear()
+      console.log('Cleared all values from async storage')
     } catch (error) {
       throw new Error(error)
     }
-    console.log('Cleared all values from async storage')
   }
 
   getUserData = async () => {
@@ -79,7 +80,16 @@ export class AsyncStorage {
       )
       return [userProfileData, null]
     } catch (error) {
-      return [error, null]
+      return [null, error]
+    }
+  }
+
+  updateUserProfileData = async data => {
+    try {
+      await this.storeObjData(ASYNC_STORE_CONSTANTS.USER_PROFILE_DATA, data)
+      return [data, null]
+    } catch (error) {
+      return [null, error]
     }
   }
 
@@ -94,3 +104,5 @@ export class AsyncStorage {
     }
   }
 }
+
+export const AsyncStorageInstance = AsyncStorageSingleton.getInstance()

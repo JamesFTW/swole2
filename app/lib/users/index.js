@@ -1,6 +1,6 @@
 import { API_ENDPOINT, request, HEADERS, METHODS } from '../http/request'
 import {
-  AsyncStorage,
+  AsyncStorageInstance,
   ASYNC_STORE_CONSTANTS,
 } from '../../services/asyncstorage'
 import qs from 'qs'
@@ -42,9 +42,7 @@ export function getUserProfile() {
 }
 
 export const getUserProfileData = async () => {
-  const asyncstore = new AsyncStorage()
-
-  const [userData, error] = await asyncstore.getUserProfileData()
+  const [userData, error] = await AsyncStorageInstance.getUserProfileData()
 
   if (userData !== null) {
     return userData
@@ -57,7 +55,10 @@ export const getUserProfileData = async () => {
   try {
     const userData = await getUserProfile()
 
-    asyncstore.storeObjData(ASYNC_STORE_CONSTANTS.USER_PROFILE_DATA, userData)
+    AsyncStorageInstance.storeObjData(
+      ASYNC_STORE_CONSTANTS.USER_PROFILE_DATA,
+      userData,
+    )
 
     if (userData) {
       return userData
