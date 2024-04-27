@@ -20,6 +20,8 @@ module.exports = {
           '@layout': './app/layout',
           '@lib': './app/lib',
           '@screens': './app/screens',
+          '@services': './app/services',
+          '@providers': './app/providers',
         },
       },
     ],

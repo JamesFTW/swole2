@@ -8,6 +8,7 @@ import * as React from 'react'
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { ProfileProvider } from '@providers'
 
 import {
   MainNavigation,
@@ -32,14 +33,19 @@ function App() {
   return (
     <NavigationContainer theme={navTheme}>
       <QueryClientProvider client={queryClient}>
-        <Stack.Navigator
-          screenOptions={{ headerShown: false, orientation: 'portrait_up' }}>
-          {/* <Stack.Screen
-              name="Onboarding"
-              component={OnBoardingStack}
-            /> */}
-          <Stack.Screen component={MainNavigation} name={MainNavigationRoute} />
-        </Stack.Navigator>
+        <ProfileProvider>
+          <Stack.Navigator
+            screenOptions={{ headerShown: false, orientation: 'portrait_up' }}>
+            {/* <Stack.Screen
+                name="Onboarding"
+                component={OnBoardingStack}
+              /> */}
+            <Stack.Screen
+              component={MainNavigation}
+              name={MainNavigationRoute}
+            />
+          </Stack.Navigator>
+        </ProfileProvider>
       </QueryClientProvider>
     </NavigationContainer>
   )

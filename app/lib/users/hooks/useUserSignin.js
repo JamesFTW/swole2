@@ -1,7 +1,7 @@
 import { userSignin } from '../'
 import { setCookie } from '../../http/cookiemanager'
 import {
-  AsyncStorage,
+  AsyncStorageInstance,
   ASYNC_STORE_CONSTANTS,
 } from '../../../services/asyncstorage'
 
@@ -24,12 +24,14 @@ export const useUserSignin = () => {
       const { cookie, passport } = data.session
 
       if (cookie && passport) {
-        const asnycStore = new AsyncStorage()
-        asnycStore.storeObjData(
+        AsyncStorageInstance.storeObjData(
           ASYNC_STORE_CONSTANTS.USER_SESSION_COOKIE,
           cookie,
         )
-        asnycStore.storeObjData(ASYNC_STORE_CONSTANTS.USER_DATA, passport)
+        AsyncStorageInstance.storeObjData(
+          ASYNC_STORE_CONSTANTS.USER_DATA,
+          passport,
+        )
 
         setCookie(cookie)
       }
