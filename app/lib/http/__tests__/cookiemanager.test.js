@@ -43,11 +43,10 @@ describe('cookiemanager', () => {
       const cookies = ['cookie1', 'cookie2']
 
       CookieManager.get.mockResolvedValue(cookies)
-
-      await getCookies()
+      const retrievedCookies = await getCookies()
 
       expect(CookieManager.get).toHaveBeenCalledWith(API_ENDPOINT)
-      expect(CookieManager.get).toHaveBeenCalledWith(expect.any(String))
+      expect(retrievedCookies).toEqual(cookies)
     })
 
     it('should handle an error when retrieving cookies', async () => {
