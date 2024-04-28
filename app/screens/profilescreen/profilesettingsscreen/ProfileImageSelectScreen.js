@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   SafeAreaView,
   Pressable,
@@ -8,7 +8,7 @@ import {
 } from 'react-native'
 import { CameraRoll } from '@react-native-camera-roll/camera-roll'
 import { Header, Image, CircleOverlay } from '@components'
-import { useUploadProfilePhoto } from '@lib/users/userprofile/hooks'
+import { useUploadProfilePhoto } from '@lib/users/profile/hooks'
 import styles from './ProfileImageSelectScreen.styles.js'
 
 export const ProfileImageSelectScreenRoute = 'ProfileImageSelectScreenRoute'
@@ -18,17 +18,17 @@ export const ProfileImageSelectScreenOptions = {
 
 export function ProfileImageSelectScreen({ route, navigation }) {
   const { photos } = route.params
-  const [selectedPhotoUri, setSelectedPhotoUri] = React.useState(null)
-  const [filePath, setFilePath] = React.useState(null)
   const { isSuccess, mutate } = useUploadProfilePhoto(filePath)
+  const [selectedPhotoUri, setSelectedPhotoUri] = useState(null)
+  const [filePath, setFilePath] = useState(null)
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (selectedPhotoUri === null) {
       getFilePath(photos[0].node.image.uri)
     }
   }, [])
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isSuccess) {
       navigation.pop(2)
     }
@@ -37,13 +37,14 @@ export function ProfileImageSelectScreen({ route, navigation }) {
   const getFilePath = async uri => {
     try {
       setSelectedPhotoUri(uri)
+
       const fileData = await CameraRoll.iosGetImageDataById(uri, {
         convertHeicImages: true,
       })
+
       if (!fileData?.node?.image?.filepath) return undefined
 
       const uploadPath = fileData.node.image.filepath
-
       setFilePath(uploadPath)
     } catch (error) {
       console.error('Error getting file path:', error)

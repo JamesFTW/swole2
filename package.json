@@ -7,7 +7,7 @@
     "ios": "NODE_ENV=development react-native run-ios --simulator='iPhone 15 -- --reset-cache'",
     "ios-device": "react-native run-ios --device",
     "start": "NODE_OPTIONS=--openssl-legacy-provider react-native start --reset-cache",
-    "test": "jest --config=jest.config.js",
+    "test": "NODE_ENV=development jest --config=jest.config.js",
     "lint": "eslint .",
     "prestorybook": "rnstl",
     "storybook": "start-storybook -p 7007",

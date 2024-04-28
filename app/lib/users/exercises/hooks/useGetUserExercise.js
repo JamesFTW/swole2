@@ -1,5 +1,5 @@
 import { getUserExercise } from '..'
-import { getUserProfileData } from '../../../users'
+import { getUserProfileData } from '@lib/users'
 
 import { useQuery } from '@tanstack/react-query'
 

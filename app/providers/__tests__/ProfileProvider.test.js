@@ -3,8 +3,9 @@ import { Text } from 'react-native'
 import { render } from '@testing-library/react-native'
 import { AsyncStorageInstance } from '@services/asyncstorage'
 import { ProfileProvider, ProfileContext } from '../ProfileProvider'
+import { act } from 'react-test-renderer'
 
-jest.mock('../../services/asyncstorage', () => ({
+jest.mock('@services/asyncstorage', () => ({
   AsyncStorageInstance: {
     getUserProfileData: jest.fn(),
     updateUserProfileData: jest.fn(),
@@ -16,17 +17,30 @@ describe('ProfileProvider', () => {
     jest.clearAllMocks()
   })
 
-  test('should render children', () => {
+  test('should render children', async () => {
+    const mockProfileData = Promise.resolve([
+      { name: 'John Doe', email: 'john@example.com' },
+      null,
+    ])
+    AsyncStorageInstance.getUserProfileData.mockResolvedValueOnce(
+      mockProfileData,
+    )
+
     const { getByText } = render(
       <ProfileProvider>
         <Text>Test Child</Text>
       </ProfileProvider>,
     )
+
     expect(getByText('Test Child')).toBeTruthy()
+    await act(() => mockProfileData)
   })
 
   test('should load profile data from AsyncStorage on mount', async () => {
-    const mockProfileData = { name: 'John Doe', email: 'john@example.com' }
+    const mockProfileData = Promise.resolve([
+      { name: 'John Doe', email: 'john@example.com' },
+      null,
+    ])
     AsyncStorageInstance.getUserProfileData.mockResolvedValueOnce(
       mockProfileData,
     )
@@ -44,11 +58,20 @@ describe('ProfileProvider', () => {
       </ProfileProvider>,
     )
 
-    expect(await findByText(JSON.stringify(mockProfileData))).toBeTruthy()
+    expect(
+      await findByText('{"name":"John Doe","email":"john@example.com"}'),
+    ).toBeTruthy()
+    await act(() => mockProfileData)
   })
 
   test('should update profile data in AsyncStorage', async () => {
-    const mockProfileData = { name: 'John Doe', email: 'john@example.com' }
+    const mockProfileData = Promise.resolve([
+      { name: 'John Doe', email: 'john@example.com' },
+      null,
+    ])
+    AsyncStorageInstance.getUserProfileData.mockResolvedValueOnce(
+      mockProfileData,
+    )
 
     const TestComponent = () => {
       const { updateProfileData } = React.useContext(ProfileContext)
@@ -67,5 +90,6 @@ describe('ProfileProvider', () => {
     expect(AsyncStorageInstance.updateUserProfileData).toHaveBeenCalledWith(
       mockProfileData,
     )
+    await act(() => mockProfileData)
   })
 })
