@@ -1,10 +1,10 @@
 import * as React from 'react'
 import { Text, TextInput, Animated, LayoutAnimation, View } from 'react-native'
-import { useGetAllExercises } from '../../../lib/exercises/hooks'
-import { Exercise } from '../../../features'
-import { FlexContainer, ScrollContent } from '../../../layout'
-import { TextButton } from '../../../components'
-import { Search, BackButton } from '../../../assets/icons'
+import { useGetAllExercises } from '@lib/exercises/hooks'
+import { Exercise } from '@features'
+import { FlexContainer, ScrollContent } from '@layout'
+import { TextButton } from '@components'
+import { Search, BackButton } from '@assets/icons'
 
 import { StartNewWorkoutScreenRoute } from '../startnewworkoutscreen/StartNewWorkoutScreen'
 
@@ -87,9 +87,11 @@ export function ExerciseSearchScreen({ route, navigation }) {
         const exerciseNameMatch = exercise.exerciseName
           .toLowerCase()
           .includes(searchQuery.toLowerCase())
+
         const targetMuscleMatch = exercise.targetMuscle
           .toLowerCase()
           .includes(searchQuery.toLowerCase())
+
         const secondaryMuscleMatch =
           exercise.secondaryMuscles[0].secondaryMuscle1
             .toLowerCase()

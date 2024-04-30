@@ -69,7 +69,7 @@ class AsyncStorageSingleton {
       )
       return [userSessionData, null]
     } catch (error) {
-      return [error, null]
+      return [null, error]
     }
   }
 

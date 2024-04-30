@@ -1,38 +1,18 @@
-/**
- * Placeholder for userUserSignin hook
- */
+import { AsyncStorageInstance } from '@services/asyncstorage'
+import { useQuery } from '@tanstack/react-query'
 
-// import { userSignin } from '../'
-// import { setCookie } from '../../http/cookiemanager'
-// import { AsyncStorage, ASYNC_STORE_CONSTANTS } from '../../../services/asyncstorage'
-// import {
-//   useQuery,
-// } from '@tanstack/react-query'
-
-// export const useUserSigninStatus = () => {
-//   return useQuery({
-//     queryKey: ['userSigninStatus'],
-//     queryFn: async () => {
-//       const asyncstore = new AsyncStorage()
-
-//       const [userData, error] = await asyncstore.getUserSessionData()
-
-//       if (userData !== null) {
-//         return userData
-//       }
-
-//       if (error) {
-//         throw new Error(error)
-//       }
-
-//   },
-//   onSuccess: (data) => {
-//     console.log(data)
-//     //Store data in async storage
-//   },
-//   onError: (error) => {
-//     console.log(error)
-//   }
-//   })
-// }
+export const useUserSigninStatus = () => {
+  return useQuery({
+    queryKey: ['signinStatus'],
+    queryFn: async () => {
+      const [data] = await AsyncStorageInstance.getUserSessionData()
+      return data
+    },
+    onError: error => {
+      console.log(error, 'error')
+      const [_, err] = error
+      return err
+    },
+  })
+}
 //on refetch check if value exists in asyncstorage first

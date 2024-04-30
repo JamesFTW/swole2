@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { View, Text, SafeAreaView } from 'react-native'
-import { LAYOUT } from '../../../constants'
-import { Button, FormInput, TextButton } from '../../../components'
-import { useUserSignin } from '../../../lib/users/hooks/'
+import { LAYOUT } from '@constants'
+import { Button, FormInput, TextButton } from '@components'
+import { useUserSignin } from '@lib/users/hooks'
 import { MainNavigationRoute } from '../../../navigation/MainNavigation'
 import styles from './SigninScreen.styles'
 

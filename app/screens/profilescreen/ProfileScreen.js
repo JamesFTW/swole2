@@ -5,7 +5,6 @@ import { WeekAtGlance } from '@features'
 import { ScrollContent, FlexContainer } from '@layout'
 import { useGetUserProfile } from '@lib/users/hooks'
 import { Location, Pencil } from '@assets/icons'
-import { ProfileContext } from '@providers'
 import SplashScreenBackground from '@assets/imgs/splash_screen.png'
 import { ProfileSettingsStackRoute } from './profilesettingsscreen'
 import styles from './ProfileScreen.styles'
@@ -24,9 +23,7 @@ const weeklyStatus = {
 
 export function ProfileScreen({ navigation, hasBio }) {
   const { data, isSuccess } = useGetUserProfile()
-  const { profileData } = useContext(ProfileContext)
 
-  console.log(profileData, 'profileData profile')
   /**
    * Going to need to get location and bio from data.userInfo eventually
    */

@@ -10,15 +10,15 @@ export const ProfileProvider = ({ children }) => {
     const loadProfileData = async () => {
       if (profileData) return
 
-      try {
-        const storedProfileData =
-          await AsyncStorageInstance.getUserProfileData()
+      const [storedProfileData, error] =
+        await AsyncStorageInstance.getUserProfileData()
 
-        if (storedProfileData) {
-          setProfileData(storedProfileData)
-        }
-      } catch (error) {
-        console.error('Error loading profile data from Async Storage:', error)
+      if (storedProfileData) {
+        setProfileData(storedProfileData)
+      }
+
+      if (error) {
+        console.error('Error loading profile data:', error)
       }
     }
 

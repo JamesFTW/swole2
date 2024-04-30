@@ -1,4 +1,4 @@
-import { uploadProfilePhoto } from '../'
+import { uploadProfilePhoto } from '..'
 import { useMutation } from '@tanstack/react-query'
 
 export const useUploadProfilePhoto = () => {

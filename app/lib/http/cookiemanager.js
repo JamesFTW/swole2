@@ -1,8 +1,8 @@
 import CookieManager from '@react-native-cookies/cookies'
 import { API_ENDPOINT } from './request'
 
-export function setCookie(cookie) {
-  return CookieManager.set(API_ENDPOINT, cookie)
+export async function setCookie(cookie) {
+  return await CookieManager.set(API_ENDPOINT, cookie)
 }
 
 export async function getCookies() {
