@@ -1,16 +1,16 @@
 const PRIMARY_COLOR = '#1E2F4E'
-const SECONDARY_COLOR = '#92A3C1'
+const SECONDARY_COLOR = '#596171'
 const BACKGROUND_COLOR = '#5588E6' //old success blue
 const SUCCESS_BLUE = '#005AFF'
 const ALERT_COLOR = '#FF2400'
-const WHITE = '#F8F9FB'
+const WHITE = '#FFFFFF'
 const WHITE_WHITE = '#FFFFFF'
 const BLACK = '#000000'
 const GRAY = '#605C5C'
 const LIGHT_GRAY = '#D9D9D9'
 const SUBTITLE_GRAY = '#748199'
 const BLACK_GRADIENT = ['transparent', 'rgba(0, 0, 0, 0.78)']
-const CARD_BOARDER_COLOR = 'rgba(52, 52, 52, .1)'
+const CARD_BOARDER_COLOR = '#e4e5ea'
 const TRANSPARENT = 'transparent'
 
 export const COLORS = {

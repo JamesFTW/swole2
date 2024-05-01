@@ -1,14 +1,15 @@
 import { getUserExercise } from '..'
-import { getUserProfileData } from '@lib/users'
+import { UserRepository } from '@lib/users/UserRepository'
 
 import { useQuery } from '@tanstack/react-query'
 
 export const useGetUserExercise = exerciseId => {
+  const userRepository = new UserRepository()
   return useQuery({
     queryKey: ['userExercise'],
     queryFn: async () => {
       try {
-        const userProfileData = await getUserProfileData()
+        const userProfileData = await userRepository.getUserProfileData()
 
         if (userProfileData) {
           const res = await getUserExercise(

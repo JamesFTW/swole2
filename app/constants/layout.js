@@ -34,6 +34,7 @@ const ALIGN_CENTER = 'center'
 const POSITION_ABSOLUTE = 'absolute'
 const SPACE_BETWEEN = 'space-between'
 const DISPLAY_NONE = 'none'
+const OVERFLOW_HIDDEN = 'hidden'
 
 export const LAYOUT = {
   SPACING_NONE,
@@ -66,4 +67,5 @@ export const LAYOUT = {
   POSITION_ABSOLUTE,
   SPACE_BETWEEN,
   DISPLAY_NONE,
+  OVERFLOW_HIDDEN,
 }

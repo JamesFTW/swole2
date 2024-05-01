@@ -14,7 +14,7 @@ export async function uploadProfilePhoto(filePath) {
     })
 
     const res = await request({
-      endpoint: `${API_ENDPOINT}/users/profile/photo`,
+      endpoint: `${API_ENDPOINT}/users/profile/update/photo`,
       method: METHODS.POST,
       headers: HEADERS.MULTIPART_FORM_DATA,
       body: formData,

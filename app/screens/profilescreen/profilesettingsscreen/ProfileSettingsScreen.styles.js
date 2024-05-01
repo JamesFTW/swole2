@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
     height: LAYOUT.SPACING_XL_80,
     width: LAYOUT.SPACING_XL_80,
     borderRadius: LAYOUT.SPACING_MD_40,
+    overflow: LAYOUT.OVERFLOW_HIDDEN,
   },
   profilePhotoEditButton: {
     alignSelf: LAYOUT.ALIGN_CENTER,

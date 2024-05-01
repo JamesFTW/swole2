@@ -1,7 +1,24 @@
-import React from 'react'
-import { Image } from '@app/components'
+import React, { useContext } from 'react'
+import { ProfileContext } from '@app/providers'
+const blurhash = 'LHNbb{M|_NM|}NxG]NM|_G|_NwG]G^IYwGbE'
 
-export const ProfilePhoto = ({ style, src }) => {
-  //going to want to fetch profile photos in this component
-  return <Image src={src} style={style} />
+import { FasterImageView } from '@candlefinance/faster-image'
+
+export const ProfilePhoto = ({ style, borderRadius }) => {
+  const { profileData } = useContext(ProfileContext)
+
+  return (
+    <FasterImageView
+      style={style}
+      source={{
+        transitionDuration: 0.3,
+        cachePolicy: 'discWithCacheControl',
+        showActivityIndicator: true,
+        url: profileData?.userInfo?.profilePhoto,
+        resizeMode: 'cover',
+      }}
+      blurhash={blurhash}
+      borderRadius={borderRadius}
+    />
+  )
 }

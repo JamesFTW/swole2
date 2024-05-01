@@ -51,14 +51,21 @@ export class UserRepository {
   }
 
   async getUserProfileData() {
+    // //here we are getting the user profile data from async storage
     const [userProfileData, error] =
       await AsyncStorageInstance.getUserProfileData()
 
     if (error) throw new Error(error)
-    if (userProfileData) return userProfileData
+
+    if (userProfileData) {
+      if (userProfileData.cacheExpiry > Date.now()) {
+        return userProfileData
+      }
+    }
 
     try {
       const userProfileData = await this.fetchUserProfile()
+      userProfileData.cacheExpiry = Date.now() + 1000 * 60 * 60 * 24
 
       AsyncStorageInstance.storeObjData(
         ASYNC_STORE_CONSTANTS.USER_PROFILE_DATA,

@@ -9,6 +9,7 @@ import {
 import { CameraRoll } from '@react-native-camera-roll/camera-roll'
 import { Header, Image, CircleOverlay } from '@components'
 import { useUploadProfilePhoto } from '@lib/users/profile/hooks'
+import { useFetchUserProfile } from '@lib/users/hooks'
 import styles from './ProfileImageSelectScreen.styles.js'
 
 export const ProfileImageSelectScreenRoute = 'ProfileImageSelectScreenRoute'
@@ -21,6 +22,7 @@ export function ProfileImageSelectScreen({ route, navigation }) {
   const { isSuccess, mutate } = useUploadProfilePhoto(filePath)
   const [selectedPhotoUri, setSelectedPhotoUri] = useState(null)
   const [filePath, setFilePath] = useState(null)
+  const { refetch } = useFetchUserProfile()
 
   useEffect(() => {
     if (selectedPhotoUri === null) {
@@ -29,9 +31,13 @@ export function ProfileImageSelectScreen({ route, navigation }) {
   }, [])
 
   useEffect(() => {
-    if (isSuccess) {
-      navigation.pop(2)
+    const handleSuccess = async () => {
+      if (isSuccess) {
+        await refetch()
+        navigation.pop(2)
+      }
     }
+    handleSuccess()
   }, [isSuccess])
 
   const getFilePath = async uri => {
