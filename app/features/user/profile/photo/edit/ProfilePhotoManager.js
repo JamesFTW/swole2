@@ -48,7 +48,10 @@ export function ProfilePhotoManager({ route, navigation }) {
   return (
     <View style={styles.profilePhotoEditContentContainer}>
       <View style={styles.profilePhotoEditLine} />
-      <ProfilePhoto style={styles.profilePhotoEditProfilePhoto} />
+      <ProfilePhoto
+        borderRadius={LAYOUT.SPACING_S_20}
+        style={styles.profilePhotoEditProfilePhoto}
+      />
       <View style={styles.profilePhotoEditHeaderLine} />
       <View style={styles.profilePhotoEditPhotoEditContainer}>
         <Pressable onPress={handleGetPhotos}>

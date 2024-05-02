@@ -25,6 +25,7 @@
     }
   },
   "dependencies": {
+    "@candlefinance/faster-image": "^1.5.2",
     "@react-native-async-storage/async-storage": "^1.18.2",
     "@react-native-camera-roll/camera-roll": "^7.5.2",
     "@react-native-community/masked-view": "^0.1.11",

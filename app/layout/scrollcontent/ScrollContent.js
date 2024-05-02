@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { SafeAreaView, ScrollView } from 'react-native'
+import { SafeAreaView, ScrollView, RefreshControl } from 'react-native'
 
 export function ScrollContent({
   children,
@@ -10,7 +10,21 @@ export function ScrollContent({
   showsVerticalScrollIndicator,
   onScroll,
   scrollEventThrottle,
+  refreshingFunc,
 }) {
+  const [refreshing, setRefreshing] = React.useState(false)
+
+  const onRefresh = React.useCallback(async () => {
+    setRefreshing(true)
+    try {
+      await refreshingFunc()
+      setRefreshing(false)
+    } catch (error) {
+      console.error('Error refreshing data:', error)
+      setRefreshing(false)
+    }
+  }, [refreshingFunc])
+
   if (useSafeArea) {
     return (
       <SafeAreaView>
@@ -20,7 +34,10 @@ export function ScrollContent({
           onScroll={onScroll}
           horizontal={horizontal}
           style={style}
-          scrollEventThrottle={scrollEventThrottle}>
+          scrollEventThrottle={scrollEventThrottle}
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+          }>
           {children}
         </ScrollView>
       </SafeAreaView>
@@ -34,7 +51,10 @@ export function ScrollContent({
       horizontal={horizontal}
       style={style}
       onScroll={onScroll}
-      scrollEventThrottle={scrollEventThrottle}>
+      scrollEventThrottle={scrollEventThrottle}
+      refreshControl={
+        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+      }>
       {children}
     </ScrollView>
   )

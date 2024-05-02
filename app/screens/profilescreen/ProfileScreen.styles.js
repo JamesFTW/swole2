@@ -1,12 +1,18 @@
 import { StyleSheet, Dimensions } from 'react-native'
-import { FONTS, COLORS } from '@constants'
+import { FONTS, COLORS, LAYOUT } from '@constants'
 
 const profileImageHeight = Dimensions.get('window').height / 2
 
 const styles = StyleSheet.create({
-  profile_image: {
-    width: null,
+  profile_image_container: {
     height: profileImageHeight,
+    width: '100%',
+  },
+  profile_image: {
+    width: '100%',
+    height: profileImageHeight,
+    overflow: LAYOUT.OVERFLOW_HIDDEN,
+    resizeMode: 'cover',
   },
   profile_name: {
     color: COLORS.PRIMARY_COLOR,
@@ -38,7 +44,7 @@ const styles = StyleSheet.create({
     fontFamily: FONTS.SFPRO_REGULAR,
     fontSize: FONTS.SIZE_10,
     letterSpacing: 0.015,
-    alignSelf: 'center',
+    alignSelf: LAYOUT.ALIGN_CENTER,
     marginLeft: 3,
   },
   edit_button: {

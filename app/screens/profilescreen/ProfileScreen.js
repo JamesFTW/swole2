@@ -1,13 +1,13 @@
 import React, { useContext } from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, Dimensions } from 'react-native'
 import { Image, Button } from '@components'
 import { WeekAtGlance } from '@features'
 import { ScrollContent, FlexContainer } from '@layout'
 import { useGetUserProfile } from '@lib/users/hooks'
 import { Location, Pencil } from '@assets/icons'
-import SplashScreenBackground from '@assets/imgs/splash_screen.png'
 import { ProfileSettingsStackRoute } from './profilesettingsscreen'
 import styles from './ProfileScreen.styles'
+import { ProfilePhoto } from '@app/features'
 
 export const ProfileScreenRoute = 'ProfileScreenRoute'
 
@@ -22,18 +22,16 @@ const weeklyStatus = {
 }
 
 export function ProfileScreen({ navigation, hasBio }) {
-  const { data, isSuccess } = useGetUserProfile()
+  const { data, isSuccess, refetch } = useGetUserProfile()
 
   /**
    * Going to need to get location and bio from data.userInfo eventually
    */
 
   return (
-    <ScrollContent>
-      <View>
-        <Image
-          style={styles.profile_image}
-          src={SplashScreenBackground}></Image>
+    <ScrollContent refreshingFunc={refetch}>
+      <View style={styles.profile_image_container}>
+        <ProfilePhoto style={styles.profile_image} />
       </View>
       <FlexContainer direction="row">
         <FlexContainer

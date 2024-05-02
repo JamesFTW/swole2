@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     height: LAYOUT.SPACING_XS_4,
     backgroundColor: COLORS.BLACK,
     alignSelf: LAYOUT.ALIGN_CENTER,
-    backgroundColor: COLORS.LIGHT_GRAY,
+    backgroundColor: COLORS.CARD_BOARDER_COLOR,
     borderRadius: LAYOUT.SPACING_NUDGE_S,
   },
   profilePhotoEditProfilePhoto: {
@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
     height: LAYOUT.SPACING_MD_40,
     width: LAYOUT.SPACING_MD_40,
     borderRadius: LAYOUT.SPACING_S_20,
+    overflow: LAYOUT.OVERFLOW_HIDDEN,
   },
   profilePhotoEditPhotoEditContainer: {
     width: '100%',
