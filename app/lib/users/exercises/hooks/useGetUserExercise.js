@@ -12,10 +12,7 @@ export const useGetUserExercise = exerciseId => {
         const userProfileData = await userRepository.getUserProfileData()
 
         if (userProfileData) {
-          const res = await getUserExercise(
-            userProfileData.userInfo.userId,
-            exerciseId,
-          )
+          const res = await getUserExercise(userProfileData.userId, exerciseId)
 
           return res
         }

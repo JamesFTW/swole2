@@ -14,7 +14,7 @@ export const ProfilePhoto = ({ style, borderRadius }) => {
         transitionDuration: 0.3,
         cachePolicy: 'discWithCacheControl',
         showActivityIndicator: true,
-        url: profileData?.userInfo?.profilePhoto,
+        url: profileData?.profilePhoto,
         resizeMode: 'cover',
       }}
       blurhash={blurhash}

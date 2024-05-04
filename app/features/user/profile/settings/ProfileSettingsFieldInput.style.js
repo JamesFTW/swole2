@@ -7,10 +7,10 @@ const styles = StyleSheet.create({
     marginTop: LAYOUT.SPACING_XS_16,
   },
   inputContainer: {
-    height: LAYOUT.SPACING_LG_56 + LAYOUT.SPACING_NUDGE_S,
     width: '100%',
     backgroundColor: COLORS.WHITE,
     paddingLeft: LAYOUT.SPACING_S_28,
+    flexDirection: LAYOUT.FLEX_ROW,
   },
   profileSettingsFormField: {
     marginBottom: LAYOUT.SPACING_XS_12,

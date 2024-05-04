@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { UserRepository } from '../UserRepository'
+import { UserRepository } from '../../UserRepository'
 import { useQuery } from '@tanstack/react-query'
 import { ProfileContext } from '@providers'
 
@@ -11,14 +11,12 @@ export const useFetchUserProfile = () => {
   return useQuery({
     queryKey: ['userProfile'],
     queryFn: async () => {
-      return userRepoistory.fetchUserProfile()
-    },
-    onSuccess: data => {
+      const data = await userRepoistory.fetchUserProfile()
       updateProfileData(data)
       return data
     },
     onError: error => {
-      return error
+      console.error('Fetch error:', error)
     },
   })
 }

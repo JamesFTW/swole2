@@ -4,3 +4,6 @@
  ***************************************************************/
 
 export * from './useUploadProfilePhoto'
+export * from './useUpdateProfile'
+export * from './useGetUserProfile'
+export * from './useFetchUserProfile'

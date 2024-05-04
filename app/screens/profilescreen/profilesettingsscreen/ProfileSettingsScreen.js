@@ -13,10 +13,14 @@ import styles from './ProfileSettingsScreen.styles'
 export const ProfileSettingsScreenRoute = 'ProfileSettingsScreenRoute'
 
 export function ProfileSettingsScreen({ navigation }) {
+  const handleNavigation = () => {
+    navigation.goBack()
+  }
+
   return (
     <SafeAreaView>
-      <Header title="Edit Profile" onPress={() => navigation.goBack()} />
-      <ScrollContent>
+      <Header title="Edit Profile" onPress={handleNavigation} />
+      <ScrollContent style={styles.scrollContentContainer}>
         <Pressable
           onPress={() => {
             navigation.navigate(ProfilePhotoManagerRoute)

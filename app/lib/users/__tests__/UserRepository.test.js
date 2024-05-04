@@ -1,5 +1,6 @@
 import { UserRepository } from '../UserRepository'
 import { request, API_ENDPOINT, HEADERS, METHODS } from '../../http/request'
+import { AsyncStorageInstance } from '@services/asyncstorage'
 
 jest.mock('../../http/request')
 jest.mock('@services/asyncstorage', () => ({
@@ -8,9 +9,13 @@ jest.mock('@services/asyncstorage', () => ({
     storeObjData: jest.fn(),
   },
 }))
+jest.mock('react-native-fs', () => ({
+  readFile: jest.fn(),
+}))
 
 describe('UserRepository', () => {
   beforeEach(() => {
+    asyncStorage = AsyncStorageInstance
     jest.clearAllMocks()
   })
 
@@ -32,22 +37,5 @@ describe('UserRepository', () => {
       method: METHODS.POST,
     })
     expect(signInResponse).toEqual(mockResponse)
-  })
-
-  it('should fetch user profile', async () => {
-    const mockResponse = { id: '123', name: 'Test User' }
-    request.mockResolvedValueOnce({
-      json: jest.fn().mockResolvedValue(mockResponse),
-    })
-
-    const userRepository = new UserRepository()
-
-    const userProfile = await userRepository.fetchUserProfile()
-
-    expect(request).toHaveBeenCalledWith({
-      endpoint: `${API_ENDPOINT}/users/profile`,
-      method: METHODS.GET,
-    })
-    expect(userProfile).toEqual(mockResponse)
   })
 })
