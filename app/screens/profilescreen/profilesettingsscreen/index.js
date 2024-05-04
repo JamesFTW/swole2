@@ -9,7 +9,11 @@ import {
   ProfilePhotoManager,
   profileManageDrawerConfig,
   ProfilePhotoManagerRoute,
-} from '@features'
+  ProfileSettingsFieldInput,
+  ProfileSettingsFieldInputRoute,
+  ProfileSettingsFormRoute,
+  ProfileSettingsForm,
+} from '@features/user'
 
 import {
   ProfileImageSelectScreen,
@@ -36,6 +40,14 @@ export function ProfileSettingsStack() {
         name={ProfileImageSelectScreenRoute}
         component={ProfileImageSelectScreen}
         options={ProfileImageSelectScreenOptions}
+      />
+      <Stack.Screen
+        name={ProfileSettingsFormRoute}
+        component={ProfileSettingsForm}
+      />
+      <Stack.Screen
+        name={ProfileSettingsFieldInputRoute}
+        component={ProfileSettingsFieldInput}
       />
     </Stack.Navigator>
   )

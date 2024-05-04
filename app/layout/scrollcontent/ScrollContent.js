@@ -10,7 +10,7 @@ export function ScrollContent({
   showsVerticalScrollIndicator,
   onScroll,
   scrollEventThrottle,
-  refreshingFunc,
+  refreshingFunc = async () => {},
 }) {
   const [refreshing, setRefreshing] = React.useState(false)
 

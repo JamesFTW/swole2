@@ -3,7 +3,11 @@ import { SafeAreaView, Pressable } from 'react-native'
 import { Header, TextButton } from '@components'
 import { ScrollContent } from '@layout'
 import { LAYOUT } from '@constants'
-import { ProfilePhoto, ProfilePhotoManagerRoute } from '@features/user'
+import {
+  ProfilePhoto,
+  ProfilePhotoManagerRoute,
+  ProfileSettingsForm,
+} from '@features/user'
 import styles from './ProfileSettingsScreen.styles'
 
 export const ProfileSettingsScreenRoute = 'ProfileSettingsScreenRoute'
@@ -30,6 +34,7 @@ export function ProfileSettingsScreen({ navigation }) {
             navigation.navigate(ProfilePhotoManagerRoute)
           }}
         />
+        <ProfileSettingsForm navigation={navigation} />
       </ScrollContent>
     </SafeAreaView>
   )

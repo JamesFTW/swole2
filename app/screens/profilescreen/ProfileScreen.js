@@ -1,13 +1,12 @@
-import React, { useContext } from 'react'
-import { View, Text, Dimensions } from 'react-native'
-import { Image, Button } from '@components'
-import { WeekAtGlance } from '@features'
+import React from 'react'
+import { View, Text } from 'react-native'
+import { Button } from '@components'
+import { WeekAtGlance, ProfilePhoto } from '@features'
 import { ScrollContent, FlexContainer } from '@layout'
 import { useGetUserProfile } from '@lib/users/hooks'
-import { Location, Pencil } from '@assets/icons'
+import { Pencil } from '@assets/icons'
 import { ProfileSettingsStackRoute } from './profilesettingsscreen'
 import styles from './ProfileScreen.styles'
-import { ProfilePhoto } from '@app/features'
 
 export const ProfileScreenRoute = 'ProfileScreenRoute'
 
@@ -36,19 +35,10 @@ export function ProfileScreen({ navigation, hasBio }) {
       <FlexContainer direction="row">
         <FlexContainer
           direction="column"
-          marginTop={21}
           style={styles.profile_name_location_container}>
-          {isSuccess ? (
-            <Text style={styles.profile_name}>{data.userInfo.userName}</Text>
-          ) : null}
-          <FlexContainer
-            direction="row"
-            marginBottom={14}
-            marginTop={5}
-            marginLeft={16}>
-            <Location />
-            <Text style={styles.profile_location}>San Francisco, CA</Text>
-          </FlexContainer>
+          <Text style={styles.profile_name}>
+            {isSuccess ? data?.userInfo.userName : null}
+          </Text>
         </FlexContainer>
         <Button
           outline
@@ -58,11 +48,12 @@ export function ProfileScreen({ navigation, hasBio }) {
           icon={<Pencil style={styles.pencil_icon} />}
           textStyle={styles.edit_button_text}
           style={styles.edit_button}
-          title="EDIT PROFILE"></Button>
+          title="EDIT PROFILE"
+        />
       </FlexContainer>
       <Text style={styles.bio}>
         “Those who think they have not time for bodily exercise will sooner or
-        later take Ls”.
+        later take Ls.”.
       </Text>
       <View>
         <WeekAtGlance weeklyStatus={weeklyStatus} />
