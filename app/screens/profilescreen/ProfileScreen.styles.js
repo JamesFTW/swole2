@@ -6,6 +6,7 @@ const profileImageHeight = Dimensions.get('window').height / 2
 const styles = StyleSheet.create({
   profile_name_location_container: {
     marginTop: LAYOUT.SPACING_XS_16,
+    minHeight: LAYOUT.SPACING_S_24,
   },
   profile_image_container: {
     height: profileImageHeight,
@@ -23,6 +24,7 @@ const styles = StyleSheet.create({
     fontSize: FONTS.SIZE_20,
     letterSpacing: FONTS.SPACING_S,
     marginLeft: LAYOUT.SPACING_XS_16,
+    minHeight: LAYOUT.SPACING_S_24,
   },
   bio: {
     color: COLORS.PRIMARY_COLOR,
@@ -51,7 +53,7 @@ const styles = StyleSheet.create({
     borderColor: COLORS.CARD_BOARDER_COLOR,
     borderWidth: LAYOUT.SPACING_NUDGE_XS,
     position: LAYOUT.POSITION_ABSOLUTE,
-    right: 0,
+    right: LAYOUT.SPACING_NONE,
     marginTop: LAYOUT.SPACING_XS_16,
     marginRight: LAYOUT.SPACING_XS_16,
   },

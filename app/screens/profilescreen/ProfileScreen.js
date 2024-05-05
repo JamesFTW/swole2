@@ -58,9 +58,7 @@ export function ProfileScreen({ navigation }) {
         />
       </FlexContainer>
       <Text style={styles.bio}>{isSuccess ? data?.bio : null}</Text>
-      <View>
-        <WeekAtGlance weeklyStatus={weeklyStatus} />
-      </View>
+      <WeekAtGlance weeklyStatus={weeklyStatus} />
     </ScrollContent>
   )
 }
