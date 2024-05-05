@@ -4,6 +4,7 @@ import {
   ASYNC_STORE_CONSTANTS,
 } from '@services/asyncstorage'
 import qs from 'qs'
+import { readFile } from 'react-native-fs'
 
 export class UserRepository {
   async signIn(body) {
@@ -17,32 +18,12 @@ export class UserRepository {
     return response.json()
   }
 
-  async fetchUserProfile() {
-    const response = await request({
-      endpoint: `${API_ENDPOINT}/users/profile`,
-      method: METHODS.GET,
-    })
-
-    return response.json()
-  }
-
-  async updateUserProfile(data) {
-    const response = await request({
-      endpoint: `${API_ENDPOINT}/users/profile/update`,
-      body: JSON.stringify(data),
-      headers: HEADERS.APPLICATION_JSON,
-      method: METHODS.PUT,
-    })
-
-    return response.json()
-  }
-
   async fetchUserExercise(exerciseId) {
     const userProfileData = await this.getUserProfileData()
 
     if (userProfileData) {
       const response = await request({
-        endpoint: `${API_ENDPOINT}/userexercises/${userProfileData.userInfo.userId}/${exerciseId}`,
+        endpoint: `${API_ENDPOINT}/userexercises/${userProfileData.userId}/${exerciseId}`,
         method: METHODS.GET,
       })
 
@@ -50,8 +31,25 @@ export class UserRepository {
     }
   }
 
+  async fetchUserProfile() {
+    const response = await request({
+      endpoint: `${API_ENDPOINT}/users/profile`,
+      method: METHODS.GET,
+    })
+
+    const data = await response.json()
+
+    data.cacheExpiry = Date.now() + 1000 * 60 * 60 * 24
+
+    await AsyncStorageInstance.storeObjData(
+      ASYNC_STORE_CONSTANTS.USER_PROFILE_DATA,
+      data,
+    )
+
+    return data
+  }
+
   async getUserProfileData() {
-    // //here we are getting the user profile data from async storage
     const [userProfileData, error] =
       await AsyncStorageInstance.getUserProfileData()
 
@@ -65,7 +63,6 @@ export class UserRepository {
 
     try {
       const userProfileData = await this.fetchUserProfile()
-      userProfileData.cacheExpiry = Date.now() + 1000 * 60 * 60 * 24
 
       AsyncStorageInstance.storeObjData(
         ASYNC_STORE_CONSTANTS.USER_PROFILE_DATA,
@@ -75,6 +72,53 @@ export class UserRepository {
       if (userProfileData) return userProfileData
     } catch (error) {
       throw new Error(error)
+    }
+  }
+
+  async uploadProfilePhoto(filePath) {
+    try {
+      const base64Data = await readFile(filePath, 'base64')
+
+      const formData = new FormData()
+      formData.append('file', {
+        uri: filePath,
+        type: 'image/jpeg',
+        name: 'image.jpg',
+        data: base64Data,
+      })
+
+      const res = await request({
+        endpoint: `${API_ENDPOINT}/users/profile/update/photo`,
+        method: METHODS.POST,
+        headers: HEADERS.MULTIPART_FORM_DATA,
+        body: formData,
+      })
+
+      if (!res.ok) {
+        throw new Error('Request failed with status ' + res.status)
+      }
+
+      return res
+    } catch (err) {
+      throw err
+    }
+  }
+
+  async updateUserProfileData(data) {
+    try {
+      const response = await request({
+        endpoint: `${API_ENDPOINT}/users/profile/update`,
+        body: qs.stringify(data),
+        headers: HEADERS.APPLICATION_X_WWW_FORM_URLENCODED,
+        method: METHODS.PUT,
+      })
+
+      if (!response.ok) {
+        throw new Error('Request failed with status ' + response.status)
+      }
+      return response
+    } catch (err) {
+      throw err
     }
   }
 }

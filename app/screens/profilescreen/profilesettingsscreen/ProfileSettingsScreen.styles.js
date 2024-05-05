@@ -2,6 +2,9 @@ import { StyleSheet } from 'react-native'
 import { COLORS, FONTS, LAYOUT } from '@constants'
 
 const styles = StyleSheet.create({
+  scrollContentContainer: {
+    height: '100%',
+  },
   profilePhoto: {
     alignSelf: LAYOUT.ALIGN_CENTER,
     marginTop: LAYOUT.SPACING_S_20,

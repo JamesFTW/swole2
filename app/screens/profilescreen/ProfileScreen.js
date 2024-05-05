@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { View, Text } from 'react-native'
+import { useFocusEffect } from '@react-navigation/native'
 import { Button } from '@components'
 import { WeekAtGlance, ProfilePhoto } from '@features'
 import { ScrollContent, FlexContainer } from '@layout'
-import { useGetUserProfile } from '@lib/users/hooks'
+import {
+  useGetUserProfile,
+  useFetchUserProfile,
+} from '@lib/users/profile/hooks'
 import { Pencil } from '@assets/icons'
 import { ProfileSettingsStackRoute } from './profilesettingsscreen'
 import styles from './ProfileScreen.styles'
@@ -20,15 +24,26 @@ const weeklyStatus = {
   Sunday: { date: '2023-06-11', workoutCompleted: false, workoutId: 7 },
 }
 
-export function ProfileScreen({ navigation, hasBio }) {
-  const { data, isSuccess, refetch } = useGetUserProfile()
+export function ProfileScreen({ navigation }) {
+  const { data, isSuccess } = useGetUserProfile()
+  const { refetch } = useFetchUserProfile()
 
-  /**
-   * Going to need to get location and bio from data.userInfo eventually
-   */
+  useFocusEffect(
+    useCallback(() => {
+      refetch()
+    }, []),
+  )
+
+  const handleRefresh = () => {
+    refetch()
+  }
+
+  const handleNavigation = () => {
+    navigation.navigate(ProfileSettingsStackRoute)
+  }
 
   return (
-    <ScrollContent refreshingFunc={refetch}>
+    <ScrollContent refreshingFunc={handleRefresh}>
       <View style={styles.profile_image_container}>
         <ProfilePhoto style={styles.profile_image} />
       </View>
@@ -37,24 +52,19 @@ export function ProfileScreen({ navigation, hasBio }) {
           direction="column"
           style={styles.profile_name_location_container}>
           <Text style={styles.profile_name}>
-            {isSuccess ? data?.userInfo.userName : null}
+            {isSuccess ? data?.userName : null}
           </Text>
         </FlexContainer>
         <Button
           outline
-          onPress={() => {
-            navigation.navigate(ProfileSettingsStackRoute)
-          }}
+          onPress={handleNavigation}
           icon={<Pencil style={styles.pencil_icon} />}
           textStyle={styles.edit_button_text}
           style={styles.edit_button}
           title="EDIT PROFILE"
         />
       </FlexContainer>
-      <Text style={styles.bio}>
-        “Those who think they have not time for bodily exercise will sooner or
-        later take Ls.”.
-      </Text>
+      <Text style={styles.bio}>{isSuccess ? data?.bio : null}</Text>
       <View>
         <WeekAtGlance weeklyStatus={weeklyStatus} />
       </View>

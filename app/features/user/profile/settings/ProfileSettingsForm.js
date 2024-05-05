@@ -9,15 +9,15 @@ export const ProfileSettingsFormRoute = 'ProfileSettingsFormRoute'
 export function ProfileSettingsForm({ navigation }) {
   const { profileData } = useContext(ProfileContext)
 
-  const { userName, bio, email, location, units } = profileData?.userInfo
+  const { userName, bio, email, location, units } = profileData
 
   const Form = () => {
     const formTitles = [
-      { title: 'Username', value: userName },
-      { title: 'Bio', value: bio },
-      { title: 'Email', value: email },
-      { title: 'Location', value: location },
-      { title: 'Units', value: units },
+      { title: 'Username', value: userName, dataBaseField: 'userName' },
+      { title: 'Bio', value: bio, dataBaseField: 'bio' },
+      { title: 'Email', value: email, dataBaseField: 'email' },
+      { title: 'Location', value: location, dataBaseField: 'location' },
+      { title: 'Units', value: units, dataBaseField: 'units' },
     ]
     return formTitles.map((title, index) => {
       return (
@@ -28,6 +28,7 @@ export function ProfileSettingsForm({ navigation }) {
               navigation.navigate(ProfileSettingsFieldInputRoute, {
                 title: title.title,
                 value: title.value,
+                dataBaseField: title.dataBaseField,
               })
             }
             style={styles.profileSettingsFormFieldInput}>

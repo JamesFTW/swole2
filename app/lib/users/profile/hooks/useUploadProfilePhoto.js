@@ -1,13 +1,12 @@
-import { uploadProfilePhoto } from '..'
 import { useMutation } from '@tanstack/react-query'
+import { UserRepository } from '../../UserRepository'
 
 export const useUploadProfilePhoto = () => {
+  const userRepository = new UserRepository()
+
   return useMutation({
     mutationFn: async filePath => {
-      return uploadProfilePhoto(filePath)
-    },
-    onSuccess: data => {
-      console.log('Upload successful:', data)
+      return userRepository.uploadProfilePhoto(filePath)
     },
     onError: error => {
       console.error('Upload error:', error)

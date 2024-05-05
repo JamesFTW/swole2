@@ -8,8 +8,10 @@ import {
 } from 'react-native'
 import { CameraRoll } from '@react-native-camera-roll/camera-roll'
 import { Header, Image, CircleOverlay } from '@components'
-import { useUploadProfilePhoto } from '@lib/users/profile/hooks'
-import { useFetchUserProfile } from '@lib/users/hooks'
+import {
+  useUploadProfilePhoto,
+  useFetchUserProfile,
+} from '@lib/users/profile/hooks'
 import styles from './ProfileImageSelectScreen.styles.js'
 
 export const ProfileImageSelectScreenRoute = 'ProfileImageSelectScreenRoute'
@@ -66,13 +68,17 @@ export function ProfileImageSelectScreen({ route, navigation }) {
     }
   }
 
+  const handleNavigation = () => {
+    navigation.pop(2)
+  }
+
   return (
     <SafeAreaView>
       <Header
-        secondaryAction={() => handleUploadImage()}
+        secondaryAction={handleUploadImage}
         secondaryActionText="Done"
         title="Library"
-        onPress={() => navigation.pop(2)}
+        onPress={handleNavigation}
       />
       <ImageBackground
         source={{ uri: selectedPhotoUri }}

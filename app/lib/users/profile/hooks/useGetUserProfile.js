@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { UserRepository } from '../UserRepository'
+import { UserRepository } from '../../UserRepository'
 import { useQuery } from '@tanstack/react-query'
 import { ProfileContext } from '@providers'
 
