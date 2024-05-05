@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
     marginLeft: LAYOUT.SPACING_XS_16,
     justifyContent: LAYOUT.ALIGN_CENTER,
     zIndex: LAYOUT.SPACING_NUDGE_XS,
+    width: LAYOUT.SPACING_MD_52,
   },
   secondaryAction: {
     position: LAYOUT.POSITION_ABSOLUTE,

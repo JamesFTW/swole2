@@ -4,7 +4,7 @@ import { Pressable } from 'react-native'
 
 export const BackButton = ({ onPress, style }) => {
   return (
-    <Pressable style={style} onPress={onPress}>
+    <Pressable radius={10} style={style} onPressIn={onPress}>
       <BackButtonSVN />
     </Pressable>
   )
