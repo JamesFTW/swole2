@@ -39,8 +39,6 @@ export class UserRepository {
 
     const data = await response.json()
 
-    data.cacheExpiry = Date.now() + 1000 * 60 * 60 * 24
-
     await AsyncStorageInstance.storeObjData(
       ASYNC_STORE_CONSTANTS.USER_PROFILE_DATA,
       data,
@@ -50,17 +48,7 @@ export class UserRepository {
   }
 
   async getUserProfileData() {
-    const [userProfileData, error] =
-      await AsyncStorageInstance.getUserProfileData()
-
-    if (error) throw new Error(error)
-
-    if (userProfileData) {
-      if (userProfileData.cacheExpiry > Date.now()) {
-        return userProfileData
-      }
-    }
-
+    //TODO: Implement cache mechanism
     try {
       const userProfileData = await this.fetchUserProfile()
 
