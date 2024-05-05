@@ -20,8 +20,8 @@ const styles = StyleSheet.create({
   profile_name: {
     color: COLORS.PRIMARY_COLOR,
     fontFamily: FONTS.SFPRO_HEAVY,
-    fontSize: FONTS.SIZE_24,
-    letterSpacing: -0.02,
+    fontSize: FONTS.SIZE_20,
+    letterSpacing: FONTS.SPACING_S,
     marginLeft: LAYOUT.SPACING_XS_16,
   },
   bio: {
