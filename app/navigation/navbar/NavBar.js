@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { View, TouchableOpacity } from 'react-native'
+import { View, Pressable } from 'react-native'
 import { NavLocationScreenRoute } from '../../screens/navlocationscreen/NavLocationScreen'
 import { CalendarScreenRoute } from '../../screens/calendarscreen/CalendarScreen'
 import { Profile, Dumbell, Calendar, NavLocation } from '../../assets/icons'
@@ -44,14 +44,14 @@ export function NavBar({ state, descriptors, navigation, isDrawerOpen }) {
           }
 
           return (
-            <TouchableOpacity
+            <Pressable
               key={index}
               accessibilityRole="button"
               accessibilityState={isFocused ? { selected: true } : {}}
               accessibilityLabel={options.tabBarAccessibilityLabel}
               onPress={onPress}>
               {getIcon()}
-            </TouchableOpacity>
+            </Pressable>
           )
         })}
       </FlexContainer>
