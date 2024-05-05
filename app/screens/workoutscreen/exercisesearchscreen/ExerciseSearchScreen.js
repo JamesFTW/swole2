@@ -22,15 +22,10 @@ export function ExerciseSearchScreen({ route, navigation }) {
   const fadeAnim = React.useRef(new Animated.Value(0)).current
 
   const handleSelectExercise = exercise => {
-    const exerciseAlreadySelected = selectedExercises.some(
-      selected => selected.exerciseId === exercise.exerciseId,
-    )
+    const exerciseAlreadySelected = selectedExercises.some(selected => selected.exerciseId === exercise.exerciseId)
 
     if (!exerciseAlreadySelected) {
-      setSelectedExercises(prevSelectedExercises => [
-        ...prevSelectedExercises,
-        exercise,
-      ])
+      setSelectedExercises(prevSelectedExercises => [...prevSelectedExercises, exercise])
     } else {
       setSelectedExercises(prevSelectedExercises => {
         const updatedSelectedExercises = prevSelectedExercises.filter(
@@ -84,18 +79,13 @@ export function ExerciseSearchScreen({ route, navigation }) {
 
   const filteredExercises = isSuccess
     ? data?.allExercises?.filter(exercise => {
-        const exerciseNameMatch = exercise.exerciseName
+        const exerciseNameMatch = exercise.exerciseName.toLowerCase().includes(searchQuery.toLowerCase())
+
+        const targetMuscleMatch = exercise.targetMuscle.toLowerCase().includes(searchQuery.toLowerCase())
+
+        const secondaryMuscleMatch = exercise.secondaryMuscles[0].secondaryMuscle1
           .toLowerCase()
           .includes(searchQuery.toLowerCase())
-
-        const targetMuscleMatch = exercise.targetMuscle
-          .toLowerCase()
-          .includes(searchQuery.toLowerCase())
-
-        const secondaryMuscleMatch =
-          exercise.secondaryMuscles[0].secondaryMuscle1
-            .toLowerCase()
-            .includes(searchQuery.toLowerCase())
 
         return exerciseNameMatch || targetMuscleMatch || secondaryMuscleMatch
       }) ?? []
@@ -104,21 +94,13 @@ export function ExerciseSearchScreen({ route, navigation }) {
   const exerciseGroups = getExerciseGroups(filteredExercises)
 
   return (
-    <ScrollContent
-      showsVerticalScrollIndicator={false}
-      style={styles.scroll_content_container}>
-      <BackButton
-        style={styles.back_button}
-        onPress={() => navigation.goBack()}
-      />
+    <ScrollContent showsVerticalScrollIndicator={false} style={styles.scroll_content_container}>
+      <BackButton style={styles.back_button} onPress={() => navigation.goBack()} />
       <FlexContainer style={styles.flex_header_container} direction="row">
         <Text style={styles.exercises_title}>Exercises</Text>
         {route?.params?.showAdditionalButtons ? (
           <FlexContainer direction="row">
-            <TextButton style={[styles.exercises_title, { marginRight: 12 }]}>
-              {' '}
-              Superset
-            </TextButton>
+            <TextButton style={[styles.exercises_title, { marginRight: 12 }]}> Superset</TextButton>
             <TextButton
               onPress={() =>
                 navigation.navigate({

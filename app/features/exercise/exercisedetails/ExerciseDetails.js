@@ -43,13 +43,9 @@ export function ExerciseDetails({ route, navigation }) {
       </View>
       <FlexContainer direction="row">
         <FlexContainer direction="column" marginTop={21}>
-          <Text style={styles.exercise_title}>
-            {exerciseInfo.exerciseTitle}
-          </Text>
+          <Text style={styles.exercise_title}>{exerciseInfo.exerciseTitle}</Text>
           <FlexContainer direction="row" marginLeft={16}>
-            <Text style={styles.target_muscle}>
-              {exerciseInfo.targetMuscle.toLowerCase()}
-            </Text>
+            <Text style={styles.target_muscle}>{exerciseInfo.targetMuscle.toLowerCase()}</Text>
           </FlexContainer>
         </FlexContainer>
         <View style={styles.total_weight_container}>
@@ -58,9 +54,8 @@ export function ExerciseDetails({ route, navigation }) {
         </View>
       </FlexContainer>
       <Text style={styles.exercise_description}>
-        The barbell bench press is an upper body pressing drill that builds size
-        and strength in the upper body, specifically in the chest, triceps, and
-        shoulders
+        The barbell bench press is an upper body pressing drill that builds size and strength in the upper body,
+        specifically in the chest, triceps, and shoulders
       </Text>
       <Text style={styles.last_attempts}>Last Atempts</Text>
       {isSuccess ? <LastAttemptMessage data={data} /> : null}
@@ -70,12 +65,7 @@ export function ExerciseDetails({ route, navigation }) {
 
 function LastAttemptMessage({ data }) {
   if (data.userExercise.length === 0) {
-    return (
-      <Text style={styles.exercise_first_attempt}>
-        {' '}
-        You have not attempted this exercise
-      </Text>
-    )
+    return <Text style={styles.exercise_first_attempt}> You have not attempted this exercise</Text>
   }
 
   const attempts = data.userExercise.map(exercise => {
@@ -91,9 +81,7 @@ function LastAttemptMessage({ data }) {
 
     return (
       <View style={{ marginTop: 20 }} key={exercise.userExerciseID}>
-        <FlexContainer
-          style={{ justifyContent: 'space-between' }}
-          direction="row">
+        <FlexContainer style={{ justifyContent: 'space-between' }} direction="row">
           <Text style={styles.exercise_last_attempt_date}>
             {month}-{date}-{year}
           </Text>

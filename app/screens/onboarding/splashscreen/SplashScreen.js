@@ -24,16 +24,11 @@ export function SplashScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <StatusBar translucent backgroundColor="transparent" />
-      <ImageBackground
-        source={SplashScreenBackground}
-        resizeMode="cover"
-        style={styles.image}>
+      <ImageBackground source={SplashScreenBackground} resizeMode="cover" style={styles.image}>
         <Text style={styles.title}>{CONSTANTS.SWOLE}</Text>
         <View style={styles.welcomeMessageContainer}>
           <Text style={styles.welcomeMessage}>{CONSTANTS.WELCOME_MESSAGE}</Text>
-          <Text style={styles.welcomeMessageSubText}>
-            {CONSTANTS.WELCOME_MESSAGE_SUB_TEXT}
-          </Text>
+          <Text style={styles.welcomeMessageSubText}>{CONSTANTS.WELCOME_MESSAGE_SUB_TEXT}</Text>
         </View>
       </ImageBackground>
       <Button
@@ -49,9 +44,7 @@ export function SplashScreen({ navigation }) {
       />
       <Text style={styles.text}>
         {CONSTANTS.ALREADY_A_MEMBER}
-        <Text
-          onPress={() => navigation.navigate(SignInScreenRoute)}
-          style={styles.loginText}>
+        <Text onPress={() => navigation.navigate(SignInScreenRoute)} style={styles.loginText}>
           {' '}
           {CONSTANTS.LOG_IN}
         </Text>

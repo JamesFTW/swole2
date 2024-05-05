@@ -11,10 +11,7 @@ import styles from './NavBar.styles'
 export function NavBar({ state, descriptors, navigation, isDrawerOpen }) {
   return (
     <View style={styles.navBar_container}>
-      <FlexContainer
-        style={styles.navBar_icon_container}
-        marginTop={20}
-        direction="row">
+      <FlexContainer style={styles.navBar_icon_container} marginTop={20} direction="row">
         {state.routes.map((route, index) => {
           const getIcon = () => {
             switch (route.name) {

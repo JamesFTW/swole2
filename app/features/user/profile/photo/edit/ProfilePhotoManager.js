@@ -48,18 +48,13 @@ export function ProfilePhotoManager({ route, navigation }) {
   return (
     <View style={styles.profilePhotoEditContentContainer}>
       <View style={styles.profilePhotoEditLine} />
-      <ProfilePhoto
-        borderRadius={LAYOUT.SPACING_S_20}
-        style={styles.profilePhotoEditProfilePhoto}
-      />
+      <ProfilePhoto borderRadius={LAYOUT.SPACING_S_20} style={styles.profilePhotoEditProfilePhoto} />
       <View style={styles.profilePhotoEditHeaderLine} />
       <View style={styles.profilePhotoEditPhotoEditContainer}>
         <Pressable onPress={handleGetPhotos}>
           <View style={styles.profilePhotoEditButton}>
             <Library />
-            <Text style={styles.profilePhotoEditButtonText}>
-              Choose from library
-            </Text>
+            <Text style={styles.profilePhotoEditButtonText}>Choose from library</Text>
           </View>
         </Pressable>
         <View style={styles.profilePhotoEditButton}>
@@ -68,13 +63,7 @@ export function ProfilePhotoManager({ route, navigation }) {
         </View>
         <View style={styles.profilePhotoEditButton}>
           <TrashCan />
-          <Text
-            style={[
-              styles.profilePhotoEditButtonText,
-              { color: COLORS.ALERT_COLOR },
-            ]}>
-            Remove current picture
-          </Text>
+          <Text style={[styles.profilePhotoEditButtonText, { color: COLORS.ALERT_COLOR }]}>Remove current picture</Text>
         </View>
       </View>
     </View>

@@ -16,6 +16,4 @@ export default storiesOf('FormInput', module)
       { name: 'light', value: '#eeeeee' },
     ],
   })
-  .add('default', () => (
-    <FormInput title="Email" placeholder="veryswole@swole.com" />
-  ))
+  .add('default', () => <FormInput title="Email" placeholder="veryswole@swole.com" />)

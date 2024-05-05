@@ -18,13 +18,8 @@ describe('ProfileProvider', () => {
   })
 
   test('should render children', async () => {
-    const mockProfileData = Promise.resolve([
-      { name: 'John Doe', email: 'john@example.com' },
-      null,
-    ])
-    AsyncStorageInstance.getUserProfileData.mockResolvedValueOnce(
-      mockProfileData,
-    )
+    const mockProfileData = Promise.resolve([{ name: 'John Doe', email: 'john@example.com' }, null])
+    AsyncStorageInstance.getUserProfileData.mockResolvedValueOnce(mockProfileData)
 
     const { getByText } = render(
       <ProfileProvider>
@@ -37,19 +32,12 @@ describe('ProfileProvider', () => {
   })
 
   test('should load profile data from AsyncStorage on mount', async () => {
-    const mockProfileData = Promise.resolve([
-      { name: 'John Doe', email: 'john@example.com' },
-      null,
-    ])
-    AsyncStorageInstance.getUserProfileData.mockResolvedValueOnce(
-      mockProfileData,
-    )
+    const mockProfileData = Promise.resolve([{ name: 'John Doe', email: 'john@example.com' }, null])
+    AsyncStorageInstance.getUserProfileData.mockResolvedValueOnce(mockProfileData)
 
     const TestComponent = () => {
       const { profileData } = React.useContext(ProfileContext)
-      return (
-        <Text>{profileData ? JSON.stringify(profileData) : 'No data'}</Text>
-      )
+      return <Text>{profileData ? JSON.stringify(profileData) : 'No data'}</Text>
     }
 
     const { findByText } = render(
@@ -58,20 +46,13 @@ describe('ProfileProvider', () => {
       </ProfileProvider>,
     )
 
-    expect(
-      await findByText('{"name":"John Doe","email":"john@example.com"}'),
-    ).toBeTruthy()
+    expect(await findByText('{"name":"John Doe","email":"john@example.com"}')).toBeTruthy()
     await act(() => mockProfileData)
   })
 
   test('should update profile data in AsyncStorage', async () => {
-    const mockProfileData = Promise.resolve([
-      { name: 'John Doe', email: 'john@example.com' },
-      null,
-    ])
-    AsyncStorageInstance.getUserProfileData.mockResolvedValueOnce(
-      mockProfileData,
-    )
+    const mockProfileData = Promise.resolve([{ name: 'John Doe', email: 'john@example.com' }, null])
+    AsyncStorageInstance.getUserProfileData.mockResolvedValueOnce(mockProfileData)
 
     const TestComponent = () => {
       const { updateProfileData } = React.useContext(ProfileContext)
@@ -87,9 +68,7 @@ describe('ProfileProvider', () => {
       </ProfileProvider>,
     )
 
-    expect(AsyncStorageInstance.updateUserProfileData).toHaveBeenCalledWith(
-      mockProfileData,
-    )
+    expect(AsyncStorageInstance.updateUserProfileData).toHaveBeenCalledWith(mockProfileData)
     await act(() => mockProfileData)
   })
 })

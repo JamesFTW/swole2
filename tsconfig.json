@@ -12,7 +12,7 @@
       "@lib/*": ["./app/lib/*"],
       "@screens/*": ["./app/screens/*"],
       "@services/*": ["./app/services/*"],
-      "@providers": ["./app/providers"],
+      "@providers": ["./app/providers"]
     }
   }
 }

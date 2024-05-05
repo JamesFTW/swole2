@@ -12,7 +12,6 @@ const glob = require('glob')
 let files = {
   './app/components': './app/components/index.js',
   './app/layout': './app/layout/index.js',
-  './app/features': './app/features/index.js',
 }
 
 async function tester() {
@@ -65,13 +64,8 @@ function traverseDirectory(dir) {
 
       if (parentDirectory === baseWithoutJs) {
         // If the file exists, add an export statement to the output string
-        const namedExport = expectedName.replace(/-(.)/g, (_, letter) =>
-          letter.toUpperCase(),
-        )
-        const relativePath = path.relative(
-          path.dirname(outputFile),
-          matchingPath,
-        )
+        const namedExport = expectedName.replace(/-(.)/g, (_, letter) => letter.toUpperCase())
+        const relativePath = path.relative(path.dirname(outputFile), matchingPath)
         outputString += `export { ${namedExport} } from './${relativePath}'\n`
       }
     }

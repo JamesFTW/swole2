@@ -18,19 +18,12 @@ export function SignUpScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.signUpScreenContent}>
-        <TextButton
-          onPress={() => navigation.goBack()}
-          marginTop={LAYOUT.SPACING_S_28}
-          style={styles.backButton}>
+        <TextButton onPress={() => navigation.goBack()} marginTop={LAYOUT.SPACING_S_28} style={styles.backButton}>
           Back
         </TextButton>
         <Text style={styles.title}>{CONSTANTS.SIGN_UP_WITH_EMAIL}</Text>
         <View style={styles.content}>
-          <FormInput
-            textContentType={'emailAddress'}
-            placeholder={CONSTANTS.EMAIL_PLACEHOLDER}
-            title="Email"
-          />
+          <FormInput textContentType={'emailAddress'} placeholder={CONSTANTS.EMAIL_PLACEHOLDER} title="Email" />
           <FormInput
             secureTextEntry
             textContentType={'newPassword'}
@@ -38,13 +31,8 @@ export function SignUpScreen({ navigation }) {
             marginTop={LAYOUT.SPACING_S_20}
             title="Password"
           />
-          <Text style={styles.passwordRequirementText}>
-            {CONSTANTS.PASSWORD_REQUIREMENT_TEXT}
-          </Text>
-          <Button
-            onPress={() => navigation.navigate(UserDetailsScreenRoute)}
-            title="Submit"
-          />
+          <Text style={styles.passwordRequirementText}>{CONSTANTS.PASSWORD_REQUIREMENT_TEXT}</Text>
+          <Button onPress={() => navigation.navigate(UserDetailsScreenRoute)} title="Submit" />
         </View>
       </View>
     </SafeAreaView>

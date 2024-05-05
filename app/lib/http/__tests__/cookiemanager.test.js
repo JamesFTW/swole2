@@ -54,9 +54,7 @@ describe('cookiemanager', () => {
 
       CookieManager.get.mockRejectedValue(error)
 
-      await expect(getCookies()).rejects.toThrow(
-        'Error while retrieving cookies',
-      )
+      await expect(getCookies()).rejects.toThrow('Error while retrieving cookies')
     })
   })
 
@@ -69,10 +67,7 @@ describe('cookiemanager', () => {
       await clearCookies()
 
       expect(CookieManager.clearAll).toHaveBeenCalled()
-      expect(mockConsoleLog).toHaveBeenCalledWith(
-        'CookieManager.clearAll =>',
-        successResponse,
-      )
+      expect(mockConsoleLog).toHaveBeenCalledWith('CookieManager.clearAll =>', successResponse)
     })
   })
 })

@@ -38,12 +38,7 @@ export function ProfileSettingsFieldInput({ route, navigation }) {
 
   return (
     <SafeAreaView>
-      <Header
-        title={title}
-        onPress={handleNavigateBack}
-        secondaryAction={handleSave}
-        secondaryActionText="Save"
-      />
+      <Header title={title} onPress={handleNavigateBack} secondaryAction={handleSave} secondaryActionText="Save" />
       <ScrollContent style={styles.scrollContainer}>
         <View style={styles.inputContainer}>
           <View style={styles.profileSettingsFormField}>

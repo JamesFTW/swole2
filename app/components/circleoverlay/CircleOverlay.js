@@ -9,13 +9,7 @@ export function CircleOverlay() {
           <Circle r="50%" cx="50%" cy="50%" fill="black" />
         </Mask>
       </Defs>
-      <Rect
-        height="100%"
-        width="100%"
-        fill="rgba(0, 0, 0, 0.5)"
-        mask="url(#mask)"
-        fill-opacity="0"
-      />
+      <Rect height="100%" width="100%" fill="rgba(0, 0, 0, 0.5)" mask="url(#mask)" fill-opacity="0" />
     </Svg>
   )
 }

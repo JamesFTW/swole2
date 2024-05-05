@@ -10,10 +10,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ProfileProvider, AuthProvider, AuthContext } from '@providers'
 
-import {
-  MainNavigation,
-  MainNavigationRoute,
-} from './navigation/MainNavigation'
+import { MainNavigation, MainNavigationRoute } from './navigation/MainNavigation'
 import { OnBoardingStack } from './screens/onboarding'
 import { SplashScreen } from './screens/splashscreen/SplashScreen'
 
@@ -35,22 +32,13 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <NavigationContainer theme={navTheme}>
         <ProfileProvider>
-          <Stack.Navigator
-            screenOptions={{ headerShown: false, orientation: 'portrait_up' }}>
+          <Stack.Navigator screenOptions={{ headerShown: false, orientation: 'portrait_up' }}>
             {isLoading ? (
               <Stack.Screen name="SplashScreen" component={SplashScreen} />
             ) : isLoggedIn ? (
-              <Stack.Screen
-                name={MainNavigationRoute}
-                component={MainNavigation}
-                options={{ animation: 'fade' }}
-              />
+              <Stack.Screen name={MainNavigationRoute} component={MainNavigation} options={{ animation: 'fade' }} />
             ) : (
-              <Stack.Screen
-                name="Onboarding"
-                options={{ animation: 'fade' }}
-                component={OnBoardingStack}
-              />
+              <Stack.Screen name="Onboarding" options={{ animation: 'fade' }} component={OnBoardingStack} />
             )}
           </Stack.Navigator>
         </ProfileProvider>

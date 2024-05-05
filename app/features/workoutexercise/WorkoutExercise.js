@@ -1,12 +1,5 @@
 import React from 'react'
-import {
-  Text,
-  Animated,
-  Easing,
-  View,
-  Pressable,
-  ActionSheetIOS,
-} from 'react-native'
+import { Text, Animated, Easing, View, Pressable, ActionSheetIOS } from 'react-native'
 import { ExerciseInfo } from './components/exerciseinfo/ExerciseInfo'
 import { Card, Image, Button } from '../../components'
 import { LAYOUT } from '../../constants'
@@ -40,11 +33,7 @@ const initialSet = {
   isCompletedSet: false,
 }
 
-export function WorkoutExercise({
-  exerciseTitle,
-  exerciseImage,
-  parentCallback,
-}) {
+export function WorkoutExercise({ exerciseTitle, exerciseImage, parentCallback }) {
   const [isCollapsed, setIsCollapsed] = React.useState(true)
   const [animation] = React.useState(new Animated.Value(0))
   const [isCompletedAnimation] = React.useState(new Animated.Value(0))
@@ -81,9 +70,7 @@ export function WorkoutExercise({
       },
       buttonIndex => {
         if (buttonIndex === 0) {
-          const filteredSets = exerciseSets.filter(
-            set => set.setNumber !== exerciseId,
-          )
+          const filteredSets = exerciseSets.filter(set => set.setNumber !== exerciseId)
           const updatedSets = filteredSets.map((set, i) => {
             return {
               ...set,
@@ -176,21 +163,12 @@ export function WorkoutExercise({
     <Card cardHeight={cardHeight} style={{ minWidth: 353 }} borderRadius>
       <Pressable onPress={toggleCollapse}>
         <FlexContainer direction={LAYOUT.FLEX_ROW}>
-          <Image
-            src={exerciseImage}
-            height={50}
-            width={50}
-            borderRadius={25}
-            marginTop={8}
-          />
+          <Image src={exerciseImage} height={50} width={50} borderRadius={25} marginTop={8} />
           <FlexContainer direction={LAYOUT.FLEX_COLUMN}>
             <FlexContainer>
               <Text style={styles.exercise_title}>{exerciseTitle}</Text>
             </FlexContainer>
-            <FlexContainer
-              style={styles.exercise_header}
-              direction={LAYOUT.FLEX_ROW}
-              marginLeft={11}>
+            <FlexContainer style={styles.exercise_header} direction={LAYOUT.FLEX_ROW} marginLeft={11}>
               <ExerciseHeader
                 rpe={exerciseSetHeader.rpe}
                 reps={exerciseSetHeader.reps}
@@ -205,9 +183,7 @@ export function WorkoutExercise({
       {!isCollapsed && (
         <Animated.View style={{ opacity: additionalContentOpacity }}>
           <View style={styles.drawer_set_header}>
-            <FlexContainer
-              style={{ justifyContent: 'space-between' }}
-              direction="row">
+            <FlexContainer style={{ justifyContent: 'space-between' }} direction="row">
               <Text style={styles.sets_header}>set</Text>
               <Text style={styles.sets_header}>reps</Text>
               <Text style={styles.sets_header}>rpe</Text>
@@ -223,18 +199,10 @@ export function WorkoutExercise({
                   rpe={exerciseSet.rpe}
                   weight={exerciseSet.weight}
                   isCompletedSet={exerciseSet.isCompletedSet}
-                  onRepsChange={value =>
-                    handleSetChange(exerciseSet.setNumber, 'reps', value)
-                  }
-                  onRpeChange={value =>
-                    handleSetChange(exerciseSet.setNumber, 'rpe', value)
-                  }
-                  onWeightChange={value =>
-                    handleSetChange(exerciseSet.setNumber, 'weight', value)
-                  }
-                  onSetCompletionChange={() =>
-                    handleSetChange(exerciseSet.setNumber, 'isCompletedSet')
-                  }
+                  onRepsChange={value => handleSetChange(exerciseSet.setNumber, 'reps', value)}
+                  onRpeChange={value => handleSetChange(exerciseSet.setNumber, 'rpe', value)}
+                  onWeightChange={value => handleSetChange(exerciseSet.setNumber, 'weight', value)}
+                  onSetCompletionChange={() => handleSetChange(exerciseSet.setNumber, 'isCompletedSet')}
                 />
               ))}
             </FlexContainer>
@@ -242,12 +210,7 @@ export function WorkoutExercise({
         </Animated.View>
       )}
       {!isCollapsed && (
-        <Button
-          onPress={addSet}
-          textStyle={styles.add_set_button_text}
-          style={styles.add_set_button}
-          title="Add Set"
-        />
+        <Button onPress={addSet} textStyle={styles.add_set_button_text} style={styles.add_set_button} title="Add Set" />
       )}
       {isExerciseSetsCompleted() ? (
         <Animated.View

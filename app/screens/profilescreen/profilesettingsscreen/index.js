@@ -1,9 +1,6 @@
 import * as React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import {
-  ProfileSettingsScreen,
-  ProfileSettingsScreenRoute,
-} from './ProfileSettingsScreen'
+import { ProfileSettingsScreen, ProfileSettingsScreenRoute } from './ProfileSettingsScreen'
 
 import {
   ProfilePhotoManager,
@@ -27,10 +24,7 @@ export const ProfileSettingsStackRoute = 'ProfileSettingsStackRoute'
 export function ProfileSettingsStack() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen
-        name={ProfileSettingsScreenRoute}
-        component={ProfileSettingsScreen}
-      />
+      <Stack.Screen name={ProfileSettingsScreenRoute} component={ProfileSettingsScreen} />
       <Stack.Screen
         name={ProfilePhotoManagerRoute}
         component={ProfilePhotoManager}
@@ -41,14 +35,8 @@ export function ProfileSettingsStack() {
         component={ProfileImageSelectScreen}
         options={ProfileImageSelectScreenOptions}
       />
-      <Stack.Screen
-        name={ProfileSettingsFormRoute}
-        component={ProfileSettingsForm}
-      />
-      <Stack.Screen
-        name={ProfileSettingsFieldInputRoute}
-        component={ProfileSettingsFieldInput}
-      />
+      <Stack.Screen name={ProfileSettingsFormRoute} component={ProfileSettingsForm} />
+      <Stack.Screen name={ProfileSettingsFieldInputRoute} component={ProfileSettingsFieldInput} />
     </Stack.Navigator>
   )
 }

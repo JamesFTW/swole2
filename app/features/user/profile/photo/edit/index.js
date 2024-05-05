@@ -1,5 +1,1 @@
-export {
-  ProfilePhotoManager,
-  ProfilePhotoManagerRoute,
-  profileManageDrawerConfig,
-} from './ProfilePhotoManager'
+export { ProfilePhotoManager, ProfilePhotoManagerRoute, profileManageDrawerConfig } from './ProfilePhotoManager'

@@ -35,10 +35,7 @@ export function WorkoutScreen({ navigation }) {
 
   //check if id is cached in async storage.  if not fetch then store
   return (
-    <ScrollContent
-      useSafeArea
-      showsVerticalScrollIndicator={false}
-      style={styles.workout_screen_container}>
+    <ScrollContent useSafeArea showsVerticalScrollIndicator={false} style={styles.workout_screen_container}>
       <Text style={styles.date}>{formattedDate}</Text>
       <Text style={styles.quote}>put in work. see results</Text>
 
@@ -48,9 +45,7 @@ export function WorkoutScreen({ navigation }) {
             screen: StartNewWorkoutScreenRoute,
           })
         }>
-        <FlexContainer
-          style={styles.start_new_workout_container}
-          direction="row">
+        <FlexContainer style={styles.start_new_workout_container} direction="row">
           <StartNewWorkout />
           <Text style={styles.start_new_workout}>Start New Workout</Text>
         </FlexContainer>
@@ -63,10 +58,7 @@ export function WorkoutScreen({ navigation }) {
             <Text style={styles.workout_plans_view_all}>view all</Text>
           </TouchableOpacity>
         </FlexContainer>
-        <ScrollContent
-          style={{ marginRight: -14 }}
-          showsHorizontalScrollIndicator={false}
-          horizontal>
+        <ScrollContent style={{ marginRight: -14 }} showsHorizontalScrollIndicator={false} horizontal>
           {/** this needs to actually be designed */}
           <View style={styles.workout_card}></View>
           <View style={styles.workout_card}></View>

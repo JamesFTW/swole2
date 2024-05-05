@@ -30,14 +30,7 @@ const ACTION_TEXT_COLORS = {
   CALVES: '#FFF275',
 }
 
-export function Action({
-  onPress,
-  actionTitle,
-  marginRight,
-  marginLeft,
-  marginTop,
-  marginBottom,
-}) {
+export function Action({ onPress, actionTitle, marginRight, marginLeft, marginTop, marginBottom }) {
   const actionTitleToUpperCase = actionTitle.toUpperCase()
 
   return (
@@ -54,11 +47,7 @@ export function Action({
       ]}
       onPress={onPress}>
       <View style={[styles.action_inside]}>
-        <Text
-          style={[
-            styles.action_title,
-            { color: ACTION_TEXT_COLORS[actionTitleToUpperCase] },
-          ]}>
+        <Text style={[styles.action_title, { color: ACTION_TEXT_COLORS[actionTitleToUpperCase] }]}>
           {actionTitleToUpperCase}
         </Text>
       </View>

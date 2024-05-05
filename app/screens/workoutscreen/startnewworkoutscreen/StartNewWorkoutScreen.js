@@ -21,23 +21,13 @@ export function StartNewWorkoutScreen({ navigation, route }) {
   }, [route.params?.exercises])
 
   const getDayofWeek = () => {
-    const DAYS_OF_THE_WEEK = [
-      'Sunday',
-      'Monday',
-      'Tuesday',
-      'Wednesday',
-      'Thursday',
-      'Friday',
-      'Saturday',
-    ]
+    const DAYS_OF_THE_WEEK = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
     return DAYS_OF_THE_WEEK[date.getDay()]
   }
 
   const handleCallback = childData => {
     setFinishedExercises(prev => {
-      const newState = prev.filter(
-        exercise => exercise.exerciseTitle !== childData.exerciseTitle,
-      )
+      const newState = prev.filter(exercise => exercise.exerciseTitle !== childData.exerciseTitle)
 
       return [...newState, childData]
     })
@@ -146,9 +136,7 @@ function Timer({ style }) {
   const formatTime = timeInSeconds => {
     const minutes = Math.floor(timeInSeconds / 60)
     const seconds = timeInSeconds % 60
-    return `${minutes.toString().padStart(2, '0')}:${seconds
-      .toString()
-      .padStart(2, '0')}`
+    return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
   }
 
   return <Text style={style}>{formatTime(seconds)}</Text>

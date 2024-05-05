@@ -39,15 +39,11 @@ describe('AsyncStorage', () => {
       const errorMessage = 'Error retrieving data'
       AsyncStorage.getItem.mockRejectedValueOnce(new Error(errorMessage))
 
-      await expect(asyncStorage.getObjData(storageKey)).rejects.toThrowError(
-        errorMessage,
-      )
+      await expect(asyncStorage.getObjData(storageKey)).rejects.toThrowError(errorMessage)
     })
 
     it('should return user session data', async () => {
-      const mockGetObjData = jest
-        .fn()
-        .mockResolvedValue({ sessionId: '123456' })
+      const mockGetObjData = jest.fn().mockResolvedValue({ sessionId: '123456' })
       asyncStorage.getObjData = mockGetObjData
 
       const [userData, error] = await asyncStorage.getUserSessionData()
@@ -71,30 +67,22 @@ describe('AsyncStorage', () => {
   describe('getUserProfileData', () => {
     it('should retrieve user profile data successfully', async () => {
       const mockUserProfileData = { name: 'John Doe', age: 25 }
-      asyncStorage.getObjData = jest
-        .fn()
-        .mockResolvedValueOnce(mockUserProfileData)
+      asyncStorage.getObjData = jest.fn().mockResolvedValueOnce(mockUserProfileData)
 
       const [userData, error] = await asyncStorage.getUserProfileData()
 
-      expect(asyncStorage.getObjData).toHaveBeenCalledWith(
-        ASYNC_STORE_CONSTANTS.USER_PROFILE_DATA,
-      )
+      expect(asyncStorage.getObjData).toHaveBeenCalledWith(ASYNC_STORE_CONSTANTS.USER_PROFILE_DATA)
       expect(userData).toEqual(mockUserProfileData)
       expect(error).toBeNull()
     })
 
     it('should handle error when retrieving user profile data', async () => {
       const errorMessage = 'Error retrieving user profile data'
-      asyncStorage.getObjData = jest
-        .fn()
-        .mockRejectedValueOnce(new Error(errorMessage))
+      asyncStorage.getObjData = jest.fn().mockRejectedValueOnce(new Error(errorMessage))
 
       const [userData, error] = await asyncStorage.getUserProfileData()
 
-      expect(asyncStorage.getObjData).toHaveBeenCalledWith(
-        ASYNC_STORE_CONSTANTS.USER_PROFILE_DATA,
-      )
+      expect(asyncStorage.getObjData).toHaveBeenCalledWith(ASYNC_STORE_CONSTANTS.USER_PROFILE_DATA)
       expect(userData).toBeNull()
       expect(error).toEqual(new Error(errorMessage))
     })
@@ -105,9 +93,7 @@ describe('AsyncStorage', () => {
       const mockUserProfileData = { name: 'Jane Doe', age: 30 }
       asyncStorage.storeObjData = jest.fn().mockResolvedValueOnce()
 
-      const [updatedData, error] = await asyncStorage.updateUserProfileData(
-        mockUserProfileData,
-      )
+      const [updatedData, error] = await asyncStorage.updateUserProfileData(mockUserProfileData)
 
       expect(asyncStorage.storeObjData).toHaveBeenCalledWith(
         ASYNC_STORE_CONSTANTS.USER_PROFILE_DATA,
@@ -119,14 +105,10 @@ describe('AsyncStorage', () => {
 
     it('should handle error when updating user profile data', async () => {
       const errorMessage = 'Error updating user profile data'
-      asyncStorage.storeObjData = jest
-        .fn()
-        .mockRejectedValueOnce(new Error(errorMessage))
+      asyncStorage.storeObjData = jest.fn().mockRejectedValueOnce(new Error(errorMessage))
 
       const mockUserProfileData = { name: 'Jane Doe', age: 30 }
-      const [updatedData, error] = await asyncStorage.updateUserProfileData(
-        mockUserProfileData,
-      )
+      const [updatedData, error] = await asyncStorage.updateUserProfileData(mockUserProfileData)
 
       expect(asyncStorage.storeObjData).toHaveBeenCalledWith(
         ASYNC_STORE_CONSTANTS.USER_PROFILE_DATA,

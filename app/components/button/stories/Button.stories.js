@@ -16,11 +16,7 @@ export default storiesOf('Button', module)
     />
   ))
   .add('default', () => (
-    <Button
-      icon={<EmailIcon style={styles.email_icon} />}
-      title="Submit"
-      onPress={action('tapped-default')}
-    />
+    <Button icon={<EmailIcon style={styles.email_icon} />} title="Submit" onPress={action('tapped-default')} />
   ))
 
 const styles = StyleSheet.create({

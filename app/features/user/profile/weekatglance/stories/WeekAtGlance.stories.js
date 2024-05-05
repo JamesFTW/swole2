@@ -35,9 +35,5 @@ export default storiesOf('WeekAtGlance', module)
       { name: 'light', value: '#eeeeee' },
     ],
   })
-  .add('No workouts completed', () => (
-    <WeekAtGlance weeklyStatus={weeklyStatus1} />
-  ))
-  .add('Workouts completed', () => (
-    <WeekAtGlance weeklyStatus={weeklyStatus2} />
-  ))
+  .add('No workouts completed', () => <WeekAtGlance weeklyStatus={weeklyStatus1} />)
+  .add('Workouts completed', () => <WeekAtGlance weeklyStatus={weeklyStatus2} />)

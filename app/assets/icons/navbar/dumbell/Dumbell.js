@@ -7,9 +7,5 @@ export const Dumbell = ({ style, isFocused, isCompletedExercise }) => {
   if (isCompletedExercise) {
     return <DumbellSVGExerciseCompletedIndicator style={style} />
   }
-  return isFocused ? (
-    <DumbellSVGActive style={style} />
-  ) : (
-    <DumbellSVG style={style} />
-  )
+  return isFocused ? <DumbellSVGActive style={style} /> : <DumbellSVG style={style} />
 }

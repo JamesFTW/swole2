@@ -24,15 +24,7 @@ export function WeekAtGlance({ weeklyStatus }) {
     Sunday: 'S',
   }
 
-  const DAYS_OF_THE_WEEK = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-  ]
+  const DAYS_OF_THE_WEEK = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 
   const getDaysOfWeekIndicators = () => {
     const map = []
@@ -99,19 +91,11 @@ export function WeekAtGlance({ weeklyStatus }) {
   )
 }
 
-export function DayofWeekIndicator({
-  dayOfWeek,
-  marginRight,
-  workoutInfo,
-  onPress,
-  isToday,
-}) {
+export function DayofWeekIndicator({ dayOfWeek, marginRight, workoutInfo, onPress, isToday }) {
   const { workoutCompleted } = workoutInfo
 
   return (
-    <TouchableOpacity
-      onPress={onPress}
-      style={[styles.day_of_week_container, { marginRight }]}>
+    <TouchableOpacity onPress={onPress} style={[styles.day_of_week_container, { marginRight }]}>
       <StatusIndicator isCompleted={workoutCompleted} />
       {isToday ? (
         <View style={styles.current_day_text_boarder}>

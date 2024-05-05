@@ -64,9 +64,7 @@ class AsyncStorageSingleton {
 
   getUserSessionData = async () => {
     try {
-      const userSessionData = await this.getObjData(
-        ASYNC_STORE_CONSTANTS.USER_SESSION_COOKIE,
-      )
+      const userSessionData = await this.getObjData(ASYNC_STORE_CONSTANTS.USER_SESSION_COOKIE)
       return [userSessionData, null]
     } catch (error) {
       return [null, error]
@@ -75,9 +73,7 @@ class AsyncStorageSingleton {
 
   getUserProfileData = async () => {
     try {
-      const userProfileData = await this.getObjData(
-        ASYNC_STORE_CONSTANTS.USER_PROFILE_DATA,
-      )
+      const userProfileData = await this.getObjData(ASYNC_STORE_CONSTANTS.USER_PROFILE_DATA)
       return [userProfileData, null]
     } catch (error) {
       return [null, error]
@@ -95,9 +91,7 @@ class AsyncStorageSingleton {
 
   getAllExercises = async () => {
     try {
-      const exerciseData = await this.getObjData(
-        ASYNC_STORE_CONSTANTS.LOCAL_EXERCISE_DATA,
-      )
+      const exerciseData = await this.getObjData(ASYNC_STORE_CONSTANTS.LOCAL_EXERCISE_DATA)
       return [exerciseData, null]
     } catch (error) {
       return [error, null]

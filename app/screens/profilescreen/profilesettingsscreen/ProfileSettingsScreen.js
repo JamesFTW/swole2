@@ -3,11 +3,7 @@ import { SafeAreaView, Pressable } from 'react-native'
 import { Header, TextButton } from '@components'
 import { ScrollContent } from '@layout'
 import { LAYOUT } from '@constants'
-import {
-  ProfilePhoto,
-  ProfilePhotoManagerRoute,
-  ProfileSettingsForm,
-} from '@features/user'
+import { ProfilePhoto, ProfilePhotoManagerRoute, ProfileSettingsForm } from '@features/user'
 import styles from './ProfileSettingsScreen.styles'
 
 export const ProfileSettingsScreenRoute = 'ProfileSettingsScreenRoute'
@@ -25,10 +21,7 @@ export function ProfileSettingsScreen({ navigation }) {
           onPress={() => {
             navigation.navigate(ProfilePhotoManagerRoute)
           }}>
-          <ProfilePhoto
-            borderRadius={LAYOUT.SPACING_MD_40}
-            style={styles.profilePhoto}
-          />
+          <ProfilePhoto borderRadius={LAYOUT.SPACING_MD_40} style={styles.profilePhoto} />
         </Pressable>
         <TextButton
           textStyle={styles.profilePhotoEditButtonText}

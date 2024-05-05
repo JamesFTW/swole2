@@ -1,10 +1,7 @@
 import { useContext } from 'react'
 import { UserRepository } from '../UserRepository'
 import { setCookie } from '../../http/cookiemanager'
-import {
-  AsyncStorageInstance,
-  ASYNC_STORE_CONSTANTS,
-} from '@services/asyncstorage'
+import { AsyncStorageInstance, ASYNC_STORE_CONSTANTS } from '@services/asyncstorage'
 
 import { useMutation } from '@tanstack/react-query'
 import { AuthContext } from '@providers'
@@ -30,15 +27,9 @@ export const useUserSignin = () => {
       login(passport.user)
 
       if (cookie && passport) {
-        AsyncStorageInstance.storeObjData(
-          ASYNC_STORE_CONSTANTS.USER_SESSION_COOKIE,
-          cookie,
-        )
+        AsyncStorageInstance.storeObjData(ASYNC_STORE_CONSTANTS.USER_SESSION_COOKIE, cookie)
 
-        AsyncStorageInstance.storeObjData(
-          ASYNC_STORE_CONSTANTS.USER_DATA,
-          passport,
-        )
+        AsyncStorageInstance.storeObjData(ASYNC_STORE_CONSTANTS.USER_DATA, passport)
 
         try {
           setCookie(cookie)

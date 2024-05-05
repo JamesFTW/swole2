@@ -4,10 +4,7 @@ import { useFocusEffect } from '@react-navigation/native'
 import { Button } from '@components'
 import { WeekAtGlance, ProfilePhoto } from '@features'
 import { ScrollContent, FlexContainer } from '@layout'
-import {
-  useGetUserProfile,
-  useFetchUserProfile,
-} from '@lib/users/profile/hooks'
+import { useGetUserProfile, useFetchUserProfile } from '@lib/users/profile/hooks'
 import { Pencil } from '@assets/icons'
 import { ProfileSettingsStackRoute } from './profilesettingsscreen'
 import styles from './ProfileScreen.styles'
@@ -48,12 +45,8 @@ export function ProfileScreen({ navigation }) {
         <ProfilePhoto style={styles.profile_image} />
       </View>
       <FlexContainer direction="row">
-        <FlexContainer
-          direction="column"
-          style={styles.profile_name_location_container}>
-          <Text style={styles.profile_name}>
-            {isSuccess ? data?.userName : null}
-          </Text>
+        <FlexContainer direction="column" style={styles.profile_name_location_container}>
+          <Text style={styles.profile_name}>{isSuccess ? data?.userName : null}</Text>
         </FlexContainer>
         <Button
           outline

@@ -17,39 +17,14 @@ export default storiesOf('CardGroup', module)
   })
   .add('default group with multiple cards', () => (
     <CardGroup onPress={action('tapped-default')}>
-      <WorkoutExercise
-        sets={4}
-        reps={10}
-        weight={225}
-        exerciseTitle="Bulgarian Split Squat"
-      />
-      <WorkoutExercise
-        sets={4}
-        reps={10}
-        weight={225}
-        exerciseTitle="Bulgarian Split Squat"
-      />
-      <WorkoutExercise
-        sets={4}
-        reps={10}
-        weight={225}
-        exerciseTitle="Bulgarian Split Squat"
-      />
-      <WorkoutExercise
-        sets={4}
-        reps={10}
-        weight={225}
-        exerciseTitle="Bulgarian Split Squat"
-      />
+      <WorkoutExercise sets={4} reps={10} weight={225} exerciseTitle="Bulgarian Split Squat" />
+      <WorkoutExercise sets={4} reps={10} weight={225} exerciseTitle="Bulgarian Split Squat" />
+      <WorkoutExercise sets={4} reps={10} weight={225} exerciseTitle="Bulgarian Split Squat" />
+      <WorkoutExercise sets={4} reps={10} weight={225} exerciseTitle="Bulgarian Split Squat" />
     </CardGroup>
   ))
   .add('single card', () => (
     <CardGroup onPress={action('tapped-default')}>
-      <WorkoutExercise
-        sets={4}
-        reps={10}
-        weight={225}
-        exerciseTitle="Bulgarian Split Squat"
-      />
+      <WorkoutExercise sets={4} reps={10} weight={225} exerciseTitle="Bulgarian Split Squat" />
     </CardGroup>
   ))

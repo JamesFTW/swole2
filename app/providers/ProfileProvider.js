@@ -10,8 +10,7 @@ export const ProfileProvider = ({ children }) => {
     const loadProfileData = async () => {
       if (profileData) return
 
-      const [storedProfileData, error] =
-        await AsyncStorageInstance.getUserProfileData()
+      const [storedProfileData, error] = await AsyncStorageInstance.getUserProfileData()
 
       if (storedProfileData) {
         setProfileData(storedProfileData)
@@ -39,7 +38,5 @@ export const ProfileProvider = ({ children }) => {
     updateProfileData,
   }
 
-  return (
-    <ProfileContext.Provider value={value}>{children}</ProfileContext.Provider>
-  )
+  return <ProfileContext.Provider value={value}>{children}</ProfileContext.Provider>
 }

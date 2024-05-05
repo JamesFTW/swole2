@@ -32,12 +32,7 @@ export function ProfileSettingsForm({ navigation }) {
               })
             }
             style={styles.profileSettingsFormFieldInput}>
-            <Text
-              style={
-                title.value
-                  ? styles.profileSettingsText
-                  : styles.profileSettingsPlaceholder
-              }>
+            <Text style={title.value ? styles.profileSettingsText : styles.profileSettingsPlaceholder}>
               {title.value ? title.value : title.title}
             </Text>
             <View style={styles.profileSettingsLineSeparator} />

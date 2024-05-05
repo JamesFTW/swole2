@@ -16,14 +16,8 @@ export function Card({
   return (
     <Pressable
       onPress={onPress}
-      style={[
-        styles.card_container,
-        { borderRadius: borderRadiusValue, backgroundColor },
-        style,
-      ]}>
-      <Animated.View style={[styles.card_inner, { height: cardHeight }]}>
-        {children}
-      </Animated.View>
+      style={[styles.card_container, { borderRadius: borderRadiusValue, backgroundColor }, style]}>
+      <Animated.View style={[styles.card_inner, { height: cardHeight }]}>{children}</Animated.View>
     </Pressable>
   )
 }

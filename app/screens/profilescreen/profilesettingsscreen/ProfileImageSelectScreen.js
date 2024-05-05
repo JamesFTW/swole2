@@ -1,17 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import {
-  SafeAreaView,
-  Pressable,
-  View,
-  ImageBackground,
-  FlatList,
-} from 'react-native'
+import { SafeAreaView, Pressable, View, ImageBackground, FlatList } from 'react-native'
 import { CameraRoll } from '@react-native-camera-roll/camera-roll'
 import { Header, Image, CircleOverlay } from '@components'
-import {
-  useUploadProfilePhoto,
-  useFetchUserProfile,
-} from '@lib/users/profile/hooks'
+import { useUploadProfilePhoto, useFetchUserProfile } from '@lib/users/profile/hooks'
 import styles from './ProfileImageSelectScreen.styles.js'
 
 export const ProfileImageSelectScreenRoute = 'ProfileImageSelectScreenRoute'
@@ -80,9 +71,7 @@ export function ProfileImageSelectScreen({ route, navigation }) {
         title="Library"
         onPress={handleNavigation}
       />
-      <ImageBackground
-        source={{ uri: selectedPhotoUri }}
-        style={styles.selectPhotoImage}>
+      <ImageBackground source={{ uri: selectedPhotoUri }} style={styles.selectPhotoImage}>
         <CircleOverlay />
       </ImageBackground>
       <View style={styles.selectPhotoHeader} />
@@ -93,10 +82,7 @@ export function ProfileImageSelectScreen({ route, navigation }) {
         renderItem={({ item }) => (
           <Pressable onPress={() => getFilePath(item.node.image.uri)}>
             <Image
-              style={[
-                styles.selectPhotoImages,
-                { opacity: selectedPhotoUri === item.node.image.uri ? 0.5 : 1 },
-              ]}
+              style={[styles.selectPhotoImages, { opacity: selectedPhotoUri === item.node.image.uri ? 0.5 : 1 }]}
               src={item.node.image.uri}
             />
           </Pressable>

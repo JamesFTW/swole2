@@ -30,12 +30,7 @@ export function Set({
   return (
     <Pressable onLongPress={onLongPress} onPress={handlePress}>
       <FlexContainer style={{ marginTop: 10 }} direction="row">
-        <TextInput
-          ref={textInputRef}
-          style={styles.set_info}
-          value={setNumber.toString()}
-          editable={false}
-        />
+        <TextInput ref={textInputRef} style={styles.set_info} value={setNumber.toString()} editable={false} />
         <TextInput
           style={styles.set_info}
           value={reps}

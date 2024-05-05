@@ -1,8 +1,5 @@
 import { API_ENDPOINT, request, HEADERS, METHODS } from '../http/request'
-import {
-  AsyncStorageInstance,
-  ASYNC_STORE_CONSTANTS,
-} from '@services/asyncstorage'
+import { AsyncStorageInstance, ASYNC_STORE_CONSTANTS } from '@services/asyncstorage'
 import qs from 'qs'
 import { readFile } from 'react-native-fs'
 
@@ -39,18 +36,14 @@ export class UserRepository {
 
     const data = await response.json()
 
-    await AsyncStorageInstance.storeObjData(
-      ASYNC_STORE_CONSTANTS.USER_PROFILE_DATA,
-      data,
-    )
+    await AsyncStorageInstance.storeObjData(ASYNC_STORE_CONSTANTS.USER_PROFILE_DATA, data)
 
     return data
   }
 
   async getUserProfileData() {
     //TODO: Implement cache mechanism
-    const [userProfileData, error] =
-      await AsyncStorageInstance.getUserProfileData()
+    const [userProfileData, error] = await AsyncStorageInstance.getUserProfileData()
 
     if (error) throw new Error(error)
 
@@ -61,10 +54,7 @@ export class UserRepository {
     try {
       const userProfileData = await this.fetchUserProfile()
 
-      AsyncStorageInstance.storeObjData(
-        ASYNC_STORE_CONSTANTS.USER_PROFILE_DATA,
-        userProfileData,
-      )
+      AsyncStorageInstance.storeObjData(ASYNC_STORE_CONSTANTS.USER_PROFILE_DATA, userProfileData)
 
       if (userProfileData) return userProfileData
     } catch (error) {

@@ -35,9 +35,7 @@ export function ScrollContent({
           horizontal={horizontal}
           style={style}
           scrollEventThrottle={scrollEventThrottle}
-          refreshControl={
-            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-          }>
+          refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
           {children}
         </ScrollView>
       </SafeAreaView>
@@ -52,9 +50,7 @@ export function ScrollContent({
       style={style}
       onScroll={onScroll}
       scrollEventThrottle={scrollEventThrottle}
-      refreshControl={
-        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-      }>
+      refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
       {children}
     </ScrollView>
   )

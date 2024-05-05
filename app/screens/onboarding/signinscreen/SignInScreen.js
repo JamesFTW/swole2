@@ -30,10 +30,7 @@ export function SignInScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.signUpScreenContent}>
-        <TextButton
-          onPress={() => navigation.goBack()}
-          marginTop={LAYOUT.SPACING_S_28}
-          style={styles.backButton}>
+        <TextButton onPress={() => navigation.goBack()} marginTop={LAYOUT.SPACING_S_28} style={styles.backButton}>
           Back
         </TextButton>
         <Text style={styles.title}>{CONSTANTS.SIGN_UP_WITH_EMAIL}</Text>

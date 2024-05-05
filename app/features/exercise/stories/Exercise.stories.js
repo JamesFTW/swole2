@@ -19,16 +19,8 @@ export default storiesOf('Exercise', module)
     ],
   })
   .add('default', () => (
-    <Exercise
-      exerciseImage={placeHolder}
-      exerciseTitle="Bulgarian Split Squat"
-      primaryMuscleGroup={['legs', 'back']}
-    />
+    <Exercise exerciseImage={placeHolder} exerciseTitle="Bulgarian Split Squat" primaryMuscleGroup={['legs', 'back']} />
   ))
   .add('no secondary muscle groups', () => (
-    <Exercise
-      exerciseImage={placeHolder}
-      exerciseTitle="Bulgarian Split Squat"
-      primaryMuscleGroup={[]}
-    />
+    <Exercise exerciseImage={placeHolder} exerciseTitle="Bulgarian Split Squat" primaryMuscleGroup={[]} />
   ))
