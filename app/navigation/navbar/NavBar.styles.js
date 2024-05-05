@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { COLORS, LAYOUT } from '../../constants'
+import { COLORS, LAYOUT } from '@constants'
 
 const styles = StyleSheet.create({
   navBar_container: {
@@ -7,8 +7,8 @@ const styles = StyleSheet.create({
     borderTopColor: COLORS.CARD_BOARDER_COLOR,
     borderTopWidth: LAYOUT.SPACING_NUDGE_XS,
     backgroundColor: COLORS.WHITE_WHITE,
-    paddingLeft: LAYOUT.SPACING_S_24,
-    paddingRight: LAYOUT.SPACING_S_28,
+    paddingLeft: LAYOUT.SPACING_S_20,
+    paddingRight: LAYOUT.SPACING_S_24,
   },
   navBar_icon_container: {
     justifyContent: LAYOUT.SPACE_BETWEEN,
