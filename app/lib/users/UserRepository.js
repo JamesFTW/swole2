@@ -49,6 +49,15 @@ export class UserRepository {
 
   async getUserProfileData() {
     //TODO: Implement cache mechanism
+    const [userProfileData, error] =
+      await AsyncStorageInstance.getUserProfileData()
+
+    if (error) throw new Error(error)
+
+    if (userProfileData) {
+      return userProfileData
+    }
+
     try {
       const userProfileData = await this.fetchUserProfile()
 
