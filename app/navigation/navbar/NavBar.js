@@ -1,14 +1,14 @@
 import * as React from 'react'
 import { View, Pressable } from 'react-native'
-import { NavLocationScreenRoute } from '../../screens/navlocationscreen/NavLocationScreen'
-import { CalendarScreenRoute } from '../../screens/calendarscreen/CalendarScreen'
-import { Profile, Dumbell, Calendar, NavLocation } from '../../assets/icons'
-import { FlexContainer } from '../../layout'
-import { ProfileScreenStackRoute } from '../../screens/profilescreen'
-import { WorkoutScreenStackRoute } from '../../screens/workoutscreen/'
+import { NavLocationScreenRoute } from '@screens/navlocationscreen/NavLocationScreen'
+import { CalendarScreenRoute } from '@screens/calendarscreen/CalendarScreen'
+import { Profile, Dumbell, Calendar, NavLocation } from '@assets/icons'
+import { FlexContainer } from '@layout'
+import { ProfileScreenStackRoute } from '@screens/profilescreen'
+import { WorkoutScreenStackRoute } from '@screens/workoutscreen/'
 import styles from './NavBar.styles'
 
-export function NavBar({ state, descriptors, navigation, isDrawerOpen }) {
+export function NavBar({ state, descriptors, navigation }) {
   return (
     <View style={styles.navBar_container}>
       <FlexContainer style={styles.navBar_icon_container} marginTop={20} direction="row">
@@ -45,6 +45,7 @@ export function NavBar({ state, descriptors, navigation, isDrawerOpen }) {
 
           return (
             <Pressable
+              style={styles.nav_Icon}
               key={index}
               accessibilityRole="button"
               accessibilityState={isFocused ? { selected: true } : {}}
