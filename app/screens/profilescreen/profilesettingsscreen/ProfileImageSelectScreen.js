@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { SafeAreaView, Pressable, View, ImageBackground, FlatList } from 'react-native'
 import { CameraRoll } from '@react-native-camera-roll/camera-roll'
 import { Header, Image, CircleOverlay } from '@components'
+import { LAYOUT } from '@constants'
 import { useUploadProfilePhoto, useFetchUserProfile } from '@lib/users/profile/hooks'
 import styles from './ProfileImageSelectScreen.styles.js'
 
@@ -60,7 +61,7 @@ export function ProfileImageSelectScreen({ route, navigation }) {
   }
 
   const handleNavigation = () => {
-    navigation.pop(2)
+    navigation.pop(LAYOUT.SPACING_NUDGE_S)
   }
 
   return (
@@ -77,7 +78,9 @@ export function ProfileImageSelectScreen({ route, navigation }) {
       <View style={styles.selectPhotoHeader} />
       <FlatList
         data={photos}
-        numColumns={4}
+        numColumns={LAYOUT.SPACING_XS_4}
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
         style={styles.selectPhotoFlatListContainer}
         renderItem={({ item }) => (
           <Pressable onPress={() => getFilePath(item.node.image.uri)}>

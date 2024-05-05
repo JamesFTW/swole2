@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   selectPhotoFlatListContainer: {
-    height: '100%',
+    height: '40%',
     width: '100%',
   },
   selectPhotoImages: {
