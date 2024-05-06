@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
-import { FlexContainer, ScrollContent } from '../../layout'
-import { Exercise } from '../../features'
-import { StartNewWorkout } from '../../assets/icons'
-import { useGetWorkoutPagePreviewExercises } from '../../lib/exercises/hooks'
+import { FlexContainer, ScrollContent } from '@layout'
+import { Exercise } from '@features'
+import { StartNewWorkout } from '@assets/icons'
+import { useGetWorkoutPagePreviewExercises } from '@lib/exercises/hooks'
 
 import { ExerciseSearchScreenRoute } from './exercisesearchscreen/ExerciseSearchScreen'
 import { StartNewWorkoutScreenRoute } from './startnewworkoutscreen/StartNewWorkoutScreen'

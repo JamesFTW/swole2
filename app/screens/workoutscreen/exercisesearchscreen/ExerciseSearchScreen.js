@@ -5,9 +5,7 @@ import { Exercise } from '@features'
 import { FlexContainer, ScrollContent } from '@layout'
 import { TextButton } from '@components'
 import { Search, BackButton } from '@assets/icons'
-
 import { StartNewWorkoutScreenRoute } from '../startnewworkoutscreen/StartNewWorkoutScreen'
-
 import styles from './ExerciseSearchScreen.styles'
 
 export const ExerciseSearchScreenRoute = 'ExerciseSearchScreenRoute'

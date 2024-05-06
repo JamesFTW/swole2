@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { View, Animated } from 'react-native'
-import { Checkmark } from '../../assets/icons'
+import { Checkmark } from '@assets/icons'
 
 import styles from './StatusIndicator.styles'
 

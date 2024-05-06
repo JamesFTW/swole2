@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, SafeAreaView } from 'react-native'
-import { LAYOUT } from '../../../constants'
-import { Button, FormInput, TextButton } from '../../../components'
+import { LAYOUT } from '@constants'
+import { Button, FormInput, TextButton } from '@components'
 import { UserDetailsScreenRoute } from '../userdetailsscreen/UserDetailsScreen'
 import styles from './SignUpScreen.styles'
 
