@@ -3,5 +3,4 @@
  * use command 'npm run compile' to export files
  ***************************************************************/
 
-export * from './useSaveUserExerciseData'
-export * from './useGetUserExercise'
+export * from './useSaveWorkoutData'

@@ -8,6 +8,7 @@ import { useGetUserProfile, useFetchUserProfile } from '@lib/users/profile/hooks
 import { Pencil } from '@assets/icons'
 import { ProfileSettingsStackRoute } from './profilesettingsscreen'
 import styles from './ProfileScreen.styles'
+import { API_ENDPOINT } from '@app/lib/http/request'
 
 export const ProfileScreenRoute = 'ProfileScreenRoute'
 

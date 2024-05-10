@@ -87,16 +87,9 @@ export function WorkoutScreen({ navigation }) {
           {isSuccess ? (
             data.previewExercises.map(exercise => {
               return (
-                <Exercise
-                  exerciseImage={exercise.video}
-                  exerciseTitle={exercise.exerciseName}
-                  secondaryMuscles={exercise.secondaryMuscles}
-                  targetMuscle={exercise.targetMuscle}
-                  marginBottom={12}
-                  exerciseId={exercise.exerciseId}
-                  key={exercise.exerciseId}
-                  clickBehavior={clickBehavior}
-                />
+                <View key={exercise.exerciseId} style={{ marginBottom: 12 }}>
+                  <Exercise clickBehavior={clickBehavior} data={exercise} />
+                </View>
               )
             })
           ) : (

@@ -1,7 +1,7 @@
 import React from 'react'
 import { TextInput, Pressable } from 'react-native'
-import { FlexContainer } from '../../../../layout'
-import { StatusIndicator } from '../../../../components'
+import { FlexContainer } from '@layout'
+import { StatusIndicator } from '@components'
 
 import styles from './Set.styles'
 

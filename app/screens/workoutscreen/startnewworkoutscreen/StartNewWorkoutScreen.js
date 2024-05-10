@@ -1,20 +1,21 @@
-import * as React from 'react'
+import React, { useEffect, useState } from 'react'
 import { View, Text } from 'react-native'
-import { Button } from '../../../components'
-import { ScrollContent } from '../../../layout'
+import { Button } from '@components'
+import { ScrollContent } from '@layout'
+import { WorkoutExercise } from '@features'
 import { ExerciseSearchScreenRoute } from '../exercisesearchscreen/ExerciseSearchScreen'
-import { WorkoutExercise } from '../../../features'
-
+import { useSaveUserExerciseData } from '@lib/users/exercises/hooks'
 import styles from './StartNewWorkoutScreen.styles'
 
 export const StartNewWorkoutScreenRoute = 'StartNewWorkoutScreenRoute'
 
 export function StartNewWorkoutScreen({ navigation, route }) {
   const date = new Date()
-  const [exercises, setExercises] = React.useState([])
-  const [finishedExercises, setFinishedExercises] = React.useState([])
+  const [exercises, setExercises] = useState([])
+  const [finishedExercises, setFinishedExercises] = useState([])
+  const { mutate: saveUserExerciseData } = useSaveUserExerciseData()
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (route.params?.exercises) {
       setExercises(prev => prev.concat(route.params.exercises))
     }
@@ -25,9 +26,20 @@ export function StartNewWorkoutScreen({ navigation, route }) {
     return DAYS_OF_THE_WEEK[date.getDay()]
   }
 
-  const handleCallback = childData => {
+  const handleExerciseCallback = childData => {
     setFinishedExercises(prev => {
-      const newState = prev.filter(exercise => exercise.exerciseTitle !== childData.exerciseTitle)
+      const childSetDataNum = childData.exerciseSetsData.map(set => {
+        return {
+          setNumber: parseInt(set.setNumber),
+          reps: parseInt(set.reps),
+          rpe: parseInt(set.rpe),
+          weight: parseInt(set.weight),
+        }
+      })
+
+      childData.exerciseSetsData = childSetDataNum
+
+      const newState = prev.filter(exercise => exercise.exerciseId !== childData.exerciseId)
 
       return [...newState, childData]
     })
@@ -36,12 +48,8 @@ export function StartNewWorkoutScreen({ navigation, route }) {
   const WorkoutExercises = () => {
     if (exercises) {
       return exercises.map(exercise => (
-        <View key={exercise.exerciseId} style={{ marginBottom: 10 }}>
-          <WorkoutExercise
-            parentCallback={handleCallback}
-            exerciseTitle={exercise.exerciseTitle}
-            exerciseImage={exercise.video}
-          />
+        <View key={exercise.exerciseId} style={styles.workout_exercise_component_container}>
+          <WorkoutExercise parentCallback={handleExerciseCallback} data={exercise} />
         </View>
       ))
     }
@@ -72,13 +80,17 @@ export function StartNewWorkoutScreen({ navigation, route }) {
     })
     .replace(/\//g, '-')
 
+  const handleSubmitExerciseData = () => {
+    saveUserExerciseData(finishedExercises)
+  }
+
   return (
     <ScrollContent style={styles.scroll_container}>
       <View style={styles.exercise_title_container}>
         <View style={{ flexDirection: 'row' }}>
           <Text style={styles.date}>{formattedDate}</Text>
           <Button
-            onPress={() => console.log(finishedExercises)}
+            onPress={handleSubmitExerciseData}
             title="FINISH"
             style={styles.finish_workout_button}
             textStyle={styles.finish_workout_button_text}></Button>
@@ -88,9 +100,9 @@ export function StartNewWorkoutScreen({ navigation, route }) {
         </Text>
         <Timer style={styles.timer} />
       </View>
-      <View style={styles.exercise_buttons_container}>
+      <View style={styles.workout_exercise_container}>
         {WorkoutExercises()}
-        <View style={{ marginTop: 10 }}>
+        <View style={styles.exercise_buttons_container}>
           <Button
             outline
             onPress={() => {
@@ -119,9 +131,9 @@ export function StartNewWorkoutScreen({ navigation, route }) {
 }
 
 function Timer({ style }) {
-  const [seconds, setSeconds] = React.useState(0)
+  const [seconds, setSeconds] = useState(0)
 
-  React.useEffect(() => {
+  useEffect(() => {
     let interval
 
     interval = setInterval(() => {

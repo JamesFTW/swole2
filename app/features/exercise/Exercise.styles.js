@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { FONTS, COLORS, LAYOUT } from '../../constants'
+import { FONTS, COLORS, LAYOUT } from '@constants'
 
 const styles = StyleSheet.create({
   exercise_title: {
@@ -8,6 +8,13 @@ const styles = StyleSheet.create({
     color: COLORS.PRIMARY_COLOR,
     letterSpacing: FONTS.SPACING_S,
     marginLeft: LAYOUT.SPACING_XS_16,
+  },
+  exercise_image: {
+    height: LAYOUT.SPACING_MD_48 + LAYOUT.SPACING_NUDGE_S,
+    width: LAYOUT.SPACING_MD_48 + LAYOUT.SPACING_NUDGE_S,
+    marginTop: LAYOUT.SPACING_NUDGE_S,
+    overflow: 'hidden',
+    alignSelf: LAYOUT.ALIGN_CENTER,
   },
   exercise_subtitle: {
     fontFamily: FONTS.SFPRO_REGULAR,
