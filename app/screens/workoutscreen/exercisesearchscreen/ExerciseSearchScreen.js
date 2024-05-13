@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useState, useRef } from 'react'
 import { Text, TextInput, Animated, LayoutAnimation, View } from 'react-native'
 import { useGetAllExercises } from '@lib/exercises/hooks'
 import { Exercise } from '@features'
@@ -14,10 +14,10 @@ export function ExerciseSearchScreen({ route, navigation }) {
   //check if id is cached in async storage.  if not fetch then store
   const { data, isSuccess } = useGetAllExercises()
 
-  const [selectedExercises, setSelectedExercises] = React.useState([])
-  const [searchQuery, setSearchQuery] = React.useState('')
+  const [selectedExercises, setSelectedExercises] = useState([])
+  const [searchQuery, setSearchQuery] = useState('')
 
-  const fadeAnim = React.useRef(new Animated.Value(0)).current
+  const fadeAnim = useRef(new Animated.Value(0)).current
 
   const handleSelectExercise = exercise => {
     const exerciseAlreadySelected = selectedExercises.some(selected => selected.exerciseId === exercise.exerciseId)
@@ -48,17 +48,9 @@ export function ExerciseSearchScreen({ route, navigation }) {
 
   const renderExercises = exerciseData => {
     return exerciseData.map(exercise => (
-      <Exercise
-        key={exercise.exerciseId}
-        exerciseTitle={exercise.exerciseName}
-        secondaryMuscles={exercise.secondaryMuscles}
-        exerciseImage={exercise.video}
-        targetMuscle={exercise.targetMuscle}
-        exerciseId={exercise.exerciseId}
-        marginBottom={20}
-        clickBehavior={clickBehavior}
-        onSelectExercise={handleSelectExercise}
-      />
+      <View key={exercise.exerciseId} style={{ marginBottom: 20 }}>
+        <Exercise clickBehavior={clickBehavior} onSelectExercise={handleSelectExercise} data={exercise} />
+      </View>
     ))
   }
 
@@ -78,7 +70,6 @@ export function ExerciseSearchScreen({ route, navigation }) {
   const filteredExercises = isSuccess
     ? data?.allExercises?.filter(exercise => {
         const exerciseNameMatch = exercise.exerciseName.toLowerCase().includes(searchQuery.toLowerCase())
-
         const targetMuscleMatch = exercise.targetMuscle.toLowerCase().includes(searchQuery.toLowerCase())
 
         const secondaryMuscleMatch = exercise.secondaryMuscles[0].secondaryMuscle1

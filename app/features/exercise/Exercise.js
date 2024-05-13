@@ -1,30 +1,22 @@
-import * as React from 'react'
-import { Text, View } from 'react-native'
+import React from 'react'
+import { Text } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-import { Card, Image, ActionGroup } from '@components'
+import { Card, ActionGroup } from '@components'
 import { LAYOUT } from '@constants'
 import { FlexContainer } from '@layout'
 import { WorkoutScreenStackRoute } from '@screens/workoutscreen'
+import { FasterImageView } from '@candlefinance/faster-image'
 import { ExerciseDetailsRoute } from './exercisedetails/ExerciseDetails'
 import styles from './Exercise.styles'
 
 export const ExerciseRoute = 'ExerciseRoute'
 
-export function Exercise({
-  exerciseTitle,
-  secondaryMuscles,
-  exerciseImage,
-  targetMuscle,
-  marginBottom,
-  exerciseId,
-  clickBehavior,
-  onSelectExercise,
-}) {
-  const navigation = useNavigation()
+export function Exercise({ clickBehavior, onSelectExercise, data }) {
+  const [highLight, setHighLight] = React.useState(false)
+  const { exerciseName, secondaryMuscles, video, targetMuscle, exerciseId } = data
   const secondaryMuscle = secondaryMuscles[0].secondaryMuscle1
 
-  const [highLight, setHighLight] = React.useState(false)
-  let [exercise, setExercise] = React.useState({})
+  const navigation = useNavigation()
 
   const clickBehaviorHandler = () => {
     if (clickBehavior.navigate) {
@@ -32,9 +24,9 @@ export function Exercise({
         screen: ExerciseDetailsRoute,
         params: {
           exerciseInfo: {
-            exerciseTitle,
+            exerciseName,
             secondaryMuscles,
-            exerciseImage,
+            video,
             targetMuscle,
             exerciseId,
           },
@@ -43,40 +35,48 @@ export function Exercise({
     }
 
     if (clickBehavior.highLight) {
-      exercise = {
-        exerciseTitle,
+      const exercise = {
+        exerciseName,
         secondaryMuscles,
-        exerciseImage,
+        video,
         targetMuscle,
         exerciseId,
       }
+
       onSelectExercise(exercise)
-      setExercise(exercise)
       setHighLight(!highLight)
     }
   }
 
   return (
-    <View style={{ marginBottom: marginBottom }}>
-      <Card
-        borderRadius
-        onPress={() => clickBehaviorHandler()}
-        cardHeight={LAYOUT.SPACING_XL_76}
-        style={highLight && styles.highlighted_exercise_card}>
-        <FlexContainer direction={LAYOUT.FLEX_ROW}>
-          <Image src={exerciseImage} height={50} width={50} borderRadius={25} marginTop={LAYOUT.SPACING_NUDGE_S} />
-          <FlexContainer direction={LAYOUT.FLEX_COLUMN}>
-            <FlexContainer>
-              <Text style={highLight ? styles.highlighted_exercise_title : styles.exercise_title}>{exerciseTitle}</Text>
-            </FlexContainer>
-            <ActionGroup
-              marginLeft={LAYOUT.SPACING_XS_16}
-              marginTop={LAYOUT.SPACING_XS_8}
-              actionTitles={[targetMuscle, secondaryMuscle]}
-            />
+    <Card
+      borderRadius
+      onPress={() => clickBehaviorHandler()}
+      cardHeight={LAYOUT.SPACING_XL_76}
+      style={highLight && styles.highlighted_exercise_card}>
+      <FlexContainer direction={LAYOUT.FLEX_ROW}>
+        <FasterImageView
+          style={styles.exercise_image}
+          source={{
+            transitionDuration: 0.3,
+            cachePolicy: 'discWithCacheControl',
+            showActivityIndicator: true,
+            url: video,
+            resizeMode: 'cover',
+          }}
+          borderRadius={25}
+        />
+        <FlexContainer direction={LAYOUT.FLEX_COLUMN}>
+          <FlexContainer>
+            <Text style={highLight ? styles.highlighted_exercise_title : styles.exercise_title}>{exerciseName}</Text>
           </FlexContainer>
+          <ActionGroup
+            marginLeft={LAYOUT.SPACING_XS_16}
+            marginTop={LAYOUT.SPACING_XS_8}
+            actionTitles={[targetMuscle, secondaryMuscle]}
+          />
         </FlexContainer>
-      </Card>
-    </View>
+      </FlexContainer>
+    </Card>
   )
 }

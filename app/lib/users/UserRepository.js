@@ -28,6 +28,25 @@ export class UserRepository {
     }
   }
 
+  async postUserExercises(data) {
+    try {
+      const res = await request({
+        endpoint: `${API_ENDPOINT}/userexercises/create`,
+        body: JSON.stringify(data),
+        headers: HEADERS.APPLICATION_JSON,
+        method: METHODS.POST,
+      })
+
+      if (!res.ok) {
+        throw new Error('Post user exercise qequest failed with status ' + res.status)
+      }
+
+      return res
+    } catch (err) {
+      throw err
+    }
+  }
+
   async fetchUserProfile() {
     const response = await request({
       endpoint: `${API_ENDPOINT}/users/profile`,

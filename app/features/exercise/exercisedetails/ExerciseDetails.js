@@ -30,7 +30,7 @@ export function ExerciseDetails({ route, navigation }) {
   return (
     <ScrollContent>
       <View>
-        <Image style={styles.exercise_image} src={exerciseInfo.exerciseImage} />
+        <Image style={styles.exercise_image} src={exerciseInfo.video} />
         <Close
           onPress={() => navigation.goBack()}
           style={{
@@ -43,7 +43,7 @@ export function ExerciseDetails({ route, navigation }) {
       </View>
       <FlexContainer direction="row">
         <FlexContainer direction="column" marginTop={21}>
-          <Text style={styles.exercise_title}>{exerciseInfo.exerciseTitle}</Text>
+          <Text style={styles.exercise_title}>{exerciseInfo.exerciseName}</Text>
           <FlexContainer direction="row" marginLeft={16}>
             <Text style={styles.target_muscle}>{exerciseInfo.targetMuscle.toLowerCase()}</Text>
           </FlexContainer>
