@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from './Exercise.styles'
 import { Text } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { Card, ActionGroup } from '@components'
@@ -7,7 +8,6 @@ import { FlexContainer } from '@layout'
 import { WorkoutScreenStackRoute } from '@screens/workoutscreen'
 import { FasterImageView } from '@candlefinance/faster-image'
 import { ExerciseDetailsRoute } from './exercisedetails/ExerciseDetails'
-import styles from './Exercise.styles'
 
 export const ExerciseRoute = 'ExerciseRoute'
 
