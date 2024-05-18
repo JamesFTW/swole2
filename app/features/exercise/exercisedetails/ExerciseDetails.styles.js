@@ -9,8 +9,6 @@ const styles = StyleSheet.create({
   },
   exercise_title: {
     color: COLORS.PRIMARY_COLOR,
-    flex: 1,
-    flexWrap: 'wrap',
     fontFamily: FONTS.SFPRO_HEAVY,
     fontSize: FONTS.SIZE_20,
     letterSpacing: FONTS.SPACING_S,
