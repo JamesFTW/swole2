@@ -11,8 +11,8 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ProfileProvider, AuthProvider, AuthContext } from '@providers'
 
 import { MainNavigation, MainNavigationRoute } from './navigation/MainNavigation'
-import { OnBoardingStack } from './screens/onboarding'
-import { SplashScreen } from './screens/splashscreen/SplashScreen'
+import { OnBoardingStack } from '@screens/onboarding'
+import { SplashScreen } from '@screens/splashscreen/SplashScreen'
 
 const Stack = createNativeStackNavigator()
 const queryClient = new QueryClient()
