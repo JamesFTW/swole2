@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { FONTS, LAYOUT, COLORS } from '../../../constants'
+import { FONTS, LAYOUT, COLORS } from '@constants'
 
 const styles = StyleSheet.create({
   container: {
@@ -9,21 +9,23 @@ const styles = StyleSheet.create({
   },
   search_input: {
     height: LAYOUT.SPACING_MD_48,
-    marginBottom: LAYOUT.SPACING_S_24,
-    backgroundColor: COLORS.LIGHT_GRAY,
+    backgroundColor: COLORS.CARD_BOARDER_COLOR,
+    justifyContent: 'center',
   },
   exercise_group_letter: {
     fontSize: FONTS.SIZE_16,
     fontFamily: FONTS.SFPRO_REGULAR,
     color: COLORS.PRIMARY_COLOR,
-    letterSpacing: 0.015,
+    letterSpacing: FONTS.SPACING_S,
     marginBottom: LAYOUT.SPACING_XS_16,
   },
   search_section: {
     height: LAYOUT.SPACING_MD_48,
-    backgroundColor: COLORS.LIGHT_GRAY,
+    backgroundColor: COLORS.CARD_BOARDER_COLOR,
     flexDirection: 'row',
-    borderRadius: 10,
+    borderRadius: LAYOUT.SPACING_XS_12,
+    borderColor: COLORS.CARD_BOARDER_COLOR,
+    borderWidth: LAYOUT.SPACING_NUDGE_XS,
   },
   exercises_title: {
     fontFamily: FONTS.SFPRO_REGULAR,
@@ -38,6 +40,7 @@ const styles = StyleSheet.create({
     marginTop: LAYOUT.SPACING_XS_16,
     marginLeft: LAYOUT.SPACING_XS_16,
     marginRight: LAYOUT.SPACING_XS_12,
+    color: COLORS.PRIMARY_COLOR,
   },
   back_button: {
     marginTop: LAYOUT.SPACING_S_24,

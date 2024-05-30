@@ -116,6 +116,7 @@ export function ExerciseSearchScreen({ route, navigation }) {
           placeholder="Movement, Muscle, Equipment"
           value={searchQuery}
           onChangeText={handleSearch}
+          placeholderTextColor={'#8E8E93'}
         />
       </View>
     </View>
