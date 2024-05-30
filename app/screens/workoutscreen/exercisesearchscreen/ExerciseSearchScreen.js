@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react'
 import { Text, TextInput, Animated, LayoutAnimation, View } from 'react-native'
 import { useGetAllExercises } from '@lib/exercises/hooks'
 import { Exercise } from '@features'
-import { FlexContainer, ScrollContent } from '@layout'
+import { FlexContainer, CustomFlatList } from '@layout'
 import { TextButton } from '@components'
 import { Search, BackButton } from '@assets/icons'
 import { StartNewWorkoutScreenRoute } from '../startnewworkoutscreen/StartNewWorkoutScreen'
@@ -11,7 +11,6 @@ import styles from './ExerciseSearchScreen.styles'
 export const ExerciseSearchScreenRoute = 'ExerciseSearchScreenRoute'
 
 export function ExerciseSearchScreen({ route, navigation }) {
-  //check if id is cached in async storage.  if not fetch then store
   const { data, isSuccess } = useGetAllExercises()
 
   const [selectedExercises, setSelectedExercises] = useState([])
@@ -82,8 +81,8 @@ export function ExerciseSearchScreen({ route, navigation }) {
 
   const exerciseGroups = getExerciseGroups(filteredExercises)
 
-  return (
-    <ScrollContent showsVerticalScrollIndicator={false} style={styles.scroll_content_container}>
+  const HeaderComponent = (
+    <>
       <BackButton style={styles.back_button} onPress={() => navigation.goBack()} />
       <FlexContainer style={styles.flex_header_container} direction="row">
         <Text style={styles.exercises_title}>Exercises</Text>
@@ -105,6 +104,11 @@ export function ExerciseSearchScreen({ route, navigation }) {
           </FlexContainer>
         ) : null}
       </FlexContainer>
+    </>
+  )
+
+  const StickyElementComponent = (
+    <View style={{ paddingTop: 24, marginBottom: 24, backgroundColor: '#F6F7FA' }}>
       <View style={styles.search_section}>
         <Search style={styles.search_bar} />
         <TextInput
@@ -114,18 +118,24 @@ export function ExerciseSearchScreen({ route, navigation }) {
           onChangeText={handleSearch}
         />
       </View>
-      <Animated.View>
-        {Object.keys(exerciseGroups).length > 0 ? (
-          Object.entries(exerciseGroups).map(([groupLetter, exercises]) => (
-            <React.Fragment key={groupLetter}>
-              <Text style={styles.exercise_group_letter}>{groupLetter}</Text>
-              {renderExercises(exercises)}
-            </React.Fragment>
-          ))
-        ) : (
-          <Text>No matching exercises found.</Text>
+    </View>
+  )
+
+  return (
+    <View style={styles.container}>
+      <CustomFlatList
+        StickyElementComponent={StickyElementComponent}
+        HeaderComponent={HeaderComponent}
+        data={Object.entries(exerciseGroups)}
+        renderItem={({ item }) => (
+          <React.Fragment key={item[0]}>
+            <Text style={styles.exercise_group_letter}>{item[0]}</Text>
+            {renderExercises(item[1])}
+          </React.Fragment>
         )}
-      </Animated.View>
-    </ScrollContent>
+        keyExtractor={item => item[0]}
+        ListEmptyComponent={<Text>No matching exercises found.</Text>}
+      />
+    </View>
   )
 }
