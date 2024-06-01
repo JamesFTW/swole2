@@ -1,102 +1,35 @@
 import * as React from 'react'
-import { View, Text, TouchableOpacity } from 'react-native'
+import { Text } from 'react-native'
 import { FlexContainer, ScrollContent } from '@layout'
-import { Exercise } from '@features'
-import { StartNewWorkout } from '@assets/icons'
-import { useGetWorkoutPagePreviewExercises } from '@lib/exercises/hooks'
-
-import { ExerciseSearchScreenRoute } from './exercisesearchscreen/ExerciseSearchScreen'
-import { StartNewWorkoutScreenRoute } from './startnewworkoutscreen/StartNewWorkoutScreen'
-import { StartNewWorkoutStackRoute } from './startnewworkoutscreen'
-
-import styles from './WorkoutScreen.styles'
+import { COLORS } from '@constants'
+import { SnapshotHeader, SnapshotData, SelectWorkout } from '@features/workout/weeklysnapshot/components'
 
 export const WorkoutScreenRoute = 'WorkoutScreenRoute'
 
 export function WorkoutScreen({ navigation }) {
-  const { data, isSuccess } = useGetWorkoutPagePreviewExercises()
-
-  /**
-   * Fetch display exercises.
-   * Possibly make them suggested exercises.
-   */
-  const date = new Date()
-  const formattedDate = date
-    .toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-    })
-    .replace(/\//g, '-')
-
-  const clickBehavior = {
-    navigate: true,
-  }
-
-  //check if id is cached in async storage.  if not fetch then store
   return (
-    <ScrollContent useSafeArea showsVerticalScrollIndicator={false} style={styles.workout_screen_container}>
-      <Text style={styles.date}>{formattedDate}</Text>
-      <Text style={styles.quote}>put in work. see results</Text>
-
-      <TouchableOpacity
-        onPress={() =>
-          navigation.navigate(StartNewWorkoutStackRoute, {
-            screen: StartNewWorkoutScreenRoute,
-          })
-        }>
-        <FlexContainer style={styles.start_new_workout_container} direction="row">
-          <StartNewWorkout />
-          <Text style={styles.start_new_workout}>Start New Workout</Text>
-        </FlexContainer>
-      </TouchableOpacity>
-
-      <View style={styles.workout_plans_container}>
-        <FlexContainer style={styles.workout_plans_component} direction="row">
-          <Text style={styles.workout_plans_title}>Workout Plans</Text>
-          <TouchableOpacity>
-            <Text style={styles.workout_plans_view_all}>view all</Text>
-          </TouchableOpacity>
-        </FlexContainer>
-        <ScrollContent style={{ marginRight: -14 }} showsHorizontalScrollIndicator={false} horizontal>
-          {/** this needs to actually be designed */}
-          <View style={styles.workout_card}></View>
-          <View style={styles.workout_card}></View>
-          <View style={styles.workout_card}></View>
-          <View style={styles.workout_card}></View>
-          <View style={styles.workout_card}></View>
-        </ScrollContent>
-      </View>
-
-      <View style={styles.exercises_container}>
-        <FlexContainer style={styles.exercises_component} direction="row">
-          <Text style={styles.workout_plans_title}>Exercises</Text>
-          <TouchableOpacity
-            onPress={() => {
-              navigation.navigate(ExerciseSearchScreenRoute, {
-                clickBehavior: {
-                  navigate: true,
-                },
-              })
-            }}>
-            <Text style={styles.workout_plans_view_all}>view all</Text>
-          </TouchableOpacity>
-        </FlexContainer>
-
-        <View style={{ marginBottom: 40 }}>
-          {isSuccess ? (
-            data.previewExercises.map(exercise => {
-              return (
-                <View key={exercise.exerciseId} style={{ marginBottom: 12 }}>
-                  <Exercise clickBehavior={clickBehavior} data={exercise} />
-                </View>
-              )
-            })
-          ) : (
-            /** Add some type of loading state here*/ <View></View>
-          )}
-        </View>
-      </View>
+    <ScrollContent useSafeArea style={{ height: '100%' }}>
+      <SelectWorkout navigation={navigation} />
+      <SnapshotHeader />
+      <FlexContainer direction="row" style={{ width: '100%', backgroundColor: 'white' }}>
+        <SnapshotData data={{ info: 200, title: 'Sets' }} />
+        <SnapshotData data={{ info: '3h 40m', title: 'Time' }} />
+        <SnapshotData style={{ right: 10 }} data={{ info: '6000 lbs', title: 'Weight' }} />
+      </FlexContainer>
+      <FlexContainer
+        direction="row"
+        style={{
+          paddingLeft: 20,
+          paddingBottom: 14,
+          width: '100%',
+          backgroundColor: 'white',
+          borderBottomColor: COLORS.CARD_BOARDER_COLOR,
+          borderBottomWidth: 1,
+        }}>
+        <Text style={{ marginRight: 28, fontSize: 20 }}>🏆</Text>
+        <Text style={{ marginRight: 28, fontSize: 20 }}>⭐</Text>
+        <Text style={{ marginRight: 28, fontSize: 20 }}>💪🏽</Text>
+      </FlexContainer>
     </ScrollContent>
   )
 }
