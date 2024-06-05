@@ -69,7 +69,7 @@ export function WeekAtGlance({ weeklyStatus }) {
   }
 
   return (
-    <Card cardHeight={202}>
+    <Card style={{ marginBottom: 12 }} cardHeight={202}>
       <FlexContainer direction="row">
         <View style={styles.week_at_glance_subtitle}>
           <Text style={styles.week_subtitle}>This Week</Text>

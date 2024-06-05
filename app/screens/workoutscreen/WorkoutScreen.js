@@ -1,35 +1,61 @@
 import * as React from 'react'
-import { Text } from 'react-native'
-import { FlexContainer, ScrollContent } from '@layout'
-import { COLORS } from '@constants'
-import { SnapshotHeader, SnapshotData, SelectWorkout } from '@features/workout/weeklysnapshot/components'
+import { ScrollContent } from '@layout'
+import { CompletedWorkout, SelectWorkout } from '@features'
 
 export const WorkoutScreenRoute = 'WorkoutScreenRoute'
 
+const data = {
+  userName: 'jamesftw',
+  workoutTime: 'Today at 11:00 am',
+  location: 'Oakland, Ca',
+  workoutTitle: 'Monday Morning Workout',
+  totalVolume: '410 lbs',
+  time: '2h 13m',
+  calsBurned: '400 cal',
+  primaryMusleGroup: 'Chest',
+}
+
+const data2 = {
+  userName: 'jamesftw',
+  workoutTime: 'Yesterday at 5:12 pm',
+  location: 'Oakland, Ca',
+  workoutTitle: 'Friday Evening Workout',
+  totalVolume: '200 lbs',
+  time: '0h 40m',
+  calsBurned: '120 cal',
+  primaryMusleGroup: 'Back',
+}
+
+const data3 = {
+  userName: 'jamesftw',
+  workoutTime: 'May 31, 2024 at 9:24 am',
+  location: 'Oakland, Ca',
+  workoutTitle: 'Saturday Evening Workout',
+  totalVolume: '200 lbs',
+  time: '0h 40m',
+  calsBurned: '120 cal',
+  primaryMusleGroup: 'Back',
+}
+
+const data4 = {
+  userName: 'jamesftw',
+  workoutTime: 'Yesterday at 11:10 am',
+  location: 'Oakland, Ca',
+  workoutTitle: 'Friday Evening Workout',
+  totalVolume: '200 lbs',
+  time: '0h 40m',
+  calsBurned: '120 cal',
+  primaryMusleGroup: 'Back',
+}
+
 export function WorkoutScreen({ navigation }) {
   return (
-    <ScrollContent useSafeArea style={{ height: '100%' }}>
+    <ScrollContent showsVerticalScrollIndicator={false} useSafeArea style={{ height: '100%' }}>
       <SelectWorkout navigation={navigation} />
-      <SnapshotHeader />
-      <FlexContainer direction="row" style={{ width: '100%', backgroundColor: 'white' }}>
-        <SnapshotData data={{ info: 200, title: 'Sets' }} />
-        <SnapshotData data={{ info: '3h 40m', title: 'Time' }} />
-        <SnapshotData style={{ right: 10 }} data={{ info: '6000 lbs', title: 'Weight' }} />
-      </FlexContainer>
-      <FlexContainer
-        direction="row"
-        style={{
-          paddingLeft: 20,
-          paddingBottom: 14,
-          width: '100%',
-          backgroundColor: 'white',
-          borderBottomColor: COLORS.CARD_BOARDER_COLOR,
-          borderBottomWidth: 1,
-        }}>
-        <Text style={{ marginRight: 28, fontSize: 20 }}>🏆</Text>
-        <Text style={{ marginRight: 28, fontSize: 20 }}>⭐</Text>
-        <Text style={{ marginRight: 28, fontSize: 20 }}>💪🏽</Text>
-      </FlexContainer>
+      <CompletedWorkout data={data} />
+      <CompletedWorkout data={data2} />
+      <CompletedWorkout data={data3} />
+      <CompletedWorkout data={data} />
     </ScrollContent>
   )
 }

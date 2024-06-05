@@ -6,3 +6,4 @@
 export * from './exercise/Exercise.js'
 export * from './workoutexercise/WorkoutExercise.js'
 export * from './user'
+export * from './workout'
