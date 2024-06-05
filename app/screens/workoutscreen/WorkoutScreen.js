@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { ScrollContent } from '@layout'
-import { CompletedWorkout, SelectWorkout } from '@features'
+import { CompletedWorkout, StartNewWorkout } from '@features'
 
 export const WorkoutScreenRoute = 'WorkoutScreenRoute'
 
@@ -41,7 +41,7 @@ const data4 = {
   userName: 'jamesftw',
   workoutTime: 'Yesterday at 11:10 am',
   location: 'Oakland, Ca',
-  workoutTitle: 'Friday Evening Workout',
+  workoutTitle: 'Sunday Morning Workout',
   totalVolume: '200 lbs',
   time: '0h 40m',
   calsBurned: '120 cal',
@@ -51,11 +51,11 @@ const data4 = {
 export function WorkoutScreen({ navigation }) {
   return (
     <ScrollContent showsVerticalScrollIndicator={false} useSafeArea style={{ height: '100%' }}>
-      <SelectWorkout navigation={navigation} />
+      <StartNewWorkout navigation={navigation} />
       <CompletedWorkout data={data} />
       <CompletedWorkout data={data2} />
       <CompletedWorkout data={data3} />
-      <CompletedWorkout data={data} />
+      <CompletedWorkout data={data4} />
     </ScrollContent>
   )
 }
