@@ -2,15 +2,12 @@ import React, { useCallback } from 'react'
 import { View, Text } from 'react-native'
 import { useFocusEffect } from '@react-navigation/native'
 import { Button } from '@components'
-import { WeekAtGlance, ProfilePhoto } from '@features'
+import { WeekAtGlance, ProfilePhoto, WeeklySnapshot } from '@features'
 import { ScrollContent, FlexContainer } from '@layout'
 import { useGetUserProfile, useFetchUserProfile } from '@lib/users/profile/hooks'
 import { Pencil } from '@assets/icons'
 import { ProfileSettingsStackRoute } from './profilesettingsscreen'
 import styles from './ProfileScreen.styles'
-
-import { SnapshotHeader, SnapshotData } from '@features/workout/weeklysnapshot/components'
-import { COLORS } from '@app/constants'
 
 export const ProfileScreenRoute = 'ProfileScreenRoute'
 
@@ -43,7 +40,7 @@ export function ProfileScreen({ navigation }) {
   }
 
   return (
-    <ScrollContent showsVerticalScrollIndicator={false} refreshingFunc={handleRefresh}>
+    <ScrollContent refreshingFunc={handleRefresh}>
       <View style={styles.profile_image_container}>
         <ProfilePhoto style={styles.profile_image} />
       </View>
@@ -62,15 +59,7 @@ export function ProfileScreen({ navigation }) {
       </FlexContainer>
       <Text style={styles.bio}>{isSuccess ? data?.bio : null}</Text>
       <WeekAtGlance weeklyStatus={weeklyStatus} />
-
-      <View style={{ backgroundColor: 'white', borderColor: COLORS.CARD_BOARDER_COLOR, borderWidth: 1 }}>
-        <SnapshotHeader />
-        <FlexContainer direction="row" style={{ width: '100%', paddingLeft: 12, marginBottom: 20 }}>
-          <SnapshotData data={{ info: 200, title: 'Sets' }} />
-          <SnapshotData data={{ info: '3h 40m', title: 'Time' }} />
-          <SnapshotData style={{ right: 10 }} data={{ info: '200 lbs', title: 'Weight' }} />
-        </FlexContainer>
-      </View>
+      <WeeklySnapshot />
     </ScrollContent>
   )
 }
