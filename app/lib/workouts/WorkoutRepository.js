@@ -1,15 +1,10 @@
-import { API_ENDPOINT, request, HEADERS, METHODS } from '../http/request'
-import { AsyncStorageInstance, ASYNC_STORE_CONSTANTS } from '@services/asyncstorage'
-import qs from 'qs'
-import { readFile } from 'react-native-fs'
+import { API_ENDPOINT, request, METHODS } from '../http/request'
 
-class WorkoutRepository {
-  async sendWorkoutData(workoutData) {
+export class WorkoutRepository {
+  async fetchWeeklySnapShot() {
     const response = await request({
-      endpoint: `${API_ENDPOINT}/workouts`,
-      body: qs.stringify(workoutData),
-      headers: HEADERS.APPLICATION_JSON,
-      method: METHODS.POST,
+      endpoint: `${API_ENDPOINT}/workouts/getSnapshot`,
+      method: METHODS.GET,
     })
 
     return response.json()
