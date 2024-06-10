@@ -1,17 +1,25 @@
+import styles from './WeeklySnapshot.styles'
 import React from 'react'
 import { View } from 'react-native'
 import { SnapshotHeader, SnapshotData } from './components'
-import { COLORS } from '@constants'
 import { FlexContainer } from '@layout'
+import { useGetWeeklySnapshot } from '@lib/workouts/hooks'
+import { formatTimeForWeeklySnapshot } from '@app/utils/dateTimeUtil'
 
 export const WeeklySnapshot = () => {
+  const { data, isLoading } = useGetWeeklySnapshot()
+
+  const { totalWorkoutTime, numberOfSets, totalVolume } = data.weeklySnapshotData
+
+  const time = formatTimeForWeeklySnapshot(totalWorkoutTime)
+
   return (
-    <View style={{ backgroundColor: 'white', borderColor: COLORS.CARD_BOARDER_COLOR, borderWidth: 1 }}>
+    <View style={styles.container}>
       <SnapshotHeader />
-      <FlexContainer direction="row" style={{ width: '100%', paddingLeft: 12, marginBottom: 20 }}>
-        <SnapshotData data={{ info: 200, title: 'Sets' }} />
-        <SnapshotData data={{ info: '3h 40m', title: 'Time' }} />
-        <SnapshotData style={{ right: 10 }} data={{ info: '200 lbs', title: 'Weight' }} />
+      <FlexContainer direction="row" style={styles.flexContainer}>
+        <SnapshotData data={{ info: isLoading ? '0' : numberOfSets, title: 'Sets' }} />
+        <SnapshotData data={{ info: isLoading ? 'Oh' : time, title: 'Time' }} />
+        <SnapshotData data={{ info: isLoading ? '0m' : `${totalVolume} lbs`, title: 'Weight' }} />
       </FlexContainer>
     </View>
   )
