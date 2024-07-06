@@ -38,7 +38,7 @@ export class UserRepository {
       })
 
       if (!res.ok) {
-        throw new Error('Post user exercise qequest failed with status ' + res.status)
+        throw new Error('Post user exercise request failed with status ' + res.status)
       }
 
       return res

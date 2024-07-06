@@ -41,7 +41,7 @@ export function WorkoutExercise({ parentCallback, data }) {
   const [expandedContentHeight, setExpandedContentHeight] = useState(220)
   const [exerciseSetHeader, setExerciseSetHeader] = useState(initialSet)
   const [exerciseSetsData, setExerciseSetsData] = useState([initialSet])
-  const { exerciseId, exerciseName } = data
+  const { exerciseId, exerciseName, targetMuscle, secondaryMuscles } = data
 
   const isExerciseSetsDataCompleted = () => {
     for (const set of exerciseSetsData) {
@@ -58,7 +58,7 @@ export function WorkoutExercise({ parentCallback, data }) {
       animateIsCompleted()
     }
 
-    parentCallback({ exerciseSetsData, exerciseId })
+    parentCallback({ exerciseSetsData, exerciseId, targetMuscle, exerciseName, secondaryMuscles })
   }, [exerciseSetsData])
 
   const onPress = exerciseId =>
