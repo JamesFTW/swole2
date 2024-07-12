@@ -1,6 +1,6 @@
 import styles from './WeeklySnapshot.styles'
 import React, { useCallback } from 'react'
-import { View } from 'react-native'
+import { View, Text } from 'react-native'
 import { useFocusEffect } from '@react-navigation/native'
 import { SnapshotHeader, SnapshotData } from './components'
 import { FlexContainer } from '@layout'
@@ -34,7 +34,7 @@ export const WeeklySnapshot = () => {
       <SnapshotHeader />
       <FlexContainer direction="row" style={styles.flexContainer}>
         <SnapshotData data={{ info: isLoading ? '0' : numberOfSets, title: 'Sets' }} />
-        <SnapshotData data={{ info: isLoading ? 'Oh' : time, title: 'Time' }} />
+        <SnapshotData data={{ info: isLoading ? '0h' : time, title: 'Time' }} />
         <SnapshotData data={{ info: isLoading ? '0m' : `${totalVolume} lbs`, title: 'Weight' }} />
       </FlexContainer>
     </View>
