@@ -1,11 +1,10 @@
+import styles from './CompletedWorkout.styles'
 import React, { useEffect, useRef } from 'react'
 import { View, Text, Animated } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 import { FlexContainer } from '@layout'
 import { ProfilePhoto } from '@features'
-import { LAYOUT } from '@constants'
-import styles from './CompletedWorkout.styles'
-import { COLORS } from '@constants'
+import { LAYOUT, COLORS } from '@constants'
 
 const LoadingPlaceholder = ({ width, height, style }) => {
   const translateX = useRef(new Animated.Value(-width)).current
