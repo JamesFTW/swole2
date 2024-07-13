@@ -38,4 +38,8 @@ export class WorkoutRepository {
   saveCompletedWorkout(data) {
     return this.makeRequest('/createCompletedWorkout', METHODS.POST, data)
   }
+
+  getCompletedWorkouts() {
+    return this.makeRequest('/getCompletedWorkouts', METHODS.GET)
+  }
 }

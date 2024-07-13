@@ -3,14 +3,13 @@ import { LAYOUT, FONTS, COLORS } from '@constants'
 
 const styles = StyleSheet.create({
   buttonStyle: {
-    paddingTop: LAYOUT.SPACING_S_24,
-    paddingBottom: LAYOUT.SPACING_S_24,
-    marginLeft: LAYOUT.SPACING_XS_8 - LAYOUT.SPACING_NUDGE_XS,
+    paddingTop: LAYOUT.SPACING_XS_16,
+    paddingBottom: LAYOUT.SPACING_XS_16,
     backgroundColor: COLORS.BACKGROUND_COLOR,
     justifyContent: LAYOUT.ALIGN_CENTER,
   },
   flexContainer: {
-    marginLeft: LAYOUT.SPACING_S_20,
+    marginLeft: LAYOUT.SPACING_S_28,
   },
   startNewWorkoutText: {
     color: COLORS.PRIMARY_COLOR,
