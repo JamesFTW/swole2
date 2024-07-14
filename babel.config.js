@@ -22,6 +22,7 @@ module.exports = {
           '@screens': './app/screens',
           '@services': './app/services',
           '@providers': './app/providers',
+          '@utils': './app/utils',
         },
       },
     ],
