@@ -119,7 +119,7 @@ export const CompletedWorkout = ({ data }) => {
         </FlexContainer>
         <View style={styles.divider}></View>
         <FlexContainer style={styles.workoutDataRow} direction="row">
-          <WorkoutData title="Calories" data={data.calsBurned} />
+          <WorkoutData title="Total Sets" data={data.totalSets} />
           <View style={styles.verticalDivider} />
           <WorkoutData title="Primary Muscle" data={data.primaryMusleGroup} />
         </FlexContainer>
