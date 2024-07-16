@@ -26,13 +26,14 @@ const styles = StyleSheet.create({
     borderRadius: LAYOUT.SPACING_XS_12,
     borderColor: COLORS.CARD_BOARDER_COLOR,
     borderWidth: LAYOUT.SPACING_NUDGE_XS,
+    marginLeft: LAYOUT.SPACING_XS_12,
+    marginRight: LAYOUT.SPACING_XS_12,
   },
   exercises_title: {
     fontFamily: FONTS.SFPRO_REGULAR,
     fontSize: FONTS.SIZE_16,
   },
   scroll_content_container: {
-    marginTop: LAYOUT.SPACING_MD_40,
     marginRight: LAYOUT.SPACING_XS_12,
     marginLeft: LAYOUT.SPACING_XS_12,
   },
@@ -44,10 +45,14 @@ const styles = StyleSheet.create({
   },
   back_button: {
     marginTop: LAYOUT.SPACING_S_24,
+    marginLeft: LAYOUT.SPACING_XS_12,
   },
   flex_header_container: {
     marginTop: LAYOUT.SPACING_S_20,
     justifyContent: 'space-between',
+    paddingLeft: LAYOUT.SPACING_XS_12,
+    paddingRight: LAYOUT.SPACING_XS_12,
+    marginBottom: 40,
   },
 })
 

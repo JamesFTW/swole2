@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './Exercise.styles'
 import { Text } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-import { Card, ActionGroup } from '@components'
+import { Card, ActionGroup, LoadingPlaceholder } from '@components'
 import { LAYOUT } from '@constants'
 import { FlexContainer } from '@layout'
 import { WorkoutScreenStackRoute } from '@screens/workoutscreen'
@@ -11,7 +11,28 @@ import { ExerciseDetailsRoute } from './exercisedetails/ExerciseDetails'
 
 export const ExerciseRoute = 'ExerciseRoute'
 
-export function Exercise({ clickBehavior, onSelectExercise, data }) {
+export function ExerciseLoading() {
+  return (
+    <Card borderRadius cardHeight={LAYOUT.SPACING_XL_76}>
+      <FlexContainer direction={LAYOUT.FLEX_ROW}>
+        <LoadingPlaceholder width={50} height={50} style={{ borderRadius: 25 }} />
+        <FlexContainer direction={LAYOUT.FLEX_COLUMN}>
+          <FlexContainer>
+            <LoadingPlaceholder width={150} height={20} style={{ marginBottom: LAYOUT.SPACING_XS_8 }} />
+          </FlexContainer>
+          <FlexContainer
+            direction={LAYOUT.FLEX_ROW}
+            style={{ marginLeft: LAYOUT.SPACING_XS_16, marginTop: LAYOUT.SPACING_XS_8 }}>
+            <LoadingPlaceholder width={80} height={24} style={{ marginRight: LAYOUT.SPACING_XS_8 }} />
+            <LoadingPlaceholder width={80} height={24} />
+          </FlexContainer>
+        </FlexContainer>
+      </FlexContainer>
+    </Card>
+  )
+}
+
+export function Exercise({ clickBehavior, onSelectExercise, data, isLoading }) {
   const [highLight, setHighLight] = React.useState(false)
   const { exerciseName, secondaryMuscles, video, targetMuscle, exerciseId } = data
   const secondaryMuscle = secondaryMuscles[0].secondaryMuscle1
@@ -46,6 +67,10 @@ export function Exercise({ clickBehavior, onSelectExercise, data }) {
       onSelectExercise(exercise)
       setHighLight(!highLight)
     }
+  }
+
+  if (isLoading) {
+    return <ExerciseLoading />
   }
 
   return (
