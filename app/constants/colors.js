@@ -12,6 +12,7 @@ const SUBTITLE_GRAY = '#748199'
 const BLACK_GRADIENT = ['transparent', 'rgba(0, 0, 0, 0.78)']
 const CARD_BOARDER_COLOR = '#e4e5ea'
 const TRANSPARENT = 'transparent'
+const LOADING_GRADIENT = ['#E4E5EA', '#F4F5FA', '#E4E5EA']
 
 export const COLORS = {
   PRIMARY_COLOR,
@@ -28,4 +29,5 @@ export const COLORS = {
   CARD_BOARDER_COLOR,
   SUCCESS_BLUE,
   TRANSPARENT,
+  LOADING_GRADIENT,
 }
