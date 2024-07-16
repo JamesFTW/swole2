@@ -1,5 +1,5 @@
 import { useMutation } from '@tanstack/react-query'
-import { UserRepository } from '../../UserRepository'
+import { UserRepository } from '@lib/users/UserRepository'
 
 export const useSaveUserExerciseData = () => {
   const userRepoistory = new UserRepository()
@@ -17,7 +17,7 @@ export const useSaveUserExerciseData = () => {
       }
     },
     onError: error => {
-      console.log(error)
+      throw error
     },
   })
 }

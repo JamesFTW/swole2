@@ -1,3 +1,4 @@
+import styles from './StartNewWorkoutScreen.styles'
 import React, { useEffect, useState, useCallback } from 'react'
 import { View, Text } from 'react-native'
 import { Button } from '@components'
@@ -5,8 +6,13 @@ import { ScrollContent } from '@layout'
 import { WorkoutExercise } from '@features'
 import { ExerciseSearchScreenRoute } from '../exercisesearchscreen/ExerciseSearchScreen'
 import { useSaveUserExerciseData } from '@lib/users/exercises/hooks'
-import { useSaveCompletedWorkout, useWorkoutTitle, useFormattedDate, useTimer } from '@lib/workouts/hooks'
-import styles from './StartNewWorkoutScreen.styles'
+import {
+  useSaveCompletedWorkout,
+  useWorkoutTitle,
+  useFormattedDate,
+  useTimer,
+  useCreateOrUpdateWeeklySnapshot,
+} from '@lib/workouts/hooks'
 
 export const StartNewWorkoutScreenRoute = 'StartNewWorkoutScreenRoute'
 
@@ -20,6 +26,7 @@ export function StartNewWorkoutScreen({ navigation, route }) {
 
   const { mutate: saveUserExerciseData } = useSaveUserExerciseData()
   const { mutate: saveCompletedWorkout } = useSaveCompletedWorkout()
+  const { mutate: createOrUpdateWeeklySnapshot } = useCreateOrUpdateWeeklySnapshot()
 
   useEffect(() => {
     if (route.params?.exercises) {
@@ -47,8 +54,26 @@ export function StartNewWorkoutScreen({ navigation, route }) {
 
   const handleSubmitExerciseData = useCallback(() => {
     saveUserExerciseData(finishedExercises)
-    saveCompletedWorkout({ finishedExercises, workoutTitle, date: new Date(), duration: seconds })
-  }, [finishedExercises, workoutTitle, seconds, saveUserExerciseData, saveCompletedWorkout])
+    saveCompletedWorkout(
+      { finishedExercises, workoutTitle, date: new Date(), duration: seconds },
+      {
+        onSuccess: completedWorkoutData => {
+          createOrUpdateWeeklySnapshot({
+            finishedExercises,
+            duration: seconds,
+            completedWorkoutData,
+          })
+        },
+      },
+    )
+  }, [
+    finishedExercises,
+    workoutTitle,
+    seconds,
+    saveUserExerciseData,
+    saveCompletedWorkout,
+    createOrUpdateWeeklySnapshot,
+  ])
 
   const navigateToExerciseSearch = useCallback(() => {
     navigation.navigate(ExerciseSearchScreenRoute, {
