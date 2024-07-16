@@ -1,52 +1,10 @@
 import styles from './CompletedWorkout.styles'
-import React, { useEffect, useRef } from 'react'
-import { View, Text, Animated } from 'react-native'
-import LinearGradient from 'react-native-linear-gradient'
+import React from 'react'
+import { View, Text } from 'react-native'
+import { LoadingPlaceholder } from '@components'
 import { FlexContainer } from '@layout'
 import { ProfilePhoto } from '@features'
-import { LAYOUT, COLORS } from '@constants'
-
-const LoadingPlaceholder = ({ width, height, style }) => {
-  const translateX = useRef(new Animated.Value(-width)).current
-
-  useEffect(() => {
-    Animated.loop(
-      Animated.timing(translateX, {
-        toValue: width,
-        duration: 1000,
-        useNativeDriver: true,
-      }),
-    ).start()
-  }, [width])
-
-  return (
-    <View
-      style={[
-        {
-          width,
-          height,
-          backgroundColor: COLORS.BACKGROUND_COLOR,
-          borderRadius: 4,
-          overflow: 'hidden',
-        },
-        style,
-      ]}>
-      <Animated.View
-        style={{
-          width: '100%',
-          height: '100%',
-          transform: [{ translateX }],
-        }}>
-        <LinearGradient
-          colors={['#E4E5EA', '#F4F5FA', '#E4E5EA']}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 0 }}
-          style={{ width: '200%', height: '100%' }}
-        />
-      </Animated.View>
-    </View>
-  )
-}
+import { LAYOUT } from '@constants'
 
 const WorkoutDataLoading = () => {
   return (
