@@ -1,21 +1,29 @@
 import * as React from 'react'
-import { View, Text } from 'react-native'
-import styles from './CalendarScreen.styles'
-import { TextButton } from '../../components'
+import { SafeAreaView, View } from 'react-native'
+import { COLORS } from '@constants'
+import { Calendar } from '@features'
+import { FlexContainer } from '@layout'
+import { StartNewWorkout as StartNewWorkoutIcon } from '@assets/icons'
 
 export const CalendarScreenRoute = 'CalendarScreenRoute'
 
 export function CalendarScreen({ workoutId, route, navigation }) {
-  //check if id is cached in async storage.  if not fetch then store
+  const [selectedDate, setSelectedDate] = React.useState('')
+
+  const onDayPress = day => {
+    setSelectedDate(day.dateString)
+    console.log(day)
+  }
+
   return (
-    <View style={{ marginTop: 100 }}>
-      <TextButton
-        onPress={() => navigation.goBack()}
-        // marginTop={LAYOUT.SPACING_S_28}
-        style={styles.backButton}>
-        Back
-      </TextButton>
-      <Text>This is a workout for calendar screen</Text>
-    </View>
+    <SafeAreaView style={{ width: '100%' }}>
+      <View
+        style={{
+          borderBottomWidth: 1,
+          borderBottomColor: COLORS.CARD_BOARDER_COLOR,
+        }}>
+        <Calendar workoutId={workoutId} onDayPress={onDayPress} selectedDate={selectedDate} />
+      </View>
+    </SafeAreaView>
   )
 }
