@@ -9,13 +9,13 @@ export default StyleSheet.create({
     width: '100%',
     paddingLeft: LAYOUT.SPACING_NONE,
     paddingRight: LAYOUT.SPACING_NONE,
-    backgroundColor: 'white',
+    backgroundColor: COLORS.WHITE,
   },
   calendarHeaderContainer: {
     backgroundColor: COLORS.BACKGROUND_COLOR,
     paddingTop: LAYOUT.SPACING_XS_8,
     paddingBottom: LAYOUT.SPACING_XS_8,
-    marginBottom: 12,
+    marginBottom: LAYOUT.SPACING_XS_12,
     width: '100%',
   },
   calendarHeaderText: {

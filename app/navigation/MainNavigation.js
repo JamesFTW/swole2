@@ -4,6 +4,7 @@ import { WorkoutScreenStack, WorkoutScreenStackRoute } from '../screens/workouts
 import { ProfileScreenStackRoute, ProfileScreenStack } from '../screens/profilescreen'
 import { NavLocationScreenRoute, NavLocationScreen } from '../screens/navlocationscreen/NavLocationScreen'
 import { CalendarScreenRoute, CalendarScreen } from '../screens/calendarscreen/CalendarScreen'
+import { CalendarScreenStack, CalendarScreenStackRoute } from '@screens/calendarscreen'
 import { NavBar } from './navbar/NavBar'
 
 export const MainNavigationRoute = 'MainNavigationRoute'
@@ -18,7 +19,7 @@ export function MainNavigation({ isDrawerOpen }) {
         showLabel: false,
       }}>
       <Tab.Screen name={NavLocationScreenRoute} component={NavLocationScreen} />
-      <Tab.Screen name={CalendarScreenRoute} component={CalendarScreen} />
+      <Tab.Screen name={CalendarScreenStackRoute} component={CalendarScreenStack} />
       <Tab.Screen name={WorkoutScreenStackRoute} component={WorkoutScreenStack} />
       <Tab.Screen name={ProfileScreenStackRoute} component={ProfileScreenStack} />
     </Tab.Navigator>

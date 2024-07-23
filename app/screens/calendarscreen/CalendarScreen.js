@@ -2,8 +2,7 @@ import * as React from 'react'
 import { SafeAreaView, View } from 'react-native'
 import { COLORS } from '@constants'
 import { Calendar } from '@features'
-import { FlexContainer } from '@layout'
-import { StartNewWorkout as StartNewWorkoutIcon } from '@assets/icons'
+import { ExerciseSearchScreenRoute } from '../workoutscreen/exercisesearchscreen/ExerciseSearchScreen'
 
 export const CalendarScreenRoute = 'CalendarScreenRoute'
 
@@ -12,7 +11,13 @@ export function CalendarScreen({ workoutId, route, navigation }) {
 
   const onDayPress = day => {
     setSelectedDate(day.dateString)
-    console.log(day)
+  }
+
+  const onAddWorkoutPress = () => {
+    navigation.navigate(ExerciseSearchScreenRoute, {
+      showAdditionalButtons: true,
+      clickBehavior: { highLight: true },
+    })
   }
 
   return (
@@ -22,7 +27,12 @@ export function CalendarScreen({ workoutId, route, navigation }) {
           borderBottomWidth: 1,
           borderBottomColor: COLORS.CARD_BOARDER_COLOR,
         }}>
-        <Calendar workoutId={workoutId} onDayPress={onDayPress} selectedDate={selectedDate} />
+        <Calendar
+          workoutId={workoutId}
+          onDayPress={onDayPress}
+          selectedDate={selectedDate}
+          onAddWorkoutPress={onAddWorkoutPress}
+        />
       </View>
     </SafeAreaView>
   )

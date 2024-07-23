@@ -6,6 +6,7 @@ import { Profile, Dumbell, Calendar, NavLocation } from '@assets/icons'
 import { FlexContainer } from '@layout'
 import { ProfileScreenStackRoute } from '@screens/profilescreen'
 import { WorkoutScreenStackRoute } from '@screens/workoutscreen/'
+import { CalendarScreenStackRoute } from '@screens/calendarscreen'
 import styles from './NavBar.styles'
 
 export function NavBar({ state, descriptors, navigation }) {
@@ -19,7 +20,7 @@ export function NavBar({ state, descriptors, navigation }) {
                 return <Profile isFocused={isFocused} />
               case WorkoutScreenStackRoute:
                 return <Dumbell isFocused={isFocused} />
-              case CalendarScreenRoute:
+              case CalendarScreenStackRoute:
                 return <Calendar isFocused={isFocused} />
               case NavLocationScreenRoute:
                 return <NavLocation isFocused={isFocused} />

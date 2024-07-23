@@ -68,10 +68,10 @@ const getCalendarTheme = () => ({
   textMonthFontSize: LAYOUT.SPACING_XS_16,
   textDayHeaderFontSize: LAYOUT.SPACING_XS_16,
   dayTextColor: COLORS.PRIMARY_COLOR,
-  textDisabledColor: COLORS.GRAY,
+  textDisabledColor: COLORS.SUBTITLE_GRAY,
 })
 
-const renderCalendarHeader = date => {
+const renderCalendarHeader = (date, onAddWorkoutPress) => {
   const monthNames = [
     'January',
     'February',
@@ -97,7 +97,7 @@ const renderCalendarHeader = date => {
         <View style={{ flex: LAYOUT.SPACING_NUDGE_S, alignItems: LAYOUT.ALIGN_CENTER }}>
           <Text style={styles.calendarHeaderText}>{monthNames[date.getMonth()]}</Text>
         </View>
-        <Pressable onPress={e => console.log(e)} style={{ flex: LAYOUT.SPACING_NUDGE_XS, alignItems: 'flex-end' }}>
+        <Pressable onPress={onAddWorkoutPress} style={{ flex: LAYOUT.SPACING_NUDGE_XS, alignItems: 'flex-end' }}>
           <StartNewWorkoutIcon style={{ marginRight: LAYOUT.SPACING_XS_16 }} />
         </Pressable>
       </FlexContainer>
@@ -125,7 +125,7 @@ const CustomDay = ({ date, state, marking, onPress }) => {
   )
 }
 
-export const Calendar = ({ onDayPress, selectedDate }) => {
+export const Calendar = ({ onDayPress, selectedDate, onAddWorkoutPress }) => {
   const today = useMemo(() => getLocalDateString(), [])
 
   const markedDates = {
@@ -146,10 +146,11 @@ export const Calendar = ({ onDayPress, selectedDate }) => {
       enableSwipeMonths
       theme={getCalendarTheme()}
       onDayPress={onDayPress}
+      onAddWorkoutPress={onAddWorkoutPress}
       headerStyle={styles.calendarHeaderStyle}
       dayHeaderStyle={styles.calendarDayHeaderStyle}
       hideArrows={true}
-      renderHeader={renderCalendarHeader}
+      renderHeader={() => renderCalendarHeader(new Date(), onAddWorkoutPress)}
       style={styles.calendar}
       markingType={'custom'}
       markedDates={markedDates}

@@ -125,7 +125,7 @@ function AnimatedHeader({
 }
 
 function LoadingView({ handleScroll }) {
-  const placeholderGroups = ['A', 'B', 'C'] // Add more letters if needed
+  const placeholderGroups = ['A', 'B', 'C']
   const placeholderExercises = [
     {
       exerciseId: '1',
