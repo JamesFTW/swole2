@@ -1,9 +1,10 @@
 import styles from './Calendar.styles'
-import React from 'react'
+import React, { useMemo } from 'react'
 import { Text, View, Pressable } from 'react-native'
 import { Calendar as ReactNativeCalendars } from 'react-native-calendars'
 import { COLORS, FONTS, LAYOUT } from '@constants'
 import { FlexContainer } from '@layout'
+import { getLocalDateString } from '@app/utils/dateTimeUtil'
 import { StartNewWorkout as StartNewWorkoutIcon } from '@assets/icons'
 
 const getCalendarTheme = () => ({
@@ -93,7 +94,7 @@ const renderCalendarHeader = date => {
         alignItems={LAYOUT.ALIGN_CENTER}
         style={{ width: '100%' }}>
         <View style={{ flex: LAYOUT.SPACING_NUDGE_XS }}></View>
-        <View style={{ flex: LAYOUT.SPACING_NUDGE_S, alignItems: 'center' }}>
+        <View style={{ flex: LAYOUT.SPACING_NUDGE_S, alignItems: LAYOUT.ALIGN_CENTER }}>
           <Text style={styles.calendarHeaderText}>{monthNames[date.getMonth()]}</Text>
         </View>
         <Pressable onPress={e => console.log(e)} style={{ flex: LAYOUT.SPACING_NUDGE_XS, alignItems: 'flex-end' }}>
@@ -125,7 +126,7 @@ const CustomDay = ({ date, state, marking, onPress }) => {
 }
 
 export const Calendar = ({ onDayPress, selectedDate }) => {
-  const today = new Date().toISOString().split('T')[0]
+  const today = useMemo(() => getLocalDateString(), [])
 
   const markedDates = {
     [selectedDate]: { selected: true, selectedColor: COLORS.SUCCESS_BLUE },
