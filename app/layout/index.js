@@ -3,6 +3,6 @@
   use command 'npm run compile' to export files
 ***************************************************************/
 
-export { CustomFlatList } from './customflatlist/CustomFlatList.js'
-export { FlexContainer } from './flexcontainer/FlexContainer.js'
-export { ScrollContent } from './scrollcontent/ScrollContent.js'
+export * from './customflatlist/CustomFlatList'
+export * from './flexcontainer/FlexContainer'
+export * from './scrollcontent/ScrollContent'
