@@ -159,7 +159,7 @@ function LoadingView({ handleScroll }) {
           <Text style={styles.exercise_group_letter}>{groupLetter}</Text>
           {placeholderExercises.map(exercise => (
             <View key={exercise.exerciseId} style={{ marginBottom: 20 }}>
-              <Exercise clickBehavior={{}} onSelectExercise={() => {}} data={exercise} isLoading={true} />
+              <Exercise data={exercise} isLoading={true} />
             </View>
           ))}
         </View>
