@@ -86,6 +86,9 @@ const renderCalendarHeader = (date, onAddWorkoutPress) => {
     'November',
     'December',
   ]
+
+  const monthIndex = new Date(date).getMonth()
+
   return (
     <View style={styles.calendarHeaderContainer}>
       <FlexContainer
@@ -95,7 +98,7 @@ const renderCalendarHeader = (date, onAddWorkoutPress) => {
         style={{ width: '100%' }}>
         <View style={{ flex: LAYOUT.SPACING_NUDGE_XS }}></View>
         <View style={{ flex: LAYOUT.SPACING_NUDGE_S, alignItems: LAYOUT.ALIGN_CENTER }}>
-          <Text style={styles.calendarHeaderText}>{monthNames[date.getMonth()]}</Text>
+          <Text style={styles.calendarHeaderText}>{monthNames[monthIndex]}</Text>
         </View>
         <Pressable onPress={onAddWorkoutPress} style={{ flex: LAYOUT.SPACING_NUDGE_XS, alignItems: 'flex-end' }}>
           <StartNewWorkoutIcon style={{ marginRight: LAYOUT.SPACING_XS_16 }} />
@@ -146,11 +149,10 @@ export const Calendar = ({ onDayPress, selectedDate, onAddWorkoutPress }) => {
       enableSwipeMonths
       theme={getCalendarTheme()}
       onDayPress={onDayPress}
-      onAddWorkoutPress={onAddWorkoutPress}
       headerStyle={styles.calendarHeaderStyle}
       dayHeaderStyle={styles.calendarDayHeaderStyle}
       hideArrows={true}
-      renderHeader={() => renderCalendarHeader(new Date(), onAddWorkoutPress)}
+      renderHeader={date => renderCalendarHeader(date, onAddWorkoutPress)}
       style={styles.calendar}
       markingType={'custom'}
       markedDates={markedDates}
