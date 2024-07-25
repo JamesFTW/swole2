@@ -15,6 +15,7 @@ export function CalendarScreen({ workoutId, route, navigation }) {
 
   const onAddWorkoutPress = () => {
     navigation.navigate(ExerciseSearchScreenRoute, {
+      navRoute: CalendarScreenRoute,
       showAdditionalButtons: true,
       clickBehavior: { highLight: true },
     })
