@@ -1,5 +1,5 @@
 import styles from './Calendar.styles'
-import React, { useMemo } from 'react'
+import React, { useMemo, useEffect, useState } from 'react'
 import { Text, View, Pressable } from 'react-native'
 import { Calendar as ReactNativeCalendars } from 'react-native-calendars'
 import { COLORS, FONTS, LAYOUT } from '@constants'
@@ -96,7 +96,7 @@ const renderCalendarHeader = (date, onAddWorkoutPress) => {
         justifyContent={LAYOUT.SPACE_BETWEEN}
         alignItems={LAYOUT.ALIGN_CENTER}
         style={{ width: '100%' }}>
-        <View style={{ flex: LAYOUT.SPACING_NUDGE_XS }}></View>
+        <View style={{ flex: LAYOUT.SPACING_NUDGE_XS }} />
         <View style={{ flex: LAYOUT.SPACING_NUDGE_S, alignItems: LAYOUT.ALIGN_CENTER }}>
           <Text style={styles.calendarHeaderText}>{monthNames[monthIndex]}</Text>
         </View>
@@ -129,19 +129,41 @@ const CustomDay = ({ date, state, marking, onPress }) => {
 }
 
 export const Calendar = ({ onDayPress, selectedDate, onAddWorkoutPress }) => {
-  const today = useMemo(() => getLocalDateString(), [])
+  const [currentDate, setCurrentDate] = useState(getLocalDateString())
 
-  const markedDates = {
-    [selectedDate]: { selected: true, selectedColor: COLORS.SUCCESS_BLUE },
-    [today]: {
-      customStyles: {
-        text: {
-          color: COLORS.SUCCESS_GREEN,
-          fontWeight: '900',
+  useEffect(() => {
+    // Function to update the current date
+    const updateCurrentDate = () => {
+      const newDate = getLocalDateString()
+      if (newDate !== currentDate) {
+        setCurrentDate(newDate)
+      }
+    }
+
+    // Update the date immediately
+    updateCurrentDate()
+
+    // Set up an interval to check and update the date every minute
+    const intervalId = setInterval(updateCurrentDate, 60000)
+
+    // Clean up the interval on component unmount
+    return () => clearInterval(intervalId)
+  }, [currentDate])
+
+  const markedDates = useMemo(
+    () => ({
+      [selectedDate]: { selected: true, selectedColor: COLORS.SUCCESS_BLUE },
+      [currentDate]: {
+        customStyles: {
+          text: {
+            color: COLORS.SUCCESS_GREEN,
+            fontWeight: '900',
+          },
         },
       },
-    },
-  }
+    }),
+    [selectedDate, currentDate],
+  )
 
   return (
     <ReactNativeCalendars

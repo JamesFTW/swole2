@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     right: LAYOUT.SPACING_NUDGE_XS,
   },
   workoutTitle: {
-    fontSize: FONTS.SIZE_20,
+    fontSize: FONTS.SIZE_20 - 1,
     fontFamily: FONTS.SFPRO_MEDIUM,
     letterSpacing: FONTS.SPACING_M,
     color: COLORS.PRIMARY_COLOR,
