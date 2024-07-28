@@ -59,7 +59,6 @@ const getCalendarTheme = () => ({
   textMonthFontFamily: FONTS.SFPRO_HEAVY,
   textMonthFontSize: LAYOUT.SPACING_S_20,
   monthTextColor: COLORS.PRIMARY_COLOR,
-  arrowColor: COLORS.PRIMARY_COLOR,
   selectedDayBackgroundColor: COLORS.PRIMARY_COLOR,
   selectedDayTextColor: COLORS.WHITE,
   textDayFontSize: FONTS.SIZE_16,
