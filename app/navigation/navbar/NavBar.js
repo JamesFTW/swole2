@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { View, Pressable } from 'react-native'
 import { NavLocationScreenRoute } from '@screens/navlocationscreen/NavLocationScreen'
-import { CalendarScreenRoute } from '@screens/calendarscreen/CalendarScreen'
 import { Profile, Dumbell, Calendar, NavLocation } from '@assets/icons'
 import { FlexContainer } from '@layout'
 import { ProfileScreenStackRoute } from '@screens/profilescreen'
@@ -46,6 +45,7 @@ export function NavBar({ state, descriptors, navigation }) {
 
           return (
             <Pressable
+              hitSlop={20}
               style={styles.nav_Icon}
               key={index}
               accessibilityRole="button"

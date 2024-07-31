@@ -2,7 +2,7 @@ import * as React from 'react'
 import { SafeAreaView, View } from 'react-native'
 import { COLORS } from '@constants'
 import { Calendar } from '@features'
-import { ExerciseSearchScreenRoute } from '../workoutscreen/exercisesearchscreen/ExerciseSearchScreen'
+import { ScheduleWorkoutScreenRoute } from './scheduleworkout/ScheduleWorkout'
 
 export const CalendarScreenRoute = 'CalendarScreenRoute'
 
@@ -14,7 +14,7 @@ export function CalendarScreen({ workoutId, route, navigation }) {
   }
 
   const onAddWorkoutPress = () => {
-    navigation.navigate(ExerciseSearchScreenRoute, {
+    navigation.navigate(ScheduleWorkoutScreenRoute, {
       navRoute: CalendarScreenRoute,
       showAdditionalButtons: true,
       clickBehavior: { highLight: true },
