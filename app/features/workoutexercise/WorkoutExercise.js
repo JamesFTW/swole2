@@ -58,7 +58,9 @@ export function WorkoutExercise({ parentCallback, data }) {
       animateIsCompleted()
     }
 
-    parentCallback({ exerciseSetsData, exerciseId, targetMuscle, exerciseName, secondaryMuscles })
+    if (parentCallback) {
+      parentCallback({ exerciseSetsData, exerciseId, targetMuscle, exerciseName, secondaryMuscles })
+    }
   }, [exerciseSetsData])
 
   const onPress = exerciseId =>

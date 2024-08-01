@@ -7,6 +7,8 @@ import {
   ExerciseSearchScreenRoute,
 } from '../workoutscreen/exercisesearchscreen/ExerciseSearchScreen'
 
+import { ScheduleWorkoutScreen, ScheduleWorkoutScreenRoute } from './scheduleworkout/ScheduleWorkout'
+
 const Stack = createNativeStackNavigator()
 
 export const CalendarScreenStackRoute = 'CalendarScreenStackRoute'
@@ -15,6 +17,7 @@ export function CalendarScreenStack() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name={CalendarScreenRoute} component={CalendarScreen} />
+      <Stack.Screen name={ScheduleWorkoutScreenRoute} component={ScheduleWorkoutScreen} />
       <Stack.Screen name={ExerciseSearchScreenRoute} component={ExerciseSearchScreen} />
     </Stack.Navigator>
   )

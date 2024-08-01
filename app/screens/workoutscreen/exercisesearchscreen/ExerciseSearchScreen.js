@@ -5,7 +5,6 @@ import { Exercise } from '@features'
 import { FlexContainer } from '@layout'
 import { TextButton } from '@components'
 import { Search, BackButton } from '@assets/icons'
-import { StartNewWorkoutScreenRoute } from '../startnewworkoutscreen/StartNewWorkoutScreen'
 import styles from './ExerciseSearchScreen.styles'
 
 export const ExerciseSearchScreenRoute = 'ExerciseSearchScreenRoute'
@@ -19,7 +18,7 @@ export function ExerciseSearchScreen({ route, navigation }) {
   const [searchQuery, setSearchQuery] = useState('')
   const scrollY = useRef(new Animated.Value(0)).current
 
-  const { clickBehavior, showAdditionalButtons } = route.params
+  const { clickBehavior, showAdditionalButtons, targetRoute, targetRouteParams } = route.params
 
   const headerTranslateY = scrollY.interpolate({
     inputRange: [0, HEADER_HEIGHT - STICKY_HEADER_HEIGHT],
@@ -51,6 +50,8 @@ export function ExerciseSearchScreen({ route, navigation }) {
         selectedExercises={selectedExercises}
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
+        targetRoute={targetRoute}
+        targetRouteParams={targetRouteParams}
       />
       {isLoading ? (
         <LoadingView handleScroll={handleScroll} />
@@ -73,6 +74,8 @@ function AnimatedHeader({
   selectedExercises,
   searchQuery,
   setSearchQuery,
+  targetRoute,
+  targetRouteParams,
 }) {
   return (
     <Animated.View
@@ -99,8 +102,8 @@ function AnimatedHeader({
             <TextButton
               onPress={() =>
                 navigation.navigate({
-                  name: StartNewWorkoutScreenRoute,
-                  params: { exercises: selectedExercises },
+                  name: targetRoute,
+                  params: { ...targetRouteParams, exercises: selectedExercises },
                   merge: true,
                 })
               }

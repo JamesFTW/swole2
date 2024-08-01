@@ -3,7 +3,6 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { WorkoutScreenStack, WorkoutScreenStackRoute } from '../screens/workoutscreen/'
 import { ProfileScreenStackRoute, ProfileScreenStack } from '../screens/profilescreen'
 import { NavLocationScreenRoute, NavLocationScreen } from '../screens/navlocationscreen/NavLocationScreen'
-import { CalendarScreenRoute, CalendarScreen } from '../screens/calendarscreen/CalendarScreen'
 import { CalendarScreenStack, CalendarScreenStackRoute } from '@screens/calendarscreen'
 import { NavBar } from './navbar/NavBar'
 

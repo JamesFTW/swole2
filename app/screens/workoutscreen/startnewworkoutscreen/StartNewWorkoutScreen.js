@@ -77,6 +77,7 @@ export function StartNewWorkoutScreen({ navigation, route }) {
 
   const navigateToExerciseSearch = useCallback(() => {
     navigation.navigate(ExerciseSearchScreenRoute, {
+      targetRoute: StartNewWorkoutScreenRoute,
       showAdditionalButtons: true,
       clickBehavior: { highLight: true },
     })

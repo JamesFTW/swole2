@@ -70,7 +70,7 @@ const getCalendarTheme = () => ({
   textDisabledColor: COLORS.SUBTITLE_GRAY,
 })
 
-const renderCalendarHeader = (date, onAddWorkoutPress) => {
+const renderCalendarHeader = (onAddWorkoutPress, currentMonth) => {
   const monthNames = [
     'January',
     'February',
@@ -85,9 +85,6 @@ const renderCalendarHeader = (date, onAddWorkoutPress) => {
     'November',
     'December',
   ]
-
-  const monthIndex = new Date(date).getMonth()
-
   return (
     <View style={styles.calendarHeaderContainer}>
       <FlexContainer
@@ -97,7 +94,7 @@ const renderCalendarHeader = (date, onAddWorkoutPress) => {
         style={{ width: '100%' }}>
         <View style={{ flex: LAYOUT.SPACING_NUDGE_XS }} />
         <View style={{ flex: LAYOUT.SPACING_NUDGE_S, alignItems: LAYOUT.ALIGN_CENTER }}>
-          <Text style={styles.calendarHeaderText}>{monthNames[monthIndex]}</Text>
+          <Text style={styles.calendarHeaderText}>{monthNames[currentMonth]}</Text>
         </View>
         <Pressable onPress={onAddWorkoutPress} style={{ flex: LAYOUT.SPACING_NUDGE_XS, alignItems: 'flex-end' }}>
           <StartNewWorkoutIcon style={{ marginRight: LAYOUT.SPACING_XS_16 }} />
@@ -129,30 +126,37 @@ const CustomDay = ({ date, state, marking, onPress }) => {
 
 export const Calendar = ({ onDayPress, selectedDate, onAddWorkoutPress }) => {
   const [currentDate, setCurrentDate] = useState(getLocalDateString())
+  const [currentMonth, setCurrentMonth] = useState(new Date().getMonth())
+  const [displayedMonth, setDisplayedMonth] = useState(new Date().getMonth())
 
   useEffect(() => {
-    // Function to update the current date
-    const updateCurrentDate = () => {
+    const updateCurrentDateAndMonth = () => {
+      const now = new Date()
       const newDate = getLocalDateString()
+      const newMonth = now.getMonth()
+
       if (newDate !== currentDate) {
         setCurrentDate(newDate)
       }
+
+      if (newMonth !== currentMonth) {
+        setCurrentMonth(newMonth)
+        setDisplayedMonth(newMonth)
+      }
     }
 
-    // Update the date immediately
-    updateCurrentDate()
+    updateCurrentDateAndMonth()
 
-    // Set up an interval to check and update the date every minute
-    const intervalId = setInterval(updateCurrentDate, 60000)
+    const intervalId = setInterval(updateCurrentDateAndMonth, 60000)
 
-    // Clean up the interval on component unmount
     return () => clearInterval(intervalId)
-  }, [currentDate])
+  }, [currentDate, currentMonth])
 
-  const markedDates = useMemo(
-    () => ({
+  const markedDates = useMemo(() => {
+    const today = getLocalDateString()
+    return {
       [selectedDate]: { selected: true, selectedColor: COLORS.SUCCESS_BLUE },
-      [currentDate]: {
+      [today]: {
         customStyles: {
           text: {
             color: COLORS.SUCCESS_GREEN,
@@ -160,9 +164,8 @@ export const Calendar = ({ onDayPress, selectedDate, onAddWorkoutPress }) => {
           },
         },
       },
-    }),
-    [selectedDate, currentDate],
-  )
+    }
+  }, [selectedDate])
 
   return (
     <ReactNativeCalendars
@@ -173,11 +176,15 @@ export const Calendar = ({ onDayPress, selectedDate, onAddWorkoutPress }) => {
       headerStyle={styles.calendarHeaderStyle}
       dayHeaderStyle={styles.calendarDayHeaderStyle}
       hideArrows={true}
-      renderHeader={date => renderCalendarHeader(date, onAddWorkoutPress)}
+      renderHeader={() => renderCalendarHeader(onAddWorkoutPress, displayedMonth)}
       style={styles.calendar}
       markingType={'custom'}
       markedDates={markedDates}
       dayComponent={props => <CustomDay {...props} onPress={onDayPress} />}
+      onMonthChange={month => {
+        setDisplayedMonth(month.month - 1)
+      }}
+      current={getLocalDateString()} // Add this line to ensure the calendar always shows the current month
     />
   )
 }
