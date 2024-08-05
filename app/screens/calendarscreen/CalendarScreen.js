@@ -2,7 +2,7 @@ import * as React from 'react'
 import { SafeAreaView, View } from 'react-native'
 import { COLORS } from '@constants'
 import { Calendar } from '@features'
-import { ScheduleWorkoutScreenRoute } from './scheduleworkout/ScheduleWorkout'
+import { ScheduleWorkoutScreenRoute } from './scheduleworkoutscreen/ScheduleWorkoutScreen'
 
 export const CalendarScreenRoute = 'CalendarScreenRoute'
 

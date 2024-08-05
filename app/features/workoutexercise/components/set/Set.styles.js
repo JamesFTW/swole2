@@ -7,10 +7,6 @@ const styles = StyleSheet.create({
     fontSize: FONTS.SIZE_16,
     color: COLORS.SECONDARY_COLOR,
     letterSpacing: FONTS.SPACING_S,
-    marginRight: 35,
-    width: 40,
-    textAlign: 'center',
-    right: 12,
   },
 })
 

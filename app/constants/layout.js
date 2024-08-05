@@ -31,6 +31,7 @@ const FLEX_ROW = 'row'
 const FLEX_START = 'flex-start'
 const FLEX_COLUMN = 'column'
 const ALIGN_CENTER = 'center'
+const ALIGN_STRETCH = 'stretch'
 const POSITION_ABSOLUTE = 'absolute'
 const SPACE_BETWEEN = 'space-between'
 const DISPLAY_NONE = 'none'
@@ -64,6 +65,7 @@ export const LAYOUT = {
   FLEX_COLUMN,
   FLEX_START,
   ALIGN_CENTER,
+  ALIGN_STRETCH,
   POSITION_ABSOLUTE,
   SPACE_BETWEEN,
   DISPLAY_NONE,

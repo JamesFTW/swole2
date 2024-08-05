@@ -135,28 +135,28 @@ export const Calendar = ({ onDayPress, selectedDate, onAddWorkoutPress }) => {
       const newDate = getLocalDateString()
       const newMonth = now.getMonth()
 
-      if (newDate !== currentDate) {
-        setCurrentDate(newDate)
-      }
+      setCurrentDate(newDate)
 
       if (newMonth !== currentMonth) {
         setCurrentMonth(newMonth)
-        setDisplayedMonth(newMonth)
+        setDisplayedMonth(newMonth) // Automatically switch to the new month
       }
     }
 
+    // Initial update
     updateCurrentDateAndMonth()
 
+    // Set up interval to update every minute
     const intervalId = setInterval(updateCurrentDateAndMonth, 60000)
 
+    // Clean up interval on component unmount
     return () => clearInterval(intervalId)
-  }, [currentDate, currentMonth])
+  }, [currentMonth])
 
   const markedDates = useMemo(() => {
-    const today = getLocalDateString()
     return {
       [selectedDate]: { selected: true, selectedColor: COLORS.SUCCESS_BLUE },
-      [today]: {
+      [currentDate]: {
         customStyles: {
           text: {
             color: COLORS.SUCCESS_GREEN,
@@ -165,7 +165,7 @@ export const Calendar = ({ onDayPress, selectedDate, onAddWorkoutPress }) => {
         },
       },
     }
-  }, [selectedDate])
+  }, [selectedDate, currentDate])
 
   return (
     <ReactNativeCalendars
@@ -182,9 +182,9 @@ export const Calendar = ({ onDayPress, selectedDate, onAddWorkoutPress }) => {
       markedDates={markedDates}
       dayComponent={props => <CustomDay {...props} onPress={onDayPress} />}
       onMonthChange={month => {
-        setDisplayedMonth(month.month - 1)
+        setDisplayedMonth(month.month - 1) // month is 1-indexed, so we subtract 1
       }}
-      current={getLocalDateString()} // Add this line to ensure the calendar always shows the current month
+      current={currentDate}
     />
   )
 }

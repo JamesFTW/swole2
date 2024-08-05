@@ -75,7 +75,7 @@ export function Exercise({ clickBehavior, onSelectExercise, data, isLoading }) {
 
   return (
     <Card
-      borderRadius
+      borderRadius={12}
       onPress={() => clickBehaviorHandler()}
       cardHeight={LAYOUT.SPACING_XL_76}
       style={highLight && styles.highlighted_exercise_card}>
