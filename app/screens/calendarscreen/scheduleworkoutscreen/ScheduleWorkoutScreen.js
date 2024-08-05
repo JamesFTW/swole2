@@ -63,7 +63,7 @@ export function ScheduleWorkoutScreen({ workoutId, route, navigation }) {
       ) : (
         <WorkoutExercise
           style={{ marginHorizontal: 12, marginBottom: 12 }}
-          showStatusIndicators={true}
+          showStatusIndicators={false}
           data={workoutData}
         />
       )}

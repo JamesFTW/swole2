@@ -1,6 +1,6 @@
 import styles from './WorkoutExercise.styles'
 import React, { useEffect, useState } from 'react'
-import { Text, Animated, View, ActionSheetIOS, StyleSheet } from 'react-native'
+import { Text, Animated, View, ActionSheetIOS } from 'react-native'
 import { Set } from '../workoutexercise/components/set/Set'
 import { Button, Card } from '@components'
 import { LAYOUT, COLORS } from '@constants'
@@ -94,7 +94,7 @@ export function WorkoutExercise({ parentCallback, data, showStatusIndicators = f
 
   return (
     <Card
-      style={[styles.card, style]}
+      style={style}
       borderRadius={LAYOUT.SPACING_XS_12}
       elevation={3}
       backgroundColor={COLORS.WHITE_WHITE}

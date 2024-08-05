@@ -1,22 +1,18 @@
 import { StyleSheet } from 'react-native'
-import { FONTS, COLORS, LAYOUT } from '../../constants'
+import { FONTS, COLORS, LAYOUT } from '@constants'
 
 const styles = StyleSheet.create({
-  card: {
-    // marginHorizontal: 12,
-    // marginBottom: 20
-  },
   cardContent: {
-    flexDirection: 'column',
+    flexDirection: LAYOUT.FLEX_COLUMN,
   },
   exerciseHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    flexDirection: LAYOUT.FLEX_ROW,
+    justifyContent: LAYOUT.SPACE_BETWEEN,
+    alignItems: LAYOUT.ALIGN_CENTER,
     marginBottom: LAYOUT.SPACING_XS_16,
   },
   exerciseTitleContainer: {
-    justifyContent: 'center',
+    justifyContent: LAYOUT.ALIGN_CENTER,
     marginLeft: LAYOUT.SPACING_XS_12,
   },
   exercise_title: {
@@ -43,12 +39,12 @@ const styles = StyleSheet.create({
     marginBottom: LAYOUT.SPACING_XS_8,
   },
   setHeaderCell: {
-    flex: 1,
-    marginLeft: 16,
+    flex: LAYOUT.SPACING_NUDGE_XS,
+    marginLeft: LAYOUT.SPACING_XS_16,
   },
   setsContainer: {
     width: '100%',
-    marginLeft: 16,
+    marginLeft: LAYOUT.SPACING_XS_16,
   },
   buttonContainer: {
     marginTop: LAYOUT.SPACING_S_24,
@@ -56,7 +52,7 @@ const styles = StyleSheet.create({
   add_set_button: {
     height: LAYOUT.SPACING_MD_40,
     borderRadius: LAYOUT.SPACING_S_20,
-    marginBottom: 13,
+    marginBottom: LAYOUT.SPACING_XS_12,
   },
   add_set_button_text: {
     lineHeight: LAYOUT.SPACING_MD_36,

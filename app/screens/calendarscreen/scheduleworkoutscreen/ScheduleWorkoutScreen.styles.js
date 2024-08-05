@@ -3,7 +3,7 @@ import { COLORS, FONTS, LAYOUT } from '@constants'
 
 const styles = StyleSheet.create({
   workoutHeaderContainer: {
-    marginTop: LAYOUT.SPACING_XS_16,
+    marginTop: LAYOUT.SPACING_XS_12,
     width: '100%',
   },
   workoutHeaderContent: {

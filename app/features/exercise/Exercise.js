@@ -75,9 +75,8 @@ export function Exercise({ clickBehavior, onSelectExercise, data, isLoading }) {
 
   return (
     <Card
-      borderRadius={12}
+      borderRadius={LAYOUT.SPACING_XS_12}
       onPress={() => clickBehaviorHandler()}
-      cardHeight={LAYOUT.SPACING_XL_76}
       style={highLight && styles.highlighted_exercise_card}>
       <FlexContainer direction={LAYOUT.FLEX_ROW}>
         <FasterImageView

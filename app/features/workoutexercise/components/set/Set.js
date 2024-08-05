@@ -1,9 +1,8 @@
+import styles from './Set.styles'
 import React, { useRef } from 'react'
 import { TextInput, Pressable, View } from 'react-native'
 import { FlexContainer } from '@layout'
 import { StatusIndicator } from '@components'
-
-import styles from './Set.styles'
 
 export function Set({
   setNumber,
@@ -17,7 +16,6 @@ export function Set({
   isCompletedSet,
   onLongPress,
   showStatusIndicators = true,
-  style,
 }) {
   const textInputRef = useRef(null)
 
@@ -30,44 +28,15 @@ export function Set({
   }
 
   return (
-    <Pressable onLongPress={onLongPress} onPress={handlePress} style={[{ width: '100%', position: 'relative' }, style]}>
-      <FlexContainer style={{ marginTop: 10, width: '100%' }} direction="row">
-        <TextInput
-          ref={textInputRef}
-          style={[styles.set_info, { flex: 1 }]}
-          value={setNumber.toString()}
-          editable={false}
-        />
-        <TextInput
-          style={[styles.set_info, { flex: 1 }]}
-          value={reps}
-          onChangeText={onRepsChange}
-          keyboardType="numeric"
-        />
-        <TextInput
-          style={[styles.set_info, { flex: 1 }]}
-          value={rpe}
-          onChangeText={onRpeChange}
-          keyboardType="numeric"
-        />
-        <TextInput
-          style={[styles.set_info, { flex: 1 }]}
-          value={weight}
-          onChangeText={onWeightChange}
-          keyboardType="numeric"
-        />
+    <Pressable onLongPress={onLongPress} onPress={handlePress}>
+      <FlexContainer style={styles.flex_container} direction="row">
+        <TextInput ref={textInputRef} style={styles.set_info} value={setNumber.toString()} editable={false} />
+        <TextInput style={styles.set_info} value={reps} onChangeText={onRepsChange} keyboardType="numeric" />
+        <TextInput style={styles.set_info} value={rpe} onChangeText={onRpeChange} keyboardType="numeric" />
+        <TextInput style={styles.set_info} value={weight} onChangeText={onWeightChange} keyboardType="numeric" />
       </FlexContainer>
       {showStatusIndicators && (
-        <View
-          style={{
-            position: 'absolute',
-            marginTop: 9,
-            right: 20, // Adjust this value as needed to position the indicator correctly
-            top: 0,
-            bottom: 0,
-            justifyContent: 'center',
-            zIndex: 1,
-          }}>
+        <View style={styles.set_completed}>
           <Pressable onPress={handleSetComplete}>
             <StatusIndicator isCompleted={isCompletedSet} onPress={() => onSetCompletionChange(setNumber)} />
           </Pressable>
