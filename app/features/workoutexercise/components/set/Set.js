@@ -1,9 +1,8 @@
-import React from 'react'
-import { TextInput, Pressable } from 'react-native'
+import styles from './Set.styles'
+import React, { useRef } from 'react'
+import { TextInput, Pressable, View } from 'react-native'
 import { FlexContainer } from '@layout'
 import { StatusIndicator } from '@components'
-
-import styles from './Set.styles'
 
 export function Set({
   setNumber,
@@ -16,7 +15,10 @@ export function Set({
   onSetCompletionChange,
   isCompletedSet,
   onLongPress,
+  showStatusIndicators = true,
 }) {
+  const textInputRef = useRef(null)
+
   const handlePress = () => {
     textInputRef.current.focus()
   }
@@ -25,49 +27,21 @@ export function Set({
     onSetCompletionChange(!isCompletedSet)
   }
 
-  const textInputRef = React.createRef()
-
   return (
     <Pressable onLongPress={onLongPress} onPress={handlePress}>
-      <FlexContainer style={{ marginTop: 10 }} direction="row">
+      <FlexContainer style={styles.flex_container} direction="row">
         <TextInput ref={textInputRef} style={styles.set_info} value={setNumber.toString()} editable={false} />
-        <TextInput
-          style={styles.set_info}
-          value={reps}
-          onChangeText={value => {
-            if (onRepsChange) {
-              onRepsChange(value)
-            }
-          }}
-          keyboardType="numeric"
-        />
-        <TextInput
-          style={styles.set_info}
-          value={rpe}
-          onChangeText={value => {
-            if (onRpeChange) {
-              onRpeChange(value)
-            }
-          }}
-          keyboardType="numeric"
-        />
-        <TextInput
-          style={styles.set_info}
-          value={weight}
-          onChangeText={value => {
-            if (onWeightChange) {
-              onWeightChange(value)
-            }
-          }}
-          keyboardType="numeric"
-        />
-        <Pressable onPress={handleSetComplete}>
-          <StatusIndicator
-            isCompleted={isCompletedSet}
-            onPress={() => onSetCompletionChange(setNumber)} // Pass the setNumber
-          />
-        </Pressable>
+        <TextInput style={styles.set_info} value={reps} onChangeText={onRepsChange} keyboardType="numeric" />
+        <TextInput style={styles.set_info} value={rpe} onChangeText={onRpeChange} keyboardType="numeric" />
+        <TextInput style={styles.set_info} value={weight} onChangeText={onWeightChange} keyboardType="numeric" />
       </FlexContainer>
+      {showStatusIndicators && (
+        <View style={styles.set_completed}>
+          <Pressable onPress={handleSetComplete}>
+            <StatusIndicator isCompleted={isCompletedSet} onPress={() => onSetCompletionChange(setNumber)} />
+          </Pressable>
+        </View>
+      )}
     </Pressable>
   )
 }

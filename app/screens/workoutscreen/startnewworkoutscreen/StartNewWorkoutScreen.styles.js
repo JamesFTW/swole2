@@ -3,7 +3,7 @@ import { LAYOUT, FONTS, COLORS } from '@constants'
 
 const styles = StyleSheet.create({
   scroll_container: {
-    marginTop: LAYOUT.SPACING_MD_48,
+    paddingHorizontal: LAYOUT.SPACING_XS_16,
   },
   exercise_title: {
     fontFamily: FONTS.SFPRO_MEDIUM,
@@ -19,12 +19,9 @@ const styles = StyleSheet.create({
     lineHeight: FONTS.SIZE_24,
   },
   exercise_title_container: {
-    marginLeft: LAYOUT.SPACING_XS_16,
     marginTop: LAYOUT.SPACING_MD_40,
   },
   workout_exercise_container: {
-    marginLeft: LAYOUT.SPACING_XS_16,
-    marginRight: LAYOUT.SPACING_XS_16,
     marginTop: LAYOUT.SPACING_XS_12,
   },
   exercise_buttons_container: {
@@ -56,7 +53,6 @@ const styles = StyleSheet.create({
     borderRadius: LAYOUT.SPACING_XS_16,
     borderColor: COLORS.SECONDARY_COLOR,
     backgroundColor: COLORS.SECONDARY_COLOR,
-    marginRight: LAYOUT.SPACING_XS_16,
     height: LAYOUT.SPACING_S_32,
     paddingLeft: LAYOUT.SPACING_S_20,
     paddingRight: LAYOUT.SPACING_S_20,

@@ -84,7 +84,7 @@ export function StartNewWorkoutScreen({ navigation, route }) {
   }, [navigation])
 
   return (
-    <ScrollContent style={styles.scroll_container}>
+    <ScrollContent useSafeArea style={styles.scroll_container}>
       <WorkoutHeader
         formattedDate={formattedDate}
         workoutTitle={workoutTitle}
@@ -125,7 +125,12 @@ function WorkoutBody({ exercises, handleExerciseCallback, onAddExercise, onCance
     <View style={styles.workout_exercise_container}>
       {exercises.map(exercise => (
         <View key={exercise.exerciseId} style={styles.workout_exercise_component_container}>
-          <WorkoutExercise parentCallback={handleExerciseCallback} data={exercise} />
+          <WorkoutExercise
+            style={{ marginBottom: 12 }}
+            parentCallback={handleExerciseCallback}
+            data={exercise}
+            showStatusIndicators
+          />
         </View>
       ))}
       <View style={styles.exercise_buttons_container}>

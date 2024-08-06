@@ -7,7 +7,7 @@ import {
   ExerciseSearchScreenRoute,
 } from '../workoutscreen/exercisesearchscreen/ExerciseSearchScreen'
 
-import { ScheduleWorkoutScreen, ScheduleWorkoutScreenRoute } from './scheduleworkout/ScheduleWorkout'
+import { ScheduleWorkoutScreen, ScheduleWorkoutScreenRoute } from './scheduleworkoutscreen/ScheduleWorkoutScreen'
 
 const Stack = createNativeStackNavigator()
 

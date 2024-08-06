@@ -1,14 +1,13 @@
 import { StyleSheet } from 'react-native'
-import { LAYOUT, COLORS } from '../../constants'
+import { LAYOUT } from '@constants'
 
 const styles = StyleSheet.create({
-  card_container: {
-    alignSelf: 'stretch',
-    borderWidth: 1,
-    borderColor: COLORS.CARD_BOARDER_COLOR,
+  card: {
+    overflow: LAYOUT.OVERFLOW_HIDDEN,
+    alignSelf: LAYOUT.ALIGN_STRETCH,
   },
-  card_inner: {
-    padding: LAYOUT.SPACING_XS_12,
+  content: {
+    flexDirection: LAYOUT.FLEX_COLUMN,
   },
 })
 
