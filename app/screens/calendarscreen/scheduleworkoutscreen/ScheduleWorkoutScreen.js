@@ -46,14 +46,6 @@ export function ScheduleWorkoutScreen({ workoutId, route, navigation }) {
     })
   }, [navigation])
 
-  const workoutData = {
-    exerciseId: 1,
-    exerciseName: 'Bench Press',
-    targetMuscle: 'Chest',
-    secondaryMuscles: ['Triceps', 'Shoulders'],
-    // video: 'https://www.youtube.com/watch?v=1oeduv7gBxw',
-  }
-
   return (
     <ScrollContent style={{ height: '100%' }} useSafeArea>
       <ScheduleWorkoutHeader navigation={navigation} onSubmit={handleSubmit(onSubmit)} />
@@ -61,19 +53,12 @@ export function ScheduleWorkoutScreen({ workoutId, route, navigation }) {
       {exercises.length === 0 ? (
         <EmptyWorkoutBody />
       ) : (
-        <WorkoutExercise
-          style={{ marginHorizontal: 12, marginBottom: 12 }}
-          showStatusIndicators={false}
-          data={workoutData}
-        />
-      )}
-      {/* <View style={{ marginTop: 26 }}>
-        {exercises.map(exercise => (
-          <View key={exercise.exerciseId} style={{ paddingLeft: 16, paddingRight: 16, paddingBottom: 14 }}>
+        exercises.map(exercise => (
+          <View key={exercise.exerciseId} style={styles.workout_exercise_container}>
             <WorkoutExercise data={exercise} />
           </View>
-        ))}
-      </View> */}
+        ))
+      )}
       <Button
         outline
         onPress={navigateToExerciseSearch}
@@ -116,15 +101,15 @@ const ScheduleWorkoutInput = ({ control }) => {
       placeholderFontFamily={FONTS.SFPRO_REGULAR}
       placeholderFontSize={FONTS.SIZE_16}
       placeholderColor={COLORS.SUBTITLE_GRAY}
-      style={{ marginBottom: 16 }}
+      style={styles.form_input}
     />
   )
 }
 
 const EmptyWorkoutBody = () => {
   return (
-    <View style={{ paddingTop: 40 }}>
-      <WorkoutCircle style={{ alignSelf: 'center' }} />
+    <View style={styles.empty_workout_container}>
+      <WorkoutCircle style={styles.empty_workout_container_svg} />
       <Text style={styles.emptyWorkoutBody}>Your workout is empty. Add exercises to get started.</Text>
     </View>
   )

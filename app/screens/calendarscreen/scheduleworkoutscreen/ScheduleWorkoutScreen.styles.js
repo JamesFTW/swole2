@@ -49,6 +49,20 @@ const styles = StyleSheet.create({
     marginLeft: LAYOUT.SPACING_XS_16,
     marginRight: LAYOUT.SPACING_XS_16,
   },
+  workout_exercise_container: {
+    paddingLeft: LAYOUT.SPACING_XS_16,
+    paddingRight: LAYOUT.SPACING_XS_16,
+    paddingBottom: LAYOUT.SPACING_XS_12,
+  },
+  form_input: {
+    marginBottom: LAYOUT.SPACING_XS_16,
+  },
+  empty_workout_container: {
+    paddingTop: LAYOUT.SPACING_MD_40,
+  },
+  empty_workout_container_svg: {
+    alignSelf: LAYOUT.ALIGN_CENTER,
+  },
 })
 
 export default styles
